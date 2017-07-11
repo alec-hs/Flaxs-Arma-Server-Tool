@@ -27,6 +27,6 @@ _**DOCUMENTATION**_
 
 Is currently minimal, and found on the BI Forums Topic. I will update the wiki here at some point.  
   
-_**LINKS **_
+_**LINKS**_
 
-_**BI Forums Topic - **_https://forums.bistudio.com/forums/topic/206609-flaxs-arma-server-tool-fast
+**BI Forums Topic** - https://forums.bistudio.com/forums/topic/206609-flaxs-arma-server-tool-fast
