@@ -1,9 +1,6 @@
 ﻿Imports System.IO
 Imports System.Text
-Imports System.Runtime.InteropServices
 Imports System.Net
-Imports System.ComponentModel
-Imports System.Threading
 Imports System.Security.Cryptography
 
 Public Class MainWindow
@@ -84,6 +81,14 @@ Public Class MainWindow
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        Process.Start("https://github.com/alec-hs/Flaxs-Arma-Server-Tool")
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Process.Start("https://forums.bistudio.com/forums/topic/206609-flaxs-arma-server-tool-fast")
     End Sub
 
     Private Sub OpenSteamCMDDirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenSteamCMDDirToolStripMenuItem.Click
@@ -456,52 +461,57 @@ Public Class MainWindow
         If updating Then
             MsgBox("Already updating please wait.")
         Else
-            Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
-            Dim noUpdates As Boolean = True
+            If My.Computer.FileSystem.FileExists(modsfile) Then
+                Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
+                Dim noUpdates As Boolean = True
 
-            For Each line In File.ReadAllLines(modsfile).ToList
-                Dim values() As String = line.Split(",")
-                Dim lastUpdated As String = values(2)
-                Dim steamUpdate As DateTime = values(3)
-
-                If lastUpdated = "Not Installed" Then
-                    noUpdates = False
-                ElseIf CDate(lastUpdated) < CDate(steamUpdate) Then
-                    noUpdates = False
-                ElseIf CDate(lastUpdated) >= CDate(steamUpdate) Then
-                    lines.RemoveAt(lines.IndexOf(line))
-                End If
-
-            Next
-
-
-            If noUpdates Then
-                MsgBox("No Mods Need Updating.")
-            Else
-                Dim steamCommand As String = "+login " & userNameBox.Text & " " & userPassBox.Text
-                Dim modIDs As New List(Of String)
-                For Each line In lines
+                For Each line In File.ReadAllLines(modsfile).ToList
                     Dim values() As String = line.Split(",")
-                    Dim modID As String = values(0)
-                    Dim modName As String = values(1)
+                    Dim lastUpdated As String = values(2)
+                    Dim steamUpdate As DateTime = values(3)
 
-                    Do While updating
-                        Application.DoEvents()
-                    Loop
-                    UpdateMod(modID, modName, "all")
+                    If lastUpdated = "Not Installed" Then
+                        noUpdates = False
+                    ElseIf CDate(lastUpdated) < CDate(steamUpdate) Then
+                        noUpdates = False
+                    ElseIf CDate(lastUpdated) >= CDate(steamUpdate) Then
+                        lines.RemoveAt(lines.IndexOf(line))
+                    End If
 
-                    modIDs.Add(modID)
-
-                    steamCommand = steamCommand & " +workshop_download_item 107410 " & modID
-
-                    updateAll = True
                 Next
-                Dim steamCMD As String = steamDirBox.Text + "\steamcmd.exe"
-                steamCommand = steamCommand & " validate +quit"
-                RunSteamCommand(steamCMD, steamCommand, "addon", modIDs)
+
+
+                If noUpdates Then
+                    MsgBox("No Mods Need Updating.")
+                Else
+                    Dim steamCommand As String = "+login " & userNameBox.Text & " " & userPassBox.Text
+                    Dim modIDs As New List(Of String)
+                    For Each line In lines
+                        Dim values() As String = line.Split(",")
+                        Dim modID As String = values(0)
+                        Dim modName As String = values(1)
+
+                        Do While updating
+                            Application.DoEvents()
+                        Loop
+                        UpdateMod(modID, modName, "all")
+
+                        modIDs.Add(modID)
+
+                        steamCommand = steamCommand & " +workshop_download_item 107410 " & modID
+
+                        updateAll = True
+                    Next
+                    Dim steamCMD As String = steamDirBox.Text + "\steamcmd.exe"
+                    steamCommand = steamCommand & " validate +quit"
+                    RunSteamCommand(steamCMD, steamCommand, "addon", modIDs)
+                End If
+                updateAll = False
+                UpdateModGrid()
+            Else
+                MsgBox("Please add some mods.")
             End If
-            updateAll = False
-            UpdateModGrid()
+
         End If
     End Sub
 
@@ -762,6 +772,8 @@ Public Class MainWindow
     Private Sub CheckUpdatesButton_Click(sender As Object, e As EventArgs) Handles checkUpdatesButton.Click
         CheckForUpdates()
     End Sub
+
+
 End Class
 
 Public NotInheritable Class Simple3Des
