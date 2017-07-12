@@ -448,9 +448,6 @@ Public Class MainWindow
                     End If
                 Next
             End If
-            If updatesNeeded Then
-                MsgBox("Updates Found")
-            End If
         Catch ex As Exception
             MsgBox("UpdateModGrid - An exception occurred:" & vbCrLf & ex.Message)
         End Try
@@ -458,105 +455,113 @@ Public Class MainWindow
     End Sub
 
     Private Sub UpdateAllMods_Click(sender As Object, e As EventArgs) Handles updateAllMods.Click
-        If updating Then
-            MsgBox("Already updating please wait.")
-        Else
-            If My.Computer.FileSystem.FileExists(modsfile) Then
-                Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
-                Dim noUpdates As Boolean = True
-
-                For Each line In File.ReadAllLines(modsfile).ToList
-                    Dim values() As String = line.Split(",")
-                    Dim lastUpdated As String = values(2)
-                    Dim steamUpdate As DateTime = values(3)
-
-                    If lastUpdated = "Not Installed" Then
-                        noUpdates = False
-                    ElseIf CDate(lastUpdated) < CDate(steamUpdate) Then
-                        noUpdates = False
-                    ElseIf CDate(lastUpdated) >= CDate(steamUpdate) Then
-                        lines.RemoveAt(lines.IndexOf(line))
-                    End If
-
-                Next
-
-
-                If noUpdates Then
-                    MsgBox("No Mods Need Updating.")
-                Else
-                    Dim steamCommand As String = "+login " & userNameBox.Text & " " & userPassBox.Text
-                    Dim modIDs As New List(Of String)
-                    For Each line In lines
-                        Dim values() As String = line.Split(",")
-                        Dim modID As String = values(0)
-                        Dim modName As String = values(1)
-
-                        Do While updating
-                            Application.DoEvents()
-                        Loop
-                        UpdateMod(modID, modName, "all")
-
-                        modIDs.Add(modID)
-
-                        steamCommand = steamCommand & " +workshop_download_item 107410 " & modID
-
-                        updateAll = True
-                    Next
-                    Dim steamCMD As String = steamDirBox.Text + "\steamcmd.exe"
-                    steamCommand = steamCommand & " validate +quit"
-                    RunSteamCommand(steamCMD, steamCommand, "addon", modIDs)
-                End If
-                updateAll = False
-                UpdateModGrid()
+        If ReadyToUpdate() Then
+            If updating Then
+                MsgBox("Already updating please wait.")
             Else
-                MsgBox("Please add some mods.")
-            End If
+                If My.Computer.FileSystem.FileExists(modsfile) Then
+                    Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
+                    Dim noUpdates As Boolean = True
 
+                    For Each line In File.ReadAllLines(modsfile).ToList
+                        Dim values() As String = line.Split(",")
+                        Dim lastUpdated As String = values(2)
+                        Dim steamUpdate As DateTime = values(3)
+
+                        If lastUpdated = "Not Installed" Then
+                            noUpdates = False
+                        ElseIf CDate(lastUpdated) < CDate(steamUpdate) Then
+                            noUpdates = False
+                        ElseIf CDate(lastUpdated) >= CDate(steamUpdate) Then
+                            lines.RemoveAt(lines.IndexOf(line))
+                        End If
+
+                    Next
+
+
+                    If noUpdates Then
+                        MsgBox("No Mods Need Updating.")
+                    Else
+                        Dim steamCommand As String = "+login " & userNameBox.Text & " " & userPassBox.Text
+                        Dim modIDs As New List(Of String)
+                        For Each line In lines
+                            Dim values() As String = line.Split(",")
+                            Dim modID As String = values(0)
+                            Dim modName As String = values(1)
+
+                            Do While updating
+                                Application.DoEvents()
+                            Loop
+                            UpdateMod(modID, modName, "all")
+
+                            modIDs.Add(modID)
+
+                            steamCommand = steamCommand & " +workshop_download_item 107410 " & modID
+
+                            updateAll = True
+                        Next
+                        Dim steamCMD As String = steamDirBox.Text + "\steamcmd.exe"
+                        steamCommand = steamCommand & " validate +quit"
+                        RunSteamCommand(steamCMD, steamCommand, "addon", modIDs)
+                    End If
+                    updateAll = False
+                    UpdateModGrid()
+                Else
+                    MsgBox("Please add some mods.")
+                End If
+
+            End If
+        Else
+            MessageBox.Show("Please check that SteamCMD is installed and that all fields are correct:" & Environment.NewLine & Environment.NewLine & "   -  Steam Dir" & Environment.NewLine & "   -  User Name & Pass" & Environment.NewLine & "   -  Server Dir", "Error")
         End If
+
     End Sub
 
     Public Sub UpdateMod(modID As String, modName As String, type As String)
 
-        Dim modPath As String = My.Settings.steamDir & "\steamapps\workshop\content\107410\" & modID
-        Dim workshopFile As String = My.Settings.steamDir & "\steamapps\workshop\appworkshop_107410.acf"
+        If ReadyToUpdate() Then
+            Dim modPath As String = My.Settings.steamDir & "\steamapps\workshop\content\107410\" & modID
+            Dim workshopFile As String = My.Settings.steamDir & "\steamapps\workshop\appworkshop_107410.acf"
 
-        Try
-            Dim linkCommand As String
-            Dim linkPath As String
+            Try
+                Dim linkCommand As String
+                Dim linkPath As String
 
-            System.IO.Directory.CreateDirectory(modPath)
+                System.IO.Directory.CreateDirectory(modPath)
 
-            modName = modName.Replace(" ", "_")
+                modName = modName.Replace(" ", "_")
 
-            linkPath = My.Settings.serverDir & "\@" & modName
-            linkCommand = "/c mklink /D " & linkPath & " " & modPath
+                linkPath = My.Settings.serverDir & "\@" & modName
+                linkCommand = "/c mklink /D " & linkPath & " " & modPath
 
-            Process.Start("cmd", linkCommand)
+                Process.Start("cmd", linkCommand)
 
-        Catch ex As Exception
-            MsgBox("An exception occurred:" & vbCrLf & ex.Message)
-        End Try
+            Catch ex As Exception
+                MsgBox("An exception occurred:" & vbCrLf & ex.Message)
+            End Try
 
-        Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
-        Dim lineNo As Integer = GetLineNo(modID, modsfile) - 1
-        Dim line() As String = lines(lineNo).Split(",")
-        line(2) = Date.Now.ToString
-        Dim newLine As String = String.Join(",", line)
-        lines.Insert(lineNo, newLine)
-        lines.RemoveAt(lineNo + 1)
-        System.IO.File.WriteAllLines(modsfile, lines)
+            Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
+            Dim lineNo As Integer = GetLineNo(modID, modsfile) - 1
+            Dim line() As String = lines(lineNo).Split(",")
+            line(2) = Date.Now.ToString
+            Dim newLine As String = String.Join(",", line)
+            lines.Insert(lineNo, newLine)
+            lines.RemoveAt(lineNo + 1)
+            System.IO.File.WriteAllLines(modsfile, lines)
 
 
-        If type = "single" Then
-            Dim steamCMD As String = steamDirBox.Text + "\steamcmd.exe"
-            Dim steamCommand As String = "+login " & userNameBox.Text & " " & userPassBox.Text & " +workshop_download_item 107410 " & modID & " validate +quit"
+            If type = "single" Then
+                Dim steamCMD As String = steamDirBox.Text + "\steamcmd.exe"
+                Dim steamCommand As String = "+login " & userNameBox.Text & " " & userPassBox.Text & " +workshop_download_item 107410 " & modID & " validate +quit"
 
-            Dim modIDs As New List(Of String)
-            modIDs.Add(modID)
+                Dim modIDs As New List(Of String)
+                modIDs.Add(modID)
 
-            RunSteamCommand(steamCMD, steamCommand, "addon", modIDs)
+                RunSteamCommand(steamCMD, steamCommand, "addon", modIDs)
+            End If
+        Else
+            MessageBox.Show("Please check that SteamCMD is installed and that all fields are correct:" & Environment.NewLine & Environment.NewLine & "   -  Steam Dir" & Environment.NewLine & "   -  User Name & Pass" & Environment.NewLine & "   -  Server Dir", "Error")
         End If
-
 
     End Sub
 
@@ -629,9 +634,8 @@ Public Class MainWindow
 
     Public Async Sub RunSteamCommand(steamCMD As String, steamCommand As String, type As String, Optional ByVal modIDs As List(Of String) = Nothing)
 
-        updating = True
-
         If ReadyToUpdate() Then
+            updating = True
             steamProgressBar.Value = 0
             cancelUpdateButton.Enabled = True
             categoryTabs.SelectedTab = serverTab
