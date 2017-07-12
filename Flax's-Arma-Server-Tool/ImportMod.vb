@@ -19,6 +19,7 @@ Public Class ImportMod
         Dim sourceString As String
         Dim duplicate As Boolean = False
 
+        MainWindow.CheckModFile()
         Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
 
         For Each line In lines
@@ -47,24 +48,15 @@ Public Class ImportMod
                             Dim steamUpdate As New DateTime(1970, 1, 1, 0, 0, 0)
                             Dim modLine As String = modID & "," & modName & ",Not Installed," & steamUpdate & ",public" & Environment.NewLine
 
-                            If My.Computer.FileSystem.FileExists(modsfile) Then
-                                Dim fs As StreamWriter = File.AppendText(modsfile)
+                            MainWindow.CheckModFile()
+                            Dim fs As StreamWriter = File.AppendText(modsfile)
 
-                                fs.Write(modLine)
-                                fs.Close()
+                            fs.Write(modLine)
+                            fs.Close()
 
-                                Me.Close()
-                                MainWindow.UpdateModGrid()
-                            Else
-                                Dim fs As FileStream = File.Create(modsfile)
+                            Me.Close()
+                            MainWindow.UpdateModGrid()
 
-                                Dim modInfo As Byte() = New UTF8Encoding(True).GetBytes(modLine)
-                                fs.Write(modInfo, 0, modInfo.Length)
-                                fs.Close()
-
-                                Me.Close()
-                                MainWindow.UpdateModGrid()
-                            End If
                         Catch ex As Exception
                             modID = Nothing
                             MessageBox.Show("Please remove any charcters after the mod ID in the url.")

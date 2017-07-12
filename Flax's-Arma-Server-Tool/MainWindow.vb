@@ -29,9 +29,18 @@ Public Class MainWindow
         Return serial_numbers
     End Function
 
+    Public Sub CheckModFile()
+        If Not My.Computer.FileSystem.FileExists(modsfile) Then
+            Dim fs As FileStream = File.Create(modsfile)
+            fs.Close()
+        End If
+    End Sub
+
 
     'MAIN WINDOW
     Private Sub MainWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
 
         If My.Settings.firstRun Then
             Dim firstRunDialog As New FirstRun
@@ -122,6 +131,7 @@ Public Class MainWindow
     End Sub
 
     Private Sub CopyKeysFromModsStipMenuItem_Click(sender As Object, e As EventArgs) Handles CopyKeysFromModsToolStripMenuItem.Click
+        CheckModFile()
         Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
         For Each line In lines
             Dim values() As String = line.Split(",")
@@ -294,6 +304,8 @@ Public Class MainWindow
     End Sub
 
     Public Sub ImportModSetFile()
+
+
         If importModSet.ShowDialog() = DialogResult.OK Then
             Dim modSetFile As String = importModSet.FileName
 

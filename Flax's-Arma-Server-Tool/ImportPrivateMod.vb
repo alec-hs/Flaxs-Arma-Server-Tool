@@ -30,24 +30,14 @@ Public Class ImportPrivateMod
                     Dim steamUpdate As New DateTime(1970, 1, 1, 0, 0, 0)
                     Dim modLine As String = modID & "," & modName & ",Not Installed," & steamUpdate & ",private" & Environment.NewLine
 
-                    If My.Computer.FileSystem.FileExists(modsfile) Then
-                        Dim fs As StreamWriter = File.AppendText(modsfile)
+                    Dim fs As StreamWriter = File.AppendText(modsfile)
 
-                        fs.Write(modLine)
-                        fs.Close()
+                    fs.Write(modLine)
+                    fs.Close()
 
-                        Me.Close()
-                        MainWindow.UpdateModGrid()
-                    Else
-                        Dim fs As FileStream = File.Create(modsfile)
+                    Me.Close()
+                    MainWindow.UpdateModGrid()
 
-                        Dim modInfo As Byte() = New UTF8Encoding(True).GetBytes(modLine)
-                        fs.Write(modInfo, 0, modInfo.Length)
-                        fs.Close()
-
-                        Me.Close()
-                        MainWindow.UpdateModGrid()
-                    End If
                 Catch ex As Exception
 
                 End Try
