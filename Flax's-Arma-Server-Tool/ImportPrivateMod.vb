@@ -13,9 +13,11 @@ Public Class ImportPrivateMod
         ElseIf modNameBox.Text = Nothing Then
             MsgBox("Please enter a name for the Workshop Item.")
         Else
-            Dim modID As Integer = workshopIDBox.Text
+            Dim modID As Double = workshopIDBox.Text
             Dim modName As String = modNameBox.Text
             Dim duplicate As Boolean = False
+
+            MainWindow.CheckModFile()
 
             Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
 

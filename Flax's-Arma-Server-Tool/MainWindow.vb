@@ -582,34 +582,34 @@ Public Class MainWindow
         Dim workshopFile As String = My.Settings.steamDir & "\steamapps\workshop\appworkshop_107410.acf"
         Dim shortcutPath As String = My.Settings.serverDir & "\@" & modName
         shortcutPath = shortcutPath.Replace(" ", "_")
+        If File.Exists(modsfile) Then
+            Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
+            lines.RemoveAt(GetLineNo(modID, modsfile) - 1)
+            System.IO.File.WriteAllLines(modsfile, lines)
 
-        Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
-        lines.RemoveAt(GetLineNo(modID, modsfile) - 1)
-        System.IO.File.WriteAllLines(modsfile, lines)
-
-        Try
-            If (System.IO.Directory.Exists(modPath)) Then
-                System.IO.Directory.Delete(modPath, True)
-            End If
-            If (System.IO.Directory.Exists(shortcutPath)) Then
-                System.IO.Directory.Delete(shortcutPath, True)
-            End If
-            If (System.IO.File.Exists(workshopFile)) Then
-                lines = System.IO.File.ReadAllLines(workshopFile).ToList
-                Dim fileText As String = File.ReadAllText(workshopFile)
-                If fileText.Contains(modID) Then
-                    Dim lineNo As Integer = GetLineNo(modID, workshopFile) - 1
-                    lines.RemoveRange(lineNo, 6)
-                    System.IO.File.WriteAllLines(workshopFile, lines)
-                    lineNo = GetLineNo(modID, workshopFile) - 1
-                    lines.RemoveRange(lineNo, 6)
-                    System.IO.File.WriteAllLines(workshopFile, lines)
+            Try
+                If (System.IO.Directory.Exists(modPath)) Then
+                    System.IO.Directory.Delete(modPath, True)
                 End If
-            End If
-        Catch ex As Exception
-            MsgBox("DeleteMod - An exception occurred:" & vbCrLf & ex.Message)
-        End Try
-
+                If (System.IO.Directory.Exists(shortcutPath)) Then
+                    System.IO.Directory.Delete(shortcutPath, True)
+                End If
+                If (System.IO.File.Exists(workshopFile)) Then
+                    lines = System.IO.File.ReadAllLines(workshopFile).ToList
+                    Dim fileText As String = File.ReadAllText(workshopFile)
+                    If fileText.Contains(modID) Then
+                        Dim lineNo As Integer = GetLineNo(modID, workshopFile) - 1
+                        lines.RemoveRange(lineNo, 6)
+                        System.IO.File.WriteAllLines(workshopFile, lines)
+                        lineNo = GetLineNo(modID, workshopFile) - 1
+                        lines.RemoveRange(lineNo, 6)
+                        System.IO.File.WriteAllLines(workshopFile, lines)
+                    End If
+                End If
+            Catch ex As Exception
+                MsgBox("DeleteMod - An exception occurred:" & vbCrLf & ex.Message)
+            End Try
+        End If
 
         UpdateModGrid()
 
