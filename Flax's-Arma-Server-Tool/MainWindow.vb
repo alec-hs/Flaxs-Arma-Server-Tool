@@ -144,19 +144,18 @@ Public Class MainWindow
 
     Private Sub CopyKeys(modID As String)
         Try
-            Dim keysDir As String = My.Settings.steamDir & "\steamapps\workshop\content\107410\" & modID & "\keys"
-            Dim keysDirRHS As String = My.Settings.steamDir & "\steamapps\workshop\content\107410\" & modID & "\key"
+            Dim keyPath As String = My.Settings.steamDir & "\steamapps\workshop\content\107410\" & modID & "\"
+            Dim keysFolders() As String = {"Keys", "Key", "keys", "key"}
             Dim a3Keys As String = My.Settings.serverDir & "\keys"
-            If Directory.Exists(keysDir) Then
-                My.Computer.FileSystem.CopyDirectory(keysDir, a3Keys, True)
-            End If
 
-            If Directory.Exists(keysDirRHS) Then
-                My.Computer.FileSystem.CopyDirectory(keysDir, a3Keys, True)
-            End If
+            For Each folder In keysFolders
+                If Directory.Exists(keyPath & folder) Then
+                    My.Computer.FileSystem.CopyDirectory(keyPath & folder, a3Keys, True)
+                End If
+            Next
 
         Catch ex As Exception
-            MsgBox("CopyKeysFromModsStipMenuItem_Click - An exception occurred:" & vbCrLf & ex.Message)
+
         End Try
     End Sub
 
