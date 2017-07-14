@@ -541,6 +541,14 @@ Public Class MainWindow
                 System.IO.Directory.CreateDirectory(modPath)
 
                 modName = modName.Replace(" ", "_")
+                modName = modName.Replace(">", "")
+                modName = modName.Replace("<", "")
+                modName = modName.Replace(":", "-")
+                modName = modName.Replace("/", "")
+                modName = modName.Replace("\", "")
+                modName = modName.Replace("|", "")
+                modName = modName.Replace("?", "")
+                modName = modName.Replace("*", "")
 
                 linkPath = My.Settings.serverDir & "\@" & modName
                 linkCommand = "/c mklink /D " & linkPath & " " & modPath
@@ -579,8 +587,18 @@ Public Class MainWindow
     Public Sub DeleteMod(modID As String, modName As String)
         Dim modPath As String = My.Settings.steamDir & "\steamapps\workshop\content\107410\" & modID
         Dim workshopFile As String = My.Settings.steamDir & "\steamapps\workshop\appworkshop_107410.acf"
-        Dim shortcutPath As String = My.Settings.serverDir & "\@" & modName
-        shortcutPath = shortcutPath.Replace(" ", "_")
+        Dim shortcutPath As String
+        modName = modName.Replace(" ", "_")
+        modName = modName.Replace(">", "")
+        modName = modName.Replace("<", "")
+        modName = modName.Replace(":", "-")
+        modName = modName.Replace("/", "")
+        modName = modName.Replace("\", "")
+        modName = modName.Replace("|", "")
+        modName = modName.Replace("?", "")
+        modName = modName.Replace("*", "")
+
+        shortcutPath = My.Settings.serverDir & "\@" & modName
         If File.Exists(modsfile) Then
             Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
             lines.RemoveAt(GetLineNo(modID, modsfile) - 1)
