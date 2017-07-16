@@ -143,20 +143,18 @@ Public Class MainWindow
     End Sub
 
     Private Sub CopyKeys(modID As String)
-        Try
-            Dim keyPath As String = My.Settings.steamDir & "\steamapps\workshop\content\107410\" & modID & "\"
-            Dim keysFolders() As String = {"Keys", "Key", "keys", "key"}
-            Dim a3Keys As String = My.Settings.serverDir & "\keys"
+        Dim modPath As String = My.Settings.steamDir & "\steamapps\workshop\content\107410\" & modID
+        Dim a3Keys As String = My.Settings.serverDir & "\keys"
 
-            For Each folder In keysFolders
-                If Directory.Exists(keyPath & folder) Then
-                    My.Computer.FileSystem.CopyDirectory(keyPath & folder, a3Keys, True)
-                End If
+        For Each fileObject As String In Directory.GetFiles(modPath, "*.bikey")
+            File.Copy(fileObject, a3Keys & fileObject.Substring(Len(modPath)), True)
+        Next
+
+        For Each dir As String In Directory.GetDirectories(modPath)
+            For Each fileObject As String In Directory.GetFiles(dir, "*.bikey")
+                File.Copy(fileObject, a3Keys & fileObject.Substring(Len(dir)), True)
             Next
-
-        Catch ex As Exception
-
-        End Try
+        Next
     End Sub
 
     'MAIN TAB
