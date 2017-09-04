@@ -328,44 +328,50 @@ Public Class MainWindow
     End Sub
 
     Public Function GetModInfo(modID As String)
-        ' Create a request using a URL that can receive a post.   
-        Dim request As WebRequest = WebRequest.Create("https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/")
-        ' Set the Method property of the request to POST.  
-        request.Method = "POST"
-        ' Create POST data and convert it to a byte array.  
-        Dim postData As String = "itemcount=1&publishedfileids[0]=" & modID
-        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
-        ' Set the ContentType property of the WebRequest.  
-        request.ContentType = "application/x-www-form-urlencoded"
-        ' Set the ContentLength property of the WebRequest.  
-        request.ContentLength = byteArray.Length
-        ' Get the request stream.  
-        Dim dataStream As Stream = request.GetRequestStream()
-        ' Write the data to the request stream.  
-        dataStream.Write(byteArray, 0, byteArray.Length)
-        ' Close the Stream object.  
-        dataStream.Close()
-        ' Get the response.
-        Dim response As WebResponse = Nothing
         Try
-            response = request.GetResponse()
+            ' Create a request using a URL that can receive a post.   
+            Dim request As WebRequest = WebRequest.Create("https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/")
+            ' Set the Method property of the request to POST.  
+            request.Method = "POST"
+            ' Create POST data and convert it to a byte array.  
+            Dim postData As String = "itemcount=1&publishedfileids[0]=" & modID
+            Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+            ' Set the ContentType property of the WebRequest.  
+            request.ContentType = "application/x-www-form-urlencoded"
+            ' Set the ContentLength property of the WebRequest.  
+            request.ContentLength = byteArray.Length
+            ' Get the request stream.  
+            Dim dataStream As Stream = request.GetRequestStream()
+            ' Write the data to the request stream.  
+            dataStream.Write(byteArray, 0, byteArray.Length)
+            ' Close the Stream object.  
+            dataStream.Close()
+            ' Get the response.
+            Dim response As WebResponse = Nothing
+            Try
+                response = request.GetResponse()
+            Catch ex As Exception
+                MsgBox("There may be an issue with Steam please try again shortly.")
+            End Try
+            ' Display the status. 
+            Dim staus As String = CType(response, HttpWebResponse).StatusDescription
+            ' Get the stream containing content returned by the server.  
+            dataStream = response.GetResponseStream()
+            ' Open the stream using a StreamReader for easy access.  
+            Dim reader As New StreamReader(dataStream)
+            ' Read the content.  
+            Dim responseFromServer As String = reader.ReadToEnd()
+            ' Return the content.  
+            Return responseFromServer
+            ' Clean up the streams.  
+            reader.Close()
+            dataStream.Close()
+            response.Close()
         Catch ex As Exception
-            MsgBox("There may be an issue with Steam please try again shortly.")
+            MsgBox("GetModInfo - An exception occurred:" & vbCrLf & ex.Message)
+            Return Nothing
         End Try
-        ' Display the status. 
-        Dim staus As String = CType(response, HttpWebResponse).StatusDescription
-        ' Get the stream containing content returned by the server.  
-        dataStream = response.GetResponseStream()
-        ' Open the stream using a StreamReader for easy access.  
-        Dim reader As New StreamReader(dataStream)
-        ' Read the content.  
-        Dim responseFromServer As String = reader.ReadToEnd()
-        ' Return the content.  
-        Return responseFromServer
-        ' Clean up the streams.  
-        reader.Close()
-        dataStream.Close()
-        response.Close()
+
     End Function
 
     Public Async Sub CheckForUpdates()
@@ -456,6 +462,7 @@ Public Class MainWindow
                         End If
                     End If
                 Next
+                modsDataGrid.PerformLayout()
             End If
         Catch ex As Exception
             MsgBox("UpdateModGrid - An exception occurred:" & vbCrLf & ex.Message)
@@ -735,6 +742,10 @@ Public Class MainWindow
                                         )
                                     End If
 
+                                    If sOutput Like "*Timeout*" Then
+                                        MsgBox("Steam download timed out, please update mod again.")
+                                    End If
+
                                     steamOutputBox.Invoke(
                                     Sub()
                                         If sOutput = Nothing Then
@@ -793,6 +804,7 @@ Public Class MainWindow
             modsTab.Enabled = True
             updateServerButton.Enabled = True
             updating = False
+            modsDataGrid.PerformLayout()
 
         Else
             MessageBox.Show("Please check that SteamCMD is installed and that all fields are correct:" & Environment.NewLine & Environment.NewLine & "   -  Steam Dir" & Environment.NewLine & "   -  User Name & Pass" & Environment.NewLine & "   -  Server Dir", "Error")

@@ -26,8 +26,6 @@ Public Class ImportMod
         modID = modUrl.Substring(modUrl.IndexOf("?id="))
         modID = Integer.Parse(Regex.Replace(modID, "[^\d]", ""))
 
-        MsgBox(modID)
-
         For Each line In lines
             Dim values() As String = line.Split(",")
             If modID = values(0) Then
