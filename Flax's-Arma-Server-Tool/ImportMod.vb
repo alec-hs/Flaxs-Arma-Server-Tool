@@ -1,6 +1,7 @@
 ﻿Imports System
 Imports System.IO
 Imports System.Text
+Imports System.Text.RegularExpressions
 
 Public Class ImportMod
 
@@ -13,7 +14,7 @@ Public Class ImportMod
     End Sub
 
     Public Sub ImportModToList(modUrl As String)
-        Dim modID As Integer = modUrl.Substring(modUrl.IndexOf("?id=") + 4)
+        Dim modID As String
         Dim modName As String
         Dim appName As String
         Dim sourceString As String
@@ -21,6 +22,11 @@ Public Class ImportMod
 
         MainWindow.CheckModFile()
         Dim lines As List(Of String) = System.IO.File.ReadAllLines(modsfile).ToList
+
+        modID = modUrl.Substring(modUrl.IndexOf("?id="))
+        modID = Integer.Parse(Regex.Replace(modID, "[^\d]", ""))
+
+        MsgBox(modID)
 
         For Each line In lines
             Dim values() As String = line.Split(",")
