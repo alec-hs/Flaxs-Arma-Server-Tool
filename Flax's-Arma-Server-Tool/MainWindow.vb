@@ -836,8 +836,13 @@ Public Class MainWindow
             modsLine = modsLine & "@" & modName & ";"
         Next
 
-        Clipboard.SetText(modsLine)
-        MsgBox("Mods line has been copied to clipboard: " & Environment.NewLine & modsLine)
+        If modsLine = Nothing Then
+            MsgBox("Select some mods.")
+        Else
+            Clipboard.SetText(modsLine)
+            MsgBox("Mods line has been copied to clipboard: " & Environment.NewLine & modsLine)
+        End If
+
     End Sub
 End Class
 
