@@ -85,6 +85,7 @@ Partial Class MainWindow
         Me.deleteButton = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.importModSet = New System.Windows.Forms.OpenFileDialog()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.SelectedModsToClipboardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolsMenuStrip.SuspendLayout()
         Me.categoryTabs.SuspendLayout()
         Me.serverTab.SuspendLayout()
@@ -138,7 +139,7 @@ Partial Class MainWindow
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallCMDToolStripMenuItem, Me.OpenSteamCMDDirToolStripMenuItem, Me.ToolStripSeparator2, Me.OpenA3DirectoryToolStripMenuItem, Me.OpenModsLocationToolStripMenuItem, Me.ToolStripSeparator3, Me.CopyKeysFromModsToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallCMDToolStripMenuItem, Me.OpenSteamCMDDirToolStripMenuItem, Me.ToolStripSeparator2, Me.OpenA3DirectoryToolStripMenuItem, Me.OpenModsLocationToolStripMenuItem, Me.ToolStripSeparator3, Me.CopyKeysFromModsToolStripMenuItem, Me.SelectedModsToClipboardToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools"
@@ -146,41 +147,41 @@ Partial Class MainWindow
         'InstallCMDToolStripMenuItem
         '
         Me.InstallCMDToolStripMenuItem.Name = "InstallCMDToolStripMenuItem"
-        Me.InstallCMDToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.InstallCMDToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.InstallCMDToolStripMenuItem.Text = "Install SteamCMD"
         '
         'OpenSteamCMDDirToolStripMenuItem
         '
         Me.OpenSteamCMDDirToolStripMenuItem.Name = "OpenSteamCMDDirToolStripMenuItem"
-        Me.OpenSteamCMDDirToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.OpenSteamCMDDirToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.OpenSteamCMDDirToolStripMenuItem.Text = "Open SteamCMD Location"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(212, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(217, 6)
         '
         'OpenA3DirectoryToolStripMenuItem
         '
         Me.OpenA3DirectoryToolStripMenuItem.Name = "OpenA3DirectoryToolStripMenuItem"
-        Me.OpenA3DirectoryToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.OpenA3DirectoryToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.OpenA3DirectoryToolStripMenuItem.Text = "Open Arma 3 Location"
         '
         'OpenModsLocationToolStripMenuItem
         '
         Me.OpenModsLocationToolStripMenuItem.Name = "OpenModsLocationToolStripMenuItem"
-        Me.OpenModsLocationToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.OpenModsLocationToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.OpenModsLocationToolStripMenuItem.Text = "Open Mods Location"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(212, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(217, 6)
         '
         'CopyKeysFromModsToolStripMenuItem
         '
         Me.CopyKeysFromModsToolStripMenuItem.Name = "CopyKeysFromModsToolStripMenuItem"
-        Me.CopyKeysFromModsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.CopyKeysFromModsToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.CopyKeysFromModsToolStripMenuItem.Text = "Copy Keys from Mods"
         '
         'categoryTabs
@@ -567,6 +568,8 @@ Partial Class MainWindow
         '
         Me.modsDataGrid.AllowUserToAddRows = False
         Me.modsDataGrid.AllowUserToDeleteRows = False
+        Me.modsDataGrid.AllowUserToResizeColumns = False
+        Me.modsDataGrid.AllowUserToResizeRows = False
         Me.modsDataGrid.BackgroundColor = System.Drawing.SystemColors.Control
         Me.modsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.modsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -651,6 +654,12 @@ Partial Class MainWindow
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DataGridViewImageColumn1.Width = 45
+        '
+        'SelectedModsToClipboardToolStripMenuItem
+        '
+        Me.SelectedModsToClipboardToolStripMenuItem.Name = "SelectedModsToClipboardToolStripMenuItem"
+        Me.SelectedModsToClipboardToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
+        Me.SelectedModsToClipboardToolStripMenuItem.Text = "Selected Mods to Clipboard"
         '
         'MainWindow
         '
@@ -745,4 +754,5 @@ Partial Class MainWindow
     Friend WithEvents deleteButton As DataGridViewButtonColumn
     Friend WithEvents checkUpdatesButton As Button
     Friend WithEvents checkingUpdatesBar As ProgressBar
+    Friend WithEvents SelectedModsToClipboardToolStripMenuItem As ToolStripMenuItem
 End Class

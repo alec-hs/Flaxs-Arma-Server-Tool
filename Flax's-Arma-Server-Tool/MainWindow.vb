@@ -816,7 +816,29 @@ Public Class MainWindow
         CheckForUpdates()
     End Sub
 
+    Private Sub SelectedModsToClipboardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectedModsToClipboardToolStripMenuItem.Click
+        Dim modsLine As String = Nothing
 
+        For Each row As DataGridViewRow In modsDataGrid.SelectedRows
+
+            Dim modName As String = row.Cells(1).Value
+
+            modName = modName.Replace(" ", "_")
+            modName = modName.Replace(">", "")
+            modName = modName.Replace("<", "")
+            modName = modName.Replace(":", "-")
+            modName = modName.Replace("/", "")
+            modName = modName.Replace("\", "")
+            modName = modName.Replace("|", "")
+            modName = modName.Replace("?", "")
+            modName = modName.Replace("*", "")
+
+            modsLine = modsLine & "@" & modName & ";"
+        Next
+
+        Clipboard.SetText(modsLine)
+        MsgBox("Mods line has been copied to clipboard: " & Environment.NewLine & modsLine)
+    End Sub
 End Class
 
 Public NotInheritable Class Simple3Des
