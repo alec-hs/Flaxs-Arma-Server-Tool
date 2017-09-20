@@ -545,15 +545,7 @@ Public Class MainWindow
 
                 System.IO.Directory.CreateDirectory(modPath)
 
-                modName = modName.Replace(" ", "_")
-                modName = modName.Replace(">", "")
-                modName = modName.Replace("<", "")
-                modName = modName.Replace(":", "-")
-                modName = modName.Replace("/", "")
-                modName = modName.Replace("\", "")
-                modName = modName.Replace("|", "")
-                modName = modName.Replace("?", "")
-                modName = modName.Replace("*", "")
+                modName = SafeName(modName)
 
                 linkPath = My.Settings.serverDir & "\@" & modName
                 linkCommand = "/c mklink /D " & linkPath & " " & modPath
@@ -593,15 +585,7 @@ Public Class MainWindow
         Dim modPath As String = My.Settings.steamDir & "\steamapps\workshop\content\107410\" & modID
         Dim workshopFile As String = My.Settings.steamDir & "\steamapps\workshop\appworkshop_107410.acf"
         Dim shortcutPath As String
-        modName = modName.Replace(" ", "_")
-        modName = modName.Replace(">", "")
-        modName = modName.Replace("<", "")
-        modName = modName.Replace(":", "-")
-        modName = modName.Replace("/", "")
-        modName = modName.Replace("\", "")
-        modName = modName.Replace("|", "")
-        modName = modName.Replace("?", "")
-        modName = modName.Replace("*", "")
+        modName = SafeName(modName)
 
         shortcutPath = My.Settings.serverDir & "\@" & modName
         If File.Exists(modsfile) Then
@@ -816,6 +800,22 @@ Public Class MainWindow
         CheckForUpdates()
     End Sub
 
+    Public Function SafeName(modName As String)
+
+        modName = modName.Replace("  ", "")
+        modName = modName.Replace(" ", "_")
+        modName = modName.Replace(">", "")
+        modName = modName.Replace("<", "")
+        modName = modName.Replace(":", "-")
+        modName = modName.Replace("/", "")
+        modName = modName.Replace("\", "")
+        modName = modName.Replace("|", "")
+        modName = modName.Replace("?", "")
+        modName = modName.Replace("*", "")
+
+        Return modName
+    End Function
+
     Private Sub SelectedModsToClipboardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectedModsToClipboardToolStripMenuItem.Click
         Dim modsLine As String = Nothing
 
@@ -823,17 +823,7 @@ Public Class MainWindow
 
             Dim modName As String = row.Cells(1).Value
 
-            modName = modName.Replace(" ", "_")
-            modName = modName.Replace(">", "")
-            modName = modName.Replace("<", "")
-            modName = modName.Replace(":", "-")
-            modName = modName.Replace("/", "")
-            modName = modName.Replace("\", "")
-            modName = modName.Replace("|", "")
-            modName = modName.Replace("?", "")
-            modName = modName.Replace("*", "")
-
-            modsLine = modsLine & "@" & modName & ";"
+            modsLine = modsLine & "@" & SafeName(modName) & ";"
         Next
 
         If modsLine = Nothing Then
