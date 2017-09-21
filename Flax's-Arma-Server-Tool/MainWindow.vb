@@ -1,6 +1,8 @@
 ﻿Imports System.IO
 Imports System.Text
 Imports System.Net
+Imports System.Xml
+Imports System.Object
 Imports System.Security.Cryptography
 
 Public Class MainWindow
@@ -36,13 +38,64 @@ Public Class MainWindow
         End If
     End Sub
 
+    Public Class TabPageEx
+        Inherits TabPage
+
+        Public Sub New()
+            Me.Controls.Add(New NewServerTab)
+        End Sub
+
+    End Class
+
+    Public Shared Function FindControlRecursive(ByVal list As List(Of Control), ByVal parent As Control, ByVal ctrlType As System.Type) As List(Of Control)
+        If parent Is Nothing Then Return list
+        If parent.GetType Is ctrlType Then
+            list.Add(parent)
+        End If
+        For Each child As Control In parent.Controls
+            FindControlRecursive(list, child, ctrlType)
+        Next
+        Return list
+    End Function
 
     'MAIN WINDOW
     Private Sub MainWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        If Not Directory.Exists(Application.StartupPath & "\servers") Then
+            Directory.CreateDirectory(Application.StartupPath & "\servers")
+        End If
+
+        Dim profiles() = Directory.GetFiles(Application.StartupPath & "\servers", "*.FASTprofile", SearchOption.TopDirectoryOnly)
+
+        For Each profile In profiles
+            Dim newTab As New TabPage
+            categoryTabs.TabPages.Add(newTab)
+            newTab.Controls.Add(New NewServerTab)
+
+            Dim xml = XDocument.Load(profile)
+            newTab.Text = xml.<profile>.<settings>.<profileNameBox>.Value
+
+            Dim profileNameBox = CType(newTab.Controls.Find("profileNameBox", True)(0), TextBox)
+            profileNameBox.Text = xml.<profile>.<settings>.<profileNameBox>.Value
+
+            Dim allTxt As New List(Of Control)
+            For Each txt As TextBox In FindControlRecursive(allTxt, newTab, GetType(TextBox))
+                txt.Text = xml.<profile>.<settings>.Elements(txt.Name).Value
+            Next
+
+            Dim allCheck As New List(Of Control)
+            For Each check As CheckBox In FindControlRecursive(allCheck, newTab, GetType(CheckBox))
+                If xml.<profile>.<settings>.Elements(check.Name).Value = 1 Then
+                    check.Checked = True
+                Else
+                    check.Checked = False
+                End If
+            Next
 
 
-        If My.Settings.firstRun Then
+        Next
+
+            If My.Settings.firstRun Then
             Dim firstRunDialog As New FirstRun
             firstRunDialog.ShowDialog()
         Else
@@ -106,7 +159,6 @@ Public Class MainWindow
         Else
             MessageBox.Show("Folder Does not Exist", "Information")
         End If
-
     End Sub
 
     Private Sub OpenA3DirectoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenA3DirectoryToolStripMenuItem.Click
@@ -800,20 +852,20 @@ Public Class MainWindow
         CheckForUpdates()
     End Sub
 
-    Public Function SafeName(modName As String)
+    Public Function SafeName(name As String)
 
-        modName = modName.Replace("  ", "")
-        modName = modName.Replace(" ", "_")
-        modName = modName.Replace(">", "")
-        modName = modName.Replace("<", "")
-        modName = modName.Replace(":", "-")
-        modName = modName.Replace("/", "")
-        modName = modName.Replace("\", "")
-        modName = modName.Replace("|", "")
-        modName = modName.Replace("?", "")
-        modName = modName.Replace("*", "")
+        name = name.Replace("  ", "")
+        name = name.Replace(" ", "_")
+        name = name.Replace(">", "")
+        name = name.Replace("<", "")
+        name = name.Replace(":", "-")
+        name = name.Replace("/", "")
+        name = name.Replace("\", "")
+        name = name.Replace("|", "")
+        name = name.Replace("?", "")
+        name = name.Replace("*", "")
 
-        Return modName
+        Return name
     End Function
 
     Private Sub SelectedModsToClipboardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectedModsToClipboardToolStripMenuItem.Click
@@ -834,7 +886,24 @@ Public Class MainWindow
         End If
 
     End Sub
+
+    Private Sub AddNewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddNewToolStripMenuItem.Click
+        Dim newServer As New TabPageEx
+        categoryTabs.TabPages.Add(newServer)
+
+        newServer.Text = "New Server"
+        categoryTabs.SelectedTab = newServer
+    End Sub
+
+    Private Sub OpenProfileDirectoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenProfileDirectoryToolStripMenuItem.Click
+        If System.IO.Directory.Exists(Application.StartupPath & "\servers\") Then
+            Process.Start(Application.StartupPath & "\servers\")
+        Else
+            MessageBox.Show("No Profiles", "Information")
+        End If
+    End Sub
 End Class
+
 
 Public NotInheritable Class Simple3Des
     Private TripleDes As New TripleDESCryptoServiceProvider

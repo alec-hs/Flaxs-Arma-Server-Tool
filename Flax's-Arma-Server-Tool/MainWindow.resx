@@ -126,7 +126,50 @@
   <metadata name="toolsMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>290, 12</value>
   </metadata>
+  <metadata name="importModSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>425, 12</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="DataGridViewImageColumn1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMRJREFUWEft
+        lk0KwjAQRrPxVuIVBHf5Wfcm/hy0BPESOoWpSFSmL7EbyYNv8aXJm1nWdTo1hBAOMcYsuRfJ8m2v19Zj
+        GlQMfs2o19ZjHqb1ybfzambhr6La5XyStES1jKbHQuv7vsCboLVjLCHtGEtIO8YS0o6xhLRjLCHtGEtI
+        O8YS0o6xhLRjLCHtGEtIO6ZV8BcLXCeB936rR4uRH9SdLpD1iJNSuqikOrLIUXWcYRg2IjnLIrdSbEXf
+        nCaH6jqdAuceLaTXUq99G4kAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="BindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>556, 12</value>
+  </metadata>
+  <data name="modLauncherButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAOZJREFUWEft
+        kksOwjAMRHsEJFjBxfpTlPOygB0CLgNpNEZRZGrXYVGiPmlU2Ywns6DZWC3DMLyWahzHi3Nuj4gyuAeU
+        unZdd0CMHQrEKJIUmHRv2/aIn2xQGEaR5PHz9O37/lFUggIxipDfe78L30+J8J84wbIMCsQokvrTEkFP
+        U4k0UAP5v+gGmx46xiiSPMYKNj3mw4y6CtBOEuwRbqdiLkwS7BFup8J8mFFXAdpJgj3C7VTMhUmCPcLt
+        VJgPM+oqQDtJsEe4nYq5MEmwR7idCvNhxlbg/wv8SojVw4WUCLEba6Np3onD9qbHCUGZAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <metadata name="modID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="modName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="updateDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="installMod.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="urlButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="deleteButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="serverDirButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAZBJREFUWEft
@@ -165,46 +208,6 @@
         gyG/tUewBkN+a49gDYb81h7BGgz5rT2CNRjyW3sEazDkt/YI1mDIb+0RrMGQ39ojcBC6hgY4bHaLolih
         2zP0/F6RTQ9CL9MlpEf3UOqOXZzvO9jUMvl9XtFXqRU8Aa9joT0UnEM30CsX9uT+jB74mqLzoeu6RSyy
         gY3t4/UCuoXe3MIssv4ceZ4v4VPaxqYOsYEhjf8SWfYJ5H/xF0VnBCQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="modLauncherButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAOZJREFUWEft
-        kksOwjAMRHsEJFjBxfpTlPOygB0CLgNpNEZRZGrXYVGiPmlU2Ywns6DZWC3DMLyWahzHi3Nuj4gyuAeU
-        unZdd0CMHQrEKJIUmHRv2/aIn2xQGEaR5PHz9O37/lFUggIxipDfe78L30+J8J84wbIMCsQokvrTEkFP
-        U4k0UAP5v+gGmx46xiiSPMYKNj3mw4y6CtBOEuwRbqdiLkwS7BFup8J8mFFXAdpJgj3C7VTMhUmCPcLt
-        VJgPM+oqQDtJsEe4nYq5MEmwR7idCvNhxlbg/wv8SojVw4WUCLEba6Np3onD9qbHCUGZAAAAAElFTkSu
-        QmCC
-</value>
-  </data>
-  <metadata name="modID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="modName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="updateDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="installMod.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="urlButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="deleteButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="importModSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>425, 12</value>
-  </metadata>
-  <data name="DataGridViewImageColumn1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMRJREFUWEft
-        lk0KwjAQRrPxVuIVBHf5Wfcm/hy0BPESOoWpSFSmL7EbyYNv8aXJm1nWdTo1hBAOMcYsuRfJ8m2v19Zj
-        GlQMfs2o19ZjHqb1ybfzambhr6La5XyStES1jKbHQuv7vsCboLVjLCHtGEtIO8YS0o6xhLRjLCHtGEtI
-        O8YS0o6xhLRjLCHtGEtIO6ZV8BcLXCeB936rR4uRH9SdLpD1iJNSuqikOrLIUXWcYRg2IjnLIrdSbEXf
-        nCaH6jqdAuceLaTXUq99G4kAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

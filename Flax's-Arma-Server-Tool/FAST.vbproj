@@ -160,6 +160,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="NewServerTab.Designer.vb">
+      <DependentUpon>NewServerTab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewServerTab.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FirstRun.resx">
@@ -186,6 +192,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewServerTab.resx">
+      <DependentUpon>NewServerTab.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
