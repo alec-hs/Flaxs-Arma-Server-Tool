@@ -4,7 +4,7 @@ Imports System.Xml
 
 Public Class NewServerTab
 
-    Dim oProcess As New Process()
+
 
     Private Sub SaveProfileButton_Click(sender As Object, e As EventArgs) Handles saveProfileButton.Click
         SaveProfile()
@@ -26,39 +26,62 @@ Public Class NewServerTab
             Directory.Delete(path & oldProfileName, True)
         End If
 
-        If Not Directory.Exists(path & newProfileName) Then
-            Directory.CreateDirectory(path & newProfileName)
+        If Not Directory.Exists(profilePath) Then
+            Directory.CreateDirectory(profilePath)
         End If
 
         If Not File.Exists(profilePath & newProfileName & "_config.cfg") Then
-            File.Create(profilePath & newProfileName & "_config.cfg")
+            Dim cfg = File.Create(profilePath & newProfileName & "_config.cfg")
+            cfg.Close()
         End If
 
         If Not File.Exists(profilePath & newProfileName & "_basic.cfg") Then
-            File.Create(profilePath & newProfileName & "_basic.cfg")
+            Dim cfg = File.Create(profilePath & newProfileName & "_basic.cfg")
+            cfg.Close()
         End If
 
-        Dim writer As New XmlTextWriter(path & newProfileName & ".FASTprofile", System.Text.Encoding.UTF8)
-        writer.WriteStartDocument(True)
-        writer.Formatting = Formatting.Indented
-        writer.Indentation = 2
-        writer.WriteStartElement("profile")
-        writer.WriteStartElement("settings")
 
-        Dim allTxt As New List(Of Control)
-        For Each txt As TextBox In MainWindow.FindControlRecursive(allTxt, Me, GetType(TextBox))
-            WriteAttribute(txt.Name, txt.Text, writer)
-        Next
+        'Dim writer As New XmlTextWriter(path & newProfileName & ".FASTprofile", System.Text.Encoding.UTF8)
+        'writer.WriteStartDocument(True)
+        'writer.Formatting = Formatting.Indented
+        'writer.Indentation = 2
 
-        Dim allCheck As New List(Of Control)
-        For Each check As CheckBox In MainWindow.FindControlRecursive(allCheck, Me, GetType(CheckBox))
-            WriteAttribute(check.Name, check.CheckState, writer)
-        Next
+        Dim settings = New XmlWriterSettings With {
+            .Indent = True,
+            .IndentChars = " ",
+            .NewLineOnAttributes = True,
+            .CloseOutput = True
+        }
 
-        writer.WriteEndElement()
-        writer.WriteEndElement()
-        writer.WriteEndDocument()
-        writer.Close()
+        Using writer As XmlWriter = XmlWriter.Create(System.IO.File.Create(path & newProfileName & ".FASTprofile"), settings)
+            writer.WriteStartDocument(True)
+            writer.WriteStartElement("profile")
+            writer.WriteStartElement("settings")
+
+            Dim allTxt As New List(Of Control)
+            For Each txt As TextBox In MainWindow.FindControlRecursive(allTxt, Me, GetType(TextBox))
+                'WriteAttribute(txt.Name, txt.Text, writer)
+                writer.WriteStartElement(txt.Name)
+                writer.WriteString(txt.Text)
+                writer.WriteEndElement()
+            Next
+
+            Dim allCheck As New List(Of Control)
+            For Each check As CheckBox In MainWindow.FindControlRecursive(allCheck, Me, GetType(CheckBox))
+                'WriteAttribute(check.Name, check.CheckState, writer)
+                writer.WriteStartElement(check.Name)
+                writer.WriteString(check.CheckState)
+                writer.WriteEndElement()
+            Next
+
+            writer.WriteEndElement()
+            writer.WriteEndElement()
+            writer.WriteEndDocument()
+            writer.Close()
+        End Using
+
+
+
     End Sub
 
     Private Sub WriteAttribute(attribute As String, value As String, writer As XmlTextWriter)
@@ -77,7 +100,7 @@ Public Class NewServerTab
         End If
     End Sub
 
-    Private Sub PersistCheck_CheckedChanged(sender As Object, e As EventArgs) Handles persistCheck.CheckedChanged
+    Private Sub PersistCheck_CheckedChanged(sender As Object, e As EventArgs)
         If persistCheck.Checked Then
             autoInitCheck.Enabled = True
         Else
@@ -104,10 +127,12 @@ Public Class NewServerTab
 
     Private Sub LaunchServer_Click(sender As Object, e As EventArgs) Handles launchServer.Click
 
-        If ReadyToLaunch(MainWindow.SafeName(profileNameBox.Text)) Then
+        If ReadyToLaunch(profileNameBox.Text) Then
             Dim profileName As String = MainWindow.SafeName(MainWindow.categoryTabs.SelectedTab.Text)
             Dim profilePath As String = Application.StartupPath & "\servers\" & profileName & "\"
             Dim configs As String = profilePath & profileName
+
+            WriteConfigFiles(profileName)
 
             Dim commandLine As String
             commandLine = "-port=" & portBox.Text
@@ -126,9 +151,23 @@ Public Class NewServerTab
 
             Clipboard.SetText(commandLine)
 
-            Dim oStartInfo As New ProcessStartInfo(serverFileBox.Text, commandLine)
-            oProcess.StartInfo = oStartInfo
-            oProcess.Start()
+            Dim sStartInfo As New ProcessStartInfo(serverFileBox.Text, commandLine)
+            Dim sProcess As New Process With {
+                .StartInfo = sStartInfo
+            }
+            sProcess.Start()
+
+            If enableHCCheck.Checked Then
+                For hc As Integer = 1 To noOfHCBox.Value
+                    Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & passwordBox.Text & " -profiles=" & profilePath & " -nosound"
+                    Clipboard.SetText(hcCommandLine)
+                    Dim hcStartInfo As New ProcessStartInfo(serverFileBox.Text, hcCommandLine)
+                    Dim hcProcess As New Process With {
+                        .StartInfo = hcStartInfo
+                    }
+                    hcProcess.Start()
+                Next
+            End If
         Else
             MsgBox("Please make sure all fields are filled in and the profile is saved.")
         End If
@@ -136,6 +175,9 @@ Public Class NewServerTab
     End Sub
 
     Public Function ReadyToLaunch(profile As String)
+
+        profile = MainWindow.SafeName(profile)
+
         If ProfileFilesExist(profile) Then
             Return True
             Exit Function
@@ -158,4 +200,63 @@ Public Class NewServerTab
 
         Return True
     End Function
+
+    Public Sub WriteConfigFiles(profile As String)
+
+        profile = MainWindow.SafeName(profile)
+
+        Dim config As String = Application.StartupPath & "\servers\" & profile & "\" & profile & "_config.cfg"
+        Dim basic As String = Application.StartupPath & "\servers\" & profile & "\" & profile & "_basic.cfg"
+        Dim configLines As New List(Of String) From {
+            "hostname=""" & serverNameBox.Text & """;",
+            "password=""" & passwordBox.Text & """;",
+            "passwordAdmin=""" & adminPassBox.Text & """;",
+            "maxPlayers=" & maxPlayersBox.Text & ";",
+            "kickDuplicate=" & kickDupeCheck.CheckState & ";",
+            "allowedFilePatching=" & filePatchingCheck.CheckState & ";",
+            "disableVoN=" & vonCheck.CheckState & ";",
+            "persistent=" & persistCheck.CheckState & ";",
+            "BattlEye=" & battleyeCheck.CheckState & ";"
+        }
+
+        If enableHCCheck.Checked Then
+            configLines.Add("headlessClients[] ={" & headlessIPBox.Text & "};")
+            configLines.Add("localClient[] ={" & localClientBox.Text & "};")
+        End If
+
+        File.WriteAllLines(config, configLines)
+
+    End Sub
+
+    Private Sub EnableHCCheck_CheckedChanged(sender As Object, e As EventArgs) Handles enableHCCheck.CheckedChanged
+        If enableHCCheck.Checked Then
+            noOfHCBox.Enabled = True
+        Else
+            noOfHCBox.Enabled = False
+        End If
+    End Sub
+
+    Private Sub MaxPlayersBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles maxPlayersBox.KeyPress
+        If e.KeyChar <> ControlChars.Back Then
+            e.Handled = Not (Char.IsDigit(e.KeyChar))
+        End If
+    End Sub
+
+    Private Sub PortBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles portBox.KeyPress
+        If e.KeyChar <> ControlChars.Back Then
+            e.Handled = Not (Char.IsDigit(e.KeyChar))
+        End If
+    End Sub
+
+    Private Sub LocalClientBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles localClientBox.KeyPress
+        If e.KeyChar <> ControlChars.Back Then
+            e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or e.KeyChar = ",")
+        End If
+    End Sub
+
+    Private Sub HeadlessIPBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles headlessIPBox.KeyPress
+        If e.KeyChar <> ControlChars.Back Then
+            e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or e.KeyChar = ",")
+        End If
+    End Sub
 End Class

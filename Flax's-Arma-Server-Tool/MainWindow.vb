@@ -1,8 +1,6 @@
 ﻿Imports System.IO
 Imports System.Text
 Imports System.Net
-Imports System.Xml
-Imports System.Object
 Imports System.Security.Cryptography
 
 Public Class MainWindow
@@ -68,34 +66,37 @@ Public Class MainWindow
         Dim profiles() = Directory.GetFiles(Application.StartupPath & "\servers", "*.FASTprofile", SearchOption.TopDirectoryOnly)
 
         For Each profile In profiles
-            Dim newTab As New TabPage
-            categoryTabs.TabPages.Add(newTab)
-            newTab.Controls.Add(New NewServerTab)
 
-            Dim xml = XDocument.Load(profile)
-            newTab.Text = xml.<profile>.<settings>.<profileNameBox>.Value
+            Try
+                Dim newTab As New TabPage
+                categoryTabs.TabPages.Add(newTab)
+                newTab.Controls.Add(New NewServerTab)
 
-            Dim profileNameBox = CType(newTab.Controls.Find("profileNameBox", True)(0), TextBox)
-            profileNameBox.Text = xml.<profile>.<settings>.<profileNameBox>.Value
+                Dim xml = XDocument.Load(profile)
+                newTab.Text = xml.<profile>.<settings>.<profileNameBox>.Value
 
-            Dim allTxt As New List(Of Control)
-            For Each txt As TextBox In FindControlRecursive(allTxt, newTab, GetType(TextBox))
-                txt.Text = xml.<profile>.<settings>.Elements(txt.Name).Value
-            Next
+                Dim profileNameBox = CType(newTab.Controls.Find("profileNameBox", True)(0), TextBox)
+                profileNameBox.Text = xml.<profile>.<settings>.<profileNameBox>.Value
 
-            Dim allCheck As New List(Of Control)
-            For Each check As CheckBox In FindControlRecursive(allCheck, newTab, GetType(CheckBox))
-                If xml.<profile>.<settings>.Elements(check.Name).Value = 1 Then
-                    check.Checked = True
-                Else
-                    check.Checked = False
-                End If
-            Next
+                Dim allTxt As New List(Of Control)
+                For Each txt As TextBox In FindControlRecursive(allTxt, newTab, GetType(TextBox))
+                    txt.Text = xml.<profile>.<settings>.Elements(txt.Name).Value
+                Next
 
-
+                Dim allCheck As New List(Of Control)
+                For Each check As CheckBox In FindControlRecursive(allCheck, newTab, GetType(CheckBox))
+                    If xml.<profile>.<settings>.Elements(check.Name).Value = 1 Then
+                        check.Checked = True
+                    Else
+                        check.Checked = False
+                    End If
+                Next
+            Catch ex As Exception
+                MsgBox(profile & Environment.NewLine & Environment.NewLine & "Profile corrupt, please manually delete.")
+            End Try
         Next
 
-            If My.Settings.firstRun Then
+        If My.Settings.firstRun Then
             Dim firstRunDialog As New FirstRun
             firstRunDialog.ShowDialog()
         Else
