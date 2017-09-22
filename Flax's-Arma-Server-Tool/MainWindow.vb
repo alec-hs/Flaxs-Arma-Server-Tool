@@ -66,12 +66,11 @@ Public Class MainWindow
         Dim profiles() = Directory.GetFiles(Application.StartupPath & "\servers", "*.FASTprofile", SearchOption.TopDirectoryOnly)
 
         For Each profile In profiles
+            Dim newTab As New TabPage
+            categoryTabs.TabPages.Add(newTab)
+            newTab.Controls.Add(New NewServerTab)
 
             Try
-                Dim newTab As New TabPage
-                categoryTabs.TabPages.Add(newTab)
-                newTab.Controls.Add(New NewServerTab)
-
                 Dim xml = XDocument.Load(profile)
                 newTab.Text = xml.<profile>.<settings>.<profileNameBox>.Value
 
@@ -83,6 +82,18 @@ Public Class MainWindow
                     txt.Text = xml.<profile>.<settings>.Elements(txt.Name).Value
                 Next
 
+                Dim allRichTxt As New List(Of Control)
+                For Each richTxt As RichTextBox In FindControlRecursive(allRichTxt, newTab, GetType(RichTextBox))
+                    Dim lines As New List(Of String)
+                    For Each element In xml.<profile>.<settings>.Elements(richTxt.Name).Elements
+                        lines.Add(element)
+                    Next
+
+                    For Each line In lines
+                        richTxt.AppendText(line.ToString & Environment.NewLine)
+                    Next
+                Next
+
                 Dim allCheck As New List(Of Control)
                 For Each check As CheckBox In FindControlRecursive(allCheck, newTab, GetType(CheckBox))
                     If xml.<profile>.<settings>.Elements(check.Name).Value = 1 Then
@@ -91,8 +102,23 @@ Public Class MainWindow
                         check.Checked = False
                     End If
                 Next
+
+                Dim allCombo As New List(Of Control)
+                For Each combo As ComboBox In FindControlRecursive(allCombo, newTab, GetType(ComboBox))
+                    combo.SelectedItem = xml.<profile>.<settings>.Elements(combo.Name).Value
+                Next
+
+                Dim allNumeric As New List(Of Control)
+                For Each numeric As NumericUpDown In FindControlRecursive(allNumeric, newTab, GetType(NumericUpDown))
+                    numeric.Value = xml.<profile>.<settings>.Elements(numeric.Name).Value
+                Next
+
             Catch ex As Exception
-                MsgBox(profile & Environment.NewLine & Environment.NewLine & "Profile corrupt, please manually delete.")
+                profile = Replace(profile, Application.StartupPath & "\servers\", "")
+                profile = Replace(profile, ".FASTprofile", "")
+                MsgBox(profile & Environment.NewLine & Environment.NewLine & "Profile corrupted and was deleted.")
+                categoryTabs.TabPages.Remove(newTab)
+                DeleteProfile(profile, False)
             End Try
         Next
 
@@ -127,6 +153,25 @@ Public Class MainWindow
 
         CheckForUpdates()
 
+    End Sub
+
+    Public Sub DeleteProfile(profile As String, manual As Boolean)
+        Try
+            profile = Application.StartupPath & "\servers\" & SafeName(profile)
+            If File.Exists(profile & ".FASTprofile") Then
+                File.Delete(profile & ".FASTprofile")
+            End If
+
+            If Directory.Exists(profile) Then
+                Directory.Delete(profile, True)
+            End If
+            If manual Then
+                categoryTabs.TabPages.Remove(categoryTabs.SelectedTab)
+            End If
+
+        Catch ex As Exception
+            MsgBox("Not all files were deleted - a file was open elsewhere.")
+        End Try
     End Sub
 
     Private Sub MainWindow_Close(sender As Object, e As EventArgs) Handles MyBase.Closed

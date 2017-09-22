@@ -3,8 +3,17 @@ Imports System.Xml
 
 
 Public Class NewServerTab
+    Private Sub NewServerTab_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If filePatchCombo.SelectedIndex = -1 Then
+            filePatchCombo.SelectedItem = "2"
+        End If
 
+        If verifySigCombo.SelectedIndex = -1 Then
+            verifySigCombo.SelectedItem = "none"
+        End If
 
+        UpdateModsList()
+    End Sub
 
     Private Sub SaveProfileButton_Click(sender As Object, e As EventArgs) Handles saveProfileButton.Click
         SaveProfile()
@@ -41,11 +50,6 @@ Public Class NewServerTab
         End If
 
 
-        'Dim writer As New XmlTextWriter(path & newProfileName & ".FASTprofile", System.Text.Encoding.UTF8)
-        'writer.WriteStartDocument(True)
-        'writer.Formatting = Formatting.Indented
-        'writer.Indentation = 2
-
         Dim settings = New XmlWriterSettings With {
             .Indent = True,
             .IndentChars = " ",
@@ -60,17 +64,41 @@ Public Class NewServerTab
 
             Dim allTxt As New List(Of Control)
             For Each txt As TextBox In MainWindow.FindControlRecursive(allTxt, Me, GetType(TextBox))
-                'WriteAttribute(txt.Name, txt.Text, writer)
                 writer.WriteStartElement(txt.Name)
                 writer.WriteString(txt.Text)
                 writer.WriteEndElement()
             Next
 
+            Dim allRichTxt As New List(Of Control)
+            For Each richTxt As RichTextBox In MainWindow.FindControlRecursive(allRichTxt, Me, GetType(RichTextBox))
+
+                writer.WriteStartElement(richTxt.Name)
+                For Each line In richTxt.Lines
+                    writer.WriteStartElement("line")
+                    writer.WriteString(line)
+                    writer.WriteEndElement()
+                Next
+                writer.WriteEndElement()
+            Next
+
             Dim allCheck As New List(Of Control)
             For Each check As CheckBox In MainWindow.FindControlRecursive(allCheck, Me, GetType(CheckBox))
-                'WriteAttribute(check.Name, check.CheckState, writer)
                 writer.WriteStartElement(check.Name)
                 writer.WriteString(check.CheckState)
+                writer.WriteEndElement()
+            Next
+
+            Dim allCombo As New List(Of Control)
+            For Each combo As ComboBox In MainWindow.FindControlRecursive(allCombo, Me, GetType(ComboBox))
+                writer.WriteStartElement(combo.Name)
+                writer.WriteString(combo.SelectedItem)
+                writer.WriteEndElement()
+            Next
+
+            Dim allNumeric As New List(Of Control)
+            For Each numeric As NumericUpDown In MainWindow.FindControlRecursive(allNumeric, Me, GetType(NumericUpDown))
+                writer.WriteStartElement(numeric.Name)
+                writer.WriteString(numeric.Value)
                 writer.WriteEndElement()
             Next
 
@@ -110,20 +138,10 @@ Public Class NewServerTab
     End Sub
 
     Private Sub DeleteProfileButton_Click(sender As Object, e As EventArgs) Handles deleteProfileButton.Click
-        Try
-            If File.Exists(Application.StartupPath & "\servers\" & MainWindow.categoryTabs.SelectedTab.Text & ".FASTprofile") Then
-                File.Delete(Application.StartupPath & "\servers\" & MainWindow.categoryTabs.SelectedTab.Text & ".FASTprofile")
-            End If
-
-            If Directory.Exists(Application.StartupPath & "\servers\" & MainWindow.categoryTabs.SelectedTab.Text) Then
-                Directory.Delete(Application.StartupPath & "\servers\" & MainWindow.categoryTabs.SelectedTab.Text, True)
-            End If
-
-            MainWindow.categoryTabs.TabPages.Remove(MainWindow.categoryTabs.SelectedTab)
-        Catch ex As Exception
-            MsgBox("Not all files were deleted - a file was open elsewhere.")
-        End Try
+        MainWindow.DeleteProfile(MainWindow.categoryTabs.SelectedTab.Text, True)
     End Sub
+
+
 
     Private Sub LaunchServer_Click(sender As Object, e As EventArgs) Handles launchServer.Click
 
@@ -131,6 +149,12 @@ Public Class NewServerTab
             Dim profileName As String = MainWindow.SafeName(MainWindow.categoryTabs.SelectedTab.Text)
             Dim profilePath As String = Application.StartupPath & "\servers\" & profileName & "\"
             Dim configs As String = profilePath & profileName
+
+            Dim serverMods As String = Nothing
+
+            For Each addon In serverModsList.CheckedItems
+                serverMods = serverMods & addon & ";"
+            Next
 
             WriteConfigFiles(profileName)
 
@@ -140,6 +164,8 @@ Public Class NewServerTab
             commandLine = commandLine & " ""-cfg=" & configs & "_basic.cfg"""
             commandLine = commandLine & " ""-profiles=" & profilePath & """"
             commandLine = commandLine & " -name=" & profileName
+            commandLine = commandLine & " ""-mods=" & serverMods & """"
+
 
             If htCheck.Checked Then
                 commandLine = commandLine & " -enableHT"
@@ -158,9 +184,18 @@ Public Class NewServerTab
             sProcess.Start()
 
             If enableHCCheck.Checked Then
-                For hc As Integer = 1 To noOfHCBox.Value
+                For hc As Integer = 1 To noOfHCNumeric.Value
                     Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & passwordBox.Text & " -profiles=" & profilePath & " -nosound"
+                    Dim hcMods As String = Nothing
+
+                    For Each addon In hcModsList.CheckedItems
+                        hcMods = hcMods & addon & ";"
+                    Next
+
+                    hcCommandLine = hcCommandLine & " ""-mods=" & serverMods & """"
+
                     Clipboard.SetText(hcCommandLine)
+
                     Dim hcStartInfo As New ProcessStartInfo(serverFileBox.Text, hcCommandLine)
                     Dim hcProcess As New Process With {
                         .StartInfo = hcStartInfo
@@ -216,7 +251,7 @@ Public Class NewServerTab
             "allowedFilePatching=" & filePatchingCheck.CheckState & ";",
             "disableVoN=" & vonCheck.CheckState & ";",
             "persistent=" & persistCheck.CheckState & ";",
-            "BattlEye=" & battleyeCheck.CheckState & ";"
+            "BattlEye=" & maxPingCheck.CheckState & ";"
         }
 
         If enableHCCheck.Checked Then
@@ -230,9 +265,9 @@ Public Class NewServerTab
 
     Private Sub EnableHCCheck_CheckedChanged(sender As Object, e As EventArgs) Handles enableHCCheck.CheckedChanged
         If enableHCCheck.Checked Then
-            noOfHCBox.Enabled = True
+            noOfHCNumeric.Enabled = True
         Else
-            noOfHCBox.Enabled = False
+            noOfHCNumeric.Enabled = False
         End If
     End Sub
 
@@ -258,5 +293,144 @@ Public Class NewServerTab
         If e.KeyChar <> ControlChars.Back Then
             e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or e.KeyChar = ",")
         End If
+    End Sub
+
+    Public Sub UpdateModsList()
+        serverModsList.Items.Clear()
+        hcModsList.Items.Clear()
+
+        Dim currentMods = serverModsList.Items
+        Dim newMods As New List(Of String)
+
+        For Each addon In Directory.GetDirectories(My.Settings.serverDir)
+            If addon.Contains("@") Then
+                newMods.Add(Replace(addon, My.Settings.serverDir & "\", ""))
+            End If
+        Next
+
+        For Each addon In newMods.ToList
+            For Each nAddon In currentMods
+                If nAddon = addon Then
+                    newMods.Remove(nAddon)
+                End If
+            Next
+        Next
+
+        For Each addon In newMods.ToList
+            serverModsList.Items.Add(addon)
+            hcModsList.Items.Add(addon)
+        Next
+
+
+    End Sub
+
+    Private Sub ServerToHCButton_Click(sender As Object, e As EventArgs) Handles serverToHCButton.Click
+        For Each item In serverModsList.Items
+            Dim index As Integer = serverModsList.FindString(item)
+            Dim check As Integer = serverModsList.GetItemCheckState(index)
+            Dim newIndex As Integer = hcModsList.FindString(item)
+
+            hcModsList.SetItemCheckState(newIndex, check)
+        Next
+    End Sub
+
+    Private Sub HcToServerButton_Click(sender As Object, e As EventArgs) Handles hcToServerButton.Click
+        For Each item In hcModsList.Items
+            Dim index As Integer = hcModsList.FindString(item)
+            Dim check As Integer = hcModsList.GetItemCheckState(index)
+            Dim newIndex As Integer = serverModsList.FindString(item)
+
+            serverModsList.SetItemCheckState(newIndex, check)
+        Next
+    End Sub
+
+    Private Sub ServerModsAllButton_Click(sender As Object, e As EventArgs) Handles serverModsAllButton.Click
+        For i = 0 To serverModsList.Items.Count - 1
+            serverModsList.SetItemChecked(i, 1)
+        Next i
+    End Sub
+
+    Private Sub ServerModsNoneButton_Click(sender As Object, e As EventArgs) Handles serverModsNoneButton.Click
+        For i = 0 To serverModsList.Items.Count - 1
+            serverModsList.SetItemChecked(i, 0)
+        Next i
+    End Sub
+
+    Private Sub HcModsAllButton_Click(sender As Object, e As EventArgs) Handles hcModsAllButton.Click
+        For i = 0 To serverModsList.Items.Count - 1
+            hcModsList.SetItemChecked(i, 1)
+        Next i
+    End Sub
+
+    Private Sub HcModsNoneButton_Click(sender As Object, e As EventArgs) Handles hcModsNoneButton.Click
+        For i = 0 To serverModsList.Items.Count - 1
+            hcModsList.SetItemChecked(i, 0)
+        Next i
+    End Sub
+
+    Private Sub ServerModsUpButton_Click(sender As Object, e As EventArgs) Handles serverModsUpButton.Click
+        Dim index As Integer = serverModsList.SelectedIndex
+        Dim addon As String = serverModsList.SelectedItem
+        Dim check As Integer = serverModsList.GetItemCheckState(index)
+
+        If index > 0 Then
+            serverModsList.Items.RemoveAt(index)
+            serverModsList.Items.Insert(index - 1, addon)
+            serverModsList.SelectedIndex = index - 1
+            serverModsList.SetItemCheckState(index - 1, check)
+        End If
+    End Sub
+
+    Private Sub ServerModsDownButton_Click(sender As Object, e As EventArgs) Handles serverModsDownButton.Click
+        Dim index As Integer = serverModsList.SelectedIndex
+        Dim addon As String = serverModsList.SelectedItem
+        Dim check As Integer = serverModsList.GetItemCheckState(index)
+
+        If index < serverModsList.Items.Count - 1 Then
+            serverModsList.Items.RemoveAt(index)
+            serverModsList.Items.Insert(index + 1, addon)
+            serverModsList.SelectedIndex = index + 1
+            serverModsList.SetItemCheckState(index + 1, check)
+        End If
+    End Sub
+
+    Private Sub HcModsUpButton_Click(sender As Object, e As EventArgs) Handles hcModsUpButton.Click
+        Dim index As Integer = hcModsList.SelectedIndex
+        Dim addon As String = hcModsList.SelectedItem
+        Dim check As Integer = hcModsList.GetItemCheckState(index)
+
+        If index > 0 Then
+            hcModsList.Items.RemoveAt(index)
+            hcModsList.Items.Insert(index - 1, addon)
+            hcModsList.SelectedIndex = index - 1
+            hcModsList.SetItemCheckState(index - 1, check)
+        End If
+    End Sub
+
+    Private Sub HcModsDownButton_Click(sender As Object, e As EventArgs) Handles hcModsDownButton.Click
+        Dim index As Integer = hcModsList.SelectedIndex
+        Dim addon As String = hcModsList.SelectedItem
+        Dim check As Integer = hcModsList.GetItemCheckState(index)
+
+        If index < hcModsList.Items.Count - 1 Then
+            hcModsList.Items.RemoveAt(index)
+            hcModsList.Items.Insert(index + 1, addon)
+            hcModsList.SelectedIndex = index + 1
+            hcModsList.SetItemCheckState(index + 1, check)
+        End If
+    End Sub
+
+    Private Sub ServerModsSortButton_Click(sender As Object, e As EventArgs) Handles serverModsSortButton.Click
+        serverModsList.Sorted = True
+        serverModsList.Sorted = False
+    End Sub
+
+    Private Sub HcModsSortButton_Click(sender As Object, e As EventArgs) Handles hcModsSortButton.Click
+        serverModsList.Sorted = True
+        serverModsList.Sorted = False
+    End Sub
+
+    Private Sub RefreshModsButton_Click(sender As Object, e As EventArgs) Handles refreshModsButton.Click
+        UpdateModsList()
     End Sub
 End Class
