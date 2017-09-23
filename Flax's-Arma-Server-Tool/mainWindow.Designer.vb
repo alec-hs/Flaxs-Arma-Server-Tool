@@ -43,6 +43,7 @@ Partial Class MainWindow
         Me.SelectedModsToClipboardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ServersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddNewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenProfileDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.importModSet = New System.Windows.Forms.OpenFileDialog()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
@@ -90,7 +91,6 @@ Partial Class MainWindow
         Me.steamDirLabel = New System.Windows.Forms.Label()
         Me.updateServerButton = New System.Windows.Forms.Button()
         Me.categoryTabs = New System.Windows.Forms.TabControl()
-        Me.OpenProfileDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolsMenuStrip.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.modsTab.SuspendLayout()
@@ -208,6 +208,12 @@ Partial Class MainWindow
         Me.AddNewToolStripMenuItem.Name = "AddNewToolStripMenuItem"
         Me.AddNewToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
         Me.AddNewToolStripMenuItem.Text = "Add New"
+        '
+        'OpenProfileDirectoryToolStripMenuItem
+        '
+        Me.OpenProfileDirectoryToolStripMenuItem.Name = "OpenProfileDirectoryToolStripMenuItem"
+        Me.OpenProfileDirectoryToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.OpenProfileDirectoryToolStripMenuItem.Text = "Open Profile Directory"
         '
         'importModSet
         '
@@ -353,7 +359,7 @@ Partial Class MainWindow
         Me.modsDataGrid.Name = "modsDataGrid"
         Me.modsDataGrid.ReadOnly = True
         Me.modsDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.modsDataGrid.Size = New System.Drawing.Size(685, 277)
+        Me.modsDataGrid.Size = New System.Drawing.Size(685, 271)
         Me.modsDataGrid.TabIndex = 0
         '
         'modID
@@ -674,17 +680,12 @@ Partial Class MainWindow
         Me.categoryTabs.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
         Me.categoryTabs.Controls.Add(Me.serverTab)
         Me.categoryTabs.Controls.Add(Me.modsTab)
-        Me.categoryTabs.Location = New System.Drawing.Point(0, 27)
+        Me.categoryTabs.Dock = System.Windows.Forms.DockStyle.Top
+        Me.categoryTabs.Location = New System.Drawing.Point(0, 24)
         Me.categoryTabs.Name = "categoryTabs"
         Me.categoryTabs.SelectedIndex = 0
         Me.categoryTabs.Size = New System.Drawing.Size(707, 360)
         Me.categoryTabs.TabIndex = 10
-        '
-        'OpenProfileDirectoryToolStripMenuItem
-        '
-        Me.OpenProfileDirectoryToolStripMenuItem.Name = "OpenProfileDirectoryToolStripMenuItem"
-        Me.OpenProfileDirectoryToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
-        Me.OpenProfileDirectoryToolStripMenuItem.Text = "Open Profile Directory"
         '
         'MainWindow
         '

@@ -1,7 +1,6 @@
 ﻿Imports System.IO
 Imports System.Xml
 
-
 Public Class NewServerTab
     Private Sub NewServerTab_Load(sender As Object, e As EventArgs) Handles Me.Load
         If filePatchCombo.SelectedIndex = -1 Then
@@ -12,7 +11,16 @@ Public Class NewServerTab
             verifySigCombo.SelectedItem = "none"
         End If
 
+        If rptTimeCombo.SelectedIndex = -1 Then
+            rptTimeCombo.SelectedItem = "none"
+        End If
+
+        If kickSlowCombo.SelectedIndex = -1 Then
+            kickSlowCombo.SelectedItem = "Log"
+        End If
+
         UpdateModsList()
+
     End Sub
 
     Private Sub SaveProfileButton_Click(sender As Object, e As EventArgs) Handles saveProfileButton.Click
@@ -108,8 +116,6 @@ Public Class NewServerTab
             writer.Close()
         End Using
 
-
-
     End Sub
 
     Private Sub WriteAttribute(attribute As String, value As String, writer As XmlTextWriter)
@@ -141,68 +147,74 @@ Public Class NewServerTab
         MainWindow.DeleteProfile(MainWindow.categoryTabs.SelectedTab.Text, True)
     End Sub
 
-
-
     Private Sub LaunchServer_Click(sender As Object, e As EventArgs) Handles launchServer.Click
 
         If ReadyToLaunch(profileNameBox.Text) Then
             Dim profileName As String = MainWindow.SafeName(MainWindow.categoryTabs.SelectedTab.Text)
             Dim profilePath As String = Application.StartupPath & "\servers\" & profileName & "\"
             Dim configs As String = profilePath & profileName
-
+            Dim start As Boolean = True
             Dim serverMods As String = Nothing
 
             For Each addon In serverModsList.CheckedItems
                 serverMods = serverMods & addon & ";"
             Next
 
-            WriteConfigFiles(profileName)
+            Try
+                WriteConfigFiles(profileName)
+            Catch ex As Exception
+                MsgBox("Config files in use elsewhere - make sure server is not running.")
+                start = False
+            End Try
 
-            Dim commandLine As String
-            commandLine = "-port=" & portBox.Text
-            commandLine = commandLine & " ""-config=" & configs & "_config.cfg"""
-            commandLine = commandLine & " ""-cfg=" & configs & "_basic.cfg"""
-            commandLine = commandLine & " ""-profiles=" & profilePath & """"
-            commandLine = commandLine & " -name=" & profileName
-            commandLine = commandLine & " ""-mods=" & serverMods & """"
+            If start Then
+                Dim commandLine As String
+                commandLine = "-port=" & portBox.Text
+                commandLine = commandLine & " ""-config=" & configs & "_config.cfg"""
+                commandLine = commandLine & " ""-cfg=" & configs & "_basic.cfg"""
+                commandLine = commandLine & " ""-profiles=" & profilePath & """"
+                commandLine = commandLine & " -name=" & profileName
+                commandLine = commandLine & " ""-mods=" & serverMods & """"
 
 
-            If htCheck.Checked Then
-                commandLine = commandLine & " -enableHT"
-            End If
+                If htCheck.Checked Then
+                    commandLine = commandLine & " -enableHT"
+                End If
 
-            If filePatchingCheck.Checked Then
-                commandLine = commandLine & " -filePatching"
-            End If
+                If filePatchingCheck.Checked Then
+                    commandLine = commandLine & " -filePatching"
+                End If
 
-            Clipboard.SetText(commandLine)
+                Clipboard.SetText(commandLine)
 
-            Dim sStartInfo As New ProcessStartInfo(serverFileBox.Text, commandLine)
-            Dim sProcess As New Process With {
-                .StartInfo = sStartInfo
-            }
-            sProcess.Start()
+                Dim sStartInfo As New ProcessStartInfo(serverFileBox.Text, commandLine)
+                Dim sProcess As New Process With {
+                    .StartInfo = sStartInfo
+                }
+                sProcess.Start()
 
-            If enableHCCheck.Checked Then
-                For hc As Integer = 1 To noOfHCNumeric.Value
-                    Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & passwordBox.Text & " -profiles=" & profilePath & " -nosound"
-                    Dim hcMods As String = Nothing
+                If enableHCCheck.Checked Then
+                    For hc As Integer = 1 To noOfHCNumeric.Value
+                        Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & passwordBox.Text & " -profiles=" & profilePath & " -nosound"
+                        Dim hcMods As String = Nothing
 
-                    For Each addon In hcModsList.CheckedItems
-                        hcMods = hcMods & addon & ";"
+                        For Each addon In hcModsList.CheckedItems
+                            hcMods = hcMods & addon & ";"
+                        Next
+
+                        hcCommandLine = hcCommandLine & " ""-mods=" & serverMods & """"
+
+                        Clipboard.SetText(hcCommandLine)
+
+                        Dim hcStartInfo As New ProcessStartInfo(serverFileBox.Text, hcCommandLine)
+                        Dim hcProcess As New Process With {
+                            .StartInfo = hcStartInfo
+                        }
+                        hcProcess.Start()
                     Next
-
-                    hcCommandLine = hcCommandLine & " ""-mods=" & serverMods & """"
-
-                    Clipboard.SetText(hcCommandLine)
-
-                    Dim hcStartInfo As New ProcessStartInfo(serverFileBox.Text, hcCommandLine)
-                    Dim hcProcess As New Process With {
-                        .StartInfo = hcStartInfo
-                    }
-                    hcProcess.Start()
-                Next
+                End If
             End If
+
         Else
             MsgBox("Please make sure all fields are filled in and the profile is saved.")
         End If
@@ -266,8 +278,12 @@ Public Class NewServerTab
     Private Sub EnableHCCheck_CheckedChanged(sender As Object, e As EventArgs) Handles enableHCCheck.CheckedChanged
         If enableHCCheck.Checked Then
             noOfHCNumeric.Enabled = True
+            headlessIPBox.Enabled = True
+            localClientBox.Enabled = True
         Else
             noOfHCNumeric.Enabled = False
+            headlessIPBox.Enabled = False
+            localClientBox.Enabled = False
         End If
     End Sub
 
@@ -302,25 +318,28 @@ Public Class NewServerTab
         Dim currentMods = serverModsList.Items
         Dim newMods As New List(Of String)
 
-        For Each addon In Directory.GetDirectories(My.Settings.serverDir)
-            If addon.Contains("@") Then
-                newMods.Add(Replace(addon, My.Settings.serverDir & "\", ""))
-            End If
-        Next
-
-        For Each addon In newMods.ToList
-            For Each nAddon In currentMods
-                If nAddon = addon Then
-                    newMods.Remove(nAddon)
+        If Directory.Exists(My.Settings.serverDir) Then
+            For Each addon In Directory.GetDirectories(My.Settings.serverDir)
+                If addon.Contains("@") Then
+                    newMods.Add(Replace(addon, My.Settings.serverDir & "\", ""))
                 End If
             Next
-        Next
 
-        For Each addon In newMods.ToList
-            serverModsList.Items.Add(addon)
-            hcModsList.Items.Add(addon)
-        Next
+            For Each addon In newMods.ToList
+                For Each nAddon In currentMods
+                    If nAddon = addon Then
+                        newMods.Remove(nAddon)
+                    End If
+                Next
+            Next
 
+            For Each addon In newMods.ToList
+                serverModsList.Items.Add(addon)
+                hcModsList.Items.Add(addon)
+            Next
+        Else
+            MsgBox("Please install game before continuing.")
+        End If
 
     End Sub
 
@@ -432,5 +451,113 @@ Public Class NewServerTab
 
     Private Sub RefreshModsButton_Click(sender As Object, e As EventArgs) Handles refreshModsButton.Click
         UpdateModsList()
+    End Sub
+
+    Private Sub RequiredBuildCheck_CheckedChanged(sender As Object, e As EventArgs) Handles requiredBuildCheck.CheckedChanged
+        If requiredBuildCheck.Checked Then
+            requiredBuildBox.Enabled = True
+        Else
+            requiredBuildBox.Enabled = False
+        End If
+    End Sub
+
+    Private Sub NetlogCheck_CheckedChanged(sender As Object, e As EventArgs) Handles netlogCheck.CheckedChanged
+        If netlogCheck.Checked Then
+            netlogGroup.Enabled = True
+        Else
+            netlogGroup.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ConsoleLogCheck_CheckedChanged(sender As Object, e As EventArgs) Handles consoleLogCheck.CheckedChanged
+        If consoleLogCheck.Checked Then
+            consoleLogButton.Enabled = True
+            consoleLogBox.Enabled = True
+        Else
+            consoleLogButton.Enabled = False
+            consoleLogBox.Enabled = False
+        End If
+    End Sub
+
+    Private Sub RankingCheck_CheckedChanged(sender As Object, e As EventArgs) Handles rankingCheck.CheckedChanged
+        If rankingCheck.Checked Then
+            rankingButton.Enabled = True
+            rankingBox.Enabled = True
+        Else
+            rankingButton.Enabled = False
+            rankingBox.Enabled = False
+        End If
+    End Sub
+
+    Private Sub PidCheck_CheckedChanged(sender As Object, e As EventArgs) Handles pidCheck.CheckedChanged
+        If pidCheck.Checked Then
+            pidButton.Enabled = True
+            pidBox.Enabled = True
+        Else
+            pidButton.Enabled = False
+            pidBox.Enabled = False
+        End If
+    End Sub
+
+    Private Sub MaxPingCheck_CheckedChanged(sender As Object, e As EventArgs) Handles maxPingCheck.CheckedChanged
+        If maxPingCheck.Checked Then
+            maxPingNumeric.Enabled = True
+            maxPingNumeric.Enabled = True
+        Else
+            maxPingNumeric.Enabled = False
+            maxPingNumeric.Enabled = False
+        End If
+    End Sub
+
+    Private Sub MaxDesyncCheck_CheckedChanged(sender As Object, e As EventArgs) Handles maxDesyncCheck.CheckedChanged
+        If maxDesyncCheck.Checked Then
+            maxDesyncNumeric.Enabled = True
+            maxDesyncNumeric.Enabled = True
+        Else
+            maxDesyncNumeric.Enabled = False
+            maxDesyncNumeric.Enabled = False
+        End If
+    End Sub
+
+    Private Sub PacketLossCheck_CheckedChanged(sender As Object, e As EventArgs) Handles packetLossCheck.CheckedChanged
+        If packetLossCheck.Checked Then
+            packetLossNumeric.Enabled = True
+            packetLossNumeric.Enabled = True
+        Else
+            packetLossNumeric.Enabled = False
+            packetLossNumeric.Enabled = False
+        End If
+    End Sub
+
+    Private Sub DisconTimeCheck_CheckedChanged(sender As Object, e As EventArgs) Handles disconTimeCheck.CheckedChanged
+        If disconTimeCheck.Checked Then
+            disconTimeNumeric.Enabled = True
+            disconTimeNumeric.Enabled = True
+        Else
+            disconTimeNumeric.Enabled = False
+            disconTimeNumeric.Enabled = False
+        End If
+    End Sub
+
+    Private Sub KickSlowCheck_CheckedChanged(sender As Object, e As EventArgs) Handles kickSlowCheck.CheckedChanged
+        If kickSlowCheck.Checked Then
+            kickSlowCombo.Enabled = True
+            kickSlowCombo.Enabled = True
+        Else
+            kickSlowCombo.Enabled = False
+            kickSlowCombo.Enabled = False
+        End If
+    End Sub
+
+    Private Sub PerfResetButton_Click(sender As Object, e As EventArgs) Handles perfResetButton.Click
+        maxSendBox.Text = "128"
+        maxGuaranteedBox.Text = "512"
+        maxNonGuaranteedBox.Text = "256"
+        minBandwidthBox.Text = "128"
+        maxBandwidthBox.Text = "2000"
+        minErrorBox.Text = "0.001"
+        minErrorNearBox.Text = "0.01"
+        maxCustFileBox.Text = "160"
+        maxPacketBox.Text = "1400"
     End Sub
 End Class
