@@ -19,6 +19,10 @@ Public Class NewServerTab
             kickSlowCombo.SelectedItem = "Log"
         End If
 
+        If difficultyCombo.SelectedIndex = -1 Then
+            difficultyCombo.SelectedItem = "Regular"
+        End If
+
         UpdateModsList()
 
     End Sub
@@ -134,7 +138,7 @@ Public Class NewServerTab
         End If
     End Sub
 
-    Private Sub PersistCheck_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub PersistCheck_CheckedChanged(sender As Object, e As EventArgs) Handles persistCheck.CheckedChanged
         If persistCheck.Checked Then
             autoInitCheck.Enabled = True
         Else
@@ -560,4 +564,5 @@ Public Class NewServerTab
         maxCustFileBox.Text = "160"
         maxPacketBox.Text = "1400"
     End Sub
+
 End Class

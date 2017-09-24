@@ -52,8 +52,8 @@ Partial Class NewServerTab
         Me.settingsTab = New System.Windows.Forms.TabPage()
         Me.networkGroup = New System.Windows.Forms.GroupBox()
         Me.netlogCheck = New System.Windows.Forms.CheckBox()
-        Me.loopbackCheck = New System.Windows.Forms.CheckBox()
         Me.upnpCheck = New System.Windows.Forms.CheckBox()
+        Me.loopbackCheck = New System.Windows.Forms.CheckBox()
         Me.headlessGroup = New System.Windows.Forms.GroupBox()
         Me.noOfHCNumeric = New System.Windows.Forms.NumericUpDown()
         Me.noOfHCLabel = New System.Windows.Forms.Label()
@@ -123,67 +123,65 @@ Partial Class NewServerTab
         Me.codecLabel = New System.Windows.Forms.Label()
         Me.codecNumeric = New System.Windows.Forms.NumericUpDown()
         Me.vonCheck = New System.Windows.Forms.CheckBox()
-        Me.perfTab = New System.Windows.Forms.TabPage()
-        Me.disconTimeNumeric = New System.Windows.Forms.NumericUpDown()
-        Me.packetLossNumeric = New System.Windows.Forms.NumericUpDown()
-        Me.maxDesyncNumeric = New System.Windows.Forms.NumericUpDown()
-        Me.maxPingNumeric = New System.Windows.Forms.NumericUpDown()
-        Me.kickSlowCheck = New System.Windows.Forms.CheckBox()
-        Me.disconTimeCheck = New System.Windows.Forms.CheckBox()
-        Me.packetLossCheck = New System.Windows.Forms.CheckBox()
-        Me.kickSlowCombo = New System.Windows.Forms.ComboBox()
-        Me.maxDesyncCheck = New System.Windows.Forms.CheckBox()
-        Me.maxPingCheck = New System.Windows.Forms.CheckBox()
-        Me.filePatchingCheck = New System.Windows.Forms.CheckBox()
-        Me.htCheck = New System.Windows.Forms.CheckBox()
         Me.missionTab = New System.Windows.Forms.TabPage()
-        Me.persistCheck = New System.Windows.Forms.CheckBox()
+        Me.missionsGroup = New System.Windows.Forms.GroupBox()
         Me.autoInitCheck = New System.Windows.Forms.CheckBox()
-        Me.difficultyTab = New System.Windows.Forms.TabPage()
-        Me.scriptingTab = New System.Windows.Forms.TabPage()
-        Me.viewGroup = New System.Windows.Forms.GroupBox()
-        Me.clientPerfGroup = New System.Windows.Forms.GroupBox()
+        Me.persistCheck = New System.Windows.Forms.CheckBox()
+        Me.difficultyCombo = New System.Windows.Forms.ComboBox()
+        Me.missionRefreshButton = New System.Windows.Forms.Button()
+        Me.missionsNoneButton = New System.Windows.Forms.Button()
+        Me.missionsAllButton = New System.Windows.Forms.Button()
+        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
+        Me.customDifficutlyGroup = New System.Windows.Forms.GroupBox()
+        Me.perfTab = New System.Windows.Forms.TabPage()
         Me.serverPerfGroup = New System.Windows.Forms.GroupBox()
-        Me.maxCustFileLabel = New System.Windows.Forms.Label()
-        Me.maxCustFileBox = New System.Windows.Forms.TextBox()
-        Me.maxPacketLabel = New System.Windows.Forms.Label()
-        Me.maxPacketBox = New System.Windows.Forms.TextBox()
-        Me.maxGuaranteedLabel = New System.Windows.Forms.Label()
-        Me.maxGuaranteedBox = New System.Windows.Forms.TextBox()
-        Me.maxNonGuaranteedLabel = New System.Windows.Forms.Label()
-        Me.maxNonGuaranteedBox = New System.Windows.Forms.TextBox()
-        Me.minBandwidthLabel = New System.Windows.Forms.Label()
-        Me.minBandwidthBox = New System.Windows.Forms.TextBox()
-        Me.maxBandwidthLabel = New System.Windows.Forms.Label()
-        Me.maxBandwidthBox = New System.Windows.Forms.TextBox()
-        Me.minErrorNearLabel = New System.Windows.Forms.Label()
-        Me.minErrorNearBox = New System.Windows.Forms.TextBox()
-        Me.minErrorLabel = New System.Windows.Forms.Label()
-        Me.minErrorBox = New System.Windows.Forms.TextBox()
+        Me.moreInfoLabel = New System.Windows.Forms.LinkLabel()
+        Me.perfResetLabel = New System.Windows.Forms.Label()
+        Me.perfResetButton = New System.Windows.Forms.Button()
+        Me.extraParamsBox = New System.Windows.Forms.TextBox()
+        Me.extraParamsLabel = New System.Windows.Forms.Label()
         Me.maxSendLabel = New System.Windows.Forms.Label()
         Me.maxSendBox = New System.Windows.Forms.TextBox()
-        Me.extraParamsLabel = New System.Windows.Forms.Label()
-        Me.extraParamsBox = New System.Windows.Forms.TextBox()
-        Me.perfResetButton = New System.Windows.Forms.Button()
-        Me.perfResetLabel = New System.Windows.Forms.Label()
-        Me.moreInfoLabel = New System.Windows.Forms.LinkLabel()
+        Me.minErrorLabel = New System.Windows.Forms.Label()
+        Me.minErrorBox = New System.Windows.Forms.TextBox()
+        Me.minErrorNearLabel = New System.Windows.Forms.Label()
+        Me.minErrorNearBox = New System.Windows.Forms.TextBox()
+        Me.maxBandwidthLabel = New System.Windows.Forms.Label()
+        Me.maxBandwidthBox = New System.Windows.Forms.TextBox()
+        Me.minBandwidthLabel = New System.Windows.Forms.Label()
+        Me.minBandwidthBox = New System.Windows.Forms.TextBox()
+        Me.maxNonGuaranteedLabel = New System.Windows.Forms.Label()
+        Me.maxNonGuaranteedBox = New System.Windows.Forms.TextBox()
+        Me.maxGuaranteedLabel = New System.Windows.Forms.Label()
+        Me.maxGuaranteedBox = New System.Windows.Forms.TextBox()
+        Me.maxPacketLabel = New System.Windows.Forms.Label()
+        Me.maxPacketBox = New System.Windows.Forms.TextBox()
+        Me.maxCustFileLabel = New System.Windows.Forms.Label()
+        Me.maxCustFileBox = New System.Windows.Forms.TextBox()
+        Me.filePatchingCheck = New System.Windows.Forms.CheckBox()
+        Me.htCheck = New System.Windows.Forms.CheckBox()
+        Me.clientPerfGroup = New System.Windows.Forms.GroupBox()
+        Me.plPercentLabel = New System.Windows.Forms.Label()
+        Me.msLabel = New System.Windows.Forms.Label()
+        Me.sLabel = New System.Windows.Forms.Label()
+        Me.viewGroup = New System.Windows.Forms.GroupBox()
         Me.metresLabel = New System.Windows.Forms.Label()
         Me.distanceLabel = New System.Windows.Forms.Label()
         Me.terrainLabel = New System.Windows.Forms.Label()
         Me.distanceNumeric = New System.Windows.Forms.NumericUpDown()
         Me.terrainNumeric = New System.Windows.Forms.NumericUpDown()
-        Me.sLabel = New System.Windows.Forms.Label()
-        Me.msLabel = New System.Windows.Forms.Label()
-        Me.plPercentLabel = New System.Windows.Forms.Label()
+        Me.maxPingCheck = New System.Windows.Forms.CheckBox()
+        Me.disconTimeNumeric = New System.Windows.Forms.NumericUpDown()
+        Me.maxDesyncCheck = New System.Windows.Forms.CheckBox()
+        Me.packetLossNumeric = New System.Windows.Forms.NumericUpDown()
+        Me.kickSlowCombo = New System.Windows.Forms.ComboBox()
+        Me.maxDesyncNumeric = New System.Windows.Forms.NumericUpDown()
+        Me.packetLossCheck = New System.Windows.Forms.CheckBox()
+        Me.maxPingNumeric = New System.Windows.Forms.NumericUpDown()
+        Me.disconTimeCheck = New System.Windows.Forms.CheckBox()
+        Me.kickSlowCheck = New System.Windows.Forms.CheckBox()
+        Me.scriptingTab = New System.Windows.Forms.TabPage()
         Me.serverScriptsGroup = New System.Windows.Forms.GroupBox()
-        Me.serverCommandLabel = New System.Windows.Forms.Label()
-        Me.serverCommandBox = New System.Windows.Forms.RichTextBox()
-        Me.doubleIdDetectedBox = New System.Windows.Forms.RichTextBox()
-        Me.onUserDisconnectedBox = New System.Windows.Forms.RichTextBox()
-        Me.onUserConnectedBox = New System.Windows.Forms.RichTextBox()
-        Me.doubleIdDetectedLabel = New System.Windows.Forms.Label()
-        Me.onUserConnectedLabel = New System.Windows.Forms.Label()
-        Me.onUserDisconnectedLabel = New System.Windows.Forms.Label()
         Me.regularCheckLabel = New System.Windows.Forms.Label()
         Me.onUnsignedDataLabel = New System.Windows.Forms.Label()
         Me.onDifferentDataLabel = New System.Windows.Forms.Label()
@@ -192,6 +190,14 @@ Partial Class NewServerTab
         Me.onDifferentDataBox = New System.Windows.Forms.RichTextBox()
         Me.onHackedDataBox = New System.Windows.Forms.RichTextBox()
         Me.onHackedDataLabel = New System.Windows.Forms.Label()
+        Me.onUserDisconnectedLabel = New System.Windows.Forms.Label()
+        Me.onUserConnectedLabel = New System.Windows.Forms.Label()
+        Me.doubleIdDetectedLabel = New System.Windows.Forms.Label()
+        Me.onUserConnectedBox = New System.Windows.Forms.RichTextBox()
+        Me.onUserDisconnectedBox = New System.Windows.Forms.RichTextBox()
+        Me.doubleIdDetectedBox = New System.Windows.Forms.RichTextBox()
+        Me.serverCommandBox = New System.Windows.Forms.RichTextBox()
+        Me.serverCommandLabel = New System.Windows.Forms.Label()
         Me.profileGroup.SuspendLayout()
         Me.modsTab.SuspendLayout()
         Me.hcModsGroup.SuspendLayout()
@@ -214,18 +220,19 @@ Partial Class NewServerTab
         CType(Me.minPlayersNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.vonGroup.SuspendLayout()
         CType(Me.codecNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.missionTab.SuspendLayout()
+        Me.missionsGroup.SuspendLayout()
         Me.perfTab.SuspendLayout()
+        Me.serverPerfGroup.SuspendLayout()
+        Me.clientPerfGroup.SuspendLayout()
+        Me.viewGroup.SuspendLayout()
+        CType(Me.distanceNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.terrainNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.disconTimeNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.packetLossNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.maxDesyncNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.maxPingNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.missionTab.SuspendLayout()
         Me.scriptingTab.SuspendLayout()
-        Me.viewGroup.SuspendLayout()
-        Me.clientPerfGroup.SuspendLayout()
-        Me.serverPerfGroup.SuspendLayout()
-        CType(Me.distanceNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.terrainNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.serverScriptsGroup.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -520,16 +527,6 @@ Partial Class NewServerTab
         Me.netlogCheck.Text = "Netlog"
         Me.netlogCheck.UseVisualStyleBackColor = True
         '
-        'loopbackCheck
-        '
-        Me.loopbackCheck.AutoSize = True
-        Me.loopbackCheck.Location = New System.Drawing.Point(6, 25)
-        Me.loopbackCheck.Name = "loopbackCheck"
-        Me.loopbackCheck.Size = New System.Drawing.Size(74, 17)
-        Me.loopbackCheck.TabIndex = 15
-        Me.loopbackCheck.Text = "Loopback"
-        Me.loopbackCheck.UseVisualStyleBackColor = True
-        '
         'upnpCheck
         '
         Me.upnpCheck.AutoSize = True
@@ -539,6 +536,16 @@ Partial Class NewServerTab
         Me.upnpCheck.TabIndex = 14
         Me.upnpCheck.Text = "UPNP"
         Me.upnpCheck.UseVisualStyleBackColor = True
+        '
+        'loopbackCheck
+        '
+        Me.loopbackCheck.AutoSize = True
+        Me.loopbackCheck.Location = New System.Drawing.Point(6, 25)
+        Me.loopbackCheck.Name = "loopbackCheck"
+        Me.loopbackCheck.Size = New System.Drawing.Size(74, 17)
+        Me.loopbackCheck.TabIndex = 15
+        Me.loopbackCheck.Text = "Loopback"
+        Me.loopbackCheck.UseVisualStyleBackColor = True
         '
         'headlessGroup
         '
@@ -989,9 +996,8 @@ Partial Class NewServerTab
         Me.serverTabs.Controls.Add(Me.settingsTab)
         Me.serverTabs.Controls.Add(Me.miscTab)
         Me.serverTabs.Controls.Add(Me.modsTab)
-        Me.serverTabs.Controls.Add(Me.perfTab)
         Me.serverTabs.Controls.Add(Me.missionTab)
-        Me.serverTabs.Controls.Add(Me.difficultyTab)
+        Me.serverTabs.Controls.Add(Me.perfTab)
         Me.serverTabs.Controls.Add(Me.scriptingTab)
         Me.serverTabs.Dock = System.Windows.Forms.DockStyle.Top
         Me.serverTabs.Location = New System.Drawing.Point(0, 0)
@@ -1256,6 +1262,110 @@ Partial Class NewServerTab
         Me.vonCheck.Text = "Disable VON"
         Me.vonCheck.UseVisualStyleBackColor = True
         '
+        'missionTab
+        '
+        Me.missionTab.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.missionTab.Controls.Add(Me.missionsGroup)
+        Me.missionTab.Controls.Add(Me.customDifficutlyGroup)
+        Me.missionTab.Location = New System.Drawing.Point(4, 22)
+        Me.missionTab.Name = "missionTab"
+        Me.missionTab.Size = New System.Drawing.Size(691, 241)
+        Me.missionTab.TabIndex = 4
+        Me.missionTab.Text = "Missions"
+        '
+        'missionsGroup
+        '
+        Me.missionsGroup.Controls.Add(Me.autoInitCheck)
+        Me.missionsGroup.Controls.Add(Me.persistCheck)
+        Me.missionsGroup.Controls.Add(Me.difficultyCombo)
+        Me.missionsGroup.Controls.Add(Me.missionRefreshButton)
+        Me.missionsGroup.Controls.Add(Me.missionsNoneButton)
+        Me.missionsGroup.Controls.Add(Me.missionsAllButton)
+        Me.missionsGroup.Controls.Add(Me.CheckedListBox1)
+        Me.missionsGroup.Location = New System.Drawing.Point(5, 6)
+        Me.missionsGroup.Name = "missionsGroup"
+        Me.missionsGroup.Size = New System.Drawing.Size(315, 229)
+        Me.missionsGroup.TabIndex = 12
+        Me.missionsGroup.TabStop = False
+        Me.missionsGroup.Text = "Missions"
+        '
+        'autoInitCheck
+        '
+        Me.autoInitCheck.AutoSize = True
+        Me.autoInitCheck.Enabled = False
+        Me.autoInitCheck.Location = New System.Drawing.Point(133, 164)
+        Me.autoInitCheck.Name = "autoInitCheck"
+        Me.autoInitCheck.Size = New System.Drawing.Size(65, 17)
+        Me.autoInitCheck.TabIndex = 11
+        Me.autoInitCheck.Text = "Auto Init"
+        Me.autoInitCheck.UseVisualStyleBackColor = True
+        '
+        'persistCheck
+        '
+        Me.persistCheck.AutoSize = True
+        Me.persistCheck.Location = New System.Drawing.Point(6, 164)
+        Me.persistCheck.Name = "persistCheck"
+        Me.persistCheck.Size = New System.Drawing.Size(121, 17)
+        Me.persistCheck.TabIndex = 10
+        Me.persistCheck.Text = "Persistant Battlefield"
+        Me.persistCheck.UseVisualStyleBackColor = True
+        '
+        'difficultyCombo
+        '
+        Me.difficultyCombo.BackColor = System.Drawing.SystemColors.Window
+        Me.difficultyCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.difficultyCombo.FormattingEnabled = True
+        Me.difficultyCombo.Items.AddRange(New Object() {"Recruit", "Regular", "Veteran", "Custom"})
+        Me.difficultyCombo.Location = New System.Drawing.Point(237, 202)
+        Me.difficultyCombo.MaxDropDownItems = 3
+        Me.difficultyCombo.Name = "difficultyCombo"
+        Me.difficultyCombo.Size = New System.Drawing.Size(72, 21)
+        Me.difficultyCombo.TabIndex = 29
+        '
+        'missionRefreshButton
+        '
+        Me.missionRefreshButton.Location = New System.Drawing.Point(118, 200)
+        Me.missionRefreshButton.Name = "missionRefreshButton"
+        Me.missionRefreshButton.Size = New System.Drawing.Size(24, 23)
+        Me.missionRefreshButton.TabIndex = 15
+        Me.missionRefreshButton.Text = "" & Global.Microsoft.VisualBasic.ChrW(9) & "↻"
+        Me.missionRefreshButton.UseVisualStyleBackColor = True
+        '
+        'missionsNoneButton
+        '
+        Me.missionsNoneButton.Location = New System.Drawing.Point(62, 200)
+        Me.missionsNoneButton.Name = "missionsNoneButton"
+        Me.missionsNoneButton.Size = New System.Drawing.Size(50, 23)
+        Me.missionsNoneButton.TabIndex = 14
+        Me.missionsNoneButton.Text = "None"
+        Me.missionsNoneButton.UseVisualStyleBackColor = True
+        '
+        'missionsAllButton
+        '
+        Me.missionsAllButton.Location = New System.Drawing.Point(6, 200)
+        Me.missionsAllButton.Name = "missionsAllButton"
+        Me.missionsAllButton.Size = New System.Drawing.Size(50, 23)
+        Me.missionsAllButton.TabIndex = 13
+        Me.missionsAllButton.Text = "All"
+        Me.missionsAllButton.UseVisualStyleBackColor = True
+        '
+        'CheckedListBox1
+        '
+        Me.CheckedListBox1.FormattingEnabled = True
+        Me.CheckedListBox1.Location = New System.Drawing.Point(6, 19)
+        Me.CheckedListBox1.Name = "CheckedListBox1"
+        Me.CheckedListBox1.Size = New System.Drawing.Size(303, 139)
+        Me.CheckedListBox1.TabIndex = 12
+        '
+        'customDifficutlyGroup
+        '
+        Me.customDifficutlyGroup.Location = New System.Drawing.Point(326, 6)
+        Me.customDifficutlyGroup.Name = "customDifficutlyGroup"
+        Me.customDifficutlyGroup.Size = New System.Drawing.Size(360, 229)
+        Me.customDifficutlyGroup.TabIndex = 13
+        Me.customDifficutlyGroup.TabStop = False
+        Me.customDifficutlyGroup.Text = "Custom Difficulty"
+        '
         'perfTab
         '
         Me.perfTab.BackColor = System.Drawing.Color.LightSkyBlue
@@ -1267,217 +1377,6 @@ Partial Class NewServerTab
         Me.perfTab.Size = New System.Drawing.Size(691, 241)
         Me.perfTab.TabIndex = 2
         Me.perfTab.Text = "Perfomance"
-        '
-        'disconTimeNumeric
-        '
-        Me.disconTimeNumeric.Enabled = False
-        Me.disconTimeNumeric.Location = New System.Drawing.Point(145, 96)
-        Me.disconTimeNumeric.Maximum = New Decimal(New Integer() {600, 0, 0, 0})
-        Me.disconTimeNumeric.Name = "disconTimeNumeric"
-        Me.disconTimeNumeric.Size = New System.Drawing.Size(43, 20)
-        Me.disconTimeNumeric.TabIndex = 43
-        Me.disconTimeNumeric.Value = New Decimal(New Integer() {90, 0, 0, 0})
-        '
-        'packetLossNumeric
-        '
-        Me.packetLossNumeric.Enabled = False
-        Me.packetLossNumeric.Location = New System.Drawing.Point(145, 70)
-        Me.packetLossNumeric.Name = "packetLossNumeric"
-        Me.packetLossNumeric.Size = New System.Drawing.Size(43, 20)
-        Me.packetLossNumeric.TabIndex = 42
-        '
-        'maxDesyncNumeric
-        '
-        Me.maxDesyncNumeric.Enabled = False
-        Me.maxDesyncNumeric.Increment = New Decimal(New Integer() {100, 0, 0, 0})
-        Me.maxDesyncNumeric.Location = New System.Drawing.Point(145, 44)
-        Me.maxDesyncNumeric.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
-        Me.maxDesyncNumeric.Name = "maxDesyncNumeric"
-        Me.maxDesyncNumeric.Size = New System.Drawing.Size(61, 20)
-        Me.maxDesyncNumeric.TabIndex = 41
-        '
-        'maxPingNumeric
-        '
-        Me.maxPingNumeric.Enabled = False
-        Me.maxPingNumeric.Location = New System.Drawing.Point(145, 18)
-        Me.maxPingNumeric.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
-        Me.maxPingNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.maxPingNumeric.Name = "maxPingNumeric"
-        Me.maxPingNumeric.Size = New System.Drawing.Size(43, 20)
-        Me.maxPingNumeric.TabIndex = 40
-        Me.maxPingNumeric.Value = New Decimal(New Integer() {60, 0, 0, 0})
-        '
-        'kickSlowCheck
-        '
-        Me.kickSlowCheck.AutoSize = True
-        Me.kickSlowCheck.Location = New System.Drawing.Point(6, 124)
-        Me.kickSlowCheck.Name = "kickSlowCheck"
-        Me.kickSlowCheck.Size = New System.Drawing.Size(133, 17)
-        Me.kickSlowCheck.TabIndex = 39
-        Me.kickSlowCheck.Text = "Kick On Slow Network"
-        Me.kickSlowCheck.UseVisualStyleBackColor = True
-        '
-        'disconTimeCheck
-        '
-        Me.disconTimeCheck.AutoSize = True
-        Me.disconTimeCheck.Location = New System.Drawing.Point(6, 97)
-        Me.disconTimeCheck.Name = "disconTimeCheck"
-        Me.disconTimeCheck.Size = New System.Drawing.Size(121, 17)
-        Me.disconTimeCheck.TabIndex = 38
-        Me.disconTimeCheck.Text = "Disconnect Timeout"
-        Me.disconTimeCheck.UseVisualStyleBackColor = True
-        '
-        'packetLossCheck
-        '
-        Me.packetLossCheck.AutoSize = True
-        Me.packetLossCheck.Location = New System.Drawing.Point(6, 71)
-        Me.packetLossCheck.Name = "packetLossCheck"
-        Me.packetLossCheck.Size = New System.Drawing.Size(108, 17)
-        Me.packetLossCheck.TabIndex = 37
-        Me.packetLossCheck.Text = "Max Packet Loss"
-        Me.packetLossCheck.UseVisualStyleBackColor = True
-        '
-        'kickSlowCombo
-        '
-        Me.kickSlowCombo.BackColor = System.Drawing.SystemColors.Window
-        Me.kickSlowCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.kickSlowCombo.Enabled = False
-        Me.kickSlowCombo.FormattingEnabled = True
-        Me.kickSlowCombo.Items.AddRange(New Object() {"Log", "Log & Kick"})
-        Me.kickSlowCombo.Location = New System.Drawing.Point(145, 122)
-        Me.kickSlowCombo.Name = "kickSlowCombo"
-        Me.kickSlowCombo.Size = New System.Drawing.Size(61, 21)
-        Me.kickSlowCombo.TabIndex = 36
-        '
-        'maxDesyncCheck
-        '
-        Me.maxDesyncCheck.AutoSize = True
-        Me.maxDesyncCheck.Location = New System.Drawing.Point(6, 45)
-        Me.maxDesyncCheck.Name = "maxDesyncCheck"
-        Me.maxDesyncCheck.Size = New System.Drawing.Size(85, 17)
-        Me.maxDesyncCheck.TabIndex = 35
-        Me.maxDesyncCheck.Text = "Max Desync"
-        Me.maxDesyncCheck.UseVisualStyleBackColor = True
-        '
-        'maxPingCheck
-        '
-        Me.maxPingCheck.AutoSize = True
-        Me.maxPingCheck.Location = New System.Drawing.Point(6, 19)
-        Me.maxPingCheck.Name = "maxPingCheck"
-        Me.maxPingCheck.Size = New System.Drawing.Size(70, 17)
-        Me.maxPingCheck.TabIndex = 34
-        Me.maxPingCheck.Text = "Max Ping"
-        Me.maxPingCheck.UseVisualStyleBackColor = True
-        '
-        'filePatchingCheck
-        '
-        Me.filePatchingCheck.AutoSize = True
-        Me.filePatchingCheck.Location = New System.Drawing.Point(9, 19)
-        Me.filePatchingCheck.Name = "filePatchingCheck"
-        Me.filePatchingCheck.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.filePatchingCheck.Size = New System.Drawing.Size(87, 17)
-        Me.filePatchingCheck.TabIndex = 13
-        Me.filePatchingCheck.Text = "File Patching"
-        Me.filePatchingCheck.UseVisualStyleBackColor = True
-        '
-        'htCheck
-        '
-        Me.htCheck.AutoSize = True
-        Me.htCheck.Location = New System.Drawing.Point(9, 42)
-        Me.htCheck.Name = "htCheck"
-        Me.htCheck.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.htCheck.Size = New System.Drawing.Size(134, 17)
-        Me.htCheck.TabIndex = 14
-        Me.htCheck.Text = "Enable Hyperthreading"
-        Me.htCheck.UseVisualStyleBackColor = True
-        '
-        'missionTab
-        '
-        Me.missionTab.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.missionTab.Controls.Add(Me.persistCheck)
-        Me.missionTab.Controls.Add(Me.autoInitCheck)
-        Me.missionTab.Location = New System.Drawing.Point(4, 22)
-        Me.missionTab.Name = "missionTab"
-        Me.missionTab.Size = New System.Drawing.Size(691, 241)
-        Me.missionTab.TabIndex = 4
-        Me.missionTab.Text = "Missions"
-        '
-        'persistCheck
-        '
-        Me.persistCheck.AutoSize = True
-        Me.persistCheck.Location = New System.Drawing.Point(285, 100)
-        Me.persistCheck.Name = "persistCheck"
-        Me.persistCheck.Size = New System.Drawing.Size(121, 17)
-        Me.persistCheck.TabIndex = 10
-        Me.persistCheck.Text = "Persistant Battlefield"
-        Me.persistCheck.UseVisualStyleBackColor = True
-        '
-        'autoInitCheck
-        '
-        Me.autoInitCheck.AutoSize = True
-        Me.autoInitCheck.Enabled = False
-        Me.autoInitCheck.Location = New System.Drawing.Point(285, 123)
-        Me.autoInitCheck.Name = "autoInitCheck"
-        Me.autoInitCheck.Size = New System.Drawing.Size(65, 17)
-        Me.autoInitCheck.TabIndex = 11
-        Me.autoInitCheck.Text = "Auto Init"
-        Me.autoInitCheck.UseVisualStyleBackColor = True
-        '
-        'difficultyTab
-        '
-        Me.difficultyTab.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.difficultyTab.Location = New System.Drawing.Point(4, 22)
-        Me.difficultyTab.Name = "difficultyTab"
-        Me.difficultyTab.Size = New System.Drawing.Size(691, 241)
-        Me.difficultyTab.TabIndex = 5
-        Me.difficultyTab.Text = "Difficulty"
-        '
-        'scriptingTab
-        '
-        Me.scriptingTab.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.scriptingTab.Controls.Add(Me.serverScriptsGroup)
-        Me.scriptingTab.Location = New System.Drawing.Point(4, 22)
-        Me.scriptingTab.Name = "scriptingTab"
-        Me.scriptingTab.Size = New System.Drawing.Size(691, 241)
-        Me.scriptingTab.TabIndex = 6
-        Me.scriptingTab.Text = "Server Scripting"
-        '
-        'viewGroup
-        '
-        Me.viewGroup.Controls.Add(Me.metresLabel)
-        Me.viewGroup.Controls.Add(Me.distanceLabel)
-        Me.viewGroup.Controls.Add(Me.terrainLabel)
-        Me.viewGroup.Controls.Add(Me.distanceNumeric)
-        Me.viewGroup.Controls.Add(Me.terrainNumeric)
-        Me.viewGroup.Location = New System.Drawing.Point(6, 149)
-        Me.viewGroup.Name = "viewGroup"
-        Me.viewGroup.Size = New System.Drawing.Size(200, 74)
-        Me.viewGroup.TabIndex = 44
-        Me.viewGroup.TabStop = False
-        Me.viewGroup.Text = "View Settings"
-        '
-        'clientPerfGroup
-        '
-        Me.clientPerfGroup.Controls.Add(Me.plPercentLabel)
-        Me.clientPerfGroup.Controls.Add(Me.msLabel)
-        Me.clientPerfGroup.Controls.Add(Me.sLabel)
-        Me.clientPerfGroup.Controls.Add(Me.viewGroup)
-        Me.clientPerfGroup.Controls.Add(Me.maxPingCheck)
-        Me.clientPerfGroup.Controls.Add(Me.disconTimeNumeric)
-        Me.clientPerfGroup.Controls.Add(Me.maxDesyncCheck)
-        Me.clientPerfGroup.Controls.Add(Me.packetLossNumeric)
-        Me.clientPerfGroup.Controls.Add(Me.kickSlowCombo)
-        Me.clientPerfGroup.Controls.Add(Me.maxDesyncNumeric)
-        Me.clientPerfGroup.Controls.Add(Me.packetLossCheck)
-        Me.clientPerfGroup.Controls.Add(Me.maxPingNumeric)
-        Me.clientPerfGroup.Controls.Add(Me.disconTimeCheck)
-        Me.clientPerfGroup.Controls.Add(Me.kickSlowCheck)
-        Me.clientPerfGroup.Location = New System.Drawing.Point(472, 6)
-        Me.clientPerfGroup.Name = "clientPerfGroup"
-        Me.clientPerfGroup.Size = New System.Drawing.Size(213, 229)
-        Me.clientPerfGroup.TabIndex = 45
-        Me.clientPerfGroup.TabStop = False
-        Me.clientPerfGroup.Text = "Client"
         '
         'serverPerfGroup
         '
@@ -1513,141 +1412,49 @@ Partial Class NewServerTab
         Me.serverPerfGroup.TabStop = False
         Me.serverPerfGroup.Text = "Server"
         '
-        'maxCustFileLabel
+        'moreInfoLabel
         '
-        Me.maxCustFileLabel.AutoSize = True
-        Me.maxCustFileLabel.Location = New System.Drawing.Point(6, 100)
-        Me.maxCustFileLabel.Name = "maxCustFileLabel"
-        Me.maxCustFileLabel.Size = New System.Drawing.Size(129, 13)
-        Me.maxCustFileLabel.TabIndex = 15
-        Me.maxCustFileLabel.Text = "Max Custom File Size (kB)"
+        Me.moreInfoLabel.AutoSize = True
+        Me.moreInfoLabel.Location = New System.Drawing.Point(402, 16)
+        Me.moreInfoLabel.Name = "moreInfoLabel"
+        Me.moreInfoLabel.Size = New System.Drawing.Size(52, 13)
+        Me.moreInfoLabel.TabIndex = 37
+        Me.moreInfoLabel.TabStop = True
+        Me.moreInfoLabel.Text = "More Info"
         '
-        'maxCustFileBox
+        'perfResetLabel
         '
-        Me.maxCustFileBox.Location = New System.Drawing.Point(137, 97)
-        Me.maxCustFileBox.Name = "maxCustFileBox"
-        Me.maxCustFileBox.Size = New System.Drawing.Size(70, 20)
-        Me.maxCustFileBox.TabIndex = 16
-        Me.maxCustFileBox.Text = "160"
+        Me.perfResetLabel.AutoSize = True
+        Me.perfResetLabel.Location = New System.Drawing.Point(6, 74)
+        Me.perfResetLabel.Name = "perfResetLabel"
+        Me.perfResetLabel.Size = New System.Drawing.Size(84, 13)
+        Me.perfResetLabel.TabIndex = 36
+        Me.perfResetLabel.Text = "Reset All Values"
         '
-        'maxPacketLabel
+        'perfResetButton
         '
-        Me.maxPacketLabel.AutoSize = True
-        Me.maxPacketLabel.Location = New System.Drawing.Point(6, 126)
-        Me.maxPacketLabel.Name = "maxPacketLabel"
-        Me.maxPacketLabel.Size = New System.Drawing.Size(87, 13)
-        Me.maxPacketLabel.TabIndex = 17
-        Me.maxPacketLabel.Text = "Max Packet Size"
+        Me.perfResetButton.Location = New System.Drawing.Point(136, 67)
+        Me.perfResetButton.Name = "perfResetButton"
+        Me.perfResetButton.Size = New System.Drawing.Size(71, 23)
+        Me.perfResetButton.TabIndex = 35
+        Me.perfResetButton.Text = "Reset"
+        Me.perfResetButton.UseVisualStyleBackColor = True
         '
-        'maxPacketBox
+        'extraParamsBox
         '
-        Me.maxPacketBox.Location = New System.Drawing.Point(137, 123)
-        Me.maxPacketBox.Name = "maxPacketBox"
-        Me.maxPacketBox.Size = New System.Drawing.Size(70, 20)
-        Me.maxPacketBox.TabIndex = 18
-        Me.maxPacketBox.Text = "1400"
+        Me.extraParamsBox.Location = New System.Drawing.Point(136, 201)
+        Me.extraParamsBox.Name = "extraParamsBox"
+        Me.extraParamsBox.Size = New System.Drawing.Size(318, 20)
+        Me.extraParamsBox.TabIndex = 34
         '
-        'maxGuaranteedLabel
+        'extraParamsLabel
         '
-        Me.maxGuaranteedLabel.AutoSize = True
-        Me.maxGuaranteedLabel.Location = New System.Drawing.Point(220, 126)
-        Me.maxGuaranteedLabel.Name = "maxGuaranteedLabel"
-        Me.maxGuaranteedLabel.Size = New System.Drawing.Size(144, 13)
-        Me.maxGuaranteedLabel.TabIndex = 19
-        Me.maxGuaranteedLabel.Text = "Max Size Guaranteed (Bytes)"
-        '
-        'maxGuaranteedBox
-        '
-        Me.maxGuaranteedBox.Location = New System.Drawing.Point(384, 123)
-        Me.maxGuaranteedBox.Name = "maxGuaranteedBox"
-        Me.maxGuaranteedBox.Size = New System.Drawing.Size(70, 20)
-        Me.maxGuaranteedBox.TabIndex = 20
-        Me.maxGuaranteedBox.Text = "512"
-        '
-        'maxNonGuaranteedLabel
-        '
-        Me.maxNonGuaranteedLabel.AutoSize = True
-        Me.maxNonGuaranteedLabel.Location = New System.Drawing.Point(220, 100)
-        Me.maxNonGuaranteedLabel.Name = "maxNonGuaranteedLabel"
-        Me.maxNonGuaranteedLabel.Size = New System.Drawing.Size(162, 13)
-        Me.maxNonGuaranteedLabel.TabIndex = 21
-        Me.maxNonGuaranteedLabel.Text = "Max Size Nonguaranteed (Bytes)"
-        '
-        'maxNonGuaranteedBox
-        '
-        Me.maxNonGuaranteedBox.Location = New System.Drawing.Point(384, 97)
-        Me.maxNonGuaranteedBox.Name = "maxNonGuaranteedBox"
-        Me.maxNonGuaranteedBox.Size = New System.Drawing.Size(70, 20)
-        Me.maxNonGuaranteedBox.TabIndex = 22
-        Me.maxNonGuaranteedBox.Text = "256"
-        '
-        'minBandwidthLabel
-        '
-        Me.minBandwidthLabel.AutoSize = True
-        Me.minBandwidthLabel.Location = New System.Drawing.Point(6, 152)
-        Me.minBandwidthLabel.Name = "minBandwidthLabel"
-        Me.minBandwidthLabel.Size = New System.Drawing.Size(113, 13)
-        Me.minBandwidthLabel.TabIndex = 23
-        Me.minBandwidthLabel.Text = "Min Bandwidth (kbit/s)"
-        '
-        'minBandwidthBox
-        '
-        Me.minBandwidthBox.Location = New System.Drawing.Point(137, 149)
-        Me.minBandwidthBox.Name = "minBandwidthBox"
-        Me.minBandwidthBox.Size = New System.Drawing.Size(70, 20)
-        Me.minBandwidthBox.TabIndex = 24
-        Me.minBandwidthBox.Text = "128"
-        '
-        'maxBandwidthLabel
-        '
-        Me.maxBandwidthLabel.AutoSize = True
-        Me.maxBandwidthLabel.Location = New System.Drawing.Point(6, 178)
-        Me.maxBandwidthLabel.Name = "maxBandwidthLabel"
-        Me.maxBandwidthLabel.Size = New System.Drawing.Size(118, 13)
-        Me.maxBandwidthLabel.TabIndex = 25
-        Me.maxBandwidthLabel.Text = "Max Bandwidth (mbit/s)"
-        '
-        'maxBandwidthBox
-        '
-        Me.maxBandwidthBox.Location = New System.Drawing.Point(137, 175)
-        Me.maxBandwidthBox.Name = "maxBandwidthBox"
-        Me.maxBandwidthBox.Size = New System.Drawing.Size(70, 20)
-        Me.maxBandwidthBox.TabIndex = 26
-        Me.maxBandwidthBox.Text = "2000"
-        '
-        'minErrorNearLabel
-        '
-        Me.minErrorNearLabel.AutoSize = True
-        Me.minErrorNearLabel.Location = New System.Drawing.Point(220, 178)
-        Me.minErrorNearLabel.Name = "minErrorNearLabel"
-        Me.minErrorNearLabel.Size = New System.Drawing.Size(119, 13)
-        Me.minErrorNearLabel.TabIndex = 27
-        Me.minErrorNearLabel.Text = "Min Error To Send Near"
-        '
-        'minErrorNearBox
-        '
-        Me.minErrorNearBox.Location = New System.Drawing.Point(384, 175)
-        Me.minErrorNearBox.Name = "minErrorNearBox"
-        Me.minErrorNearBox.Size = New System.Drawing.Size(70, 20)
-        Me.minErrorNearBox.TabIndex = 28
-        Me.minErrorNearBox.Text = "0.01"
-        '
-        'minErrorLabel
-        '
-        Me.minErrorLabel.AutoSize = True
-        Me.minErrorLabel.Location = New System.Drawing.Point(220, 154)
-        Me.minErrorLabel.Name = "minErrorLabel"
-        Me.minErrorLabel.Size = New System.Drawing.Size(93, 13)
-        Me.minErrorLabel.TabIndex = 29
-        Me.minErrorLabel.Text = "Min Error To Send"
-        '
-        'minErrorBox
-        '
-        Me.minErrorBox.Location = New System.Drawing.Point(384, 149)
-        Me.minErrorBox.Name = "minErrorBox"
-        Me.minErrorBox.Size = New System.Drawing.Size(70, 20)
-        Me.minErrorBox.TabIndex = 30
-        Me.minErrorBox.Text = "0.001"
+        Me.extraParamsLabel.AutoSize = True
+        Me.extraParamsLabel.Location = New System.Drawing.Point(6, 204)
+        Me.extraParamsLabel.Name = "extraParamsLabel"
+        Me.extraParamsLabel.Size = New System.Drawing.Size(87, 13)
+        Me.extraParamsLabel.TabIndex = 33
+        Me.extraParamsLabel.Text = "Extra Parameters"
         '
         'maxSendLabel
         '
@@ -1666,49 +1473,227 @@ Partial Class NewServerTab
         Me.maxSendBox.TabIndex = 32
         Me.maxSendBox.Text = "128"
         '
-        'extraParamsLabel
+        'minErrorLabel
         '
-        Me.extraParamsLabel.AutoSize = True
-        Me.extraParamsLabel.Location = New System.Drawing.Point(6, 204)
-        Me.extraParamsLabel.Name = "extraParamsLabel"
-        Me.extraParamsLabel.Size = New System.Drawing.Size(87, 13)
-        Me.extraParamsLabel.TabIndex = 33
-        Me.extraParamsLabel.Text = "Extra Parameters"
+        Me.minErrorLabel.AutoSize = True
+        Me.minErrorLabel.Location = New System.Drawing.Point(220, 154)
+        Me.minErrorLabel.Name = "minErrorLabel"
+        Me.minErrorLabel.Size = New System.Drawing.Size(93, 13)
+        Me.minErrorLabel.TabIndex = 29
+        Me.minErrorLabel.Text = "Min Error To Send"
         '
-        'extraParamsBox
+        'minErrorBox
         '
-        Me.extraParamsBox.Location = New System.Drawing.Point(136, 201)
-        Me.extraParamsBox.Name = "extraParamsBox"
-        Me.extraParamsBox.Size = New System.Drawing.Size(318, 20)
-        Me.extraParamsBox.TabIndex = 34
+        Me.minErrorBox.Location = New System.Drawing.Point(384, 149)
+        Me.minErrorBox.Name = "minErrorBox"
+        Me.minErrorBox.Size = New System.Drawing.Size(70, 20)
+        Me.minErrorBox.TabIndex = 30
+        Me.minErrorBox.Text = "0.001"
         '
-        'perfResetButton
+        'minErrorNearLabel
         '
-        Me.perfResetButton.Location = New System.Drawing.Point(136, 67)
-        Me.perfResetButton.Name = "perfResetButton"
-        Me.perfResetButton.Size = New System.Drawing.Size(71, 23)
-        Me.perfResetButton.TabIndex = 35
-        Me.perfResetButton.Text = "Reset"
-        Me.perfResetButton.UseVisualStyleBackColor = True
+        Me.minErrorNearLabel.AutoSize = True
+        Me.minErrorNearLabel.Location = New System.Drawing.Point(220, 178)
+        Me.minErrorNearLabel.Name = "minErrorNearLabel"
+        Me.minErrorNearLabel.Size = New System.Drawing.Size(119, 13)
+        Me.minErrorNearLabel.TabIndex = 27
+        Me.minErrorNearLabel.Text = "Min Error To Send Near"
         '
-        'perfResetLabel
+        'minErrorNearBox
         '
-        Me.perfResetLabel.AutoSize = True
-        Me.perfResetLabel.Location = New System.Drawing.Point(6, 74)
-        Me.perfResetLabel.Name = "perfResetLabel"
-        Me.perfResetLabel.Size = New System.Drawing.Size(84, 13)
-        Me.perfResetLabel.TabIndex = 36
-        Me.perfResetLabel.Text = "Reset All Values"
+        Me.minErrorNearBox.Location = New System.Drawing.Point(384, 175)
+        Me.minErrorNearBox.Name = "minErrorNearBox"
+        Me.minErrorNearBox.Size = New System.Drawing.Size(70, 20)
+        Me.minErrorNearBox.TabIndex = 28
+        Me.minErrorNearBox.Text = "0.01"
         '
-        'moreInfoLabel
+        'maxBandwidthLabel
         '
-        Me.moreInfoLabel.AutoSize = True
-        Me.moreInfoLabel.Location = New System.Drawing.Point(402, 16)
-        Me.moreInfoLabel.Name = "moreInfoLabel"
-        Me.moreInfoLabel.Size = New System.Drawing.Size(52, 13)
-        Me.moreInfoLabel.TabIndex = 37
-        Me.moreInfoLabel.TabStop = True
-        Me.moreInfoLabel.Text = "More Info"
+        Me.maxBandwidthLabel.AutoSize = True
+        Me.maxBandwidthLabel.Location = New System.Drawing.Point(6, 178)
+        Me.maxBandwidthLabel.Name = "maxBandwidthLabel"
+        Me.maxBandwidthLabel.Size = New System.Drawing.Size(118, 13)
+        Me.maxBandwidthLabel.TabIndex = 25
+        Me.maxBandwidthLabel.Text = "Max Bandwidth (mbit/s)"
+        '
+        'maxBandwidthBox
+        '
+        Me.maxBandwidthBox.Location = New System.Drawing.Point(137, 175)
+        Me.maxBandwidthBox.Name = "maxBandwidthBox"
+        Me.maxBandwidthBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxBandwidthBox.TabIndex = 26
+        Me.maxBandwidthBox.Text = "2000"
+        '
+        'minBandwidthLabel
+        '
+        Me.minBandwidthLabel.AutoSize = True
+        Me.minBandwidthLabel.Location = New System.Drawing.Point(6, 152)
+        Me.minBandwidthLabel.Name = "minBandwidthLabel"
+        Me.minBandwidthLabel.Size = New System.Drawing.Size(113, 13)
+        Me.minBandwidthLabel.TabIndex = 23
+        Me.minBandwidthLabel.Text = "Min Bandwidth (kbit/s)"
+        '
+        'minBandwidthBox
+        '
+        Me.minBandwidthBox.Location = New System.Drawing.Point(137, 149)
+        Me.minBandwidthBox.Name = "minBandwidthBox"
+        Me.minBandwidthBox.Size = New System.Drawing.Size(70, 20)
+        Me.minBandwidthBox.TabIndex = 24
+        Me.minBandwidthBox.Text = "128"
+        '
+        'maxNonGuaranteedLabel
+        '
+        Me.maxNonGuaranteedLabel.AutoSize = True
+        Me.maxNonGuaranteedLabel.Location = New System.Drawing.Point(220, 100)
+        Me.maxNonGuaranteedLabel.Name = "maxNonGuaranteedLabel"
+        Me.maxNonGuaranteedLabel.Size = New System.Drawing.Size(162, 13)
+        Me.maxNonGuaranteedLabel.TabIndex = 21
+        Me.maxNonGuaranteedLabel.Text = "Max Size Nonguaranteed (Bytes)"
+        '
+        'maxNonGuaranteedBox
+        '
+        Me.maxNonGuaranteedBox.Location = New System.Drawing.Point(384, 97)
+        Me.maxNonGuaranteedBox.Name = "maxNonGuaranteedBox"
+        Me.maxNonGuaranteedBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxNonGuaranteedBox.TabIndex = 22
+        Me.maxNonGuaranteedBox.Text = "256"
+        '
+        'maxGuaranteedLabel
+        '
+        Me.maxGuaranteedLabel.AutoSize = True
+        Me.maxGuaranteedLabel.Location = New System.Drawing.Point(220, 126)
+        Me.maxGuaranteedLabel.Name = "maxGuaranteedLabel"
+        Me.maxGuaranteedLabel.Size = New System.Drawing.Size(144, 13)
+        Me.maxGuaranteedLabel.TabIndex = 19
+        Me.maxGuaranteedLabel.Text = "Max Size Guaranteed (Bytes)"
+        '
+        'maxGuaranteedBox
+        '
+        Me.maxGuaranteedBox.Location = New System.Drawing.Point(384, 123)
+        Me.maxGuaranteedBox.Name = "maxGuaranteedBox"
+        Me.maxGuaranteedBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxGuaranteedBox.TabIndex = 20
+        Me.maxGuaranteedBox.Text = "512"
+        '
+        'maxPacketLabel
+        '
+        Me.maxPacketLabel.AutoSize = True
+        Me.maxPacketLabel.Location = New System.Drawing.Point(6, 126)
+        Me.maxPacketLabel.Name = "maxPacketLabel"
+        Me.maxPacketLabel.Size = New System.Drawing.Size(87, 13)
+        Me.maxPacketLabel.TabIndex = 17
+        Me.maxPacketLabel.Text = "Max Packet Size"
+        '
+        'maxPacketBox
+        '
+        Me.maxPacketBox.Location = New System.Drawing.Point(137, 123)
+        Me.maxPacketBox.Name = "maxPacketBox"
+        Me.maxPacketBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxPacketBox.TabIndex = 18
+        Me.maxPacketBox.Text = "1400"
+        '
+        'maxCustFileLabel
+        '
+        Me.maxCustFileLabel.AutoSize = True
+        Me.maxCustFileLabel.Location = New System.Drawing.Point(6, 100)
+        Me.maxCustFileLabel.Name = "maxCustFileLabel"
+        Me.maxCustFileLabel.Size = New System.Drawing.Size(129, 13)
+        Me.maxCustFileLabel.TabIndex = 15
+        Me.maxCustFileLabel.Text = "Max Custom File Size (kB)"
+        '
+        'maxCustFileBox
+        '
+        Me.maxCustFileBox.Location = New System.Drawing.Point(137, 97)
+        Me.maxCustFileBox.Name = "maxCustFileBox"
+        Me.maxCustFileBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxCustFileBox.TabIndex = 16
+        Me.maxCustFileBox.Text = "160"
+        '
+        'filePatchingCheck
+        '
+        Me.filePatchingCheck.AutoSize = True
+        Me.filePatchingCheck.Location = New System.Drawing.Point(9, 19)
+        Me.filePatchingCheck.Name = "filePatchingCheck"
+        Me.filePatchingCheck.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.filePatchingCheck.Size = New System.Drawing.Size(87, 17)
+        Me.filePatchingCheck.TabIndex = 13
+        Me.filePatchingCheck.Text = "File Patching"
+        Me.filePatchingCheck.UseVisualStyleBackColor = True
+        '
+        'htCheck
+        '
+        Me.htCheck.AutoSize = True
+        Me.htCheck.Location = New System.Drawing.Point(9, 42)
+        Me.htCheck.Name = "htCheck"
+        Me.htCheck.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.htCheck.Size = New System.Drawing.Size(134, 17)
+        Me.htCheck.TabIndex = 14
+        Me.htCheck.Text = "Enable Hyperthreading"
+        Me.htCheck.UseVisualStyleBackColor = True
+        '
+        'clientPerfGroup
+        '
+        Me.clientPerfGroup.Controls.Add(Me.plPercentLabel)
+        Me.clientPerfGroup.Controls.Add(Me.msLabel)
+        Me.clientPerfGroup.Controls.Add(Me.sLabel)
+        Me.clientPerfGroup.Controls.Add(Me.viewGroup)
+        Me.clientPerfGroup.Controls.Add(Me.maxPingCheck)
+        Me.clientPerfGroup.Controls.Add(Me.disconTimeNumeric)
+        Me.clientPerfGroup.Controls.Add(Me.maxDesyncCheck)
+        Me.clientPerfGroup.Controls.Add(Me.packetLossNumeric)
+        Me.clientPerfGroup.Controls.Add(Me.kickSlowCombo)
+        Me.clientPerfGroup.Controls.Add(Me.maxDesyncNumeric)
+        Me.clientPerfGroup.Controls.Add(Me.packetLossCheck)
+        Me.clientPerfGroup.Controls.Add(Me.maxPingNumeric)
+        Me.clientPerfGroup.Controls.Add(Me.disconTimeCheck)
+        Me.clientPerfGroup.Controls.Add(Me.kickSlowCheck)
+        Me.clientPerfGroup.Location = New System.Drawing.Point(472, 6)
+        Me.clientPerfGroup.Name = "clientPerfGroup"
+        Me.clientPerfGroup.Size = New System.Drawing.Size(213, 229)
+        Me.clientPerfGroup.TabIndex = 45
+        Me.clientPerfGroup.TabStop = False
+        Me.clientPerfGroup.Text = "Client"
+        '
+        'plPercentLabel
+        '
+        Me.plPercentLabel.AutoSize = True
+        Me.plPercentLabel.Location = New System.Drawing.Point(189, 72)
+        Me.plPercentLabel.Name = "plPercentLabel"
+        Me.plPercentLabel.Size = New System.Drawing.Size(15, 13)
+        Me.plPercentLabel.TabIndex = 47
+        Me.plPercentLabel.Text = "%"
+        '
+        'msLabel
+        '
+        Me.msLabel.AutoSize = True
+        Me.msLabel.Location = New System.Drawing.Point(189, 20)
+        Me.msLabel.Name = "msLabel"
+        Me.msLabel.Size = New System.Drawing.Size(20, 13)
+        Me.msLabel.TabIndex = 46
+        Me.msLabel.Text = "ms"
+        '
+        'sLabel
+        '
+        Me.sLabel.AutoSize = True
+        Me.sLabel.Location = New System.Drawing.Point(189, 98)
+        Me.sLabel.Name = "sLabel"
+        Me.sLabel.Size = New System.Drawing.Size(12, 13)
+        Me.sLabel.TabIndex = 45
+        Me.sLabel.Text = "s"
+        '
+        'viewGroup
+        '
+        Me.viewGroup.Controls.Add(Me.metresLabel)
+        Me.viewGroup.Controls.Add(Me.distanceLabel)
+        Me.viewGroup.Controls.Add(Me.terrainLabel)
+        Me.viewGroup.Controls.Add(Me.distanceNumeric)
+        Me.viewGroup.Controls.Add(Me.terrainNumeric)
+        Me.viewGroup.Location = New System.Drawing.Point(6, 149)
+        Me.viewGroup.Name = "viewGroup"
+        Me.viewGroup.Size = New System.Drawing.Size(200, 74)
+        Me.viewGroup.TabIndex = 44
+        Me.viewGroup.TabStop = False
+        Me.viewGroup.Text = "View Settings"
         '
         'metresLabel
         '
@@ -1759,32 +1744,116 @@ Partial Class NewServerTab
         Me.terrainNumeric.TabIndex = 24
         Me.terrainNumeric.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
-        'sLabel
+        'maxPingCheck
         '
-        Me.sLabel.AutoSize = True
-        Me.sLabel.Location = New System.Drawing.Point(189, 98)
-        Me.sLabel.Name = "sLabel"
-        Me.sLabel.Size = New System.Drawing.Size(12, 13)
-        Me.sLabel.TabIndex = 45
-        Me.sLabel.Text = "s"
+        Me.maxPingCheck.AutoSize = True
+        Me.maxPingCheck.Location = New System.Drawing.Point(6, 19)
+        Me.maxPingCheck.Name = "maxPingCheck"
+        Me.maxPingCheck.Size = New System.Drawing.Size(70, 17)
+        Me.maxPingCheck.TabIndex = 34
+        Me.maxPingCheck.Text = "Max Ping"
+        Me.maxPingCheck.UseVisualStyleBackColor = True
         '
-        'msLabel
+        'disconTimeNumeric
         '
-        Me.msLabel.AutoSize = True
-        Me.msLabel.Location = New System.Drawing.Point(189, 20)
-        Me.msLabel.Name = "msLabel"
-        Me.msLabel.Size = New System.Drawing.Size(20, 13)
-        Me.msLabel.TabIndex = 46
-        Me.msLabel.Text = "ms"
+        Me.disconTimeNumeric.Enabled = False
+        Me.disconTimeNumeric.Location = New System.Drawing.Point(145, 96)
+        Me.disconTimeNumeric.Maximum = New Decimal(New Integer() {600, 0, 0, 0})
+        Me.disconTimeNumeric.Name = "disconTimeNumeric"
+        Me.disconTimeNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.disconTimeNumeric.TabIndex = 43
+        Me.disconTimeNumeric.Value = New Decimal(New Integer() {90, 0, 0, 0})
         '
-        'plPercentLabel
+        'maxDesyncCheck
         '
-        Me.plPercentLabel.AutoSize = True
-        Me.plPercentLabel.Location = New System.Drawing.Point(189, 72)
-        Me.plPercentLabel.Name = "plPercentLabel"
-        Me.plPercentLabel.Size = New System.Drawing.Size(15, 13)
-        Me.plPercentLabel.TabIndex = 47
-        Me.plPercentLabel.Text = "%"
+        Me.maxDesyncCheck.AutoSize = True
+        Me.maxDesyncCheck.Location = New System.Drawing.Point(6, 45)
+        Me.maxDesyncCheck.Name = "maxDesyncCheck"
+        Me.maxDesyncCheck.Size = New System.Drawing.Size(85, 17)
+        Me.maxDesyncCheck.TabIndex = 35
+        Me.maxDesyncCheck.Text = "Max Desync"
+        Me.maxDesyncCheck.UseVisualStyleBackColor = True
+        '
+        'packetLossNumeric
+        '
+        Me.packetLossNumeric.Enabled = False
+        Me.packetLossNumeric.Location = New System.Drawing.Point(145, 70)
+        Me.packetLossNumeric.Name = "packetLossNumeric"
+        Me.packetLossNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.packetLossNumeric.TabIndex = 42
+        '
+        'kickSlowCombo
+        '
+        Me.kickSlowCombo.BackColor = System.Drawing.SystemColors.Window
+        Me.kickSlowCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.kickSlowCombo.Enabled = False
+        Me.kickSlowCombo.FormattingEnabled = True
+        Me.kickSlowCombo.Items.AddRange(New Object() {"Log", "Log & Kick"})
+        Me.kickSlowCombo.Location = New System.Drawing.Point(145, 122)
+        Me.kickSlowCombo.Name = "kickSlowCombo"
+        Me.kickSlowCombo.Size = New System.Drawing.Size(61, 21)
+        Me.kickSlowCombo.TabIndex = 36
+        '
+        'maxDesyncNumeric
+        '
+        Me.maxDesyncNumeric.Enabled = False
+        Me.maxDesyncNumeric.Increment = New Decimal(New Integer() {100, 0, 0, 0})
+        Me.maxDesyncNumeric.Location = New System.Drawing.Point(145, 44)
+        Me.maxDesyncNumeric.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.maxDesyncNumeric.Name = "maxDesyncNumeric"
+        Me.maxDesyncNumeric.Size = New System.Drawing.Size(61, 20)
+        Me.maxDesyncNumeric.TabIndex = 41
+        '
+        'packetLossCheck
+        '
+        Me.packetLossCheck.AutoSize = True
+        Me.packetLossCheck.Location = New System.Drawing.Point(6, 71)
+        Me.packetLossCheck.Name = "packetLossCheck"
+        Me.packetLossCheck.Size = New System.Drawing.Size(108, 17)
+        Me.packetLossCheck.TabIndex = 37
+        Me.packetLossCheck.Text = "Max Packet Loss"
+        Me.packetLossCheck.UseVisualStyleBackColor = True
+        '
+        'maxPingNumeric
+        '
+        Me.maxPingNumeric.Enabled = False
+        Me.maxPingNumeric.Location = New System.Drawing.Point(145, 18)
+        Me.maxPingNumeric.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.maxPingNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.maxPingNumeric.Name = "maxPingNumeric"
+        Me.maxPingNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.maxPingNumeric.TabIndex = 40
+        Me.maxPingNumeric.Value = New Decimal(New Integer() {60, 0, 0, 0})
+        '
+        'disconTimeCheck
+        '
+        Me.disconTimeCheck.AutoSize = True
+        Me.disconTimeCheck.Location = New System.Drawing.Point(6, 97)
+        Me.disconTimeCheck.Name = "disconTimeCheck"
+        Me.disconTimeCheck.Size = New System.Drawing.Size(121, 17)
+        Me.disconTimeCheck.TabIndex = 38
+        Me.disconTimeCheck.Text = "Disconnect Timeout"
+        Me.disconTimeCheck.UseVisualStyleBackColor = True
+        '
+        'kickSlowCheck
+        '
+        Me.kickSlowCheck.AutoSize = True
+        Me.kickSlowCheck.Location = New System.Drawing.Point(6, 124)
+        Me.kickSlowCheck.Name = "kickSlowCheck"
+        Me.kickSlowCheck.Size = New System.Drawing.Size(133, 17)
+        Me.kickSlowCheck.TabIndex = 39
+        Me.kickSlowCheck.Text = "Kick On Slow Network"
+        Me.kickSlowCheck.UseVisualStyleBackColor = True
+        '
+        'scriptingTab
+        '
+        Me.scriptingTab.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.scriptingTab.Controls.Add(Me.serverScriptsGroup)
+        Me.scriptingTab.Location = New System.Drawing.Point(4, 22)
+        Me.scriptingTab.Name = "scriptingTab"
+        Me.scriptingTab.Size = New System.Drawing.Size(691, 241)
+        Me.scriptingTab.TabIndex = 6
+        Me.scriptingTab.Text = "Server Scripting"
         '
         'serverScriptsGroup
         '
@@ -1810,74 +1879,6 @@ Partial Class NewServerTab
         Me.serverScriptsGroup.TabIndex = 0
         Me.serverScriptsGroup.TabStop = False
         Me.serverScriptsGroup.Text = "Server Side Scripting"
-        '
-        'serverCommandLabel
-        '
-        Me.serverCommandLabel.AutoSize = True
-        Me.serverCommandLabel.Location = New System.Drawing.Point(8, 25)
-        Me.serverCommandLabel.Name = "serverCommandLabel"
-        Me.serverCommandLabel.Size = New System.Drawing.Size(137, 13)
-        Me.serverCommandLabel.TabIndex = 0
-        Me.serverCommandLabel.Text = "Server Command Password"
-        '
-        'serverCommandBox
-        '
-        Me.serverCommandBox.Location = New System.Drawing.Point(151, 22)
-        Me.serverCommandBox.Name = "serverCommandBox"
-        Me.serverCommandBox.Size = New System.Drawing.Size(200, 45)
-        Me.serverCommandBox.TabIndex = 5
-        Me.serverCommandBox.Text = ""
-        '
-        'doubleIdDetectedBox
-        '
-        Me.doubleIdDetectedBox.Location = New System.Drawing.Point(151, 73)
-        Me.doubleIdDetectedBox.Name = "doubleIdDetectedBox"
-        Me.doubleIdDetectedBox.Size = New System.Drawing.Size(200, 45)
-        Me.doubleIdDetectedBox.TabIndex = 6
-        Me.doubleIdDetectedBox.Text = ""
-        '
-        'onUserDisconnectedBox
-        '
-        Me.onUserDisconnectedBox.Location = New System.Drawing.Point(151, 175)
-        Me.onUserDisconnectedBox.Name = "onUserDisconnectedBox"
-        Me.onUserDisconnectedBox.Size = New System.Drawing.Size(200, 45)
-        Me.onUserDisconnectedBox.TabIndex = 7
-        Me.onUserDisconnectedBox.Text = ""
-        '
-        'onUserConnectedBox
-        '
-        Me.onUserConnectedBox.Location = New System.Drawing.Point(151, 124)
-        Me.onUserConnectedBox.Name = "onUserConnectedBox"
-        Me.onUserConnectedBox.Size = New System.Drawing.Size(200, 45)
-        Me.onUserConnectedBox.TabIndex = 8
-        Me.onUserConnectedBox.Text = ""
-        '
-        'doubleIdDetectedLabel
-        '
-        Me.doubleIdDetectedLabel.AutoSize = True
-        Me.doubleIdDetectedLabel.Location = New System.Drawing.Point(8, 76)
-        Me.doubleIdDetectedLabel.Name = "doubleIdDetectedLabel"
-        Me.doubleIdDetectedLabel.Size = New System.Drawing.Size(92, 13)
-        Me.doubleIdDetectedLabel.TabIndex = 9
-        Me.doubleIdDetectedLabel.Text = "doubleIdDetected"
-        '
-        'onUserConnectedLabel
-        '
-        Me.onUserConnectedLabel.AutoSize = True
-        Me.onUserConnectedLabel.Location = New System.Drawing.Point(8, 127)
-        Me.onUserConnectedLabel.Name = "onUserConnectedLabel"
-        Me.onUserConnectedLabel.Size = New System.Drawing.Size(93, 13)
-        Me.onUserConnectedLabel.TabIndex = 10
-        Me.onUserConnectedLabel.Text = "onUserConnected"
-        '
-        'onUserDisconnectedLabel
-        '
-        Me.onUserDisconnectedLabel.AutoSize = True
-        Me.onUserDisconnectedLabel.Location = New System.Drawing.Point(8, 178)
-        Me.onUserDisconnectedLabel.Name = "onUserDisconnectedLabel"
-        Me.onUserDisconnectedLabel.Size = New System.Drawing.Size(107, 13)
-        Me.onUserDisconnectedLabel.TabIndex = 11
-        Me.onUserDisconnectedLabel.Text = "onUserDisconnected"
         '
         'regularCheckLabel
         '
@@ -1947,6 +1948,74 @@ Partial Class NewServerTab
         Me.onHackedDataLabel.TabIndex = 12
         Me.onHackedDataLabel.Text = "onHackedData"
         '
+        'onUserDisconnectedLabel
+        '
+        Me.onUserDisconnectedLabel.AutoSize = True
+        Me.onUserDisconnectedLabel.Location = New System.Drawing.Point(8, 178)
+        Me.onUserDisconnectedLabel.Name = "onUserDisconnectedLabel"
+        Me.onUserDisconnectedLabel.Size = New System.Drawing.Size(107, 13)
+        Me.onUserDisconnectedLabel.TabIndex = 11
+        Me.onUserDisconnectedLabel.Text = "onUserDisconnected"
+        '
+        'onUserConnectedLabel
+        '
+        Me.onUserConnectedLabel.AutoSize = True
+        Me.onUserConnectedLabel.Location = New System.Drawing.Point(8, 127)
+        Me.onUserConnectedLabel.Name = "onUserConnectedLabel"
+        Me.onUserConnectedLabel.Size = New System.Drawing.Size(93, 13)
+        Me.onUserConnectedLabel.TabIndex = 10
+        Me.onUserConnectedLabel.Text = "onUserConnected"
+        '
+        'doubleIdDetectedLabel
+        '
+        Me.doubleIdDetectedLabel.AutoSize = True
+        Me.doubleIdDetectedLabel.Location = New System.Drawing.Point(8, 76)
+        Me.doubleIdDetectedLabel.Name = "doubleIdDetectedLabel"
+        Me.doubleIdDetectedLabel.Size = New System.Drawing.Size(92, 13)
+        Me.doubleIdDetectedLabel.TabIndex = 9
+        Me.doubleIdDetectedLabel.Text = "doubleIdDetected"
+        '
+        'onUserConnectedBox
+        '
+        Me.onUserConnectedBox.Location = New System.Drawing.Point(151, 124)
+        Me.onUserConnectedBox.Name = "onUserConnectedBox"
+        Me.onUserConnectedBox.Size = New System.Drawing.Size(200, 45)
+        Me.onUserConnectedBox.TabIndex = 8
+        Me.onUserConnectedBox.Text = ""
+        '
+        'onUserDisconnectedBox
+        '
+        Me.onUserDisconnectedBox.Location = New System.Drawing.Point(151, 175)
+        Me.onUserDisconnectedBox.Name = "onUserDisconnectedBox"
+        Me.onUserDisconnectedBox.Size = New System.Drawing.Size(200, 45)
+        Me.onUserDisconnectedBox.TabIndex = 7
+        Me.onUserDisconnectedBox.Text = ""
+        '
+        'doubleIdDetectedBox
+        '
+        Me.doubleIdDetectedBox.Location = New System.Drawing.Point(151, 73)
+        Me.doubleIdDetectedBox.Name = "doubleIdDetectedBox"
+        Me.doubleIdDetectedBox.Size = New System.Drawing.Size(200, 45)
+        Me.doubleIdDetectedBox.TabIndex = 6
+        Me.doubleIdDetectedBox.Text = ""
+        '
+        'serverCommandBox
+        '
+        Me.serverCommandBox.Location = New System.Drawing.Point(151, 22)
+        Me.serverCommandBox.Name = "serverCommandBox"
+        Me.serverCommandBox.Size = New System.Drawing.Size(200, 45)
+        Me.serverCommandBox.TabIndex = 5
+        Me.serverCommandBox.Text = ""
+        '
+        'serverCommandLabel
+        '
+        Me.serverCommandLabel.AutoSize = True
+        Me.serverCommandLabel.Location = New System.Drawing.Point(8, 25)
+        Me.serverCommandLabel.Name = "serverCommandLabel"
+        Me.serverCommandLabel.Size = New System.Drawing.Size(137, 13)
+        Me.serverCommandLabel.TabIndex = 0
+        Me.serverCommandLabel.Text = "Server Command Password"
+        '
         'NewServerTab
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1987,22 +2056,23 @@ Partial Class NewServerTab
         Me.vonGroup.ResumeLayout(False)
         Me.vonGroup.PerformLayout()
         CType(Me.codecNumeric, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.missionTab.ResumeLayout(False)
+        Me.missionsGroup.ResumeLayout(False)
+        Me.missionsGroup.PerformLayout()
         Me.perfTab.ResumeLayout(False)
+        Me.serverPerfGroup.ResumeLayout(False)
+        Me.serverPerfGroup.PerformLayout()
+        Me.clientPerfGroup.ResumeLayout(False)
+        Me.clientPerfGroup.PerformLayout()
+        Me.viewGroup.ResumeLayout(False)
+        Me.viewGroup.PerformLayout()
+        CType(Me.distanceNumeric, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.terrainNumeric, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.disconTimeNumeric, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.packetLossNumeric, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.maxDesyncNumeric, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.maxPingNumeric, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.missionTab.ResumeLayout(False)
-        Me.missionTab.PerformLayout()
         Me.scriptingTab.ResumeLayout(False)
-        Me.viewGroup.ResumeLayout(False)
-        Me.viewGroup.PerformLayout()
-        Me.clientPerfGroup.ResumeLayout(False)
-        Me.clientPerfGroup.PerformLayout()
-        Me.serverPerfGroup.ResumeLayout(False)
-        Me.serverPerfGroup.PerformLayout()
-        CType(Me.distanceNumeric, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.terrainNumeric, System.ComponentModel.ISupportInitialize).EndInit()
         Me.serverScriptsGroup.ResumeLayout(False)
         Me.serverScriptsGroup.PerformLayout()
         Me.ResumeLayout(False)
@@ -2048,7 +2118,6 @@ Partial Class NewServerTab
     Friend WithEvents netlogCheck As CheckBox
     Friend WithEvents miscTab As TabPage
     Friend WithEvents missionTab As TabPage
-    Friend WithEvents difficultyTab As TabPage
     Friend WithEvents scriptingTab As TabPage
     Friend WithEvents kickDupeCheck As CheckBox
     Friend WithEvents vonCheck As CheckBox
@@ -2177,4 +2246,11 @@ Partial Class NewServerTab
     Friend WithEvents doubleIdDetectedBox As RichTextBox
     Friend WithEvents serverCommandBox As RichTextBox
     Friend WithEvents serverCommandLabel As Label
+    Friend WithEvents missionsGroup As GroupBox
+    Friend WithEvents missionRefreshButton As Button
+    Friend WithEvents missionsNoneButton As Button
+    Friend WithEvents missionsAllButton As Button
+    Friend WithEvents CheckedListBox1 As CheckedListBox
+    Friend WithEvents customDifficutlyGroup As GroupBox
+    Friend WithEvents difficultyCombo As ComboBox
 End Class
