@@ -114,11 +114,12 @@ Public Class MainWindow
                 Next
 
             Catch ex As Exception
-                profile = Replace(profile, Application.StartupPath & "\servers\", "")
-                profile = Replace(profile, ".FASTprofile", "")
-                MsgBox(profile & Environment.NewLine & Environment.NewLine & "Profile corrupted and was deleted.")
-                categoryTabs.TabPages.Remove(newTab)
-                DeleteProfile(profile, False)
+                'profile = Replace(profile, Application.StartupPath & "\servers\", "")
+                'profile = Replace(profile, ".FASTprofile", "")
+                'MsgBox(profile & Environment.NewLine & Environment.NewLine & "Profile corrupted and was deleted.")
+                'categoryTabs.TabPages.Remove(newTab)
+                'DeleteProfile(profile, False)
+                MsgBox(vbCrLf & ex.Message)
             End Try
         Next
 

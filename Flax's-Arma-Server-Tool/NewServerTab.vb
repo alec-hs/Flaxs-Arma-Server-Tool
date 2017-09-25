@@ -24,6 +24,25 @@ Public Class NewServerTab
         End If
 
         UpdateModsList()
+        UpdateMissionsList()
+
+        Dim profile As String = Application.StartupPath & "\servers\" & MainWindow.SafeName(Me.Parent.Text) & ".FASTprofile"
+        If File.Exists(profile) Then
+            Dim xml = XDocument.Load(profile)
+            Dim allCheckList As New List(Of Control)
+            For Each checkList As CheckedListBox In MainWindow.FindControlRecursive(allCheckList, Me, GetType(CheckedListBox))
+                Dim items As New List(Of String)
+                For Each element In xml.<profile>.<settings>.Elements(checkList.Name).Elements
+                    items.Add(element)
+                Next
+
+                For Each item In items
+                    If Not checkList.FindString(item) = -1 Then
+                        checkList.SetItemChecked(checkList.FindString(item), True)
+                    End If
+                Next
+            Next
+        End If
 
     End Sub
 
@@ -111,6 +130,17 @@ Public Class NewServerTab
             For Each numeric As NumericUpDown In MainWindow.FindControlRecursive(allNumeric, Me, GetType(NumericUpDown))
                 writer.WriteStartElement(numeric.Name)
                 writer.WriteString(numeric.Value)
+                writer.WriteEndElement()
+            Next
+
+            Dim allCheckList As New List(Of Control)
+            For Each checkList As CheckedListBox In MainWindow.FindControlRecursive(allCheckList, Me, GetType(CheckedListBox))
+                writer.WriteStartElement(checkList.Name)
+                For Each item In checkList.CheckedItems
+                    writer.WriteStartElement("item")
+                    writer.WriteString(item)
+                    writer.WriteEndElement()
+                Next
                 writer.WriteEndElement()
             Next
 
@@ -316,17 +346,25 @@ Public Class NewServerTab
     End Sub
 
     Public Sub UpdateModsList()
+        Dim currentMods = serverModsList.Items
+        Dim newMods As New List(Of String)
+        Dim checkedServerMods As New List(Of String)
+        Dim checkedHCMods As New List(Of String)
+
+        For Each addon In serverModsList.CheckedItems
+            checkedServerMods.Add(addon.ToString)
+        Next
+
+        For Each addon In hcModsList.CheckedItems
+            checkedHCMods.Add(addon.ToString)
+        Next
+
         serverModsList.Items.Clear()
         hcModsList.Items.Clear()
 
-        Dim currentMods = serverModsList.Items
-        Dim newMods As New List(Of String)
-
         If Directory.Exists(My.Settings.serverDir) Then
-            For Each addon In Directory.GetDirectories(My.Settings.serverDir)
-                If addon.Contains("@") Then
-                    newMods.Add(Replace(addon, My.Settings.serverDir & "\", ""))
-                End If
+            For Each addon In Directory.GetDirectories(My.Settings.serverDir, "@*")
+                newMods.Add(Replace(addon, My.Settings.serverDir & "\", ""))
             Next
 
             For Each addon In newMods.ToList
@@ -341,8 +379,64 @@ Public Class NewServerTab
                 serverModsList.Items.Add(addon)
                 hcModsList.Items.Add(addon)
             Next
+
+            For Each addon In checkedServerMods
+                If Not serverModsList.FindString(addon) = -1 Then
+                    serverModsList.SetItemChecked(serverModsList.FindString(addon), True)
+                End If
+            Next
+
+            For Each addon In checkedHCMods
+                If Not hcModsList.FindString(addon) = -1 Then
+                    hcModsList.SetItemChecked(hcModsList.FindString(addon), True)
+                End If
+            Next
         Else
             MsgBox("Please install game before continuing.")
+        End If
+
+    End Sub
+
+    Public Sub UpdateMissionsList()
+
+
+        Dim missionsFolder As String = My.Settings.serverDir & "\MPMissions"
+        Dim currentMissions As CheckedListBox.ObjectCollection = missionsList.Items
+        Dim newMissions As New List(Of String)
+        Dim checkedMissions As New List(Of String)
+
+        For Each mission In missionsList.CheckedItems
+            checkedMissions.Add(mission.ToString)
+        Next
+
+        missionsList.Items.Clear()
+
+        If Directory.Exists(missionsFolder) Then
+            For Each mission In Directory.GetFiles(missionsFolder, "*.pbo")
+                mission = Replace(mission, missionsFolder & "\", "")
+                mission = Replace(mission, ".pbo", "")
+                newMissions.Add(mission)
+            Next
+
+            For Each mission In newMissions.ToList
+                For Each nMission In currentMissions
+                    If nMission = mission Then
+                        newMissions.Remove(nMission)
+                    End If
+                Next
+            Next
+
+            For Each mission In newMissions.ToList
+                missionsList.Items.Add(mission)
+            Next
+
+            For Each mission In checkedMissions
+                If Not missionsList.FindString(mission) = -1 Then
+                    missionsList.SetItemChecked(missionsList.FindString(mission), True)
+                End If
+            Next
+        Else
+            MsgBox("MPMissions folder is missing.")
         End If
 
     End Sub
@@ -565,4 +659,7 @@ Public Class NewServerTab
         maxPacketBox.Text = "1400"
     End Sub
 
+    Private Sub MissionRefreshButton_Click(sender As Object, e As EventArgs) Handles missionRefreshButton.Click
+        UpdateMissionsList()
+    End Sub
 End Class

@@ -125,14 +125,42 @@ Partial Class NewServerTab
         Me.vonCheck = New System.Windows.Forms.CheckBox()
         Me.missionTab = New System.Windows.Forms.TabPage()
         Me.missionsGroup = New System.Windows.Forms.GroupBox()
+        Me.difficultyLabel = New System.Windows.Forms.Label()
         Me.autoInitCheck = New System.Windows.Forms.CheckBox()
         Me.persistCheck = New System.Windows.Forms.CheckBox()
         Me.difficultyCombo = New System.Windows.Forms.ComboBox()
         Me.missionRefreshButton = New System.Windows.Forms.Button()
         Me.missionsNoneButton = New System.Windows.Forms.Button()
         Me.missionsAllButton = New System.Windows.Forms.Button()
-        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
+        Me.missionsList = New System.Windows.Forms.CheckedListBox()
         Me.customDifficutlyGroup = New System.Windows.Forms.GroupBox()
+        Me.aiSettingsGroup = New System.Windows.Forms.GroupBox()
+        Me.aiAccuracyLabel = New System.Windows.Forms.Label()
+        Me.aiSkillLabel = New System.Windows.Forms.Label()
+        Me.aiPresetLabel = New System.Windows.Forms.Label()
+        Me.aiAccuracyNumeric = New System.Windows.Forms.NumericUpDown()
+        Me.aiSkillNumeric = New System.Windows.Forms.NumericUpDown()
+        Me.aiPresetNumeric = New System.Windows.Forms.NumericUpDown()
+        Me.multipleSavesCheck = New System.Windows.Forms.CheckBox()
+        Me.autoReportingCheck = New System.Windows.Forms.CheckBox()
+        Me.mapContentCheck = New System.Windows.Forms.CheckBox()
+        Me.vonIDCheck = New System.Windows.Forms.CheckBox()
+        Me.killedByCheck = New System.Windows.Forms.CheckBox()
+        Me.scoreTableCheck = New System.Windows.Forms.CheckBox()
+        Me.cameraShakeCheck = New System.Windows.Forms.CheckBox()
+        Me.thirdPersonCheck = New System.Windows.Forms.CheckBox()
+        Me.visualAidCheck = New System.Windows.Forms.CheckBox()
+        Me.crosshairCheck = New System.Windows.Forms.CheckBox()
+        Me.staminaBarCheck = New System.Windows.Forms.CheckBox()
+        Me.stanceIndicatorCheck = New System.Windows.Forms.CheckBox()
+        Me.weaponInfoCheck = New System.Windows.Forms.CheckBox()
+        Me.waypointsCheck = New System.Windows.Forms.CheckBox()
+        Me.commandsCheck = New System.Windows.Forms.CheckBox()
+        Me.detectedMinesCheck = New System.Windows.Forms.CheckBox()
+        Me.enemyNameCheck = New System.Windows.Forms.CheckBox()
+        Me.friendlyNameCheck = New System.Windows.Forms.CheckBox()
+        Me.groupIndicatorCheck = New System.Windows.Forms.CheckBox()
+        Me.reducedDamageCheck = New System.Windows.Forms.CheckBox()
         Me.perfTab = New System.Windows.Forms.TabPage()
         Me.serverPerfGroup = New System.Windows.Forms.GroupBox()
         Me.moreInfoLabel = New System.Windows.Forms.LinkLabel()
@@ -222,6 +250,11 @@ Partial Class NewServerTab
         CType(Me.codecNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.missionTab.SuspendLayout()
         Me.missionsGroup.SuspendLayout()
+        Me.customDifficutlyGroup.SuspendLayout()
+        Me.aiSettingsGroup.SuspendLayout()
+        CType(Me.aiAccuracyNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.aiSkillNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.aiPresetNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.perfTab.SuspendLayout()
         Me.serverPerfGroup.SuspendLayout()
         Me.clientPerfGroup.SuspendLayout()
@@ -1275,19 +1308,29 @@ Partial Class NewServerTab
         '
         'missionsGroup
         '
+        Me.missionsGroup.Controls.Add(Me.difficultyLabel)
         Me.missionsGroup.Controls.Add(Me.autoInitCheck)
         Me.missionsGroup.Controls.Add(Me.persistCheck)
         Me.missionsGroup.Controls.Add(Me.difficultyCombo)
         Me.missionsGroup.Controls.Add(Me.missionRefreshButton)
         Me.missionsGroup.Controls.Add(Me.missionsNoneButton)
         Me.missionsGroup.Controls.Add(Me.missionsAllButton)
-        Me.missionsGroup.Controls.Add(Me.CheckedListBox1)
+        Me.missionsGroup.Controls.Add(Me.missionsList)
         Me.missionsGroup.Location = New System.Drawing.Point(5, 6)
         Me.missionsGroup.Name = "missionsGroup"
         Me.missionsGroup.Size = New System.Drawing.Size(315, 229)
         Me.missionsGroup.TabIndex = 12
         Me.missionsGroup.TabStop = False
         Me.missionsGroup.Text = "Missions"
+        '
+        'difficultyLabel
+        '
+        Me.difficultyLabel.AutoSize = True
+        Me.difficultyLabel.Location = New System.Drawing.Point(151, 205)
+        Me.difficultyLabel.Name = "difficultyLabel"
+        Me.difficultyLabel.Size = New System.Drawing.Size(80, 13)
+        Me.difficultyLabel.TabIndex = 30
+        Me.difficultyLabel.Text = "Difficulty Preset"
         '
         'autoInitCheck
         '
@@ -1349,22 +1392,316 @@ Partial Class NewServerTab
         Me.missionsAllButton.Text = "All"
         Me.missionsAllButton.UseVisualStyleBackColor = True
         '
-        'CheckedListBox1
+        'missionsList
         '
-        Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Location = New System.Drawing.Point(6, 19)
-        Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(303, 139)
-        Me.CheckedListBox1.TabIndex = 12
+        Me.missionsList.FormattingEnabled = True
+        Me.missionsList.Location = New System.Drawing.Point(6, 19)
+        Me.missionsList.Name = "missionsList"
+        Me.missionsList.Size = New System.Drawing.Size(303, 139)
+        Me.missionsList.TabIndex = 12
         '
         'customDifficutlyGroup
         '
+        Me.customDifficutlyGroup.Controls.Add(Me.aiSettingsGroup)
+        Me.customDifficutlyGroup.Controls.Add(Me.multipleSavesCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.autoReportingCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.mapContentCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.vonIDCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.killedByCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.scoreTableCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.cameraShakeCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.thirdPersonCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.visualAidCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.crosshairCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.staminaBarCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.stanceIndicatorCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.weaponInfoCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.waypointsCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.commandsCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.detectedMinesCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.enemyNameCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.friendlyNameCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.groupIndicatorCheck)
+        Me.customDifficutlyGroup.Controls.Add(Me.reducedDamageCheck)
         Me.customDifficutlyGroup.Location = New System.Drawing.Point(326, 6)
         Me.customDifficutlyGroup.Name = "customDifficutlyGroup"
         Me.customDifficutlyGroup.Size = New System.Drawing.Size(360, 229)
         Me.customDifficutlyGroup.TabIndex = 13
         Me.customDifficutlyGroup.TabStop = False
         Me.customDifficutlyGroup.Text = "Custom Difficulty"
+        '
+        'aiSettingsGroup
+        '
+        Me.aiSettingsGroup.Controls.Add(Me.aiAccuracyLabel)
+        Me.aiSettingsGroup.Controls.Add(Me.aiSkillLabel)
+        Me.aiSettingsGroup.Controls.Add(Me.aiPresetLabel)
+        Me.aiSettingsGroup.Controls.Add(Me.aiAccuracyNumeric)
+        Me.aiSettingsGroup.Controls.Add(Me.aiSkillNumeric)
+        Me.aiSettingsGroup.Controls.Add(Me.aiPresetNumeric)
+        Me.aiSettingsGroup.Location = New System.Drawing.Point(234, 123)
+        Me.aiSettingsGroup.Name = "aiSettingsGroup"
+        Me.aiSettingsGroup.Size = New System.Drawing.Size(120, 100)
+        Me.aiSettingsGroup.TabIndex = 20
+        Me.aiSettingsGroup.TabStop = False
+        Me.aiSettingsGroup.Text = "AI Settings"
+        '
+        'aiAccuracyLabel
+        '
+        Me.aiAccuracyLabel.AutoSize = True
+        Me.aiAccuracyLabel.Location = New System.Drawing.Point(13, 47)
+        Me.aiAccuracyLabel.Name = "aiAccuracyLabel"
+        Me.aiAccuracyLabel.Size = New System.Drawing.Size(52, 13)
+        Me.aiAccuracyLabel.TabIndex = 21
+        Me.aiAccuracyLabel.Text = "Accuracy"
+        '
+        'aiSkillLabel
+        '
+        Me.aiSkillLabel.AutoSize = True
+        Me.aiSkillLabel.Location = New System.Drawing.Point(13, 21)
+        Me.aiSkillLabel.Name = "aiSkillLabel"
+        Me.aiSkillLabel.Size = New System.Drawing.Size(26, 13)
+        Me.aiSkillLabel.TabIndex = 20
+        Me.aiSkillLabel.Text = "Skill"
+        '
+        'aiPresetLabel
+        '
+        Me.aiPresetLabel.AutoSize = True
+        Me.aiPresetLabel.Location = New System.Drawing.Point(13, 73)
+        Me.aiPresetLabel.Name = "aiPresetLabel"
+        Me.aiPresetLabel.Size = New System.Drawing.Size(37, 13)
+        Me.aiPresetLabel.TabIndex = 19
+        Me.aiPresetLabel.Text = "Preset"
+        '
+        'aiAccuracyNumeric
+        '
+        Me.aiAccuracyNumeric.DecimalPlaces = 2
+        Me.aiAccuracyNumeric.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.aiAccuracyNumeric.Location = New System.Drawing.Point(71, 45)
+        Me.aiAccuracyNumeric.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.aiAccuracyNumeric.Name = "aiAccuracyNumeric"
+        Me.aiAccuracyNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.aiAccuracyNumeric.TabIndex = 18
+        Me.aiAccuracyNumeric.Value = New Decimal(New Integer() {55, 0, 0, 131072})
+        '
+        'aiSkillNumeric
+        '
+        Me.aiSkillNumeric.DecimalPlaces = 2
+        Me.aiSkillNumeric.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.aiSkillNumeric.Location = New System.Drawing.Point(71, 19)
+        Me.aiSkillNumeric.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.aiSkillNumeric.Name = "aiSkillNumeric"
+        Me.aiSkillNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.aiSkillNumeric.TabIndex = 17
+        Me.aiSkillNumeric.Value = New Decimal(New Integer() {75, 0, 0, 131072})
+        '
+        'aiPresetNumeric
+        '
+        Me.aiPresetNumeric.Location = New System.Drawing.Point(71, 71)
+        Me.aiPresetNumeric.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
+        Me.aiPresetNumeric.Name = "aiPresetNumeric"
+        Me.aiPresetNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.aiPresetNumeric.TabIndex = 16
+        Me.aiPresetNumeric.Value = New Decimal(New Integer() {3, 0, 0, 0})
+        '
+        'multipleSavesCheck
+        '
+        Me.multipleSavesCheck.AutoSize = True
+        Me.multipleSavesCheck.Location = New System.Drawing.Point(6, 134)
+        Me.multipleSavesCheck.Name = "multipleSavesCheck"
+        Me.multipleSavesCheck.Size = New System.Drawing.Size(95, 17)
+        Me.multipleSavesCheck.TabIndex = 19
+        Me.multipleSavesCheck.Text = "Multiple Saves"
+        Me.multipleSavesCheck.UseVisualStyleBackColor = True
+        '
+        'autoReportingCheck
+        '
+        Me.autoReportingCheck.AutoSize = True
+        Me.autoReportingCheck.Location = New System.Drawing.Point(234, 19)
+        Me.autoReportingCheck.Name = "autoReportingCheck"
+        Me.autoReportingCheck.Size = New System.Drawing.Size(97, 17)
+        Me.autoReportingCheck.TabIndex = 18
+        Me.autoReportingCheck.Text = "Auto Reporting"
+        Me.autoReportingCheck.UseVisualStyleBackColor = True
+        '
+        'mapContentCheck
+        '
+        Me.mapContentCheck.AutoSize = True
+        Me.mapContentCheck.Location = New System.Drawing.Point(132, 88)
+        Me.mapContentCheck.Name = "mapContentCheck"
+        Me.mapContentCheck.Size = New System.Drawing.Size(135, 17)
+        Me.mapContentCheck.TabIndex = 17
+        Me.mapContentCheck.Text = "Extended Map Content"
+        Me.mapContentCheck.UseVisualStyleBackColor = True
+        '
+        'vonIDCheck
+        '
+        Me.vonIDCheck.AutoSize = True
+        Me.vonIDCheck.Location = New System.Drawing.Point(132, 134)
+        Me.vonIDCheck.Name = "vonIDCheck"
+        Me.vonIDCheck.Size = New System.Drawing.Size(63, 17)
+        Me.vonIDCheck.TabIndex = 16
+        Me.vonIDCheck.Text = "VON ID"
+        Me.vonIDCheck.UseVisualStyleBackColor = True
+        '
+        'killedByCheck
+        '
+        Me.killedByCheck.AutoSize = True
+        Me.killedByCheck.Location = New System.Drawing.Point(132, 157)
+        Me.killedByCheck.Name = "killedByCheck"
+        Me.killedByCheck.Size = New System.Drawing.Size(66, 17)
+        Me.killedByCheck.TabIndex = 15
+        Me.killedByCheck.Text = "Killed By"
+        Me.killedByCheck.UseVisualStyleBackColor = True
+        '
+        'scoreTableCheck
+        '
+        Me.scoreTableCheck.AutoSize = True
+        Me.scoreTableCheck.Location = New System.Drawing.Point(234, 42)
+        Me.scoreTableCheck.Name = "scoreTableCheck"
+        Me.scoreTableCheck.Size = New System.Drawing.Size(84, 17)
+        Me.scoreTableCheck.TabIndex = 14
+        Me.scoreTableCheck.Text = "Score Table"
+        Me.scoreTableCheck.UseVisualStyleBackColor = True
+        '
+        'cameraShakeCheck
+        '
+        Me.cameraShakeCheck.AutoSize = True
+        Me.cameraShakeCheck.Location = New System.Drawing.Point(132, 42)
+        Me.cameraShakeCheck.Name = "cameraShakeCheck"
+        Me.cameraShakeCheck.Size = New System.Drawing.Size(96, 17)
+        Me.cameraShakeCheck.TabIndex = 13
+        Me.cameraShakeCheck.Text = "Camera Shake"
+        Me.cameraShakeCheck.UseVisualStyleBackColor = True
+        '
+        'thirdPersonCheck
+        '
+        Me.thirdPersonCheck.AutoSize = True
+        Me.thirdPersonCheck.Location = New System.Drawing.Point(6, 157)
+        Me.thirdPersonCheck.Name = "thirdPersonCheck"
+        Me.thirdPersonCheck.Size = New System.Drawing.Size(116, 17)
+        Me.thirdPersonCheck.TabIndex = 12
+        Me.thirdPersonCheck.Text = "3rd Person Camera"
+        Me.thirdPersonCheck.UseVisualStyleBackColor = True
+        '
+        'visualAidCheck
+        '
+        Me.visualAidCheck.AutoSize = True
+        Me.visualAidCheck.Location = New System.Drawing.Point(132, 65)
+        Me.visualAidCheck.Name = "visualAidCheck"
+        Me.visualAidCheck.Size = New System.Drawing.Size(77, 17)
+        Me.visualAidCheck.TabIndex = 11
+        Me.visualAidCheck.Text = "Visual Aids"
+        Me.visualAidCheck.UseVisualStyleBackColor = True
+        '
+        'crosshairCheck
+        '
+        Me.crosshairCheck.AutoSize = True
+        Me.crosshairCheck.Location = New System.Drawing.Point(132, 203)
+        Me.crosshairCheck.Name = "crosshairCheck"
+        Me.crosshairCheck.Size = New System.Drawing.Size(69, 17)
+        Me.crosshairCheck.TabIndex = 10
+        Me.crosshairCheck.Text = "Crosshair"
+        Me.crosshairCheck.UseVisualStyleBackColor = True
+        '
+        'staminaBarCheck
+        '
+        Me.staminaBarCheck.AutoSize = True
+        Me.staminaBarCheck.Location = New System.Drawing.Point(132, 19)
+        Me.staminaBarCheck.Name = "staminaBarCheck"
+        Me.staminaBarCheck.Size = New System.Drawing.Size(83, 17)
+        Me.staminaBarCheck.TabIndex = 9
+        Me.staminaBarCheck.Text = "Stamina Bar"
+        Me.staminaBarCheck.UseVisualStyleBackColor = True
+        '
+        'stanceIndicatorCheck
+        '
+        Me.stanceIndicatorCheck.AutoSize = True
+        Me.stanceIndicatorCheck.Location = New System.Drawing.Point(6, 203)
+        Me.stanceIndicatorCheck.Name = "stanceIndicatorCheck"
+        Me.stanceIndicatorCheck.Size = New System.Drawing.Size(104, 17)
+        Me.stanceIndicatorCheck.TabIndex = 8
+        Me.stanceIndicatorCheck.Text = "Stance Indicator"
+        Me.stanceIndicatorCheck.UseVisualStyleBackColor = True
+        '
+        'weaponInfoCheck
+        '
+        Me.weaponInfoCheck.AutoSize = True
+        Me.weaponInfoCheck.Location = New System.Drawing.Point(6, 180)
+        Me.weaponInfoCheck.Name = "weaponInfoCheck"
+        Me.weaponInfoCheck.Size = New System.Drawing.Size(88, 17)
+        Me.weaponInfoCheck.TabIndex = 7
+        Me.weaponInfoCheck.Text = "Weapon Info"
+        Me.weaponInfoCheck.UseVisualStyleBackColor = True
+        '
+        'waypointsCheck
+        '
+        Me.waypointsCheck.AutoSize = True
+        Me.waypointsCheck.Location = New System.Drawing.Point(132, 180)
+        Me.waypointsCheck.Name = "waypointsCheck"
+        Me.waypointsCheck.Size = New System.Drawing.Size(76, 17)
+        Me.waypointsCheck.TabIndex = 6
+        Me.waypointsCheck.Text = "Waypoints"
+        Me.waypointsCheck.UseVisualStyleBackColor = True
+        '
+        'commandsCheck
+        '
+        Me.commandsCheck.AutoSize = True
+        Me.commandsCheck.Location = New System.Drawing.Point(132, 111)
+        Me.commandsCheck.Name = "commandsCheck"
+        Me.commandsCheck.Size = New System.Drawing.Size(78, 17)
+        Me.commandsCheck.TabIndex = 5
+        Me.commandsCheck.Text = "Commands"
+        Me.commandsCheck.UseVisualStyleBackColor = True
+        '
+        'detectedMinesCheck
+        '
+        Me.detectedMinesCheck.AutoSize = True
+        Me.detectedMinesCheck.Location = New System.Drawing.Point(6, 111)
+        Me.detectedMinesCheck.Name = "detectedMinesCheck"
+        Me.detectedMinesCheck.Size = New System.Drawing.Size(101, 17)
+        Me.detectedMinesCheck.TabIndex = 4
+        Me.detectedMinesCheck.Text = "Detected Mines"
+        Me.detectedMinesCheck.UseVisualStyleBackColor = True
+        '
+        'enemyNameCheck
+        '
+        Me.enemyNameCheck.AutoSize = True
+        Me.enemyNameCheck.Location = New System.Drawing.Point(6, 88)
+        Me.enemyNameCheck.Name = "enemyNameCheck"
+        Me.enemyNameCheck.Size = New System.Drawing.Size(116, 17)
+        Me.enemyNameCheck.TabIndex = 3
+        Me.enemyNameCheck.Text = "Enemy Name Tags"
+        Me.enemyNameCheck.UseVisualStyleBackColor = True
+        '
+        'friendlyNameCheck
+        '
+        Me.friendlyNameCheck.AutoSize = True
+        Me.friendlyNameCheck.Location = New System.Drawing.Point(6, 65)
+        Me.friendlyNameCheck.Name = "friendlyNameCheck"
+        Me.friendlyNameCheck.Size = New System.Drawing.Size(120, 17)
+        Me.friendlyNameCheck.TabIndex = 2
+        Me.friendlyNameCheck.Text = "Friendly Name Tags"
+        Me.friendlyNameCheck.UseVisualStyleBackColor = True
+        '
+        'groupIndicatorCheck
+        '
+        Me.groupIndicatorCheck.AutoSize = True
+        Me.groupIndicatorCheck.Location = New System.Drawing.Point(6, 42)
+        Me.groupIndicatorCheck.Name = "groupIndicatorCheck"
+        Me.groupIndicatorCheck.Size = New System.Drawing.Size(104, 17)
+        Me.groupIndicatorCheck.TabIndex = 1
+        Me.groupIndicatorCheck.Text = "Group Indicators"
+        Me.groupIndicatorCheck.UseVisualStyleBackColor = True
+        '
+        'reducedDamageCheck
+        '
+        Me.reducedDamageCheck.AutoSize = True
+        Me.reducedDamageCheck.Location = New System.Drawing.Point(6, 19)
+        Me.reducedDamageCheck.Name = "reducedDamageCheck"
+        Me.reducedDamageCheck.Size = New System.Drawing.Size(113, 17)
+        Me.reducedDamageCheck.TabIndex = 0
+        Me.reducedDamageCheck.Text = "Reduced Damage"
+        Me.reducedDamageCheck.UseVisualStyleBackColor = True
         '
         'perfTab
         '
@@ -2059,6 +2396,13 @@ Partial Class NewServerTab
         Me.missionTab.ResumeLayout(False)
         Me.missionsGroup.ResumeLayout(False)
         Me.missionsGroup.PerformLayout()
+        Me.customDifficutlyGroup.ResumeLayout(False)
+        Me.customDifficutlyGroup.PerformLayout()
+        Me.aiSettingsGroup.ResumeLayout(False)
+        Me.aiSettingsGroup.PerformLayout()
+        CType(Me.aiAccuracyNumeric, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.aiSkillNumeric, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.aiPresetNumeric, System.ComponentModel.ISupportInitialize).EndInit()
         Me.perfTab.ResumeLayout(False)
         Me.serverPerfGroup.ResumeLayout(False)
         Me.serverPerfGroup.PerformLayout()
@@ -2250,7 +2594,35 @@ Partial Class NewServerTab
     Friend WithEvents missionRefreshButton As Button
     Friend WithEvents missionsNoneButton As Button
     Friend WithEvents missionsAllButton As Button
-    Friend WithEvents CheckedListBox1 As CheckedListBox
+    Friend WithEvents missionsList As CheckedListBox
     Friend WithEvents customDifficutlyGroup As GroupBox
     Friend WithEvents difficultyCombo As ComboBox
+    Friend WithEvents multipleSavesCheck As CheckBox
+    Friend WithEvents autoReportingCheck As CheckBox
+    Friend WithEvents mapContentCheck As CheckBox
+    Friend WithEvents vonIDCheck As CheckBox
+    Friend WithEvents killedByCheck As CheckBox
+    Friend WithEvents scoreTableCheck As CheckBox
+    Friend WithEvents cameraShakeCheck As CheckBox
+    Friend WithEvents thirdPersonCheck As CheckBox
+    Friend WithEvents visualAidCheck As CheckBox
+    Friend WithEvents crosshairCheck As CheckBox
+    Friend WithEvents staminaBarCheck As CheckBox
+    Friend WithEvents stanceIndicatorCheck As CheckBox
+    Friend WithEvents weaponInfoCheck As CheckBox
+    Friend WithEvents waypointsCheck As CheckBox
+    Friend WithEvents commandsCheck As CheckBox
+    Friend WithEvents detectedMinesCheck As CheckBox
+    Friend WithEvents enemyNameCheck As CheckBox
+    Friend WithEvents friendlyNameCheck As CheckBox
+    Friend WithEvents groupIndicatorCheck As CheckBox
+    Friend WithEvents reducedDamageCheck As CheckBox
+    Friend WithEvents aiSettingsGroup As GroupBox
+    Friend WithEvents aiAccuracyLabel As Label
+    Friend WithEvents aiSkillLabel As Label
+    Friend WithEvents aiPresetLabel As Label
+    Friend WithEvents aiAccuracyNumeric As NumericUpDown
+    Friend WithEvents aiSkillNumeric As NumericUpDown
+    Friend WithEvents aiPresetNumeric As NumericUpDown
+    Friend WithEvents difficultyLabel As Label
 End Class
