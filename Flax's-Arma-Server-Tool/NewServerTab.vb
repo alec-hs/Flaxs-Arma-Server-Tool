@@ -181,78 +181,81 @@ Public Class NewServerTab
         MainWindow.DeleteProfile(MainWindow.categoryTabs.SelectedTab.Text, True)
     End Sub
 
-    Private Sub LaunchServer_Click(sender As Object, e As EventArgs) Handles launchServer.Click
+    Private Sub LaunchServer_Click(sender As Object, e As EventArgs) Handles launchServerButton.Click
 
         If ReadyToLaunch(profileNameBox.Text) Then
-            Dim profileName As String = MainWindow.SafeName(MainWindow.categoryTabs.SelectedTab.Text)
-            Dim profilePath As String = Application.StartupPath & "\servers\" & profileName & "\"
-            Dim configs As String = profilePath & profileName
-            Dim start As Boolean = True
-            Dim serverMods As String = Nothing
-
-            For Each addon In serverModsList.CheckedItems
-                serverMods = serverMods & addon & ";"
-            Next
-
-            Try
-                WriteConfigFiles(profileName)
-            Catch ex As Exception
-                MsgBox("Config files in use elsewhere - make sure server is not running.")
-                start = False
-            End Try
-
-            If start Then
-                Dim commandLine As String
-                commandLine = "-port=" & portBox.Text
-                commandLine = commandLine & " ""-config=" & configs & "_config.cfg"""
-                commandLine = commandLine & " ""-cfg=" & configs & "_basic.cfg"""
-                commandLine = commandLine & " ""-profiles=" & profilePath & """"
-                commandLine = commandLine & " -name=" & profileName
-                commandLine = commandLine & " ""-mods=" & serverMods & """"
-
-
-                If htCheck.Checked Then
-                    commandLine = commandLine & " -enableHT"
-                End If
-
-                If filePatchingCheck.Checked Then
-                    commandLine = commandLine & " -filePatching"
-                End If
-
-                Clipboard.SetText(commandLine)
-
-                Dim sStartInfo As New ProcessStartInfo(serverFileBox.Text, commandLine)
-                Dim sProcess As New Process With {
-                    .StartInfo = sStartInfo
-                }
-                sProcess.Start()
-
-                If enableHCCheck.Checked Then
-                    For hc As Integer = 1 To noOfHCNumeric.Value
-                        Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & passwordBox.Text & " -profiles=" & profilePath & " -nosound"
-                        Dim hcMods As String = Nothing
-
-                        For Each addon In hcModsList.CheckedItems
-                            hcMods = hcMods & addon & ";"
-                        Next
-
-                        hcCommandLine = hcCommandLine & " ""-mods=" & serverMods & """"
-
-                        Clipboard.SetText(hcCommandLine)
-
-                        Dim hcStartInfo As New ProcessStartInfo(serverFileBox.Text, hcCommandLine)
-                        Dim hcProcess As New Process With {
-                            .StartInfo = hcStartInfo
-                        }
-                        hcProcess.Start()
-                    Next
-                End If
-            End If
-
+            LaunchServer()
         Else
             MsgBox("Please make sure all fields are filled in and the profile is saved.")
         End If
 
+    End Sub
+
+    Public Sub LaunchServer()
+        Dim profileName As String = MainWindow.SafeName(MainWindow.categoryTabs.SelectedTab.Text)
+        Dim profilePath As String = Application.StartupPath & "\servers\" & profileName & "\"
+        Dim configs As String = profilePath & profileName
+        Dim start As Boolean = True
+        Dim serverMods As String = Nothing
+
+        For Each addon In serverModsList.CheckedItems
+            serverMods = serverMods & addon & ";"
+        Next
+
+        Try
+            WriteConfigFiles(profileName)
+        Catch ex As Exception
+            MsgBox("Config files in use elsewhere - make sure server is not running.")
+            start = False
+        End Try
+
+        If start Then
+            Dim commandLine As String
+            commandLine = "-port=" & portBox.Text
+            commandLine = commandLine & " ""-config=" & configs & "_config.cfg"""
+            commandLine = commandLine & " ""-cfg=" & configs & "_basic.cfg"""
+            commandLine = commandLine & " ""-profiles=" & profilePath & """"
+            commandLine = commandLine & " -name=" & profileName
+            commandLine = commandLine & " ""-mods=" & serverMods & """"
+
+
+            If htCheck.Checked Then
+                commandLine = commandLine & " -enableHT"
+            End If
+
+            If filePatchingCheck.Checked Then
+                commandLine = commandLine & " -filePatching"
+            End If
+
+            Clipboard.SetText(commandLine)
+
+            Dim sStartInfo As New ProcessStartInfo(serverFileBox.Text, commandLine)
+            Dim sProcess As New Process With {
+                    .StartInfo = sStartInfo
+                }
+            sProcess.Start()
+
+            If enableHCCheck.Checked Then
+                For hc As Integer = 1 To noOfHCNumeric.Value
+                    Dim hcCommandLine As String = "-client -connect=127.0.0.1 -password=" & passwordBox.Text & " -profiles=" & profilePath & " -nosound"
+                    Dim hcMods As String = Nothing
+
+                    For Each addon In hcModsList.CheckedItems
+                        hcMods = hcMods & addon & ";"
+                    Next
+
+                    hcCommandLine = hcCommandLine & " ""-mods=" & serverMods & """"
+
+                    Clipboard.SetText(hcCommandLine)
+
+                    Dim hcStartInfo As New ProcessStartInfo(serverFileBox.Text, hcCommandLine)
+                    Dim hcProcess As New Process With {
+                            .StartInfo = hcStartInfo
+                        }
+                    hcProcess.Start()
+                Next
+            End If
+        End If
     End Sub
 
     Public Function ReadyToLaunch(profile As String)
@@ -289,16 +292,59 @@ Public Class NewServerTab
         Dim config As String = Application.StartupPath & "\servers\" & profile & "\" & profile & "_config.cfg"
         Dim basic As String = Application.StartupPath & "\servers\" & profile & "\" & profile & "_basic.cfg"
         Dim configLines As New List(Of String) From {
-            "hostname=""" & serverNameBox.Text & """;",
-            "password=""" & passwordBox.Text & """;",
-            "passwordAdmin=""" & adminPassBox.Text & """;",
-            "maxPlayers=" & maxPlayersBox.Text & ";",
-            "kickDuplicate=" & kickDupeCheck.CheckState & ";",
-            "allowedFilePatching=" & filePatchingCheck.CheckState & ";",
-            "disableVoN=" & vonCheck.CheckState & ";",
-            "persistent=" & persistCheck.CheckState & ";",
-            "BattlEye=" & maxPingCheck.CheckState & ";"
+            "passwordAdmin = """ & adminPassBox.Text & """;",
+            "password = """ & passwordBox.Text & """;",
+            "serverCommandPassword = """ & serverCommandBox.Text & """;",
+            "hostname = """ & serverNameBox.Text & """;",
+            "maxPlayers = " & maxPlayersBox.Text & ";",
+            "kickduplicate = " & kickDupeCheck.Checked & ";",
+            "upnp = " & upnpCheck.Checked & ";",
+            "allowedFilePatching = " & filePatchCombo.SelectedValue & ";",
+            "verifySignatures = " & verifySigCombo.SelectedValue & ";",
+            "disableVoN = " & vonCheck.Checked & ";",
+            "vonCodecQuality = " & codecNumeric.Value & ";",
+            "vonCodec = 1;",
+            "BattlEye = " & battleyeCheck.Checked & ";",
+            "persistent = " & persistCheck.Checked & ";"
         }
+
+        configLines.Add("motd[]= {")
+        For Each line In modBox.Lines
+            If line Is modBox.Lines.Last Then
+                configLines.Add("""" & line & """")
+            Else
+                configLines.Add("""" & line & """,")
+            End If
+        Next
+
+        If enableHCCheck.Checked Then
+            configLines.Add("headlessClients[] = {""" & headlessIPBox.Text & """};")
+            configLines.Add("localClient[] = {""" & localClientBox.Text & """};")
+        End If
+
+        '"admins[] = {""<UID>""};",
+        '"voteThreshold = 0.33;",
+        '"voteMissionPlayers = 3;",
+        '"loopback = True;",
+        '"disconnectTimeout = 5;",
+        '"maxdesync = 150;",
+        '"maxping = 200;",
+        '"maxpacketloss = 50;",
+        '"kickClientsOnSlowNetwork[] = { 0, 0, 0, 0 };",
+        '"drawingInMap = 0;",
+        '"logFile = ""server_console.log"";",
+        '"doubleIdDetected = ""command"";",
+        '"onUserConnected = ""command"";",
+        '"onUserDisconnected = ""command"";",
+        '"onHackedData = ""command"";",
+        '"onDifferentData = ""command"";",
+        '"onUnsignedData = ""command"";",
+        '"regularCheck = ""command"";",
+        '"timeStampFormat = ""Short"";",
+        '"forceRotorLibSimulation = 0;",
+        '"requiredBuild = xxxxx;",
+        '"forcedDifficulty = ""regular"";",
+        '"missionWhitelist[] = {""intro.altis""};"
 
         If enableHCCheck.Checked Then
             configLines.Add("headlessClients[] ={" & headlessIPBox.Text & "};")

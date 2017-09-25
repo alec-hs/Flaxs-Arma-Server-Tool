@@ -24,10 +24,10 @@ Partial Class NewServerTab
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewServerTab))
         Me.profileNameBox = New System.Windows.Forms.TextBox()
-        Me.launchServer = New System.Windows.Forms.Button()
+        Me.launchServerButton = New System.Windows.Forms.Button()
         Me.profileGroup = New System.Windows.Forms.GroupBox()
         Me.deleteProfileButton = New System.Windows.Forms.Button()
-        Me.createBatButton = New System.Windows.Forms.Button()
+        Me.exportButton = New System.Windows.Forms.Button()
         Me.saveProfileButton = New System.Windows.Forms.Button()
         Me.battleyeCheck = New System.Windows.Forms.CheckBox()
         Me.serverFileDialog = New System.Windows.Forms.OpenFileDialog()
@@ -278,22 +278,22 @@ Partial Class NewServerTab
         Me.profileNameBox.TabIndex = 16
         Me.profileNameBox.Text = "New Server"
         '
-        'launchServer
+        'launchServerButton
         '
-        Me.launchServer.Location = New System.Drawing.Point(612, 21)
-        Me.launchServer.Name = "launchServer"
-        Me.launchServer.Size = New System.Drawing.Size(75, 22)
-        Me.launchServer.TabIndex = 20
-        Me.launchServer.Text = "Launch"
-        Me.launchServer.UseVisualStyleBackColor = True
+        Me.launchServerButton.Location = New System.Drawing.Point(612, 21)
+        Me.launchServerButton.Name = "launchServerButton"
+        Me.launchServerButton.Size = New System.Drawing.Size(75, 22)
+        Me.launchServerButton.TabIndex = 20
+        Me.launchServerButton.Text = "Launch"
+        Me.launchServerButton.UseVisualStyleBackColor = True
         '
         'profileGroup
         '
         Me.profileGroup.Controls.Add(Me.deleteProfileButton)
-        Me.profileGroup.Controls.Add(Me.createBatButton)
+        Me.profileGroup.Controls.Add(Me.exportButton)
         Me.profileGroup.Controls.Add(Me.saveProfileButton)
         Me.profileGroup.Controls.Add(Me.profileNameBox)
-        Me.profileGroup.Controls.Add(Me.launchServer)
+        Me.profileGroup.Controls.Add(Me.launchServerButton)
         Me.profileGroup.Controls.Add(Me.battleyeCheck)
         Me.profileGroup.Location = New System.Drawing.Point(3, 273)
         Me.profileGroup.Name = "profileGroup"
@@ -311,14 +311,14 @@ Partial Class NewServerTab
         Me.deleteProfileButton.Text = "Delete"
         Me.deleteProfileButton.UseVisualStyleBackColor = True
         '
-        'createBatButton
+        'exportButton
         '
-        Me.createBatButton.Location = New System.Drawing.Point(531, 21)
-        Me.createBatButton.Name = "createBatButton"
-        Me.createBatButton.Size = New System.Drawing.Size(75, 22)
-        Me.createBatButton.TabIndex = 19
-        Me.createBatButton.Text = "Export"
-        Me.createBatButton.UseVisualStyleBackColor = True
+        Me.exportButton.Location = New System.Drawing.Point(531, 21)
+        Me.exportButton.Name = "exportButton"
+        Me.exportButton.Size = New System.Drawing.Size(75, 22)
+        Me.exportButton.TabIndex = 19
+        Me.exportButton.Text = "Export"
+        Me.exportButton.UseVisualStyleBackColor = True
         '
         'saveProfileButton
         '
@@ -1245,6 +1245,8 @@ Partial Class NewServerTab
         'voteCheck
         '
         Me.voteCheck.AutoSize = True
+        Me.voteCheck.Checked = True
+        Me.voteCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.voteCheck.Location = New System.Drawing.Point(6, 19)
         Me.voteCheck.Name = "voteCheck"
         Me.voteCheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -2423,10 +2425,10 @@ Partial Class NewServerTab
 
     End Sub
     Friend WithEvents profileNameBox As TextBox
-    Friend WithEvents launchServer As Button
+    Friend WithEvents launchServerButton As Button
     Friend WithEvents profileGroup As GroupBox
     Friend WithEvents saveProfileButton As Button
-    Friend WithEvents createBatButton As Button
+    Friend WithEvents exportButton As Button
     Friend WithEvents serverFileDialog As OpenFileDialog
     Friend WithEvents modsTab As TabPage
     Friend WithEvents settingsTab As TabPage
