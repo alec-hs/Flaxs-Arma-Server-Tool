@@ -8,7 +8,7 @@ Public Class NewServerTab
         End If
 
         If verifySigCombo.SelectedIndex = -1 Then
-            verifySigCombo.SelectedItem = "none"
+            verifySigCombo.SelectedItem = "0"
         End If
 
         If rptTimeCombo.SelectedIndex = -1 Then
@@ -58,27 +58,37 @@ Public Class NewServerTab
 
         MainWindow.categoryTabs.SelectedTab.Text = profileNameBox.Text
 
-        If File.Exists(path & oldProfileName & ".FASTprofile") Then
-            File.Delete(path & oldProfileName & ".FASTprofile")
-        End If
+        Try
+            If File.Exists(path & oldProfileName & ".FASTprofile") Then
+                File.Delete(path & oldProfileName & ".FASTprofile")
+            End If
 
-        If Directory.Exists(path & oldProfileName) Then
-            Directory.Delete(path & oldProfileName, True)
-        End If
+            If Directory.Exists(path & oldProfileName) Then
+                FileIO.FileSystem.CopyDirectory(path & oldProfileName, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & oldProfileName, True)
+                Directory.Delete(path & oldProfileName, True)
+            End If
 
-        If Not Directory.Exists(profilePath) Then
-            Directory.CreateDirectory(profilePath)
-        End If
+            If Not Directory.Exists(profilePath) Then
+                Directory.CreateDirectory(profilePath)
+                If Directory.Exists(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & oldProfileName) Then
+                    FileIO.FileSystem.CopyDirectory(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & oldProfileName, profilePath, True)
+                End If
+            End If
 
-        If Not File.Exists(profilePath & newProfileName & "_config.cfg") Then
-            Dim cfg = File.Create(profilePath & newProfileName & "_config.cfg")
-            cfg.Close()
-        End If
+                If Not File.Exists(profilePath & newProfileName & "_config.cfg") Then
+                Dim cfg = File.Create(profilePath & newProfileName & "_config.cfg")
+                cfg.Close()
+            End If
 
-        If Not File.Exists(profilePath & newProfileName & "_basic.cfg") Then
-            Dim cfg = File.Create(profilePath & newProfileName & "_basic.cfg")
-            cfg.Close()
-        End If
+            If Not File.Exists(profilePath & newProfileName & "_basic.cfg") Then
+                Dim cfg = File.Create(profilePath & newProfileName & "_basic.cfg")
+                cfg.Close()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            MsgBox("Files in use please close and try again.")
+        End Try
+
 
 
         Dim settings = New XmlWriterSettings With {
@@ -192,7 +202,7 @@ Public Class NewServerTab
     End Sub
 
     Public Sub LaunchServer()
-        Dim profileName As String = MainWindow.SafeName(MainWindow.categoryTabs.SelectedTab.Text)
+        Dim profileName As String = MainWindow.SafeName(Me.Parent.Text)
         Dim profilePath As String = Application.StartupPath & "\servers\" & profileName & "\"
         Dim configs As String = profilePath & profileName
         Dim start As Boolean = True
@@ -205,6 +215,7 @@ Public Class NewServerTab
         Try
             WriteConfigFiles(profileName)
         Catch ex As Exception
+            MsgBox(ex.Message)
             MsgBox("Config files in use elsewhere - make sure server is not running.")
             start = False
         End Try
@@ -225,6 +236,26 @@ Public Class NewServerTab
 
             If filePatchingCheck.Checked Then
                 commandLine = commandLine & " -filePatching"
+            End If
+
+            If netlogCheck.Checked Then
+                commandLine = commandLine & " -netlog"
+            End If
+
+            If rankingCheck.Checked Then
+                commandLine = commandLine & " -ranking=" & rankingBox.Text
+            End If
+
+            If pidCheck.Checked Then
+                commandLine = commandLine & " -pid=" & pidBox.Text
+            End If
+
+            If autoInitCheck.Checked Then
+                commandLine = commandLine & " -autoInit"
+            End If
+
+            If extraParamsBox.Text IsNot Nothing Then
+                commandLine = commandLine & extraParamsBox.Text
             End If
 
             Clipboard.SetText(commandLine)
@@ -291,21 +322,25 @@ Public Class NewServerTab
 
         Dim config As String = Application.StartupPath & "\servers\" & profile & "\" & profile & "_config.cfg"
         Dim basic As String = Application.StartupPath & "\servers\" & profile & "\" & profile & "_basic.cfg"
+        Dim serverProfile As String = Application.StartupPath & "\servers\" & profile & "\users\" & profile & "\" & profile & ".Arma3Profile"
+
+        Directory.CreateDirectory(Application.StartupPath & "\servers\" & profile & "\users\" & profile)
+
         Dim configLines As New List(Of String) From {
             "passwordAdmin = """ & adminPassBox.Text & """;",
             "password = """ & passwordBox.Text & """;",
             "serverCommandPassword = """ & serverCommandBox.Text & """;",
             "hostname = """ & serverNameBox.Text & """;",
             "maxPlayers = " & maxPlayersBox.Text & ";",
-            "kickduplicate = " & kickDupeCheck.Checked & ";",
-            "upnp = " & upnpCheck.Checked & ";",
-            "allowedFilePatching = " & filePatchCombo.SelectedValue & ";",
-            "verifySignatures = " & verifySigCombo.SelectedValue & ";",
-            "disableVoN = " & vonCheck.Checked & ";",
+            "kickduplicate = " & kickDupeCheck.CheckState & ";",
+            "upnp = " & upnpCheck.CheckState & ";",
+            "allowedFilePatching = " & filePatchCombo.Text & ";",
+            "verifySignatures = " & verifySigCombo.Text & ";",
+            "disableVoN = " & vonCheck.CheckState & ";",
             "vonCodecQuality = " & codecNumeric.Value & ";",
             "vonCodec = 1;",
-            "BattlEye = " & battleyeCheck.Checked & ";",
-            "persistent = " & persistCheck.Checked & ";"
+            "BattlEye = " & battleyeCheck.CheckState & ";",
+            "persistent = " & persistCheck.CheckState & ";"
         }
 
         configLines.Add("motd[]= {")
@@ -316,42 +351,150 @@ Public Class NewServerTab
                 configLines.Add("""" & line & """,")
             End If
         Next
+        configLines.Add("};")
+
+        configLines.Add("motdInterval = " & modTimeNumeric.Value & ";")
 
         If enableHCCheck.Checked Then
             configLines.Add("headlessClients[] = {""" & headlessIPBox.Text & """};")
             configLines.Add("localClient[] = {""" & localClientBox.Text & """};")
         End If
 
-        '"admins[] = {""<UID>""};",
-        '"voteThreshold = 0.33;",
-        '"voteMissionPlayers = 3;",
-        '"loopback = True;",
-        '"disconnectTimeout = 5;",
-        '"maxdesync = 150;",
-        '"maxping = 200;",
-        '"maxpacketloss = 50;",
-        '"kickClientsOnSlowNetwork[] = { 0, 0, 0, 0 };",
-        '"drawingInMap = 0;",
-        '"logFile = ""server_console.log"";",
-        '"doubleIdDetected = ""command"";",
-        '"onUserConnected = ""command"";",
-        '"onUserDisconnected = ""command"";",
-        '"onHackedData = ""command"";",
-        '"onDifferentData = ""command"";",
-        '"onUnsignedData = ""command"";",
-        '"regularCheck = ""command"";",
-        '"timeStampFormat = ""Short"";",
-        '"forceRotorLibSimulation = 0;",
-        '"requiredBuild = xxxxx;",
-        '"forcedDifficulty = ""regular"";",
-        '"missionWhitelist[] = {""intro.altis""};"
-
-        If enableHCCheck.Checked Then
-            configLines.Add("headlessClients[] ={" & headlessIPBox.Text & "};")
-            configLines.Add("localClient[] ={" & localClientBox.Text & "};")
+        If voteCheck.Checked Then
+            configLines.Add("allowedVoteCmds[] = {};")
+            configLines.Add("allowedVotedAdminCmds[] = {};")
+            configLines.Add("voteMissionPlayers = " & voteMinPlayersNumeric.Value & ";")
+            configLines.Add("voteThreshold = " & voteThresholdNumeric.Value / 100 & ";")
+        Else
+            configLines.Add("voteMissionPlayers = " & voteMinPlayersNumeric.Value & ";")
+            configLines.Add("voteThreshold = " & voteThresholdNumeric.Value & ";")
         End If
 
+        If loopbackCheck.Checked Then
+            configLines.Add("loopback = True;")
+        End If
+
+        If disconTimeCheck.Checked Then
+            configLines.Add("disconnectTimeout = " & disconTimeNumeric.Value & ";")
+        End If
+
+        If maxDesyncCheck.Checked Then
+            configLines.Add("maxdesync = " & maxDesyncNumeric.Value & ";")
+        End If
+
+        If maxPingCheck.Checked Then
+            configLines.Add("maxping = " & maxPingNumeric.Value & ";")
+        End If
+
+        If packetLossCheck.Checked Then
+            configLines.Add("maxpacketloss = " & packetLossNumeric.Value & ";")
+        End If
+
+        If kickSlowCheck.Checked Then
+            If kickSlowCombo.Text = "Log" Then
+                configLines.Add("kickClientsOnSlowNetwork[] = { 0, 0, 0, 0 };")
+            ElseIf kickSlowCombo.Text = "Log & Kick" Then
+                configLines.Add("kickClientsOnSlowNetwork[] = { 1, 1, 1, 1 };")
+            End If
+        End If
+
+        If consoleLogCheck.Checked Then
+            configLines.Add("logFile = """ & consoleLogBox.Text & """;")
+        End If
+
+        If requiredBuildCheck.Checked Then
+            configLines.Add("requiredBuild = " & requiredBuildBox.Text & ";")
+        End If
+
+        configLines.Add("doubleIdDetected = """ & doubleIdDetectedBox.Text & """;")
+        configLines.Add("onUserConnected = """ & onUserConnectedBox.Text & """;")
+        configLines.Add("onUserDisconnected = """ & onUserDisconnectedBox.Text & """;")
+        configLines.Add("onHackedData = """ & onHackedDataBox.Text & """;")
+        configLines.Add("onDifferentData = """ & onDifferentDataBox.Text & """;")
+        configLines.Add("onUnsignedData = """ & onUnsignedDataBox.Text & """;")
+        configLines.Add("regularCheck = """ & regularCheckBox.Text & """;")
+
+        configLines.Add("timeStampFormat = """ & rptTimeCombo.Text & """;")
+
+        configLines.Add("class Missions {")
+        For Each mission In missionsList.CheckedItems
+            configLines.Add(vbTab & "class Mission_" & missionsList.CheckedItems.IndexOf(mission) + 1 & " {")
+            configLines.Add(vbTab & vbTab & "template = """ & mission & """;")
+            configLines.Add(vbTab & vbTab & "difficulty = """ & difficultyCombo.Text & """;")
+            configLines.Add(vbTab & "};")
+        Next
+        configLines.Add("};")
+
+
+        '"admins[] = {""<UID>""};"
+        '"drawingInMap = 0;"
+        '"forceRotorLibSimulation = 0;"
+        '"forcedDifficulty = ""regular"";"
+        '"missionWhitelist[] = {""intro.altis""};"
+
         File.WriteAllLines(config, configLines)
+
+        Dim basicLines As New List(Of String) From {
+            "adapter = -1;",
+            "3D_Performance=1;",
+            "Resolution_W = 0;",
+            "Resolution_H = 0;",
+            "Resolution_Bpp = 32;",
+            "terrainGrid = " & terrainNumeric.Value & ";",
+            "viewDistance = " & distanceNumeric.Value & ";",
+            "Windowed = 0;",
+            "MaxMsgSend =" & maxSendBox.Text & ";",
+            "MaxSizeGuaranteed =" & maxGuaranteedBox.Text & ";",
+            "MaxSizeNonguaranteed =" & maxNonGuaranteedBox.Text & ";",
+            "MinBandwidth =" & minBandwidthBox.Text & ";",
+            "MaxBandwidth =" & maxBandwidthBox.Text & ";",
+            "MinErrorToSend =" & minErrorBox.Text & ";",
+            "MinErrorToSendNear =" & minErrorNearBox.Text & ";",
+            "MaxCustomFileSize =" & maxCustFileBox.Text & ";",
+            "class sockets{maxPacketSize = " & maxPacketBox.Text & ";};"
+        }
+
+        File.WriteAllLines(basic, basicLines)
+
+        Dim profileLines As New List(Of String) From {
+            "difficulty = """ & difficultyCombo.Text & """",
+            "class DifficultyPresets {",
+            vbTab & "class CustomDifficulty {",
+            vbTab & vbTab & "class Options {",
+            vbTab & vbTab & vbTab & "reduceDamage = " & reducedDamageCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "groupIndicators = " & groupIndicatorCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "friendlyTags = " & friendlyNameCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "enemyTags = " & enemyNameCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "detectedMines = " & detectedMinesCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "commands = " & commandsCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "waypoints = " & waypointsCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "tacticalPing = " & tacticalPingCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "weaponInfo = " & weaponInfoCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "stanceIndicator = " & stanceIndicatorCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "staminaBar = " & staminaBarCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "weaponCrosshair = " & crosshairCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "visionAid = " & visualAidCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "thirdPersonView = " & thirdPersonCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "cameraShake = " & cameraShakeCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "scoreTable = " & scoreTableCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "deathMessages = " & killedByCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "vonID = " & vonIDCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "mapContent = " & mapContentCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "autoReport = " & autoReportingCheck.CheckState & ";",
+            vbTab & vbTab & vbTab & "multipleSaves = " & multipleSavesCheck.CheckState & ";",
+            vbTab & vbTab & "};",
+            "",
+            vbTab & vbTab & "aiLevelPreset = " & aiPresetNumeric.Value & ";",
+            "",
+            vbTab & vbTab & "class CustomAILevel {",
+            vbTab & vbTab & vbTab & "skillAI = " & aiSkillNumeric.Value & ";",
+            vbTab & vbTab & vbTab & "precisionAI = " & aiAccuracyNumeric.Value & ";",
+            vbTab & vbTab & "};",
+            vbTab & "};",
+            "};"
+        }
+
+        File.WriteAllLines(serverProfile, profileLines)
 
     End Sub
 
@@ -381,11 +524,17 @@ Public Class NewServerTab
 
     Private Sub LocalClientBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles localClientBox.KeyPress
         If e.KeyChar <> ControlChars.Back Then
-            e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or e.KeyChar = ",")
+            e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or e.KeyChar = "," Or e.KeyChar = """")
         End If
     End Sub
 
     Private Sub HeadlessIPBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles headlessIPBox.KeyPress
+        If e.KeyChar <> ControlChars.Back Then
+            e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or e.KeyChar = "," Or e.KeyChar = """")
+        End If
+    End Sub
+
+    Private Sub RequiredBuildBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles requiredBuildBox.KeyPress
         If e.KeyChar <> ControlChars.Back Then
             e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or e.KeyChar = ",")
         End If
@@ -707,5 +856,17 @@ Public Class NewServerTab
 
     Private Sub MissionRefreshButton_Click(sender As Object, e As EventArgs) Handles missionRefreshButton.Click
         UpdateMissionsList()
+    End Sub
+
+    Private Sub MissionsAllButton_Click(sender As Object, e As EventArgs) Handles missionsAllButton.Click
+        For i = 0 To missionsList.Items.Count - 1
+            missionsList.SetItemChecked(i, 1)
+        Next i
+    End Sub
+
+    Private Sub MissionsNoneButton_Click(sender As Object, e As EventArgs) Handles missionsNoneButton.Click
+        For i = 0 To missionsList.Items.Count - 1
+            missionsList.SetItemChecked(i, 0)
+        Next i
     End Sub
 End Class

@@ -117,7 +117,7 @@ Partial Class NewServerTab
         Me.voteThresholdLabel = New System.Windows.Forms.Label()
         Me.minPlayersLabel = New System.Windows.Forms.Label()
         Me.voteThresholdNumeric = New System.Windows.Forms.NumericUpDown()
-        Me.minPlayersNumeric = New System.Windows.Forms.NumericUpDown()
+        Me.voteMinPlayersNumeric = New System.Windows.Forms.NumericUpDown()
         Me.voteCheck = New System.Windows.Forms.CheckBox()
         Me.vonGroup = New System.Windows.Forms.GroupBox()
         Me.codecLabel = New System.Windows.Forms.Label()
@@ -134,6 +134,7 @@ Partial Class NewServerTab
         Me.missionsAllButton = New System.Windows.Forms.Button()
         Me.missionsList = New System.Windows.Forms.CheckedListBox()
         Me.customDifficutlyGroup = New System.Windows.Forms.GroupBox()
+        Me.tacticalPingCheck = New System.Windows.Forms.CheckBox()
         Me.aiSettingsGroup = New System.Windows.Forms.GroupBox()
         Me.aiAccuracyLabel = New System.Windows.Forms.Label()
         Me.aiSkillLabel = New System.Windows.Forms.Label()
@@ -245,7 +246,7 @@ Partial Class NewServerTab
         CType(Me.modTimeNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.votingGroup.SuspendLayout()
         CType(Me.voteThresholdNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.minPlayersNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.voteMinPlayersNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.vonGroup.SuspendLayout()
         CType(Me.codecNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.missionTab.SuspendLayout()
@@ -553,12 +554,13 @@ Partial Class NewServerTab
         'netlogCheck
         '
         Me.netlogCheck.AutoSize = True
+        Me.netlogCheck.BackColor = System.Drawing.Color.LightSkyBlue
         Me.netlogCheck.Location = New System.Drawing.Point(6, 71)
         Me.netlogCheck.Name = "netlogCheck"
         Me.netlogCheck.Size = New System.Drawing.Size(57, 17)
         Me.netlogCheck.TabIndex = 14
         Me.netlogCheck.Text = "Netlog"
-        Me.netlogCheck.UseVisualStyleBackColor = True
+        Me.netlogCheck.UseVisualStyleBackColor = False
         '
         'upnpCheck
         '
@@ -689,12 +691,13 @@ Partial Class NewServerTab
         'rankingCheck
         '
         Me.rankingCheck.AutoSize = True
+        Me.rankingCheck.BackColor = System.Drawing.Color.LightSkyBlue
         Me.rankingCheck.Location = New System.Drawing.Point(117, 21)
         Me.rankingCheck.Name = "rankingCheck"
         Me.rankingCheck.Size = New System.Drawing.Size(85, 17)
         Me.rankingCheck.TabIndex = 26
         Me.rankingCheck.Text = "Ranking File"
-        Me.rankingCheck.UseVisualStyleBackColor = True
+        Me.rankingCheck.UseVisualStyleBackColor = False
         '
         'pidCheck
         '
@@ -890,7 +893,7 @@ Partial Class NewServerTab
         Me.consoleLogBox.Name = "consoleLogBox"
         Me.consoleLogBox.Size = New System.Drawing.Size(155, 20)
         Me.consoleLogBox.TabIndex = 15
-        Me.consoleLogBox.Text = "logfile_console.log"
+        Me.consoleLogBox.Text = "server_console.log"
         '
         'settingsGroup
         '
@@ -1113,7 +1116,7 @@ Partial Class NewServerTab
         Me.verifySigCombo.BackColor = System.Drawing.SystemColors.Window
         Me.verifySigCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.verifySigCombo.FormattingEnabled = True
-        Me.verifySigCombo.Items.AddRange(New Object() {"none", "v1", "v2"})
+        Me.verifySigCombo.Items.AddRange(New Object() {"0", "1", "2"})
         Me.verifySigCombo.Location = New System.Drawing.Point(133, 93)
         Me.verifySigCombo.MaxDropDownItems = 3
         Me.verifySigCombo.Name = "verifySigCombo"
@@ -1187,7 +1190,7 @@ Partial Class NewServerTab
         Me.votingGroup.Controls.Add(Me.voteThresholdLabel)
         Me.votingGroup.Controls.Add(Me.minPlayersLabel)
         Me.votingGroup.Controls.Add(Me.voteThresholdNumeric)
-        Me.votingGroup.Controls.Add(Me.minPlayersNumeric)
+        Me.votingGroup.Controls.Add(Me.voteMinPlayersNumeric)
         Me.votingGroup.Controls.Add(Me.voteCheck)
         Me.votingGroup.Location = New System.Drawing.Point(6, 135)
         Me.votingGroup.Name = "votingGroup"
@@ -1232,27 +1235,27 @@ Partial Class NewServerTab
         Me.voteThresholdNumeric.TabIndex = 20
         Me.voteThresholdNumeric.Value = New Decimal(New Integer() {33, 0, 0, 0})
         '
-        'minPlayersNumeric
+        'voteMinPlayersNumeric
         '
-        Me.minPlayersNumeric.Location = New System.Drawing.Point(90, 42)
-        Me.minPlayersNumeric.Maximum = New Decimal(New Integer() {30, 0, 0, 0})
-        Me.minPlayersNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.minPlayersNumeric.Name = "minPlayersNumeric"
-        Me.minPlayersNumeric.Size = New System.Drawing.Size(43, 20)
-        Me.minPlayersNumeric.TabIndex = 17
-        Me.minPlayersNumeric.Value = New Decimal(New Integer() {3, 0, 0, 0})
+        Me.voteMinPlayersNumeric.Location = New System.Drawing.Point(90, 42)
+        Me.voteMinPlayersNumeric.Maximum = New Decimal(New Integer() {30, 0, 0, 0})
+        Me.voteMinPlayersNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.voteMinPlayersNumeric.Name = "voteMinPlayersNumeric"
+        Me.voteMinPlayersNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.voteMinPlayersNumeric.TabIndex = 17
+        Me.voteMinPlayersNumeric.Value = New Decimal(New Integer() {3, 0, 0, 0})
         '
         'voteCheck
         '
         Me.voteCheck.AutoSize = True
         Me.voteCheck.Checked = True
         Me.voteCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.voteCheck.Location = New System.Drawing.Point(6, 19)
+        Me.voteCheck.Location = New System.Drawing.Point(11, 19)
         Me.voteCheck.Name = "voteCheck"
         Me.voteCheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.voteCheck.Size = New System.Drawing.Size(98, 17)
+        Me.voteCheck.Size = New System.Drawing.Size(94, 17)
         Me.voteCheck.TabIndex = 19
-        Me.voteCheck.Text = "Voting Enabled"
+        Me.voteCheck.Text = "Disable Voting"
         Me.voteCheck.UseVisualStyleBackColor = True
         '
         'vonGroup
@@ -1404,6 +1407,7 @@ Partial Class NewServerTab
         '
         'customDifficutlyGroup
         '
+        Me.customDifficutlyGroup.Controls.Add(Me.tacticalPingCheck)
         Me.customDifficutlyGroup.Controls.Add(Me.aiSettingsGroup)
         Me.customDifficutlyGroup.Controls.Add(Me.multipleSavesCheck)
         Me.customDifficutlyGroup.Controls.Add(Me.autoReportingCheck)
@@ -1431,6 +1435,18 @@ Partial Class NewServerTab
         Me.customDifficutlyGroup.TabIndex = 13
         Me.customDifficutlyGroup.TabStop = False
         Me.customDifficutlyGroup.Text = "Custom Difficulty"
+        '
+        'tacticalPingCheck
+        '
+        Me.tacticalPingCheck.AutoSize = True
+        Me.tacticalPingCheck.Checked = True
+        Me.tacticalPingCheck.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.tacticalPingCheck.Location = New System.Drawing.Point(234, 65)
+        Me.tacticalPingCheck.Name = "tacticalPingCheck"
+        Me.tacticalPingCheck.Size = New System.Drawing.Size(88, 17)
+        Me.tacticalPingCheck.TabIndex = 21
+        Me.tacticalPingCheck.Text = "Tactical Ping"
+        Me.tacticalPingCheck.UseVisualStyleBackColor = True
         '
         'aiSettingsGroup
         '
@@ -1508,6 +1524,8 @@ Partial Class NewServerTab
         'multipleSavesCheck
         '
         Me.multipleSavesCheck.AutoSize = True
+        Me.multipleSavesCheck.Checked = True
+        Me.multipleSavesCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.multipleSavesCheck.Location = New System.Drawing.Point(6, 134)
         Me.multipleSavesCheck.Name = "multipleSavesCheck"
         Me.multipleSavesCheck.Size = New System.Drawing.Size(95, 17)
@@ -1518,6 +1536,8 @@ Partial Class NewServerTab
         'autoReportingCheck
         '
         Me.autoReportingCheck.AutoSize = True
+        Me.autoReportingCheck.Checked = True
+        Me.autoReportingCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.autoReportingCheck.Location = New System.Drawing.Point(234, 19)
         Me.autoReportingCheck.Name = "autoReportingCheck"
         Me.autoReportingCheck.Size = New System.Drawing.Size(97, 17)
@@ -1528,6 +1548,8 @@ Partial Class NewServerTab
         'mapContentCheck
         '
         Me.mapContentCheck.AutoSize = True
+        Me.mapContentCheck.Checked = True
+        Me.mapContentCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mapContentCheck.Location = New System.Drawing.Point(132, 88)
         Me.mapContentCheck.Name = "mapContentCheck"
         Me.mapContentCheck.Size = New System.Drawing.Size(135, 17)
@@ -1538,6 +1560,8 @@ Partial Class NewServerTab
         'vonIDCheck
         '
         Me.vonIDCheck.AutoSize = True
+        Me.vonIDCheck.Checked = True
+        Me.vonIDCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.vonIDCheck.Location = New System.Drawing.Point(132, 134)
         Me.vonIDCheck.Name = "vonIDCheck"
         Me.vonIDCheck.Size = New System.Drawing.Size(63, 17)
@@ -1548,6 +1572,8 @@ Partial Class NewServerTab
         'killedByCheck
         '
         Me.killedByCheck.AutoSize = True
+        Me.killedByCheck.Checked = True
+        Me.killedByCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.killedByCheck.Location = New System.Drawing.Point(132, 157)
         Me.killedByCheck.Name = "killedByCheck"
         Me.killedByCheck.Size = New System.Drawing.Size(66, 17)
@@ -1558,6 +1584,8 @@ Partial Class NewServerTab
         'scoreTableCheck
         '
         Me.scoreTableCheck.AutoSize = True
+        Me.scoreTableCheck.Checked = True
+        Me.scoreTableCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.scoreTableCheck.Location = New System.Drawing.Point(234, 42)
         Me.scoreTableCheck.Name = "scoreTableCheck"
         Me.scoreTableCheck.Size = New System.Drawing.Size(84, 17)
@@ -1568,6 +1596,8 @@ Partial Class NewServerTab
         'cameraShakeCheck
         '
         Me.cameraShakeCheck.AutoSize = True
+        Me.cameraShakeCheck.Checked = True
+        Me.cameraShakeCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cameraShakeCheck.Location = New System.Drawing.Point(132, 42)
         Me.cameraShakeCheck.Name = "cameraShakeCheck"
         Me.cameraShakeCheck.Size = New System.Drawing.Size(96, 17)
@@ -1578,6 +1608,8 @@ Partial Class NewServerTab
         'thirdPersonCheck
         '
         Me.thirdPersonCheck.AutoSize = True
+        Me.thirdPersonCheck.Checked = True
+        Me.thirdPersonCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.thirdPersonCheck.Location = New System.Drawing.Point(6, 157)
         Me.thirdPersonCheck.Name = "thirdPersonCheck"
         Me.thirdPersonCheck.Size = New System.Drawing.Size(116, 17)
@@ -1588,6 +1620,8 @@ Partial Class NewServerTab
         'visualAidCheck
         '
         Me.visualAidCheck.AutoSize = True
+        Me.visualAidCheck.Checked = True
+        Me.visualAidCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.visualAidCheck.Location = New System.Drawing.Point(132, 65)
         Me.visualAidCheck.Name = "visualAidCheck"
         Me.visualAidCheck.Size = New System.Drawing.Size(77, 17)
@@ -1598,6 +1632,8 @@ Partial Class NewServerTab
         'crosshairCheck
         '
         Me.crosshairCheck.AutoSize = True
+        Me.crosshairCheck.Checked = True
+        Me.crosshairCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.crosshairCheck.Location = New System.Drawing.Point(132, 203)
         Me.crosshairCheck.Name = "crosshairCheck"
         Me.crosshairCheck.Size = New System.Drawing.Size(69, 17)
@@ -1608,6 +1644,8 @@ Partial Class NewServerTab
         'staminaBarCheck
         '
         Me.staminaBarCheck.AutoSize = True
+        Me.staminaBarCheck.Checked = True
+        Me.staminaBarCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.staminaBarCheck.Location = New System.Drawing.Point(132, 19)
         Me.staminaBarCheck.Name = "staminaBarCheck"
         Me.staminaBarCheck.Size = New System.Drawing.Size(83, 17)
@@ -1618,6 +1656,8 @@ Partial Class NewServerTab
         'stanceIndicatorCheck
         '
         Me.stanceIndicatorCheck.AutoSize = True
+        Me.stanceIndicatorCheck.Checked = True
+        Me.stanceIndicatorCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.stanceIndicatorCheck.Location = New System.Drawing.Point(6, 203)
         Me.stanceIndicatorCheck.Name = "stanceIndicatorCheck"
         Me.stanceIndicatorCheck.Size = New System.Drawing.Size(104, 17)
@@ -1628,6 +1668,8 @@ Partial Class NewServerTab
         'weaponInfoCheck
         '
         Me.weaponInfoCheck.AutoSize = True
+        Me.weaponInfoCheck.Checked = True
+        Me.weaponInfoCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.weaponInfoCheck.Location = New System.Drawing.Point(6, 180)
         Me.weaponInfoCheck.Name = "weaponInfoCheck"
         Me.weaponInfoCheck.Size = New System.Drawing.Size(88, 17)
@@ -1638,6 +1680,8 @@ Partial Class NewServerTab
         'waypointsCheck
         '
         Me.waypointsCheck.AutoSize = True
+        Me.waypointsCheck.Checked = True
+        Me.waypointsCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.waypointsCheck.Location = New System.Drawing.Point(132, 180)
         Me.waypointsCheck.Name = "waypointsCheck"
         Me.waypointsCheck.Size = New System.Drawing.Size(76, 17)
@@ -1648,6 +1692,8 @@ Partial Class NewServerTab
         'commandsCheck
         '
         Me.commandsCheck.AutoSize = True
+        Me.commandsCheck.Checked = True
+        Me.commandsCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.commandsCheck.Location = New System.Drawing.Point(132, 111)
         Me.commandsCheck.Name = "commandsCheck"
         Me.commandsCheck.Size = New System.Drawing.Size(78, 17)
@@ -1658,6 +1704,8 @@ Partial Class NewServerTab
         'detectedMinesCheck
         '
         Me.detectedMinesCheck.AutoSize = True
+        Me.detectedMinesCheck.Checked = True
+        Me.detectedMinesCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.detectedMinesCheck.Location = New System.Drawing.Point(6, 111)
         Me.detectedMinesCheck.Name = "detectedMinesCheck"
         Me.detectedMinesCheck.Size = New System.Drawing.Size(101, 17)
@@ -1668,6 +1716,8 @@ Partial Class NewServerTab
         'enemyNameCheck
         '
         Me.enemyNameCheck.AutoSize = True
+        Me.enemyNameCheck.Checked = True
+        Me.enemyNameCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.enemyNameCheck.Location = New System.Drawing.Point(6, 88)
         Me.enemyNameCheck.Name = "enemyNameCheck"
         Me.enemyNameCheck.Size = New System.Drawing.Size(116, 17)
@@ -1678,6 +1728,8 @@ Partial Class NewServerTab
         'friendlyNameCheck
         '
         Me.friendlyNameCheck.AutoSize = True
+        Me.friendlyNameCheck.Checked = True
+        Me.friendlyNameCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.friendlyNameCheck.Location = New System.Drawing.Point(6, 65)
         Me.friendlyNameCheck.Name = "friendlyNameCheck"
         Me.friendlyNameCheck.Size = New System.Drawing.Size(120, 17)
@@ -1688,6 +1740,8 @@ Partial Class NewServerTab
         'groupIndicatorCheck
         '
         Me.groupIndicatorCheck.AutoSize = True
+        Me.groupIndicatorCheck.Checked = True
+        Me.groupIndicatorCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.groupIndicatorCheck.Location = New System.Drawing.Point(6, 42)
         Me.groupIndicatorCheck.Name = "groupIndicatorCheck"
         Me.groupIndicatorCheck.Size = New System.Drawing.Size(104, 17)
@@ -2249,6 +2303,7 @@ Partial Class NewServerTab
         'onUnsignedDataBox
         '
         Me.onUnsignedDataBox.Location = New System.Drawing.Point(474, 124)
+        Me.onUnsignedDataBox.Multiline = False
         Me.onUnsignedDataBox.Name = "onUnsignedDataBox"
         Me.onUnsignedDataBox.Size = New System.Drawing.Size(200, 45)
         Me.onUnsignedDataBox.TabIndex = 16
@@ -2257,6 +2312,7 @@ Partial Class NewServerTab
         'regularCheckBox
         '
         Me.regularCheckBox.Location = New System.Drawing.Point(474, 175)
+        Me.regularCheckBox.Multiline = False
         Me.regularCheckBox.Name = "regularCheckBox"
         Me.regularCheckBox.Size = New System.Drawing.Size(200, 45)
         Me.regularCheckBox.TabIndex = 15
@@ -2265,6 +2321,7 @@ Partial Class NewServerTab
         'onDifferentDataBox
         '
         Me.onDifferentDataBox.Location = New System.Drawing.Point(474, 73)
+        Me.onDifferentDataBox.Multiline = False
         Me.onDifferentDataBox.Name = "onDifferentDataBox"
         Me.onDifferentDataBox.Size = New System.Drawing.Size(200, 45)
         Me.onDifferentDataBox.TabIndex = 14
@@ -2273,6 +2330,7 @@ Partial Class NewServerTab
         'onHackedDataBox
         '
         Me.onHackedDataBox.Location = New System.Drawing.Point(474, 22)
+        Me.onHackedDataBox.Multiline = False
         Me.onHackedDataBox.Name = "onHackedDataBox"
         Me.onHackedDataBox.Size = New System.Drawing.Size(200, 45)
         Me.onHackedDataBox.TabIndex = 13
@@ -2317,6 +2375,7 @@ Partial Class NewServerTab
         'onUserConnectedBox
         '
         Me.onUserConnectedBox.Location = New System.Drawing.Point(151, 124)
+        Me.onUserConnectedBox.Multiline = False
         Me.onUserConnectedBox.Name = "onUserConnectedBox"
         Me.onUserConnectedBox.Size = New System.Drawing.Size(200, 45)
         Me.onUserConnectedBox.TabIndex = 8
@@ -2325,6 +2384,7 @@ Partial Class NewServerTab
         'onUserDisconnectedBox
         '
         Me.onUserDisconnectedBox.Location = New System.Drawing.Point(151, 175)
+        Me.onUserDisconnectedBox.Multiline = False
         Me.onUserDisconnectedBox.Name = "onUserDisconnectedBox"
         Me.onUserDisconnectedBox.Size = New System.Drawing.Size(200, 45)
         Me.onUserDisconnectedBox.TabIndex = 7
@@ -2333,6 +2393,7 @@ Partial Class NewServerTab
         'doubleIdDetectedBox
         '
         Me.doubleIdDetectedBox.Location = New System.Drawing.Point(151, 73)
+        Me.doubleIdDetectedBox.Multiline = False
         Me.doubleIdDetectedBox.Name = "doubleIdDetectedBox"
         Me.doubleIdDetectedBox.Size = New System.Drawing.Size(200, 45)
         Me.doubleIdDetectedBox.TabIndex = 6
@@ -2341,6 +2402,7 @@ Partial Class NewServerTab
         'serverCommandBox
         '
         Me.serverCommandBox.Location = New System.Drawing.Point(151, 22)
+        Me.serverCommandBox.Multiline = False
         Me.serverCommandBox.Name = "serverCommandBox"
         Me.serverCommandBox.Size = New System.Drawing.Size(200, 45)
         Me.serverCommandBox.TabIndex = 5
@@ -2391,7 +2453,7 @@ Partial Class NewServerTab
         Me.votingGroup.ResumeLayout(False)
         Me.votingGroup.PerformLayout()
         CType(Me.voteThresholdNumeric, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.minPlayersNumeric, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.voteMinPlayersNumeric, System.ComponentModel.ISupportInitialize).EndInit()
         Me.vonGroup.ResumeLayout(False)
         Me.vonGroup.PerformLayout()
         CType(Me.codecNumeric, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2478,7 +2540,7 @@ Partial Class NewServerTab
     Friend WithEvents voteThresholdLabel As Label
     Friend WithEvents minPlayersLabel As Label
     Friend WithEvents voteThresholdNumeric As NumericUpDown
-    Friend WithEvents minPlayersNumeric As NumericUpDown
+    Friend WithEvents voteMinPlayersNumeric As NumericUpDown
     Friend WithEvents voteCheck As CheckBox
     Friend WithEvents vonGroup As GroupBox
     Friend WithEvents codecLabel As Label
@@ -2627,4 +2689,5 @@ Partial Class NewServerTab
     Friend WithEvents aiSkillNumeric As NumericUpDown
     Friend WithEvents aiPresetNumeric As NumericUpDown
     Friend WithEvents difficultyLabel As Label
+    Friend WithEvents tacticalPingCheck As CheckBox
 End Class
