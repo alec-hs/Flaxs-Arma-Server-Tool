@@ -227,7 +227,7 @@ Public Class NewServerTab
             commandLine = commandLine & " ""-cfg=" & configs & "_basic.cfg"""
             commandLine = commandLine & " ""-profiles=" & profilePath & """"
             commandLine = commandLine & " -name=" & profileName
-            commandLine = commandLine & " ""-mods=" & serverMods & """"
+            commandLine = commandLine & " ""-serverMod=" & serverMods & """"
 
 
             If htCheck.Checked Then
@@ -275,7 +275,7 @@ Public Class NewServerTab
                         hcMods = hcMods & addon & ";"
                     Next
 
-                    hcCommandLine = hcCommandLine & " ""-mods=" & serverMods & """"
+                    hcCommandLine = hcCommandLine & " ""-mod=" & serverMods & """"
 
                     Clipboard.SetText(hcCommandLine)
 
