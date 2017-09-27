@@ -275,7 +275,7 @@ Public Class NewServerTab
                         hcMods = hcMods & addon & ";"
                     Next
 
-                    hcCommandLine = hcCommandLine & " ""-mod=" & serverMods & """"
+                    hcCommandLine = hcCommandLine & " ""-mod=" & hcMods & """"
 
                     Clipboard.SetText(hcCommandLine)
 
