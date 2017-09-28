@@ -457,7 +457,7 @@ Public Class NewServerTab
         File.WriteAllLines(basic, basicLines)
 
         Dim profileLines As New List(Of String) From {
-            "difficulty = """ & difficultyCombo.Text & """",
+            "difficulty = """ & difficultyCombo.Text & """;",
             "class DifficultyPresets {",
             vbTab & "class CustomDifficulty {",
             vbTab & vbTab & "class Options {",
