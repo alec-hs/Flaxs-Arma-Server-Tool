@@ -401,7 +401,6 @@ Public Class MainWindow
 
     Public Sub ImportModSetFile()
 
-
         If importModSet.ShowDialog() = DialogResult.OK Then
             Dim modSetFile As String = importModSet.FileName
 
@@ -489,13 +488,13 @@ Public Class MainWindow
                         Dim updateTimeUNIX As Double
 
                         Dim modInfo As String = Nothing
-                        Dim tasks As New List(Of Task)
-
-                        tasks.Add(Task.Run(
+                        Dim tasks As New List(Of Task) From {
+                            Task.Run(
                             Sub()
                                 modInfo = GetModInfo(modID)
                             End Sub
-                        ))
+                        )
+                        }
 
                         Await Task.WhenAll(tasks)
 
@@ -669,8 +668,9 @@ Public Class MainWindow
                 Dim steamCMD As String = steamDirBox.Text + "\steamcmd.exe"
                 Dim steamCommand As String = "+login " & userNameBox.Text & " " & userPassBox.Text & " +workshop_download_item 107410 " & modID & " validate +quit"
 
-                Dim modIDs As New List(Of String)
-                modIDs.Add(modID)
+                Dim modIDs As New List(Of String) From {
+                    modID
+                }
 
                 RunSteamCommand(steamCMD, steamCommand, "addon", modIDs)
             End If
@@ -772,15 +772,15 @@ Public Class MainWindow
                 steamOutputBox.Text = "Downloading and Installing SteamCMD" & Environment.NewLine
             End If
 
-
             tasks.Add(Task.Run(
                     Sub()
-                        Dim oStartInfo As New ProcessStartInfo(steamCMD, steamCommand)
-                        oStartInfo.CreateNoWindow = True
-                        oStartInfo.WindowStyle = ProcessWindowStyle.Hidden
-                        oStartInfo.UseShellExecute = False
-                        oStartInfo.RedirectStandardOutput = True
-                        oStartInfo.RedirectStandardInput = True
+                        Dim oStartInfo As New ProcessStartInfo(steamCMD, steamCommand) With {
+                            .CreateNoWindow = True,
+                            .WindowStyle = ProcessWindowStyle.Hidden,
+                            .UseShellExecute = False,
+                            .RedirectStandardOutput = True,
+                            .RedirectStandardInput = True
+                        }
                         oProcess.StartInfo = oStartInfo
                         oProcess.Start()
 
@@ -852,7 +852,6 @@ Public Class MainWindow
                     End Sub
                 ))
 
-
             Await Task.WhenAll(tasks)
 
             If (cancelled = True) Then
@@ -900,7 +899,6 @@ Public Class MainWindow
     End Sub
 
     Public Function SafeName(name As String)
-
         name = name.Replace("  ", "")
         name = name.Replace(" ", "_")
         name = name.Replace(">", "")

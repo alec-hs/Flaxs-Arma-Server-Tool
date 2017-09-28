@@ -14,6 +14,7 @@ Public Class ImportMod
     End Sub
 
     Public Sub ImportModToList(modUrl As String)
+        Cursor.Current = Cursors.WaitCursor
         Dim modID As String
         Dim modName As String
         Dim appName As String
@@ -80,7 +81,7 @@ Public Class ImportMod
             Me.Close()
             MsgBox("Mod already imported.")
         End If
-
+        Cursor.Current = Cursors.Default
     End Sub
 
 End Class
