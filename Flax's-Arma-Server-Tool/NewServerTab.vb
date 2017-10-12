@@ -227,7 +227,7 @@ Public Class NewServerTab
             commandLine = commandLine & " ""-cfg=" & configs & "_basic.cfg"""
             commandLine = commandLine & " ""-profiles=" & profilePath & """"
             commandLine = commandLine & " -name=" & profileName
-            commandLine = commandLine & " ""-serverMod=" & serverMods & """"
+            commandLine = commandLine & " ""-mod=" & serverMods & """"
 
 
             If htCheck.Checked Then
