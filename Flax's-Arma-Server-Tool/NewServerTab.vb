@@ -738,8 +738,8 @@ Public Class NewServerTab
     End Sub
 
     Private Sub HcModsSortButton_Click(sender As Object, e As EventArgs) Handles hcModsSortButton.Click
-        serverModsList.Sorted = True
-        serverModsList.Sorted = False
+        hcModsList.Sorted = True
+        hcModsList.Sorted = False
     End Sub
 
     Private Sub RefreshModsButton_Click(sender As Object, e As EventArgs) Handles refreshModsButton.Click
