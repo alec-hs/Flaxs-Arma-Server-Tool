@@ -345,10 +345,12 @@ Public Class NewServerTab
 
         configLines.Add("motd[]= {")
         For Each line In modBox.Lines
-            If line Is modBox.Lines.Last Then
-                configLines.Add("""" & line & """")
-            Else
-                configLines.Add("""" & line & """,")
+            If Not line = "" Then
+                If line Is modBox.Lines.Last Then
+                    configLines.Add("""" & line & """")
+                Else
+                    configLines.Add("""" & line & """,")
+                End If
             End If
         Next
         configLines.Add("};")
