@@ -681,54 +681,62 @@ Public Class NewServerTab
     End Sub
 
     Private Sub ServerModsUpButton_Click(sender As Object, e As EventArgs) Handles serverModsUpButton.Click
-        Dim index As Integer = serverModsList.SelectedIndex
-        Dim addon As String = serverModsList.SelectedItem
-        Dim check As Integer = serverModsList.GetItemCheckState(index)
+        If Not serverModsList.SelectedItem = Nothing Then
+            Dim index As Integer = serverModsList.SelectedIndex
+            Dim addon As String = serverModsList.SelectedItem
+            Dim check As Integer = serverModsList.GetItemCheckState(index)
 
-        If index > 0 Then
-            serverModsList.Items.RemoveAt(index)
-            serverModsList.Items.Insert(index - 1, addon)
-            serverModsList.SelectedIndex = index - 1
-            serverModsList.SetItemCheckState(index - 1, check)
+            If index > 0 Then
+                serverModsList.Items.RemoveAt(index)
+                serverModsList.Items.Insert(index - 1, addon)
+                serverModsList.SelectedIndex = index - 1
+                serverModsList.SetItemCheckState(index - 1, check)
+            End If
         End If
     End Sub
 
     Private Sub ServerModsDownButton_Click(sender As Object, e As EventArgs) Handles serverModsDownButton.Click
-        Dim index As Integer = serverModsList.SelectedIndex
-        Dim addon As String = serverModsList.SelectedItem
-        Dim check As Integer = serverModsList.GetItemCheckState(index)
+        If Not serverModsList.SelectedItem = Nothing Then
+            Dim index As Integer = serverModsList.SelectedIndex
+            Dim addon As String = serverModsList.SelectedItem
+            Dim check As Integer = serverModsList.GetItemCheckState(index)
 
-        If index < serverModsList.Items.Count - 1 Then
-            serverModsList.Items.RemoveAt(index)
-            serverModsList.Items.Insert(index + 1, addon)
-            serverModsList.SelectedIndex = index + 1
-            serverModsList.SetItemCheckState(index + 1, check)
+            If index < serverModsList.Items.Count - 1 Then
+                serverModsList.Items.RemoveAt(index)
+                serverModsList.Items.Insert(index + 1, addon)
+                serverModsList.SelectedIndex = index + 1
+                serverModsList.SetItemCheckState(index + 1, check)
+            End If
         End If
     End Sub
 
     Private Sub HcModsUpButton_Click(sender As Object, e As EventArgs) Handles hcModsUpButton.Click
-        Dim index As Integer = hcModsList.SelectedIndex
-        Dim addon As String = hcModsList.SelectedItem
-        Dim check As Integer = hcModsList.GetItemCheckState(index)
+        If Not hcModsList.SelectedItem = Nothing Then
+            Dim index As Integer = hcModsList.SelectedIndex
+            Dim addon As String = hcModsList.SelectedItem
+            Dim check As Integer = hcModsList.GetItemCheckState(index)
 
-        If index > 0 Then
-            hcModsList.Items.RemoveAt(index)
-            hcModsList.Items.Insert(index - 1, addon)
-            hcModsList.SelectedIndex = index - 1
-            hcModsList.SetItemCheckState(index - 1, check)
+            If index > 0 Then
+                hcModsList.Items.RemoveAt(index)
+                hcModsList.Items.Insert(index - 1, addon)
+                hcModsList.SelectedIndex = index - 1
+                hcModsList.SetItemCheckState(index - 1, check)
+            End If
         End If
     End Sub
 
     Private Sub HcModsDownButton_Click(sender As Object, e As EventArgs) Handles hcModsDownButton.Click
-        Dim index As Integer = hcModsList.SelectedIndex
-        Dim addon As String = hcModsList.SelectedItem
-        Dim check As Integer = hcModsList.GetItemCheckState(index)
+        If Not hcModsList.SelectedItem = Nothing Then
+            Dim index As Integer = hcModsList.SelectedIndex
+            Dim addon As String = hcModsList.SelectedItem
+            Dim check As Integer = hcModsList.GetItemCheckState(index)
 
-        If index < hcModsList.Items.Count - 1 Then
-            hcModsList.Items.RemoveAt(index)
-            hcModsList.Items.Insert(index + 1, addon)
-            hcModsList.SelectedIndex = index + 1
-            hcModsList.SetItemCheckState(index + 1, check)
+            If index < hcModsList.Items.Count - 1 Then
+                hcModsList.Items.RemoveAt(index)
+                hcModsList.Items.Insert(index + 1, addon)
+                hcModsList.SelectedIndex = index + 1
+                hcModsList.SetItemCheckState(index + 1, check)
+            End If
         End If
     End Sub
 
