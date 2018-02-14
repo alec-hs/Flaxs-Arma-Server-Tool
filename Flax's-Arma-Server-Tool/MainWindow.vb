@@ -792,7 +792,7 @@ Public Class MainWindow
                                 Try
                                     sOutput = oStreamReader.ReadLine
 
-                                    If sOutput Like "*Steam Guard*" Then
+                                    If sOutput Like "*Steam Guard code:*" Then
                                         Dim steamCode As String
 
                                         steamCode = InputBox("Enter Steam Guard code from email or mobile app.", "Steam Guard Code", "")
@@ -946,6 +946,10 @@ Public Class MainWindow
         Else
             MessageBox.Show("No Profiles", "Information")
         End If
+    End Sub
+
+    Private Sub ImportSteamModsStripMenuItem_Click(sender As Object, e As EventArgs) Handles importSteamModsStripMenuItem.Click
+
     End Sub
 End Class
 

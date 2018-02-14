@@ -41,6 +41,7 @@ Partial Class MainWindow
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.CopyKeysFromModsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectedModsToClipboardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.importSteamModsStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ServersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddNewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenProfileDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -145,56 +146,62 @@ Partial Class MainWindow
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallCMDToolStripMenuItem, Me.OpenSteamCMDDirToolStripMenuItem, Me.ToolStripSeparator2, Me.OpenA3DirectoryToolStripMenuItem, Me.OpenModsLocationToolStripMenuItem, Me.ToolStripSeparator3, Me.CopyKeysFromModsToolStripMenuItem, Me.SelectedModsToClipboardToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallCMDToolStripMenuItem, Me.OpenSteamCMDDirToolStripMenuItem, Me.ToolStripSeparator2, Me.OpenA3DirectoryToolStripMenuItem, Me.OpenModsLocationToolStripMenuItem, Me.ToolStripSeparator3, Me.CopyKeysFromModsToolStripMenuItem, Me.SelectedModsToClipboardToolStripMenuItem, Me.importSteamModsStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools"
         '
         'InstallCMDToolStripMenuItem
         '
         Me.InstallCMDToolStripMenuItem.Name = "InstallCMDToolStripMenuItem"
-        Me.InstallCMDToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
+        Me.InstallCMDToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
         Me.InstallCMDToolStripMenuItem.Text = "Install SteamCMD"
         '
         'OpenSteamCMDDirToolStripMenuItem
         '
         Me.OpenSteamCMDDirToolStripMenuItem.Name = "OpenSteamCMDDirToolStripMenuItem"
-        Me.OpenSteamCMDDirToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
+        Me.OpenSteamCMDDirToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
         Me.OpenSteamCMDDirToolStripMenuItem.Text = "Open SteamCMD Location"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(217, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(219, 6)
         '
         'OpenA3DirectoryToolStripMenuItem
         '
         Me.OpenA3DirectoryToolStripMenuItem.Name = "OpenA3DirectoryToolStripMenuItem"
-        Me.OpenA3DirectoryToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
+        Me.OpenA3DirectoryToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
         Me.OpenA3DirectoryToolStripMenuItem.Text = "Open Arma 3 Location"
         '
         'OpenModsLocationToolStripMenuItem
         '
         Me.OpenModsLocationToolStripMenuItem.Name = "OpenModsLocationToolStripMenuItem"
-        Me.OpenModsLocationToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
+        Me.OpenModsLocationToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
         Me.OpenModsLocationToolStripMenuItem.Text = "Open Mods Location"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(217, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(219, 6)
         '
         'CopyKeysFromModsToolStripMenuItem
         '
         Me.CopyKeysFromModsToolStripMenuItem.Name = "CopyKeysFromModsToolStripMenuItem"
-        Me.CopyKeysFromModsToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
+        Me.CopyKeysFromModsToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
         Me.CopyKeysFromModsToolStripMenuItem.Text = "Copy Keys from Mods"
         '
         'SelectedModsToClipboardToolStripMenuItem
         '
         Me.SelectedModsToClipboardToolStripMenuItem.Name = "SelectedModsToClipboardToolStripMenuItem"
-        Me.SelectedModsToClipboardToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
+        Me.SelectedModsToClipboardToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
         Me.SelectedModsToClipboardToolStripMenuItem.Text = "Selected Mods to Clipboard"
+        '
+        'importSteamModsStripMenuItem
+        '
+        Me.importSteamModsStripMenuItem.Name = "importSteamModsStripMenuItem"
+        Me.importSteamModsStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.importSteamModsStripMenuItem.Text = "Import Existing Steam Mods"
         '
         'ServersToolStripMenuItem
         '
@@ -786,4 +793,5 @@ Partial Class MainWindow
     Friend WithEvents updateServerButton As Button
     Friend WithEvents categoryTabs As TabControl
     Friend WithEvents OpenProfileDirectoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents importSteamModsStripMenuItem As ToolStripMenuItem
 End Class
