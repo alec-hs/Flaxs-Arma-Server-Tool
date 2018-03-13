@@ -933,11 +933,17 @@ Public Class MainWindow
     End Sub
 
     Private Sub AddNewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddNewToolStripMenuItem.Click
-        Dim newServer As New TabPageEx
-        categoryTabs.TabPages.Add(newServer)
 
-        newServer.Text = "New Server"
-        categoryTabs.SelectedTab = newServer
+        If Directory.Exists(My.Settings.serverDir) Then
+            Dim newServer As New TabPageEx
+            categoryTabs.TabPages.Add(newServer)
+
+            newServer.Text = "New Server"
+            categoryTabs.SelectedTab = newServer
+        Else
+            MsgBox("Please install game before adding a server.")
+        End If
+
     End Sub
 
     Private Sub OpenProfileDirectoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenProfileDirectoryToolStripMenuItem.Click
