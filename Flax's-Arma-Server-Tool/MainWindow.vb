@@ -792,7 +792,7 @@ Public Class MainWindow
                                 Try
                                     sOutput = oStreamReader.ReadLine
 
-                                    If sOutput Like "*Steam Guard code:*" Then
+                                    If sOutput Like "*at the console." Then
                                         Dim steamCode As String
 
                                         steamCode = InputBox("Enter Steam Guard code from email or mobile app.", "Steam Guard Code", "")

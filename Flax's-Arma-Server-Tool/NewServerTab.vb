@@ -260,6 +260,8 @@ Public Class NewServerTab
 
             Clipboard.SetText(commandLine)
 
+
+
             Dim sStartInfo As New ProcessStartInfo(serverFileBox.Text, commandLine)
             Dim sProcess As New Process With {
                     .StartInfo = sStartInfo
@@ -293,11 +295,15 @@ Public Class NewServerTab
 
         profile = MainWindow.SafeName(profile)
 
-        If ProfileFilesExist(profile) Then
-            Return True
-            Exit Function
+        If Not ProfileFilesExist(profile) Then
+            Return False
         End If
-        Return False
+
+        If Not (serverFileBox.Text Like "*arma3server*.exe") Then
+            Return False
+        End If
+
+        Return True
     End Function
 
     Public Function ProfileFilesExist(profile As String)
@@ -878,5 +884,30 @@ Public Class NewServerTab
         For i = 0 To missionsList.Items.Count - 1
             missionsList.SetItemChecked(i, 0)
         Next i
+    End Sub
+
+    Private Sub RptOpenButton_Click(sender As Object, e As EventArgs) Handles rptOpenButton.Click
+        Dim path As String = Application.StartupPath & "\servers\" & MainWindow.SafeName(MainWindow.categoryTabs.SelectedTab.Text)
+
+        Dim rpts = Directory.GetFiles(path, "*.rpt", SearchOption.TopDirectoryOnly)
+
+        If rpts.Length = 0 Then
+            MsgBox("No RPT files to open.")
+        Else
+            Dim rpt = rpts.OrderByDescending(Function(f) New FileInfo(f).LastWriteTime).First()
+            Process.start(rpt)
+        End If
+
+
+    End Sub
+
+    Private Sub RptDeleteButton_Click(sender As Object, e As EventArgs) Handles rptDeleteButton.Click
+        Dim path As String = Application.StartupPath & "\servers\" & MainWindow.SafeName(MainWindow.categoryTabs.SelectedTab.Text)
+        Dim result As Integer = MessageBox.Show("Delete All RPTs?", "Delete", MessageBoxButtons.YesNo)
+        If result = DialogResult.Yes Then
+            For Each deleteFile In Directory.GetFiles(path, "*.rpt", SearchOption.TopDirectoryOnly)
+                File.Delete(deleteFile)
+            Next
+        End If
     End Sub
 End Class

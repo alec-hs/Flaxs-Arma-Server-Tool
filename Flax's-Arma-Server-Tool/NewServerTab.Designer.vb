@@ -273,17 +273,19 @@ Partial Class NewServerTab
         'profileNameBox
         '
         Me.profileNameBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.profileNameBox.Location = New System.Drawing.Point(6, 22)
+        Me.profileNameBox.Location = New System.Drawing.Point(12, 42)
+        Me.profileNameBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.profileNameBox.Name = "profileNameBox"
-        Me.profileNameBox.Size = New System.Drawing.Size(146, 20)
+        Me.profileNameBox.Size = New System.Drawing.Size(288, 32)
         Me.profileNameBox.TabIndex = 16
         Me.profileNameBox.Text = "New Server"
         '
         'launchServerButton
         '
-        Me.launchServerButton.Location = New System.Drawing.Point(612, 21)
+        Me.launchServerButton.Location = New System.Drawing.Point(1224, 40)
+        Me.launchServerButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.launchServerButton.Name = "launchServerButton"
-        Me.launchServerButton.Size = New System.Drawing.Size(75, 22)
+        Me.launchServerButton.Size = New System.Drawing.Size(150, 42)
         Me.launchServerButton.TabIndex = 20
         Me.launchServerButton.Text = "Launch"
         Me.launchServerButton.UseVisualStyleBackColor = True
@@ -296,36 +298,41 @@ Partial Class NewServerTab
         Me.profileGroup.Controls.Add(Me.profileNameBox)
         Me.profileGroup.Controls.Add(Me.launchServerButton)
         Me.profileGroup.Controls.Add(Me.battleyeCheck)
-        Me.profileGroup.Location = New System.Drawing.Point(3, 273)
+        Me.profileGroup.Location = New System.Drawing.Point(6, 525)
+        Me.profileGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.profileGroup.Name = "profileGroup"
-        Me.profileGroup.Size = New System.Drawing.Size(693, 55)
+        Me.profileGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.profileGroup.Size = New System.Drawing.Size(1386, 106)
         Me.profileGroup.TabIndex = 3
         Me.profileGroup.TabStop = False
         Me.profileGroup.Text = "Server Profile"
         '
         'deleteProfileButton
         '
-        Me.deleteProfileButton.Location = New System.Drawing.Point(214, 21)
+        Me.deleteProfileButton.Location = New System.Drawing.Point(428, 40)
+        Me.deleteProfileButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.deleteProfileButton.Name = "deleteProfileButton"
-        Me.deleteProfileButton.Size = New System.Drawing.Size(50, 22)
+        Me.deleteProfileButton.Size = New System.Drawing.Size(100, 42)
         Me.deleteProfileButton.TabIndex = 18
         Me.deleteProfileButton.Text = "Delete"
         Me.deleteProfileButton.UseVisualStyleBackColor = True
         '
         'exportButton
         '
-        Me.exportButton.Location = New System.Drawing.Point(531, 21)
+        Me.exportButton.Location = New System.Drawing.Point(1062, 40)
+        Me.exportButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.exportButton.Name = "exportButton"
-        Me.exportButton.Size = New System.Drawing.Size(75, 22)
+        Me.exportButton.Size = New System.Drawing.Size(150, 42)
         Me.exportButton.TabIndex = 19
         Me.exportButton.Text = "Export"
         Me.exportButton.UseVisualStyleBackColor = True
         '
         'saveProfileButton
         '
-        Me.saveProfileButton.Location = New System.Drawing.Point(158, 21)
+        Me.saveProfileButton.Location = New System.Drawing.Point(316, 40)
+        Me.saveProfileButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.saveProfileButton.Name = "saveProfileButton"
-        Me.saveProfileButton.Size = New System.Drawing.Size(50, 22)
+        Me.saveProfileButton.Size = New System.Drawing.Size(100, 42)
         Me.saveProfileButton.TabIndex = 17
         Me.saveProfileButton.Text = "Save"
         Me.saveProfileButton.UseVisualStyleBackColor = True
@@ -333,9 +340,10 @@ Partial Class NewServerTab
         'battleyeCheck
         '
         Me.battleyeCheck.AutoSize = True
-        Me.battleyeCheck.Location = New System.Drawing.Point(460, 25)
+        Me.battleyeCheck.Location = New System.Drawing.Point(920, 48)
+        Me.battleyeCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.battleyeCheck.Name = "battleyeCheck"
-        Me.battleyeCheck.Size = New System.Drawing.Size(65, 17)
+        Me.battleyeCheck.Size = New System.Drawing.Size(124, 29)
         Me.battleyeCheck.TabIndex = 17
         Me.battleyeCheck.Text = "BattlEye"
         Me.battleyeCheck.UseVisualStyleBackColor = True
@@ -353,36 +361,40 @@ Partial Class NewServerTab
         Me.modsTab.Controls.Add(Me.serverToHCButton)
         Me.modsTab.Controls.Add(Me.hcModsGroup)
         Me.modsTab.Controls.Add(Me.serverModsGroup)
-        Me.modsTab.Location = New System.Drawing.Point(4, 22)
+        Me.modsTab.Location = New System.Drawing.Point(8, 39)
+        Me.modsTab.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.modsTab.Name = "modsTab"
-        Me.modsTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.modsTab.Size = New System.Drawing.Size(691, 241)
+        Me.modsTab.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.modsTab.Size = New System.Drawing.Size(1382, 466)
         Me.modsTab.TabIndex = 1
         Me.modsTab.Text = "Mods"
         '
         'refreshModsButton
         '
-        Me.refreshModsButton.Location = New System.Drawing.Point(334, 82)
+        Me.refreshModsButton.Location = New System.Drawing.Point(668, 158)
+        Me.refreshModsButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.refreshModsButton.Name = "refreshModsButton"
-        Me.refreshModsButton.Size = New System.Drawing.Size(24, 23)
+        Me.refreshModsButton.Size = New System.Drawing.Size(48, 44)
         Me.refreshModsButton.TabIndex = 4
         Me.refreshModsButton.Text = "" & Global.Microsoft.VisualBasic.ChrW(9) & "↻"
         Me.refreshModsButton.UseVisualStyleBackColor = True
         '
         'hcToServerButton
         '
-        Me.hcToServerButton.Location = New System.Drawing.Point(334, 53)
+        Me.hcToServerButton.Location = New System.Drawing.Point(668, 102)
+        Me.hcToServerButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.hcToServerButton.Name = "hcToServerButton"
-        Me.hcToServerButton.Size = New System.Drawing.Size(24, 23)
+        Me.hcToServerButton.Size = New System.Drawing.Size(48, 44)
         Me.hcToServerButton.TabIndex = 3
         Me.hcToServerButton.Text = "<"
         Me.hcToServerButton.UseVisualStyleBackColor = True
         '
         'serverToHCButton
         '
-        Me.serverToHCButton.Location = New System.Drawing.Point(334, 24)
+        Me.serverToHCButton.Location = New System.Drawing.Point(668, 46)
+        Me.serverToHCButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverToHCButton.Name = "serverToHCButton"
-        Me.serverToHCButton.Size = New System.Drawing.Size(24, 23)
+        Me.serverToHCButton.Size = New System.Drawing.Size(48, 44)
         Me.serverToHCButton.TabIndex = 2
         Me.serverToHCButton.Text = ">"
         Me.serverToHCButton.UseVisualStyleBackColor = True
@@ -395,54 +407,61 @@ Partial Class NewServerTab
         Me.hcModsGroup.Controls.Add(Me.hcModsNoneButton)
         Me.hcModsGroup.Controls.Add(Me.hcModsAllButton)
         Me.hcModsGroup.Controls.Add(Me.hcModsList)
-        Me.hcModsGroup.Location = New System.Drawing.Point(365, 6)
+        Me.hcModsGroup.Location = New System.Drawing.Point(730, 12)
+        Me.hcModsGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.hcModsGroup.Name = "hcModsGroup"
-        Me.hcModsGroup.Size = New System.Drawing.Size(320, 229)
+        Me.hcModsGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.hcModsGroup.Size = New System.Drawing.Size(640, 440)
         Me.hcModsGroup.TabIndex = 1
         Me.hcModsGroup.TabStop = False
         Me.hcModsGroup.Text = "Headless Client Mods"
         '
         'hcModsSortButton
         '
-        Me.hcModsSortButton.Location = New System.Drawing.Point(178, 200)
+        Me.hcModsSortButton.Location = New System.Drawing.Point(356, 385)
+        Me.hcModsSortButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.hcModsSortButton.Name = "hcModsSortButton"
-        Me.hcModsSortButton.Size = New System.Drawing.Size(50, 23)
+        Me.hcModsSortButton.Size = New System.Drawing.Size(100, 44)
         Me.hcModsSortButton.TabIndex = 11
         Me.hcModsSortButton.Text = "Sort"
         Me.hcModsSortButton.UseVisualStyleBackColor = True
         '
         'hcModsDownButton
         '
-        Me.hcModsDownButton.Location = New System.Drawing.Point(148, 200)
+        Me.hcModsDownButton.Location = New System.Drawing.Point(296, 385)
+        Me.hcModsDownButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.hcModsDownButton.Name = "hcModsDownButton"
-        Me.hcModsDownButton.Size = New System.Drawing.Size(24, 23)
+        Me.hcModsDownButton.Size = New System.Drawing.Size(48, 44)
         Me.hcModsDownButton.TabIndex = 10
         Me.hcModsDownButton.Text = "˅"
         Me.hcModsDownButton.UseVisualStyleBackColor = True
         '
         'hcModsUpButton
         '
-        Me.hcModsUpButton.Location = New System.Drawing.Point(118, 200)
+        Me.hcModsUpButton.Location = New System.Drawing.Point(236, 385)
+        Me.hcModsUpButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.hcModsUpButton.Name = "hcModsUpButton"
-        Me.hcModsUpButton.Size = New System.Drawing.Size(24, 23)
+        Me.hcModsUpButton.Size = New System.Drawing.Size(48, 44)
         Me.hcModsUpButton.TabIndex = 9
         Me.hcModsUpButton.Text = "˄"
         Me.hcModsUpButton.UseVisualStyleBackColor = True
         '
         'hcModsNoneButton
         '
-        Me.hcModsNoneButton.Location = New System.Drawing.Point(62, 200)
+        Me.hcModsNoneButton.Location = New System.Drawing.Point(124, 385)
+        Me.hcModsNoneButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.hcModsNoneButton.Name = "hcModsNoneButton"
-        Me.hcModsNoneButton.Size = New System.Drawing.Size(50, 23)
+        Me.hcModsNoneButton.Size = New System.Drawing.Size(100, 44)
         Me.hcModsNoneButton.TabIndex = 8
         Me.hcModsNoneButton.Text = "None"
         Me.hcModsNoneButton.UseVisualStyleBackColor = True
         '
         'hcModsAllButton
         '
-        Me.hcModsAllButton.Location = New System.Drawing.Point(6, 200)
+        Me.hcModsAllButton.Location = New System.Drawing.Point(12, 385)
+        Me.hcModsAllButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.hcModsAllButton.Name = "hcModsAllButton"
-        Me.hcModsAllButton.Size = New System.Drawing.Size(50, 23)
+        Me.hcModsAllButton.Size = New System.Drawing.Size(100, 44)
         Me.hcModsAllButton.TabIndex = 7
         Me.hcModsAllButton.Text = "All"
         Me.hcModsAllButton.UseVisualStyleBackColor = True
@@ -450,10 +469,11 @@ Partial Class NewServerTab
         'hcModsList
         '
         Me.hcModsList.FormattingEnabled = True
-        Me.hcModsList.Location = New System.Drawing.Point(6, 19)
+        Me.hcModsList.Location = New System.Drawing.Point(12, 37)
+        Me.hcModsList.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.hcModsList.Name = "hcModsList"
         Me.hcModsList.ScrollAlwaysVisible = True
-        Me.hcModsList.Size = New System.Drawing.Size(303, 169)
+        Me.hcModsList.Size = New System.Drawing.Size(602, 316)
         Me.hcModsList.TabIndex = 1
         '
         'serverModsGroup
@@ -464,54 +484,61 @@ Partial Class NewServerTab
         Me.serverModsGroup.Controls.Add(Me.serverModsNoneButton)
         Me.serverModsGroup.Controls.Add(Me.serverModsAllButton)
         Me.serverModsGroup.Controls.Add(Me.serverModsList)
-        Me.serverModsGroup.Location = New System.Drawing.Point(6, 6)
+        Me.serverModsGroup.Location = New System.Drawing.Point(12, 12)
+        Me.serverModsGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverModsGroup.Name = "serverModsGroup"
-        Me.serverModsGroup.Size = New System.Drawing.Size(320, 229)
+        Me.serverModsGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.serverModsGroup.Size = New System.Drawing.Size(640, 440)
         Me.serverModsGroup.TabIndex = 0
         Me.serverModsGroup.TabStop = False
         Me.serverModsGroup.Text = "Server Mods"
         '
         'serverModsSortButton
         '
-        Me.serverModsSortButton.Location = New System.Drawing.Point(178, 200)
+        Me.serverModsSortButton.Location = New System.Drawing.Point(356, 385)
+        Me.serverModsSortButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverModsSortButton.Name = "serverModsSortButton"
-        Me.serverModsSortButton.Size = New System.Drawing.Size(50, 23)
+        Me.serverModsSortButton.Size = New System.Drawing.Size(100, 44)
         Me.serverModsSortButton.TabIndex = 6
         Me.serverModsSortButton.Text = "Sort"
         Me.serverModsSortButton.UseVisualStyleBackColor = True
         '
         'serverModsDownButton
         '
-        Me.serverModsDownButton.Location = New System.Drawing.Point(148, 200)
+        Me.serverModsDownButton.Location = New System.Drawing.Point(296, 385)
+        Me.serverModsDownButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverModsDownButton.Name = "serverModsDownButton"
-        Me.serverModsDownButton.Size = New System.Drawing.Size(24, 23)
+        Me.serverModsDownButton.Size = New System.Drawing.Size(48, 44)
         Me.serverModsDownButton.TabIndex = 5
         Me.serverModsDownButton.Text = "˅"
         Me.serverModsDownButton.UseVisualStyleBackColor = True
         '
         'serverModsUpButton
         '
-        Me.serverModsUpButton.Location = New System.Drawing.Point(118, 200)
+        Me.serverModsUpButton.Location = New System.Drawing.Point(236, 385)
+        Me.serverModsUpButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverModsUpButton.Name = "serverModsUpButton"
-        Me.serverModsUpButton.Size = New System.Drawing.Size(24, 23)
+        Me.serverModsUpButton.Size = New System.Drawing.Size(48, 44)
         Me.serverModsUpButton.TabIndex = 4
         Me.serverModsUpButton.Text = "˄"
         Me.serverModsUpButton.UseVisualStyleBackColor = True
         '
         'serverModsNoneButton
         '
-        Me.serverModsNoneButton.Location = New System.Drawing.Point(62, 200)
+        Me.serverModsNoneButton.Location = New System.Drawing.Point(124, 385)
+        Me.serverModsNoneButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverModsNoneButton.Name = "serverModsNoneButton"
-        Me.serverModsNoneButton.Size = New System.Drawing.Size(50, 23)
+        Me.serverModsNoneButton.Size = New System.Drawing.Size(100, 44)
         Me.serverModsNoneButton.TabIndex = 2
         Me.serverModsNoneButton.Text = "None"
         Me.serverModsNoneButton.UseVisualStyleBackColor = True
         '
         'serverModsAllButton
         '
-        Me.serverModsAllButton.Location = New System.Drawing.Point(6, 200)
+        Me.serverModsAllButton.Location = New System.Drawing.Point(12, 385)
+        Me.serverModsAllButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverModsAllButton.Name = "serverModsAllButton"
-        Me.serverModsAllButton.Size = New System.Drawing.Size(50, 23)
+        Me.serverModsAllButton.Size = New System.Drawing.Size(100, 44)
         Me.serverModsAllButton.TabIndex = 1
         Me.serverModsAllButton.Text = "All"
         Me.serverModsAllButton.UseVisualStyleBackColor = True
@@ -519,10 +546,11 @@ Partial Class NewServerTab
         'serverModsList
         '
         Me.serverModsList.FormattingEnabled = True
-        Me.serverModsList.Location = New System.Drawing.Point(6, 19)
+        Me.serverModsList.Location = New System.Drawing.Point(12, 37)
+        Me.serverModsList.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverModsList.Name = "serverModsList"
         Me.serverModsList.ScrollAlwaysVisible = True
-        Me.serverModsList.Size = New System.Drawing.Size(303, 169)
+        Me.serverModsList.Size = New System.Drawing.Size(602, 316)
         Me.serverModsList.TabIndex = 0
         '
         'settingsTab
@@ -532,10 +560,11 @@ Partial Class NewServerTab
         Me.settingsTab.Controls.Add(Me.headlessGroup)
         Me.settingsTab.Controls.Add(Me.loggingGroup)
         Me.settingsTab.Controls.Add(Me.settingsGroup)
-        Me.settingsTab.Location = New System.Drawing.Point(4, 22)
+        Me.settingsTab.Location = New System.Drawing.Point(8, 39)
+        Me.settingsTab.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.settingsTab.Name = "settingsTab"
-        Me.settingsTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.settingsTab.Size = New System.Drawing.Size(691, 241)
+        Me.settingsTab.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.settingsTab.Size = New System.Drawing.Size(1382, 466)
         Me.settingsTab.TabIndex = 0
         Me.settingsTab.Text = "Settings"
         '
@@ -544,9 +573,11 @@ Partial Class NewServerTab
         Me.networkGroup.Controls.Add(Me.netlogCheck)
         Me.networkGroup.Controls.Add(Me.upnpCheck)
         Me.networkGroup.Controls.Add(Me.loopbackCheck)
-        Me.networkGroup.Location = New System.Drawing.Point(276, 132)
+        Me.networkGroup.Location = New System.Drawing.Point(552, 254)
+        Me.networkGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.networkGroup.Name = "networkGroup"
-        Me.networkGroup.Size = New System.Drawing.Size(83, 103)
+        Me.networkGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.networkGroup.Size = New System.Drawing.Size(166, 198)
         Me.networkGroup.TabIndex = 13
         Me.networkGroup.TabStop = False
         Me.networkGroup.Text = "Network"
@@ -555,9 +586,10 @@ Partial Class NewServerTab
         '
         Me.netlogCheck.AutoSize = True
         Me.netlogCheck.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.netlogCheck.Location = New System.Drawing.Point(6, 71)
+        Me.netlogCheck.Location = New System.Drawing.Point(12, 137)
+        Me.netlogCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.netlogCheck.Name = "netlogCheck"
-        Me.netlogCheck.Size = New System.Drawing.Size(57, 17)
+        Me.netlogCheck.Size = New System.Drawing.Size(106, 29)
         Me.netlogCheck.TabIndex = 14
         Me.netlogCheck.Text = "Netlog"
         Me.netlogCheck.UseVisualStyleBackColor = False
@@ -565,9 +597,10 @@ Partial Class NewServerTab
         'upnpCheck
         '
         Me.upnpCheck.AutoSize = True
-        Me.upnpCheck.Location = New System.Drawing.Point(6, 48)
+        Me.upnpCheck.Location = New System.Drawing.Point(12, 92)
+        Me.upnpCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.upnpCheck.Name = "upnpCheck"
-        Me.upnpCheck.Size = New System.Drawing.Size(56, 17)
+        Me.upnpCheck.Size = New System.Drawing.Size(102, 29)
         Me.upnpCheck.TabIndex = 14
         Me.upnpCheck.Text = "UPNP"
         Me.upnpCheck.UseVisualStyleBackColor = True
@@ -575,9 +608,10 @@ Partial Class NewServerTab
         'loopbackCheck
         '
         Me.loopbackCheck.AutoSize = True
-        Me.loopbackCheck.Location = New System.Drawing.Point(6, 25)
+        Me.loopbackCheck.Location = New System.Drawing.Point(12, 48)
+        Me.loopbackCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.loopbackCheck.Name = "loopbackCheck"
-        Me.loopbackCheck.Size = New System.Drawing.Size(74, 17)
+        Me.loopbackCheck.Size = New System.Drawing.Size(138, 29)
         Me.loopbackCheck.TabIndex = 15
         Me.loopbackCheck.Text = "Loopback"
         Me.loopbackCheck.UseVisualStyleBackColor = True
@@ -591,9 +625,11 @@ Partial Class NewServerTab
         Me.headlessGroup.Controls.Add(Me.headlessIPBox)
         Me.headlessGroup.Controls.Add(Me.localClientsLabel)
         Me.headlessGroup.Controls.Add(Me.hcIPLabel)
-        Me.headlessGroup.Location = New System.Drawing.Point(6, 132)
+        Me.headlessGroup.Location = New System.Drawing.Point(12, 254)
+        Me.headlessGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.headlessGroup.Name = "headlessGroup"
-        Me.headlessGroup.Size = New System.Drawing.Size(264, 103)
+        Me.headlessGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.headlessGroup.Size = New System.Drawing.Size(528, 198)
         Me.headlessGroup.TabIndex = 12
         Me.headlessGroup.TabStop = False
         Me.headlessGroup.Text = "Headless Client"
@@ -601,30 +637,33 @@ Partial Class NewServerTab
         'noOfHCNumeric
         '
         Me.noOfHCNumeric.Enabled = False
-        Me.noOfHCNumeric.Location = New System.Drawing.Point(134, 17)
+        Me.noOfHCNumeric.Location = New System.Drawing.Point(268, 33)
+        Me.noOfHCNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.noOfHCNumeric.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
         Me.noOfHCNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.noOfHCNumeric.Name = "noOfHCNumeric"
-        Me.noOfHCNumeric.Size = New System.Drawing.Size(42, 20)
+        Me.noOfHCNumeric.Size = New System.Drawing.Size(84, 31)
         Me.noOfHCNumeric.TabIndex = 14
         Me.noOfHCNumeric.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'noOfHCLabel
         '
         Me.noOfHCLabel.AutoSize = True
-        Me.noOfHCLabel.Location = New System.Drawing.Point(74, 20)
+        Me.noOfHCLabel.Location = New System.Drawing.Point(148, 38)
+        Me.noOfHCLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.noOfHCLabel.Name = "noOfHCLabel"
-        Me.noOfHCLabel.Size = New System.Drawing.Size(59, 13)
+        Me.noOfHCLabel.Size = New System.Drawing.Size(116, 25)
         Me.noOfHCLabel.TabIndex = 16
         Me.noOfHCLabel.Text = "No. of HCs"
         '
         'enableHCCheck
         '
         Me.enableHCCheck.AutoSize = True
-        Me.enableHCCheck.Location = New System.Drawing.Point(181, 19)
+        Me.enableHCCheck.Location = New System.Drawing.Point(362, 37)
+        Me.enableHCCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.enableHCCheck.Name = "enableHCCheck"
         Me.enableHCCheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.enableHCCheck.Size = New System.Drawing.Size(77, 17)
+        Me.enableHCCheck.Size = New System.Drawing.Size(147, 29)
         Me.enableHCCheck.TabIndex = 14
         Me.enableHCCheck.Text = "Enable HC"
         Me.enableHCCheck.UseVisualStyleBackColor = True
@@ -632,36 +671,40 @@ Partial Class NewServerTab
         'localClientBox
         '
         Me.localClientBox.Enabled = False
-        Me.localClientBox.Location = New System.Drawing.Point(81, 68)
+        Me.localClientBox.Location = New System.Drawing.Point(162, 131)
+        Me.localClientBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.localClientBox.Name = "localClientBox"
-        Me.localClientBox.Size = New System.Drawing.Size(177, 20)
+        Me.localClientBox.Size = New System.Drawing.Size(350, 31)
         Me.localClientBox.TabIndex = 3
         Me.localClientBox.Text = "127.0.0.1"
         '
         'headlessIPBox
         '
         Me.headlessIPBox.Enabled = False
-        Me.headlessIPBox.Location = New System.Drawing.Point(81, 42)
+        Me.headlessIPBox.Location = New System.Drawing.Point(162, 81)
+        Me.headlessIPBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.headlessIPBox.Name = "headlessIPBox"
-        Me.headlessIPBox.Size = New System.Drawing.Size(177, 20)
+        Me.headlessIPBox.Size = New System.Drawing.Size(350, 31)
         Me.headlessIPBox.TabIndex = 2
         Me.headlessIPBox.Text = "127.0.0.1"
         '
         'localClientsLabel
         '
         Me.localClientsLabel.AutoSize = True
-        Me.localClientsLabel.Location = New System.Drawing.Point(6, 71)
+        Me.localClientsLabel.Location = New System.Drawing.Point(12, 137)
+        Me.localClientsLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.localClientsLabel.Name = "localClientsLabel"
-        Me.localClientsLabel.Size = New System.Drawing.Size(67, 13)
+        Me.localClientsLabel.Size = New System.Drawing.Size(136, 25)
         Me.localClientsLabel.TabIndex = 1
         Me.localClientsLabel.Text = "Local Clients"
         '
         'hcIPLabel
         '
         Me.hcIPLabel.AutoSize = True
-        Me.hcIPLabel.Location = New System.Drawing.Point(6, 45)
+        Me.hcIPLabel.Location = New System.Drawing.Point(12, 87)
+        Me.hcIPLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.hcIPLabel.Name = "hcIPLabel"
-        Me.hcIPLabel.Size = New System.Drawing.Size(69, 13)
+        Me.hcIPLabel.Size = New System.Drawing.Size(138, 25)
         Me.hcIPLabel.TabIndex = 0
         Me.hcIPLabel.Text = "Headless IPs"
         '
@@ -681,9 +724,11 @@ Partial Class NewServerTab
         Me.loggingGroup.Controls.Add(Me.consoleLogButton)
         Me.loggingGroup.Controls.Add(Me.consoleLogLabel)
         Me.loggingGroup.Controls.Add(Me.consoleLogBox)
-        Me.loggingGroup.Location = New System.Drawing.Point(365, 6)
+        Me.loggingGroup.Location = New System.Drawing.Point(730, 12)
+        Me.loggingGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.loggingGroup.Name = "loggingGroup"
-        Me.loggingGroup.Size = New System.Drawing.Size(320, 229)
+        Me.loggingGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.loggingGroup.Size = New System.Drawing.Size(640, 440)
         Me.loggingGroup.TabIndex = 12
         Me.loggingGroup.TabStop = False
         Me.loggingGroup.Text = "Logging"
@@ -692,9 +737,10 @@ Partial Class NewServerTab
         '
         Me.rankingCheck.AutoSize = True
         Me.rankingCheck.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.rankingCheck.Location = New System.Drawing.Point(117, 21)
+        Me.rankingCheck.Location = New System.Drawing.Point(234, 40)
+        Me.rankingCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.rankingCheck.Name = "rankingCheck"
-        Me.rankingCheck.Size = New System.Drawing.Size(85, 17)
+        Me.rankingCheck.Size = New System.Drawing.Size(164, 29)
         Me.rankingCheck.TabIndex = 26
         Me.rankingCheck.Text = "Ranking File"
         Me.rankingCheck.UseVisualStyleBackColor = False
@@ -702,9 +748,10 @@ Partial Class NewServerTab
         'pidCheck
         '
         Me.pidCheck.AutoSize = True
-        Me.pidCheck.Location = New System.Drawing.Point(251, 21)
+        Me.pidCheck.Location = New System.Drawing.Point(502, 40)
+        Me.pidCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.pidCheck.Name = "pidCheck"
-        Me.pidCheck.Size = New System.Drawing.Size(63, 17)
+        Me.pidCheck.Size = New System.Drawing.Size(119, 29)
         Me.pidCheck.TabIndex = 25
         Me.pidCheck.Text = "PID File"
         Me.pidCheck.UseVisualStyleBackColor = True
@@ -712,9 +759,10 @@ Partial Class NewServerTab
         'consoleLogCheck
         '
         Me.consoleLogCheck.AutoSize = True
-        Me.consoleLogCheck.Location = New System.Drawing.Point(6, 21)
+        Me.consoleLogCheck.Location = New System.Drawing.Point(12, 40)
+        Me.consoleLogCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.consoleLogCheck.Name = "consoleLogCheck"
-        Me.consoleLogCheck.Size = New System.Drawing.Size(85, 17)
+        Me.consoleLogCheck.Size = New System.Drawing.Size(165, 29)
         Me.consoleLogCheck.TabIndex = 16
         Me.consoleLogCheck.Text = "Console Log"
         Me.consoleLogCheck.UseVisualStyleBackColor = True
@@ -725,36 +773,41 @@ Partial Class NewServerTab
         Me.netlogGroup.Controls.Add(Me.netDelButton)
         Me.netlogGroup.Controls.Add(Me.netOpenButton)
         Me.netlogGroup.Enabled = False
-        Me.netlogGroup.Location = New System.Drawing.Point(164, 146)
+        Me.netlogGroup.Location = New System.Drawing.Point(328, 281)
+        Me.netlogGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.netlogGroup.Name = "netlogGroup"
-        Me.netlogGroup.Size = New System.Drawing.Size(150, 77)
+        Me.netlogGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.netlogGroup.Size = New System.Drawing.Size(300, 148)
         Me.netlogGroup.TabIndex = 24
         Me.netlogGroup.TabStop = False
         Me.netlogGroup.Text = "Netlog"
         '
         'netRotButton
         '
-        Me.netRotButton.Location = New System.Drawing.Point(84, 13)
+        Me.netRotButton.Location = New System.Drawing.Point(168, 25)
+        Me.netRotButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.netRotButton.Name = "netRotButton"
-        Me.netRotButton.Size = New System.Drawing.Size(60, 22)
+        Me.netRotButton.Size = New System.Drawing.Size(120, 42)
         Me.netRotButton.TabIndex = 32
         Me.netRotButton.Text = "Rotate"
         Me.netRotButton.UseVisualStyleBackColor = True
         '
         'netDelButton
         '
-        Me.netDelButton.Location = New System.Drawing.Point(84, 48)
+        Me.netDelButton.Location = New System.Drawing.Point(168, 92)
+        Me.netDelButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.netDelButton.Name = "netDelButton"
-        Me.netDelButton.Size = New System.Drawing.Size(60, 22)
+        Me.netDelButton.Size = New System.Drawing.Size(120, 42)
         Me.netDelButton.TabIndex = 31
         Me.netDelButton.Text = "Delete"
         Me.netDelButton.UseVisualStyleBackColor = True
         '
         'netOpenButton
         '
-        Me.netOpenButton.Location = New System.Drawing.Point(6, 48)
+        Me.netOpenButton.Location = New System.Drawing.Point(12, 92)
+        Me.netOpenButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.netOpenButton.Name = "netOpenButton"
-        Me.netOpenButton.Size = New System.Drawing.Size(60, 22)
+        Me.netOpenButton.Size = New System.Drawing.Size(120, 42)
         Me.netOpenButton.TabIndex = 30
         Me.netOpenButton.Text = "Open"
         Me.netOpenButton.UseVisualStyleBackColor = True
@@ -765,27 +818,31 @@ Partial Class NewServerTab
         Me.rptGroup.Controls.Add(Me.rptOpenButton)
         Me.rptGroup.Controls.Add(Me.rptTimeCombo)
         Me.rptGroup.Controls.Add(Me.rptTimeLabel)
-        Me.rptGroup.Location = New System.Drawing.Point(6, 146)
+        Me.rptGroup.Location = New System.Drawing.Point(12, 281)
+        Me.rptGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.rptGroup.Name = "rptGroup"
-        Me.rptGroup.Size = New System.Drawing.Size(150, 77)
+        Me.rptGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.rptGroup.Size = New System.Drawing.Size(300, 148)
         Me.rptGroup.TabIndex = 23
         Me.rptGroup.TabStop = False
         Me.rptGroup.Text = "RPT"
         '
         'rptDeleteButton
         '
-        Me.rptDeleteButton.Location = New System.Drawing.Point(84, 48)
+        Me.rptDeleteButton.Location = New System.Drawing.Point(168, 92)
+        Me.rptDeleteButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.rptDeleteButton.Name = "rptDeleteButton"
-        Me.rptDeleteButton.Size = New System.Drawing.Size(60, 22)
+        Me.rptDeleteButton.Size = New System.Drawing.Size(120, 42)
         Me.rptDeleteButton.TabIndex = 29
         Me.rptDeleteButton.Text = "Delete"
         Me.rptDeleteButton.UseVisualStyleBackColor = True
         '
         'rptOpenButton
         '
-        Me.rptOpenButton.Location = New System.Drawing.Point(6, 48)
+        Me.rptOpenButton.Location = New System.Drawing.Point(12, 92)
+        Me.rptOpenButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.rptOpenButton.Name = "rptOpenButton"
-        Me.rptOpenButton.Size = New System.Drawing.Size(60, 22)
+        Me.rptOpenButton.Size = New System.Drawing.Size(120, 42)
         Me.rptOpenButton.TabIndex = 25
         Me.rptOpenButton.Text = "Open"
         Me.rptOpenButton.UseVisualStyleBackColor = True
@@ -796,27 +853,30 @@ Partial Class NewServerTab
         Me.rptTimeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.rptTimeCombo.FormattingEnabled = True
         Me.rptTimeCombo.Items.AddRange(New Object() {"none", "short", "full"})
-        Me.rptTimeCombo.Location = New System.Drawing.Point(85, 13)
+        Me.rptTimeCombo.Location = New System.Drawing.Point(170, 25)
+        Me.rptTimeCombo.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.rptTimeCombo.MaxDropDownItems = 3
         Me.rptTimeCombo.Name = "rptTimeCombo"
-        Me.rptTimeCombo.Size = New System.Drawing.Size(58, 21)
+        Me.rptTimeCombo.Size = New System.Drawing.Size(112, 33)
         Me.rptTimeCombo.TabIndex = 28
         '
         'rptTimeLabel
         '
         Me.rptTimeLabel.AutoSize = True
-        Me.rptTimeLabel.Location = New System.Drawing.Point(6, 16)
+        Me.rptTimeLabel.Location = New System.Drawing.Point(12, 31)
+        Me.rptTimeLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.rptTimeLabel.Name = "rptTimeLabel"
-        Me.rptTimeLabel.Size = New System.Drawing.Size(63, 13)
+        Me.rptTimeLabel.Size = New System.Drawing.Size(126, 25)
         Me.rptTimeLabel.TabIndex = 25
         Me.rptTimeLabel.Text = "Time Stamp"
         '
         'pidButton
         '
         Me.pidButton.Enabled = False
-        Me.pidButton.Location = New System.Drawing.Point(258, 109)
+        Me.pidButton.Location = New System.Drawing.Point(516, 210)
+        Me.pidButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.pidButton.Name = "pidButton"
-        Me.pidButton.Size = New System.Drawing.Size(50, 22)
+        Me.pidButton.Size = New System.Drawing.Size(100, 42)
         Me.pidButton.TabIndex = 22
         Me.pidButton.Text = "Open"
         Me.pidButton.UseVisualStyleBackColor = True
@@ -824,27 +884,30 @@ Partial Class NewServerTab
         'pidLabel
         '
         Me.pidLabel.AutoSize = True
-        Me.pidLabel.Location = New System.Drawing.Point(6, 112)
+        Me.pidLabel.Location = New System.Drawing.Point(12, 215)
+        Me.pidLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.pidLabel.Name = "pidLabel"
-        Me.pidLabel.Size = New System.Drawing.Size(44, 13)
+        Me.pidLabel.Size = New System.Drawing.Size(87, 25)
         Me.pidLabel.TabIndex = 20
         Me.pidLabel.Text = "PID File"
         '
         'pidBox
         '
         Me.pidBox.Enabled = False
-        Me.pidBox.Location = New System.Drawing.Point(97, 110)
+        Me.pidBox.Location = New System.Drawing.Point(194, 212)
+        Me.pidBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.pidBox.Name = "pidBox"
-        Me.pidBox.Size = New System.Drawing.Size(155, 20)
+        Me.pidBox.Size = New System.Drawing.Size(306, 31)
         Me.pidBox.TabIndex = 21
         Me.pidBox.Text = "pid.log"
         '
         'rankingButton
         '
         Me.rankingButton.Enabled = False
-        Me.rankingButton.Location = New System.Drawing.Point(258, 82)
+        Me.rankingButton.Location = New System.Drawing.Point(516, 158)
+        Me.rankingButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.rankingButton.Name = "rankingButton"
-        Me.rankingButton.Size = New System.Drawing.Size(50, 22)
+        Me.rankingButton.Size = New System.Drawing.Size(100, 42)
         Me.rankingButton.TabIndex = 19
         Me.rankingButton.Text = "Open"
         Me.rankingButton.UseVisualStyleBackColor = True
@@ -852,27 +915,30 @@ Partial Class NewServerTab
         'rankingLabel
         '
         Me.rankingLabel.AutoSize = True
-        Me.rankingLabel.Location = New System.Drawing.Point(6, 85)
+        Me.rankingLabel.Location = New System.Drawing.Point(12, 163)
+        Me.rankingLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.rankingLabel.Name = "rankingLabel"
-        Me.rankingLabel.Size = New System.Drawing.Size(66, 13)
+        Me.rankingLabel.Size = New System.Drawing.Size(132, 25)
         Me.rankingLabel.TabIndex = 17
         Me.rankingLabel.Text = "Ranking File"
         '
         'rankingBox
         '
         Me.rankingBox.Enabled = False
-        Me.rankingBox.Location = New System.Drawing.Point(97, 83)
+        Me.rankingBox.Location = New System.Drawing.Point(194, 160)
+        Me.rankingBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.rankingBox.Name = "rankingBox"
-        Me.rankingBox.Size = New System.Drawing.Size(155, 20)
+        Me.rankingBox.Size = New System.Drawing.Size(306, 31)
         Me.rankingBox.TabIndex = 18
         Me.rankingBox.Text = "ranking.log"
         '
         'consoleLogButton
         '
         Me.consoleLogButton.Enabled = False
-        Me.consoleLogButton.Location = New System.Drawing.Point(258, 53)
+        Me.consoleLogButton.Location = New System.Drawing.Point(516, 102)
+        Me.consoleLogButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.consoleLogButton.Name = "consoleLogButton"
-        Me.consoleLogButton.Size = New System.Drawing.Size(50, 22)
+        Me.consoleLogButton.Size = New System.Drawing.Size(100, 42)
         Me.consoleLogButton.TabIndex = 16
         Me.consoleLogButton.Text = "Open"
         Me.consoleLogButton.UseVisualStyleBackColor = True
@@ -880,18 +946,20 @@ Partial Class NewServerTab
         'consoleLogLabel
         '
         Me.consoleLogLabel.AutoSize = True
-        Me.consoleLogLabel.Location = New System.Drawing.Point(6, 57)
+        Me.consoleLogLabel.Location = New System.Drawing.Point(12, 110)
+        Me.consoleLogLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.consoleLogLabel.Name = "consoleLogLabel"
-        Me.consoleLogLabel.Size = New System.Drawing.Size(85, 13)
+        Me.consoleLogLabel.Size = New System.Drawing.Size(174, 25)
         Me.consoleLogLabel.TabIndex = 14
         Me.consoleLogLabel.Text = "Console Log File"
         '
         'consoleLogBox
         '
         Me.consoleLogBox.Enabled = False
-        Me.consoleLogBox.Location = New System.Drawing.Point(97, 54)
+        Me.consoleLogBox.Location = New System.Drawing.Point(194, 104)
+        Me.consoleLogBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.consoleLogBox.Name = "consoleLogBox"
-        Me.consoleLogBox.Size = New System.Drawing.Size(155, 20)
+        Me.consoleLogBox.Size = New System.Drawing.Size(306, 31)
         Me.consoleLogBox.TabIndex = 15
         Me.consoleLogBox.Text = "server_console.log"
         '
@@ -910,9 +978,11 @@ Partial Class NewServerTab
         Me.settingsGroup.Controls.Add(Me.adminPassLabel)
         Me.settingsGroup.Controls.Add(Me.portLabel)
         Me.settingsGroup.Controls.Add(Me.adminPassBox)
-        Me.settingsGroup.Location = New System.Drawing.Point(6, 6)
+        Me.settingsGroup.Location = New System.Drawing.Point(12, 12)
+        Me.settingsGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.settingsGroup.Name = "settingsGroup"
-        Me.settingsGroup.Size = New System.Drawing.Size(353, 120)
+        Me.settingsGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.settingsGroup.Size = New System.Drawing.Size(706, 231)
         Me.settingsGroup.TabIndex = 11
         Me.settingsGroup.TabStop = False
         Me.settingsGroup.Text = "Main"
@@ -923,108 +993,121 @@ Partial Class NewServerTab
         Me.serverDirButton.BackgroundImage = CType(resources.GetObject("serverDirButton.BackgroundImage"), System.Drawing.Image)
         Me.serverDirButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.serverDirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.serverDirButton.Location = New System.Drawing.Point(320, 39)
+        Me.serverDirButton.Location = New System.Drawing.Point(640, 75)
+        Me.serverDirButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverDirButton.Name = "serverDirButton"
-        Me.serverDirButton.Size = New System.Drawing.Size(24, 20)
+        Me.serverDirButton.Size = New System.Drawing.Size(48, 38)
         Me.serverDirButton.TabIndex = 2
         Me.serverDirButton.UseVisualStyleBackColor = False
         '
         'serverFileBox
         '
-        Me.serverFileBox.Location = New System.Drawing.Point(94, 39)
+        Me.serverFileBox.Location = New System.Drawing.Point(188, 75)
+        Me.serverFileBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverFileBox.Name = "serverFileBox"
-        Me.serverFileBox.Size = New System.Drawing.Size(220, 20)
+        Me.serverFileBox.Size = New System.Drawing.Size(436, 31)
         Me.serverFileBox.TabIndex = 1
         '
         'serverFileLabel
         '
         Me.serverFileLabel.AutoSize = True
-        Me.serverFileLabel.Location = New System.Drawing.Point(6, 42)
+        Me.serverFileLabel.Location = New System.Drawing.Point(12, 81)
+        Me.serverFileLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.serverFileLabel.Name = "serverFileLabel"
-        Me.serverFileLabel.Size = New System.Drawing.Size(57, 13)
+        Me.serverFileLabel.Size = New System.Drawing.Size(116, 25)
         Me.serverFileLabel.TabIndex = 13
         Me.serverFileLabel.Text = "Server File"
         '
         'nameLabel
         '
         Me.nameLabel.AutoSize = True
-        Me.nameLabel.Location = New System.Drawing.Point(6, 16)
+        Me.nameLabel.Location = New System.Drawing.Point(12, 31)
+        Me.nameLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.nameLabel.Name = "nameLabel"
-        Me.nameLabel.Size = New System.Drawing.Size(69, 13)
+        Me.nameLabel.Size = New System.Drawing.Size(137, 25)
         Me.nameLabel.TabIndex = 0
         Me.nameLabel.Text = "Server Name"
         '
         'serverNameBox
         '
-        Me.serverNameBox.Location = New System.Drawing.Point(94, 13)
+        Me.serverNameBox.Location = New System.Drawing.Point(188, 25)
+        Me.serverNameBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverNameBox.Name = "serverNameBox"
-        Me.serverNameBox.Size = New System.Drawing.Size(250, 20)
+        Me.serverNameBox.Size = New System.Drawing.Size(496, 31)
         Me.serverNameBox.TabIndex = 0
         '
         'portBox
         '
-        Me.portBox.Location = New System.Drawing.Point(282, 91)
+        Me.portBox.Location = New System.Drawing.Point(564, 175)
+        Me.portBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.portBox.Name = "portBox"
-        Me.portBox.Size = New System.Drawing.Size(62, 20)
+        Me.portBox.Size = New System.Drawing.Size(120, 31)
         Me.portBox.TabIndex = 6
         Me.portBox.Text = "2302"
         '
         'passwordLabel
         '
         Me.passwordLabel.AutoSize = True
-        Me.passwordLabel.Location = New System.Drawing.Point(6, 68)
+        Me.passwordLabel.Location = New System.Drawing.Point(12, 131)
+        Me.passwordLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.passwordLabel.Name = "passwordLabel"
-        Me.passwordLabel.Size = New System.Drawing.Size(53, 13)
+        Me.passwordLabel.Size = New System.Drawing.Size(106, 25)
         Me.passwordLabel.TabIndex = 2
         Me.passwordLabel.Text = "Password"
         '
         'maxPlayersLabel
         '
         Me.maxPlayersLabel.AutoSize = True
-        Me.maxPlayersLabel.Location = New System.Drawing.Point(212, 68)
+        Me.maxPlayersLabel.Location = New System.Drawing.Point(424, 131)
+        Me.maxPlayersLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.maxPlayersLabel.Name = "maxPlayersLabel"
-        Me.maxPlayersLabel.Size = New System.Drawing.Size(64, 13)
+        Me.maxPlayersLabel.Size = New System.Drawing.Size(131, 25)
         Me.maxPlayersLabel.TabIndex = 8
         Me.maxPlayersLabel.Text = "Max Players"
         '
         'passwordBox
         '
-        Me.passwordBox.Location = New System.Drawing.Point(94, 65)
+        Me.passwordBox.Location = New System.Drawing.Point(188, 125)
+        Me.passwordBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.passwordBox.Name = "passwordBox"
-        Me.passwordBox.Size = New System.Drawing.Size(107, 20)
+        Me.passwordBox.Size = New System.Drawing.Size(210, 31)
         Me.passwordBox.TabIndex = 3
         '
         'maxPlayersBox
         '
-        Me.maxPlayersBox.Location = New System.Drawing.Point(282, 65)
+        Me.maxPlayersBox.Location = New System.Drawing.Point(564, 125)
+        Me.maxPlayersBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxPlayersBox.Name = "maxPlayersBox"
-        Me.maxPlayersBox.Size = New System.Drawing.Size(62, 20)
+        Me.maxPlayersBox.Size = New System.Drawing.Size(120, 31)
         Me.maxPlayersBox.TabIndex = 5
         Me.maxPlayersBox.Text = "32"
         '
         'adminPassLabel
         '
         Me.adminPassLabel.AutoSize = True
-        Me.adminPassLabel.Location = New System.Drawing.Point(6, 94)
+        Me.adminPassLabel.Location = New System.Drawing.Point(12, 181)
+        Me.adminPassLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.adminPassLabel.Name = "adminPassLabel"
-        Me.adminPassLabel.Size = New System.Drawing.Size(82, 13)
+        Me.adminPassLabel.Size = New System.Drawing.Size(166, 25)
         Me.adminPassLabel.TabIndex = 4
         Me.adminPassLabel.Text = "AdminPassword"
         '
         'portLabel
         '
         Me.portLabel.AutoSize = True
-        Me.portLabel.Location = New System.Drawing.Point(250, 94)
+        Me.portLabel.Location = New System.Drawing.Point(500, 181)
+        Me.portLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.portLabel.Name = "portLabel"
-        Me.portLabel.Size = New System.Drawing.Size(26, 13)
+        Me.portLabel.Size = New System.Drawing.Size(51, 25)
         Me.portLabel.TabIndex = 6
         Me.portLabel.Text = "Port"
         '
         'adminPassBox
         '
-        Me.adminPassBox.Location = New System.Drawing.Point(94, 91)
+        Me.adminPassBox.Location = New System.Drawing.Point(188, 175)
+        Me.adminPassBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.adminPassBox.Name = "adminPassBox"
-        Me.adminPassBox.Size = New System.Drawing.Size(107, 20)
+        Me.adminPassBox.Size = New System.Drawing.Size(210, 31)
         Me.adminPassBox.TabIndex = 4
         '
         'serverTabs
@@ -1037,9 +1120,10 @@ Partial Class NewServerTab
         Me.serverTabs.Controls.Add(Me.scriptingTab)
         Me.serverTabs.Dock = System.Windows.Forms.DockStyle.Top
         Me.serverTabs.Location = New System.Drawing.Point(0, 0)
+        Me.serverTabs.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverTabs.Name = "serverTabs"
         Me.serverTabs.SelectedIndex = 0
-        Me.serverTabs.Size = New System.Drawing.Size(699, 267)
+        Me.serverTabs.Size = New System.Drawing.Size(1398, 513)
         Me.serverTabs.TabIndex = 4
         '
         'miscTab
@@ -1049,10 +1133,11 @@ Partial Class NewServerTab
         Me.miscTab.Controls.Add(Me.modGroup)
         Me.miscTab.Controls.Add(Me.votingGroup)
         Me.miscTab.Controls.Add(Me.vonGroup)
-        Me.miscTab.Location = New System.Drawing.Point(4, 22)
+        Me.miscTab.Location = New System.Drawing.Point(8, 39)
+        Me.miscTab.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.miscTab.Name = "miscTab"
-        Me.miscTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.miscTab.Size = New System.Drawing.Size(691, 241)
+        Me.miscTab.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.miscTab.Size = New System.Drawing.Size(1382, 466)
         Me.miscTab.TabIndex = 3
         Me.miscTab.Text = "Misc"
         '
@@ -1065,9 +1150,11 @@ Partial Class NewServerTab
         Me.miscGroup.Controls.Add(Me.verifySigCombo)
         Me.miscGroup.Controls.Add(Me.requiredBuildCheck)
         Me.miscGroup.Controls.Add(Me.kickDupeCheck)
-        Me.miscGroup.Location = New System.Drawing.Point(6, 6)
+        Me.miscGroup.Location = New System.Drawing.Point(12, 12)
+        Me.miscGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.miscGroup.Name = "miscGroup"
-        Me.miscGroup.Size = New System.Drawing.Size(301, 123)
+        Me.miscGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.miscGroup.Size = New System.Drawing.Size(602, 237)
         Me.miscGroup.TabIndex = 20
         Me.miscGroup.TabStop = False
         Me.miscGroup.Text = "Main"
@@ -1075,9 +1162,10 @@ Partial Class NewServerTab
         'filePatchLabel
         '
         Me.filePatchLabel.AutoSize = True
-        Me.filePatchLabel.Location = New System.Drawing.Point(23, 69)
+        Me.filePatchLabel.Location = New System.Drawing.Point(46, 133)
+        Me.filePatchLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.filePatchLabel.Name = "filePatchLabel"
-        Me.filePatchLabel.Size = New System.Drawing.Size(96, 13)
+        Me.filePatchLabel.Size = New System.Drawing.Size(194, 25)
         Me.filePatchLabel.TabIndex = 26
         Me.filePatchLabel.Text = "Allow File Patching"
         '
@@ -1087,27 +1175,30 @@ Partial Class NewServerTab
         Me.filePatchCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.filePatchCombo.FormattingEnabled = True
         Me.filePatchCombo.Items.AddRange(New Object() {"0", "1", "2"})
-        Me.filePatchCombo.Location = New System.Drawing.Point(133, 66)
+        Me.filePatchCombo.Location = New System.Drawing.Point(266, 127)
+        Me.filePatchCombo.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.filePatchCombo.MaxDropDownItems = 3
         Me.filePatchCombo.Name = "filePatchCombo"
-        Me.filePatchCombo.Size = New System.Drawing.Size(111, 21)
+        Me.filePatchCombo.Size = New System.Drawing.Size(218, 33)
         Me.filePatchCombo.TabIndex = 27
         '
         'verifySigLabel
         '
         Me.verifySigLabel.AutoSize = True
-        Me.verifySigLabel.Location = New System.Drawing.Point(23, 96)
+        Me.verifySigLabel.Location = New System.Drawing.Point(46, 185)
+        Me.verifySigLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.verifySigLabel.Name = "verifySigLabel"
-        Me.verifySigLabel.Size = New System.Drawing.Size(86, 13)
+        Me.verifySigLabel.Size = New System.Drawing.Size(176, 25)
         Me.verifySigLabel.TabIndex = 17
         Me.verifySigLabel.Text = "Verify Signatures"
         '
         'requiredBuildBox
         '
         Me.requiredBuildBox.Enabled = False
-        Me.requiredBuildBox.Location = New System.Drawing.Point(133, 40)
+        Me.requiredBuildBox.Location = New System.Drawing.Point(266, 77)
+        Me.requiredBuildBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.requiredBuildBox.Name = "requiredBuildBox"
-        Me.requiredBuildBox.Size = New System.Drawing.Size(111, 20)
+        Me.requiredBuildBox.Size = New System.Drawing.Size(218, 31)
         Me.requiredBuildBox.TabIndex = 25
         Me.requiredBuildBox.Text = "0"
         '
@@ -1117,18 +1208,20 @@ Partial Class NewServerTab
         Me.verifySigCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.verifySigCombo.FormattingEnabled = True
         Me.verifySigCombo.Items.AddRange(New Object() {"0", "1", "2"})
-        Me.verifySigCombo.Location = New System.Drawing.Point(133, 93)
+        Me.verifySigCombo.Location = New System.Drawing.Point(266, 179)
+        Me.verifySigCombo.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.verifySigCombo.MaxDropDownItems = 3
         Me.verifySigCombo.Name = "verifySigCombo"
-        Me.verifySigCombo.Size = New System.Drawing.Size(111, 21)
+        Me.verifySigCombo.Size = New System.Drawing.Size(218, 33)
         Me.verifySigCombo.TabIndex = 23
         '
         'requiredBuildCheck
         '
         Me.requiredBuildCheck.AutoSize = True
-        Me.requiredBuildCheck.Location = New System.Drawing.Point(6, 42)
+        Me.requiredBuildCheck.Location = New System.Drawing.Point(12, 81)
+        Me.requiredBuildCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.requiredBuildCheck.Name = "requiredBuildCheck"
-        Me.requiredBuildCheck.Size = New System.Drawing.Size(95, 17)
+        Me.requiredBuildCheck.Size = New System.Drawing.Size(185, 29)
         Me.requiredBuildCheck.TabIndex = 21
         Me.requiredBuildCheck.Text = "Required Build"
         Me.requiredBuildCheck.UseVisualStyleBackColor = True
@@ -1136,9 +1229,10 @@ Partial Class NewServerTab
         'kickDupeCheck
         '
         Me.kickDupeCheck.AutoSize = True
-        Me.kickDupeCheck.Location = New System.Drawing.Point(6, 19)
+        Me.kickDupeCheck.Location = New System.Drawing.Point(12, 37)
+        Me.kickDupeCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.kickDupeCheck.Name = "kickDupeCheck"
-        Me.kickDupeCheck.Size = New System.Drawing.Size(100, 17)
+        Me.kickDupeCheck.Size = New System.Drawing.Size(192, 29)
         Me.kickDupeCheck.TabIndex = 15
         Me.kickDupeCheck.Text = "Kick Duplicates"
         Me.kickDupeCheck.UseVisualStyleBackColor = True
@@ -1148,9 +1242,11 @@ Partial Class NewServerTab
         Me.modGroup.Controls.Add(Me.modTimeLabel)
         Me.modGroup.Controls.Add(Me.modTimeNumeric)
         Me.modGroup.Controls.Add(Me.modBox)
-        Me.modGroup.Location = New System.Drawing.Point(313, 6)
+        Me.modGroup.Location = New System.Drawing.Point(626, 12)
+        Me.modGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.modGroup.Name = "modGroup"
-        Me.modGroup.Size = New System.Drawing.Size(372, 229)
+        Me.modGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.modGroup.Size = New System.Drawing.Size(744, 440)
         Me.modGroup.TabIndex = 19
         Me.modGroup.TabStop = False
         Me.modGroup.Text = "Message Of The Day"
@@ -1158,28 +1254,31 @@ Partial Class NewServerTab
         'modTimeLabel
         '
         Me.modTimeLabel.AutoSize = True
-        Me.modTimeLabel.Location = New System.Drawing.Point(160, 205)
+        Me.modTimeLabel.Location = New System.Drawing.Point(320, 394)
+        Me.modTimeLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.modTimeLabel.Name = "modTimeLabel"
-        Me.modTimeLabel.Size = New System.Drawing.Size(145, 13)
+        Me.modTimeLabel.Size = New System.Drawing.Size(290, 25)
         Me.modTimeLabel.TabIndex = 17
         Me.modTimeLabel.Text = "Seconds Between Messages"
         '
         'modTimeNumeric
         '
-        Me.modTimeNumeric.Location = New System.Drawing.Point(311, 203)
+        Me.modTimeNumeric.Location = New System.Drawing.Point(622, 390)
+        Me.modTimeNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.modTimeNumeric.Maximum = New Decimal(New Integer() {600, 0, 0, 0})
         Me.modTimeNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.modTimeNumeric.Name = "modTimeNumeric"
-        Me.modTimeNumeric.Size = New System.Drawing.Size(55, 20)
+        Me.modTimeNumeric.Size = New System.Drawing.Size(110, 31)
         Me.modTimeNumeric.TabIndex = 17
         Me.modTimeNumeric.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
         'modBox
         '
-        Me.modBox.Location = New System.Drawing.Point(6, 19)
+        Me.modBox.Location = New System.Drawing.Point(12, 37)
+        Me.modBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.modBox.Name = "modBox"
         Me.modBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth
-        Me.modBox.Size = New System.Drawing.Size(360, 178)
+        Me.modBox.Size = New System.Drawing.Size(716, 339)
         Me.modBox.TabIndex = 0
         Me.modBox.Text = ""
         Me.modBox.WordWrap = False
@@ -1192,9 +1291,11 @@ Partial Class NewServerTab
         Me.votingGroup.Controls.Add(Me.voteThresholdNumeric)
         Me.votingGroup.Controls.Add(Me.voteMinPlayersNumeric)
         Me.votingGroup.Controls.Add(Me.voteCheck)
-        Me.votingGroup.Location = New System.Drawing.Point(6, 135)
+        Me.votingGroup.Location = New System.Drawing.Point(12, 260)
+        Me.votingGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.votingGroup.Name = "votingGroup"
-        Me.votingGroup.Size = New System.Drawing.Size(159, 100)
+        Me.votingGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.votingGroup.Size = New System.Drawing.Size(318, 192)
         Me.votingGroup.TabIndex = 18
         Me.votingGroup.TabStop = False
         Me.votingGroup.Text = "Voting"
@@ -1202,46 +1303,51 @@ Partial Class NewServerTab
         'percentLabel
         '
         Me.percentLabel.AutoSize = True
-        Me.percentLabel.Location = New System.Drawing.Point(134, 72)
+        Me.percentLabel.Location = New System.Drawing.Point(268, 138)
+        Me.percentLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.percentLabel.Name = "percentLabel"
-        Me.percentLabel.Size = New System.Drawing.Size(15, 13)
+        Me.percentLabel.Size = New System.Drawing.Size(31, 25)
         Me.percentLabel.TabIndex = 22
         Me.percentLabel.Text = "%"
         '
         'voteThresholdLabel
         '
         Me.voteThresholdLabel.AutoSize = True
-        Me.voteThresholdLabel.Location = New System.Drawing.Point(7, 70)
+        Me.voteThresholdLabel.Location = New System.Drawing.Point(14, 135)
+        Me.voteThresholdLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.voteThresholdLabel.Name = "voteThresholdLabel"
-        Me.voteThresholdLabel.Size = New System.Drawing.Size(79, 13)
+        Me.voteThresholdLabel.Size = New System.Drawing.Size(158, 25)
         Me.voteThresholdLabel.TabIndex = 21
         Me.voteThresholdLabel.Text = "Vote Threshold"
         '
         'minPlayersLabel
         '
         Me.minPlayersLabel.AutoSize = True
-        Me.minPlayersLabel.Location = New System.Drawing.Point(25, 44)
+        Me.minPlayersLabel.Location = New System.Drawing.Point(50, 85)
+        Me.minPlayersLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.minPlayersLabel.Name = "minPlayersLabel"
-        Me.minPlayersLabel.Size = New System.Drawing.Size(61, 13)
+        Me.minPlayersLabel.Size = New System.Drawing.Size(125, 25)
         Me.minPlayersLabel.TabIndex = 17
         Me.minPlayersLabel.Text = "Min Players"
         '
         'voteThresholdNumeric
         '
-        Me.voteThresholdNumeric.Location = New System.Drawing.Point(90, 68)
+        Me.voteThresholdNumeric.Location = New System.Drawing.Point(180, 131)
+        Me.voteThresholdNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.voteThresholdNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.voteThresholdNumeric.Name = "voteThresholdNumeric"
-        Me.voteThresholdNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.voteThresholdNumeric.Size = New System.Drawing.Size(86, 31)
         Me.voteThresholdNumeric.TabIndex = 20
         Me.voteThresholdNumeric.Value = New Decimal(New Integer() {33, 0, 0, 0})
         '
         'voteMinPlayersNumeric
         '
-        Me.voteMinPlayersNumeric.Location = New System.Drawing.Point(90, 42)
+        Me.voteMinPlayersNumeric.Location = New System.Drawing.Point(180, 81)
+        Me.voteMinPlayersNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.voteMinPlayersNumeric.Maximum = New Decimal(New Integer() {30, 0, 0, 0})
         Me.voteMinPlayersNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.voteMinPlayersNumeric.Name = "voteMinPlayersNumeric"
-        Me.voteMinPlayersNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.voteMinPlayersNumeric.Size = New System.Drawing.Size(86, 31)
         Me.voteMinPlayersNumeric.TabIndex = 17
         Me.voteMinPlayersNumeric.Value = New Decimal(New Integer() {3, 0, 0, 0})
         '
@@ -1250,10 +1356,11 @@ Partial Class NewServerTab
         Me.voteCheck.AutoSize = True
         Me.voteCheck.Checked = True
         Me.voteCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.voteCheck.Location = New System.Drawing.Point(11, 19)
+        Me.voteCheck.Location = New System.Drawing.Point(22, 37)
+        Me.voteCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.voteCheck.Name = "voteCheck"
         Me.voteCheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.voteCheck.Size = New System.Drawing.Size(94, 17)
+        Me.voteCheck.Size = New System.Drawing.Size(183, 29)
         Me.voteCheck.TabIndex = 19
         Me.voteCheck.Text = "Disable Voting"
         Me.voteCheck.UseVisualStyleBackColor = True
@@ -1263,9 +1370,11 @@ Partial Class NewServerTab
         Me.vonGroup.Controls.Add(Me.codecLabel)
         Me.vonGroup.Controls.Add(Me.codecNumeric)
         Me.vonGroup.Controls.Add(Me.vonCheck)
-        Me.vonGroup.Location = New System.Drawing.Point(171, 135)
+        Me.vonGroup.Location = New System.Drawing.Point(342, 260)
+        Me.vonGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.vonGroup.Name = "vonGroup"
-        Me.vonGroup.Size = New System.Drawing.Size(136, 100)
+        Me.vonGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.vonGroup.Size = New System.Drawing.Size(272, 192)
         Me.vonGroup.TabIndex = 17
         Me.vonGroup.TabStop = False
         Me.vonGroup.Text = "VON Settings"
@@ -1273,29 +1382,32 @@ Partial Class NewServerTab
         'codecLabel
         '
         Me.codecLabel.AutoSize = True
-        Me.codecLabel.Location = New System.Drawing.Point(6, 33)
+        Me.codecLabel.Location = New System.Drawing.Point(12, 63)
+        Me.codecLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.codecLabel.Name = "codecLabel"
-        Me.codecLabel.Size = New System.Drawing.Size(73, 13)
+        Me.codecLabel.Size = New System.Drawing.Size(147, 25)
         Me.codecLabel.TabIndex = 16
         Me.codecLabel.Text = "Codec Quality"
         '
         'codecNumeric
         '
-        Me.codecNumeric.Location = New System.Drawing.Point(85, 31)
+        Me.codecNumeric.Location = New System.Drawing.Point(170, 60)
+        Me.codecNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.codecNumeric.Maximum = New Decimal(New Integer() {30, 0, 0, 0})
         Me.codecNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.codecNumeric.Name = "codecNumeric"
-        Me.codecNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.codecNumeric.Size = New System.Drawing.Size(86, 31)
         Me.codecNumeric.TabIndex = 15
         Me.codecNumeric.Value = New Decimal(New Integer() {3, 0, 0, 0})
         '
         'vonCheck
         '
         Me.vonCheck.AutoSize = True
-        Me.vonCheck.Location = New System.Drawing.Point(9, 57)
+        Me.vonCheck.Location = New System.Drawing.Point(18, 110)
+        Me.vonCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.vonCheck.Name = "vonCheck"
         Me.vonCheck.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.vonCheck.Size = New System.Drawing.Size(87, 17)
+        Me.vonCheck.Size = New System.Drawing.Size(167, 29)
         Me.vonCheck.TabIndex = 14
         Me.vonCheck.Text = "Disable VON"
         Me.vonCheck.UseVisualStyleBackColor = True
@@ -1305,9 +1417,10 @@ Partial Class NewServerTab
         Me.missionTab.BackColor = System.Drawing.Color.LightSkyBlue
         Me.missionTab.Controls.Add(Me.missionsGroup)
         Me.missionTab.Controls.Add(Me.customDifficutlyGroup)
-        Me.missionTab.Location = New System.Drawing.Point(4, 22)
+        Me.missionTab.Location = New System.Drawing.Point(8, 39)
+        Me.missionTab.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.missionTab.Name = "missionTab"
-        Me.missionTab.Size = New System.Drawing.Size(691, 241)
+        Me.missionTab.Size = New System.Drawing.Size(1382, 466)
         Me.missionTab.TabIndex = 4
         Me.missionTab.Text = "Missions"
         '
@@ -1321,9 +1434,11 @@ Partial Class NewServerTab
         Me.missionsGroup.Controls.Add(Me.missionsNoneButton)
         Me.missionsGroup.Controls.Add(Me.missionsAllButton)
         Me.missionsGroup.Controls.Add(Me.missionsList)
-        Me.missionsGroup.Location = New System.Drawing.Point(5, 6)
+        Me.missionsGroup.Location = New System.Drawing.Point(10, 12)
+        Me.missionsGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.missionsGroup.Name = "missionsGroup"
-        Me.missionsGroup.Size = New System.Drawing.Size(315, 229)
+        Me.missionsGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.missionsGroup.Size = New System.Drawing.Size(630, 440)
         Me.missionsGroup.TabIndex = 12
         Me.missionsGroup.TabStop = False
         Me.missionsGroup.Text = "Missions"
@@ -1331,9 +1446,10 @@ Partial Class NewServerTab
         'difficultyLabel
         '
         Me.difficultyLabel.AutoSize = True
-        Me.difficultyLabel.Location = New System.Drawing.Point(151, 205)
+        Me.difficultyLabel.Location = New System.Drawing.Point(302, 394)
+        Me.difficultyLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.difficultyLabel.Name = "difficultyLabel"
-        Me.difficultyLabel.Size = New System.Drawing.Size(80, 13)
+        Me.difficultyLabel.Size = New System.Drawing.Size(162, 25)
         Me.difficultyLabel.TabIndex = 30
         Me.difficultyLabel.Text = "Difficulty Preset"
         '
@@ -1341,9 +1457,10 @@ Partial Class NewServerTab
         '
         Me.autoInitCheck.AutoSize = True
         Me.autoInitCheck.Enabled = False
-        Me.autoInitCheck.Location = New System.Drawing.Point(133, 164)
+        Me.autoInitCheck.Location = New System.Drawing.Point(266, 315)
+        Me.autoInitCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.autoInitCheck.Name = "autoInitCheck"
-        Me.autoInitCheck.Size = New System.Drawing.Size(65, 17)
+        Me.autoInitCheck.Size = New System.Drawing.Size(122, 29)
         Me.autoInitCheck.TabIndex = 11
         Me.autoInitCheck.Text = "Auto Init"
         Me.autoInitCheck.UseVisualStyleBackColor = True
@@ -1351,9 +1468,10 @@ Partial Class NewServerTab
         'persistCheck
         '
         Me.persistCheck.AutoSize = True
-        Me.persistCheck.Location = New System.Drawing.Point(6, 164)
+        Me.persistCheck.Location = New System.Drawing.Point(12, 315)
+        Me.persistCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.persistCheck.Name = "persistCheck"
-        Me.persistCheck.Size = New System.Drawing.Size(121, 17)
+        Me.persistCheck.Size = New System.Drawing.Size(241, 29)
         Me.persistCheck.TabIndex = 10
         Me.persistCheck.Text = "Persistant Battlefield"
         Me.persistCheck.UseVisualStyleBackColor = True
@@ -1364,35 +1482,39 @@ Partial Class NewServerTab
         Me.difficultyCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.difficultyCombo.FormattingEnabled = True
         Me.difficultyCombo.Items.AddRange(New Object() {"Recruit", "Regular", "Veteran", "Custom"})
-        Me.difficultyCombo.Location = New System.Drawing.Point(237, 202)
+        Me.difficultyCombo.Location = New System.Drawing.Point(474, 388)
+        Me.difficultyCombo.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.difficultyCombo.MaxDropDownItems = 3
         Me.difficultyCombo.Name = "difficultyCombo"
-        Me.difficultyCombo.Size = New System.Drawing.Size(72, 21)
+        Me.difficultyCombo.Size = New System.Drawing.Size(140, 33)
         Me.difficultyCombo.TabIndex = 29
         '
         'missionRefreshButton
         '
-        Me.missionRefreshButton.Location = New System.Drawing.Point(118, 200)
+        Me.missionRefreshButton.Location = New System.Drawing.Point(236, 385)
+        Me.missionRefreshButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.missionRefreshButton.Name = "missionRefreshButton"
-        Me.missionRefreshButton.Size = New System.Drawing.Size(24, 23)
+        Me.missionRefreshButton.Size = New System.Drawing.Size(48, 44)
         Me.missionRefreshButton.TabIndex = 15
         Me.missionRefreshButton.Text = "" & Global.Microsoft.VisualBasic.ChrW(9) & "↻"
         Me.missionRefreshButton.UseVisualStyleBackColor = True
         '
         'missionsNoneButton
         '
-        Me.missionsNoneButton.Location = New System.Drawing.Point(62, 200)
+        Me.missionsNoneButton.Location = New System.Drawing.Point(124, 385)
+        Me.missionsNoneButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.missionsNoneButton.Name = "missionsNoneButton"
-        Me.missionsNoneButton.Size = New System.Drawing.Size(50, 23)
+        Me.missionsNoneButton.Size = New System.Drawing.Size(100, 44)
         Me.missionsNoneButton.TabIndex = 14
         Me.missionsNoneButton.Text = "None"
         Me.missionsNoneButton.UseVisualStyleBackColor = True
         '
         'missionsAllButton
         '
-        Me.missionsAllButton.Location = New System.Drawing.Point(6, 200)
+        Me.missionsAllButton.Location = New System.Drawing.Point(12, 385)
+        Me.missionsAllButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.missionsAllButton.Name = "missionsAllButton"
-        Me.missionsAllButton.Size = New System.Drawing.Size(50, 23)
+        Me.missionsAllButton.Size = New System.Drawing.Size(100, 44)
         Me.missionsAllButton.TabIndex = 13
         Me.missionsAllButton.Text = "All"
         Me.missionsAllButton.UseVisualStyleBackColor = True
@@ -1400,9 +1522,10 @@ Partial Class NewServerTab
         'missionsList
         '
         Me.missionsList.FormattingEnabled = True
-        Me.missionsList.Location = New System.Drawing.Point(6, 19)
+        Me.missionsList.Location = New System.Drawing.Point(12, 37)
+        Me.missionsList.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.missionsList.Name = "missionsList"
-        Me.missionsList.Size = New System.Drawing.Size(303, 139)
+        Me.missionsList.Size = New System.Drawing.Size(602, 264)
         Me.missionsList.TabIndex = 12
         '
         'customDifficutlyGroup
@@ -1429,9 +1552,11 @@ Partial Class NewServerTab
         Me.customDifficutlyGroup.Controls.Add(Me.friendlyNameCheck)
         Me.customDifficutlyGroup.Controls.Add(Me.groupIndicatorCheck)
         Me.customDifficutlyGroup.Controls.Add(Me.reducedDamageCheck)
-        Me.customDifficutlyGroup.Location = New System.Drawing.Point(326, 6)
+        Me.customDifficutlyGroup.Location = New System.Drawing.Point(652, 12)
+        Me.customDifficutlyGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.customDifficutlyGroup.Name = "customDifficutlyGroup"
-        Me.customDifficutlyGroup.Size = New System.Drawing.Size(360, 229)
+        Me.customDifficutlyGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.customDifficutlyGroup.Size = New System.Drawing.Size(720, 440)
         Me.customDifficutlyGroup.TabIndex = 13
         Me.customDifficutlyGroup.TabStop = False
         Me.customDifficutlyGroup.Text = "Custom Difficulty"
@@ -1441,9 +1566,10 @@ Partial Class NewServerTab
         Me.tacticalPingCheck.AutoSize = True
         Me.tacticalPingCheck.Checked = True
         Me.tacticalPingCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.tacticalPingCheck.Location = New System.Drawing.Point(234, 65)
+        Me.tacticalPingCheck.Location = New System.Drawing.Point(468, 125)
+        Me.tacticalPingCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.tacticalPingCheck.Name = "tacticalPingCheck"
-        Me.tacticalPingCheck.Size = New System.Drawing.Size(88, 17)
+        Me.tacticalPingCheck.Size = New System.Drawing.Size(168, 29)
         Me.tacticalPingCheck.TabIndex = 21
         Me.tacticalPingCheck.Text = "Tactical Ping"
         Me.tacticalPingCheck.UseVisualStyleBackColor = True
@@ -1456,9 +1582,11 @@ Partial Class NewServerTab
         Me.aiSettingsGroup.Controls.Add(Me.aiAccuracyNumeric)
         Me.aiSettingsGroup.Controls.Add(Me.aiSkillNumeric)
         Me.aiSettingsGroup.Controls.Add(Me.aiPresetNumeric)
-        Me.aiSettingsGroup.Location = New System.Drawing.Point(234, 123)
+        Me.aiSettingsGroup.Location = New System.Drawing.Point(468, 237)
+        Me.aiSettingsGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.aiSettingsGroup.Name = "aiSettingsGroup"
-        Me.aiSettingsGroup.Size = New System.Drawing.Size(120, 100)
+        Me.aiSettingsGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.aiSettingsGroup.Size = New System.Drawing.Size(240, 192)
         Me.aiSettingsGroup.TabIndex = 20
         Me.aiSettingsGroup.TabStop = False
         Me.aiSettingsGroup.Text = "AI Settings"
@@ -1466,27 +1594,30 @@ Partial Class NewServerTab
         'aiAccuracyLabel
         '
         Me.aiAccuracyLabel.AutoSize = True
-        Me.aiAccuracyLabel.Location = New System.Drawing.Point(13, 47)
+        Me.aiAccuracyLabel.Location = New System.Drawing.Point(26, 90)
+        Me.aiAccuracyLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.aiAccuracyLabel.Name = "aiAccuracyLabel"
-        Me.aiAccuracyLabel.Size = New System.Drawing.Size(52, 13)
+        Me.aiAccuracyLabel.Size = New System.Drawing.Size(101, 25)
         Me.aiAccuracyLabel.TabIndex = 21
         Me.aiAccuracyLabel.Text = "Accuracy"
         '
         'aiSkillLabel
         '
         Me.aiSkillLabel.AutoSize = True
-        Me.aiSkillLabel.Location = New System.Drawing.Point(13, 21)
+        Me.aiSkillLabel.Location = New System.Drawing.Point(26, 40)
+        Me.aiSkillLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.aiSkillLabel.Name = "aiSkillLabel"
-        Me.aiSkillLabel.Size = New System.Drawing.Size(26, 13)
+        Me.aiSkillLabel.Size = New System.Drawing.Size(52, 25)
         Me.aiSkillLabel.TabIndex = 20
         Me.aiSkillLabel.Text = "Skill"
         '
         'aiPresetLabel
         '
         Me.aiPresetLabel.AutoSize = True
-        Me.aiPresetLabel.Location = New System.Drawing.Point(13, 73)
+        Me.aiPresetLabel.Location = New System.Drawing.Point(26, 140)
+        Me.aiPresetLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.aiPresetLabel.Name = "aiPresetLabel"
-        Me.aiPresetLabel.Size = New System.Drawing.Size(37, 13)
+        Me.aiPresetLabel.Size = New System.Drawing.Size(74, 25)
         Me.aiPresetLabel.TabIndex = 19
         Me.aiPresetLabel.Text = "Preset"
         '
@@ -1494,10 +1625,11 @@ Partial Class NewServerTab
         '
         Me.aiAccuracyNumeric.DecimalPlaces = 2
         Me.aiAccuracyNumeric.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.aiAccuracyNumeric.Location = New System.Drawing.Point(71, 45)
+        Me.aiAccuracyNumeric.Location = New System.Drawing.Point(142, 87)
+        Me.aiAccuracyNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.aiAccuracyNumeric.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.aiAccuracyNumeric.Name = "aiAccuracyNumeric"
-        Me.aiAccuracyNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.aiAccuracyNumeric.Size = New System.Drawing.Size(86, 31)
         Me.aiAccuracyNumeric.TabIndex = 18
         Me.aiAccuracyNumeric.Value = New Decimal(New Integer() {55, 0, 0, 131072})
         '
@@ -1505,19 +1637,21 @@ Partial Class NewServerTab
         '
         Me.aiSkillNumeric.DecimalPlaces = 2
         Me.aiSkillNumeric.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.aiSkillNumeric.Location = New System.Drawing.Point(71, 19)
+        Me.aiSkillNumeric.Location = New System.Drawing.Point(142, 37)
+        Me.aiSkillNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.aiSkillNumeric.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.aiSkillNumeric.Name = "aiSkillNumeric"
-        Me.aiSkillNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.aiSkillNumeric.Size = New System.Drawing.Size(86, 31)
         Me.aiSkillNumeric.TabIndex = 17
         Me.aiSkillNumeric.Value = New Decimal(New Integer() {75, 0, 0, 131072})
         '
         'aiPresetNumeric
         '
-        Me.aiPresetNumeric.Location = New System.Drawing.Point(71, 71)
+        Me.aiPresetNumeric.Location = New System.Drawing.Point(142, 137)
+        Me.aiPresetNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.aiPresetNumeric.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
         Me.aiPresetNumeric.Name = "aiPresetNumeric"
-        Me.aiPresetNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.aiPresetNumeric.Size = New System.Drawing.Size(86, 31)
         Me.aiPresetNumeric.TabIndex = 16
         Me.aiPresetNumeric.Value = New Decimal(New Integer() {3, 0, 0, 0})
         '
@@ -1526,9 +1660,10 @@ Partial Class NewServerTab
         Me.multipleSavesCheck.AutoSize = True
         Me.multipleSavesCheck.Checked = True
         Me.multipleSavesCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.multipleSavesCheck.Location = New System.Drawing.Point(6, 134)
+        Me.multipleSavesCheck.Location = New System.Drawing.Point(12, 258)
+        Me.multipleSavesCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.multipleSavesCheck.Name = "multipleSavesCheck"
-        Me.multipleSavesCheck.Size = New System.Drawing.Size(95, 17)
+        Me.multipleSavesCheck.Size = New System.Drawing.Size(185, 29)
         Me.multipleSavesCheck.TabIndex = 19
         Me.multipleSavesCheck.Text = "Multiple Saves"
         Me.multipleSavesCheck.UseVisualStyleBackColor = True
@@ -1538,9 +1673,10 @@ Partial Class NewServerTab
         Me.autoReportingCheck.AutoSize = True
         Me.autoReportingCheck.Checked = True
         Me.autoReportingCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.autoReportingCheck.Location = New System.Drawing.Point(234, 19)
+        Me.autoReportingCheck.Location = New System.Drawing.Point(468, 37)
+        Me.autoReportingCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.autoReportingCheck.Name = "autoReportingCheck"
-        Me.autoReportingCheck.Size = New System.Drawing.Size(97, 17)
+        Me.autoReportingCheck.Size = New System.Drawing.Size(187, 29)
         Me.autoReportingCheck.TabIndex = 18
         Me.autoReportingCheck.Text = "Auto Reporting"
         Me.autoReportingCheck.UseVisualStyleBackColor = True
@@ -1550,9 +1686,10 @@ Partial Class NewServerTab
         Me.mapContentCheck.AutoSize = True
         Me.mapContentCheck.Checked = True
         Me.mapContentCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.mapContentCheck.Location = New System.Drawing.Point(132, 88)
+        Me.mapContentCheck.Location = New System.Drawing.Point(264, 169)
+        Me.mapContentCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.mapContentCheck.Name = "mapContentCheck"
-        Me.mapContentCheck.Size = New System.Drawing.Size(135, 17)
+        Me.mapContentCheck.Size = New System.Drawing.Size(264, 29)
         Me.mapContentCheck.TabIndex = 17
         Me.mapContentCheck.Text = "Extended Map Content"
         Me.mapContentCheck.UseVisualStyleBackColor = True
@@ -1562,9 +1699,10 @@ Partial Class NewServerTab
         Me.vonIDCheck.AutoSize = True
         Me.vonIDCheck.Checked = True
         Me.vonIDCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.vonIDCheck.Location = New System.Drawing.Point(132, 134)
+        Me.vonIDCheck.Location = New System.Drawing.Point(264, 258)
+        Me.vonIDCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.vonIDCheck.Name = "vonIDCheck"
-        Me.vonIDCheck.Size = New System.Drawing.Size(63, 17)
+        Me.vonIDCheck.Size = New System.Drawing.Size(115, 29)
         Me.vonIDCheck.TabIndex = 16
         Me.vonIDCheck.Text = "VON ID"
         Me.vonIDCheck.UseVisualStyleBackColor = True
@@ -1574,9 +1712,10 @@ Partial Class NewServerTab
         Me.killedByCheck.AutoSize = True
         Me.killedByCheck.Checked = True
         Me.killedByCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.killedByCheck.Location = New System.Drawing.Point(132, 157)
+        Me.killedByCheck.Location = New System.Drawing.Point(264, 302)
+        Me.killedByCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.killedByCheck.Name = "killedByCheck"
-        Me.killedByCheck.Size = New System.Drawing.Size(66, 17)
+        Me.killedByCheck.Size = New System.Drawing.Size(128, 29)
         Me.killedByCheck.TabIndex = 15
         Me.killedByCheck.Text = "Killed By"
         Me.killedByCheck.UseVisualStyleBackColor = True
@@ -1586,9 +1725,10 @@ Partial Class NewServerTab
         Me.scoreTableCheck.AutoSize = True
         Me.scoreTableCheck.Checked = True
         Me.scoreTableCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.scoreTableCheck.Location = New System.Drawing.Point(234, 42)
+        Me.scoreTableCheck.Location = New System.Drawing.Point(468, 81)
+        Me.scoreTableCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.scoreTableCheck.Name = "scoreTableCheck"
-        Me.scoreTableCheck.Size = New System.Drawing.Size(84, 17)
+        Me.scoreTableCheck.Size = New System.Drawing.Size(160, 29)
         Me.scoreTableCheck.TabIndex = 14
         Me.scoreTableCheck.Text = "Score Table"
         Me.scoreTableCheck.UseVisualStyleBackColor = True
@@ -1598,9 +1738,10 @@ Partial Class NewServerTab
         Me.cameraShakeCheck.AutoSize = True
         Me.cameraShakeCheck.Checked = True
         Me.cameraShakeCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cameraShakeCheck.Location = New System.Drawing.Point(132, 42)
+        Me.cameraShakeCheck.Location = New System.Drawing.Point(264, 81)
+        Me.cameraShakeCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.cameraShakeCheck.Name = "cameraShakeCheck"
-        Me.cameraShakeCheck.Size = New System.Drawing.Size(96, 17)
+        Me.cameraShakeCheck.Size = New System.Drawing.Size(186, 29)
         Me.cameraShakeCheck.TabIndex = 13
         Me.cameraShakeCheck.Text = "Camera Shake"
         Me.cameraShakeCheck.UseVisualStyleBackColor = True
@@ -1610,9 +1751,10 @@ Partial Class NewServerTab
         Me.thirdPersonCheck.AutoSize = True
         Me.thirdPersonCheck.Checked = True
         Me.thirdPersonCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.thirdPersonCheck.Location = New System.Drawing.Point(6, 157)
+        Me.thirdPersonCheck.Location = New System.Drawing.Point(12, 302)
+        Me.thirdPersonCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.thirdPersonCheck.Name = "thirdPersonCheck"
-        Me.thirdPersonCheck.Size = New System.Drawing.Size(116, 17)
+        Me.thirdPersonCheck.Size = New System.Drawing.Size(230, 29)
         Me.thirdPersonCheck.TabIndex = 12
         Me.thirdPersonCheck.Text = "3rd Person Camera"
         Me.thirdPersonCheck.UseVisualStyleBackColor = True
@@ -1622,9 +1764,10 @@ Partial Class NewServerTab
         Me.visualAidCheck.AutoSize = True
         Me.visualAidCheck.Checked = True
         Me.visualAidCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.visualAidCheck.Location = New System.Drawing.Point(132, 65)
+        Me.visualAidCheck.Location = New System.Drawing.Point(264, 125)
+        Me.visualAidCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.visualAidCheck.Name = "visualAidCheck"
-        Me.visualAidCheck.Size = New System.Drawing.Size(77, 17)
+        Me.visualAidCheck.Size = New System.Drawing.Size(151, 29)
         Me.visualAidCheck.TabIndex = 11
         Me.visualAidCheck.Text = "Visual Aids"
         Me.visualAidCheck.UseVisualStyleBackColor = True
@@ -1634,9 +1777,10 @@ Partial Class NewServerTab
         Me.crosshairCheck.AutoSize = True
         Me.crosshairCheck.Checked = True
         Me.crosshairCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.crosshairCheck.Location = New System.Drawing.Point(132, 203)
+        Me.crosshairCheck.Location = New System.Drawing.Point(264, 390)
+        Me.crosshairCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.crosshairCheck.Name = "crosshairCheck"
-        Me.crosshairCheck.Size = New System.Drawing.Size(69, 17)
+        Me.crosshairCheck.Size = New System.Drawing.Size(136, 29)
         Me.crosshairCheck.TabIndex = 10
         Me.crosshairCheck.Text = "Crosshair"
         Me.crosshairCheck.UseVisualStyleBackColor = True
@@ -1646,9 +1790,10 @@ Partial Class NewServerTab
         Me.staminaBarCheck.AutoSize = True
         Me.staminaBarCheck.Checked = True
         Me.staminaBarCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.staminaBarCheck.Location = New System.Drawing.Point(132, 19)
+        Me.staminaBarCheck.Location = New System.Drawing.Point(264, 37)
+        Me.staminaBarCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.staminaBarCheck.Name = "staminaBarCheck"
-        Me.staminaBarCheck.Size = New System.Drawing.Size(83, 17)
+        Me.staminaBarCheck.Size = New System.Drawing.Size(161, 29)
         Me.staminaBarCheck.TabIndex = 9
         Me.staminaBarCheck.Text = "Stamina Bar"
         Me.staminaBarCheck.UseVisualStyleBackColor = True
@@ -1658,9 +1803,10 @@ Partial Class NewServerTab
         Me.stanceIndicatorCheck.AutoSize = True
         Me.stanceIndicatorCheck.Checked = True
         Me.stanceIndicatorCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.stanceIndicatorCheck.Location = New System.Drawing.Point(6, 203)
+        Me.stanceIndicatorCheck.Location = New System.Drawing.Point(12, 390)
+        Me.stanceIndicatorCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.stanceIndicatorCheck.Name = "stanceIndicatorCheck"
-        Me.stanceIndicatorCheck.Size = New System.Drawing.Size(104, 17)
+        Me.stanceIndicatorCheck.Size = New System.Drawing.Size(199, 29)
         Me.stanceIndicatorCheck.TabIndex = 8
         Me.stanceIndicatorCheck.Text = "Stance Indicator"
         Me.stanceIndicatorCheck.UseVisualStyleBackColor = True
@@ -1670,9 +1816,10 @@ Partial Class NewServerTab
         Me.weaponInfoCheck.AutoSize = True
         Me.weaponInfoCheck.Checked = True
         Me.weaponInfoCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.weaponInfoCheck.Location = New System.Drawing.Point(6, 180)
+        Me.weaponInfoCheck.Location = New System.Drawing.Point(12, 346)
+        Me.weaponInfoCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.weaponInfoCheck.Name = "weaponInfoCheck"
-        Me.weaponInfoCheck.Size = New System.Drawing.Size(88, 17)
+        Me.weaponInfoCheck.Size = New System.Drawing.Size(165, 29)
         Me.weaponInfoCheck.TabIndex = 7
         Me.weaponInfoCheck.Text = "Weapon Info"
         Me.weaponInfoCheck.UseVisualStyleBackColor = True
@@ -1682,9 +1829,10 @@ Partial Class NewServerTab
         Me.waypointsCheck.AutoSize = True
         Me.waypointsCheck.Checked = True
         Me.waypointsCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.waypointsCheck.Location = New System.Drawing.Point(132, 180)
+        Me.waypointsCheck.Location = New System.Drawing.Point(264, 346)
+        Me.waypointsCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.waypointsCheck.Name = "waypointsCheck"
-        Me.waypointsCheck.Size = New System.Drawing.Size(76, 17)
+        Me.waypointsCheck.Size = New System.Drawing.Size(145, 29)
         Me.waypointsCheck.TabIndex = 6
         Me.waypointsCheck.Text = "Waypoints"
         Me.waypointsCheck.UseVisualStyleBackColor = True
@@ -1694,9 +1842,10 @@ Partial Class NewServerTab
         Me.commandsCheck.AutoSize = True
         Me.commandsCheck.Checked = True
         Me.commandsCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.commandsCheck.Location = New System.Drawing.Point(132, 111)
+        Me.commandsCheck.Location = New System.Drawing.Point(264, 213)
+        Me.commandsCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.commandsCheck.Name = "commandsCheck"
-        Me.commandsCheck.Size = New System.Drawing.Size(78, 17)
+        Me.commandsCheck.Size = New System.Drawing.Size(152, 29)
         Me.commandsCheck.TabIndex = 5
         Me.commandsCheck.Text = "Commands"
         Me.commandsCheck.UseVisualStyleBackColor = True
@@ -1706,9 +1855,10 @@ Partial Class NewServerTab
         Me.detectedMinesCheck.AutoSize = True
         Me.detectedMinesCheck.Checked = True
         Me.detectedMinesCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.detectedMinesCheck.Location = New System.Drawing.Point(6, 111)
+        Me.detectedMinesCheck.Location = New System.Drawing.Point(12, 213)
+        Me.detectedMinesCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.detectedMinesCheck.Name = "detectedMinesCheck"
-        Me.detectedMinesCheck.Size = New System.Drawing.Size(101, 17)
+        Me.detectedMinesCheck.Size = New System.Drawing.Size(194, 29)
         Me.detectedMinesCheck.TabIndex = 4
         Me.detectedMinesCheck.Text = "Detected Mines"
         Me.detectedMinesCheck.UseVisualStyleBackColor = True
@@ -1718,9 +1868,10 @@ Partial Class NewServerTab
         Me.enemyNameCheck.AutoSize = True
         Me.enemyNameCheck.Checked = True
         Me.enemyNameCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.enemyNameCheck.Location = New System.Drawing.Point(6, 88)
+        Me.enemyNameCheck.Location = New System.Drawing.Point(12, 169)
+        Me.enemyNameCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.enemyNameCheck.Name = "enemyNameCheck"
-        Me.enemyNameCheck.Size = New System.Drawing.Size(116, 17)
+        Me.enemyNameCheck.Size = New System.Drawing.Size(226, 29)
         Me.enemyNameCheck.TabIndex = 3
         Me.enemyNameCheck.Text = "Enemy Name Tags"
         Me.enemyNameCheck.UseVisualStyleBackColor = True
@@ -1730,9 +1881,10 @@ Partial Class NewServerTab
         Me.friendlyNameCheck.AutoSize = True
         Me.friendlyNameCheck.Checked = True
         Me.friendlyNameCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.friendlyNameCheck.Location = New System.Drawing.Point(6, 65)
+        Me.friendlyNameCheck.Location = New System.Drawing.Point(12, 125)
+        Me.friendlyNameCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.friendlyNameCheck.Name = "friendlyNameCheck"
-        Me.friendlyNameCheck.Size = New System.Drawing.Size(120, 17)
+        Me.friendlyNameCheck.Size = New System.Drawing.Size(237, 29)
         Me.friendlyNameCheck.TabIndex = 2
         Me.friendlyNameCheck.Text = "Friendly Name Tags"
         Me.friendlyNameCheck.UseVisualStyleBackColor = True
@@ -1742,9 +1894,10 @@ Partial Class NewServerTab
         Me.groupIndicatorCheck.AutoSize = True
         Me.groupIndicatorCheck.Checked = True
         Me.groupIndicatorCheck.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.groupIndicatorCheck.Location = New System.Drawing.Point(6, 42)
+        Me.groupIndicatorCheck.Location = New System.Drawing.Point(12, 81)
+        Me.groupIndicatorCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.groupIndicatorCheck.Name = "groupIndicatorCheck"
-        Me.groupIndicatorCheck.Size = New System.Drawing.Size(104, 17)
+        Me.groupIndicatorCheck.Size = New System.Drawing.Size(202, 29)
         Me.groupIndicatorCheck.TabIndex = 1
         Me.groupIndicatorCheck.Text = "Group Indicators"
         Me.groupIndicatorCheck.UseVisualStyleBackColor = True
@@ -1752,9 +1905,10 @@ Partial Class NewServerTab
         'reducedDamageCheck
         '
         Me.reducedDamageCheck.AutoSize = True
-        Me.reducedDamageCheck.Location = New System.Drawing.Point(6, 19)
+        Me.reducedDamageCheck.Location = New System.Drawing.Point(12, 37)
+        Me.reducedDamageCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.reducedDamageCheck.Name = "reducedDamageCheck"
-        Me.reducedDamageCheck.Size = New System.Drawing.Size(113, 17)
+        Me.reducedDamageCheck.Size = New System.Drawing.Size(216, 29)
         Me.reducedDamageCheck.TabIndex = 0
         Me.reducedDamageCheck.Text = "Reduced Damage"
         Me.reducedDamageCheck.UseVisualStyleBackColor = True
@@ -1764,10 +1918,11 @@ Partial Class NewServerTab
         Me.perfTab.BackColor = System.Drawing.Color.LightSkyBlue
         Me.perfTab.Controls.Add(Me.serverPerfGroup)
         Me.perfTab.Controls.Add(Me.clientPerfGroup)
-        Me.perfTab.Location = New System.Drawing.Point(4, 22)
+        Me.perfTab.Location = New System.Drawing.Point(8, 39)
+        Me.perfTab.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.perfTab.Name = "perfTab"
-        Me.perfTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.perfTab.Size = New System.Drawing.Size(691, 241)
+        Me.perfTab.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.perfTab.Size = New System.Drawing.Size(1382, 466)
         Me.perfTab.TabIndex = 2
         Me.perfTab.Text = "Perfomance"
         '
@@ -1798,9 +1953,11 @@ Partial Class NewServerTab
         Me.serverPerfGroup.Controls.Add(Me.maxCustFileBox)
         Me.serverPerfGroup.Controls.Add(Me.filePatchingCheck)
         Me.serverPerfGroup.Controls.Add(Me.htCheck)
-        Me.serverPerfGroup.Location = New System.Drawing.Point(6, 6)
+        Me.serverPerfGroup.Location = New System.Drawing.Point(12, 12)
+        Me.serverPerfGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverPerfGroup.Name = "serverPerfGroup"
-        Me.serverPerfGroup.Size = New System.Drawing.Size(460, 229)
+        Me.serverPerfGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.serverPerfGroup.Size = New System.Drawing.Size(920, 440)
         Me.serverPerfGroup.TabIndex = 46
         Me.serverPerfGroup.TabStop = False
         Me.serverPerfGroup.Text = "Server"
@@ -1808,9 +1965,10 @@ Partial Class NewServerTab
         'moreInfoLabel
         '
         Me.moreInfoLabel.AutoSize = True
-        Me.moreInfoLabel.Location = New System.Drawing.Point(402, 16)
+        Me.moreInfoLabel.Location = New System.Drawing.Point(804, 31)
+        Me.moreInfoLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.moreInfoLabel.Name = "moreInfoLabel"
-        Me.moreInfoLabel.Size = New System.Drawing.Size(52, 13)
+        Me.moreInfoLabel.Size = New System.Drawing.Size(102, 25)
         Me.moreInfoLabel.TabIndex = 37
         Me.moreInfoLabel.TabStop = True
         Me.moreInfoLabel.Text = "More Info"
@@ -1818,197 +1976,220 @@ Partial Class NewServerTab
         'perfResetLabel
         '
         Me.perfResetLabel.AutoSize = True
-        Me.perfResetLabel.Location = New System.Drawing.Point(6, 74)
+        Me.perfResetLabel.Location = New System.Drawing.Point(12, 142)
+        Me.perfResetLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.perfResetLabel.Name = "perfResetLabel"
-        Me.perfResetLabel.Size = New System.Drawing.Size(84, 13)
+        Me.perfResetLabel.Size = New System.Drawing.Size(170, 25)
         Me.perfResetLabel.TabIndex = 36
         Me.perfResetLabel.Text = "Reset All Values"
         '
         'perfResetButton
         '
-        Me.perfResetButton.Location = New System.Drawing.Point(136, 67)
+        Me.perfResetButton.Location = New System.Drawing.Point(272, 129)
+        Me.perfResetButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.perfResetButton.Name = "perfResetButton"
-        Me.perfResetButton.Size = New System.Drawing.Size(71, 23)
+        Me.perfResetButton.Size = New System.Drawing.Size(142, 44)
         Me.perfResetButton.TabIndex = 35
         Me.perfResetButton.Text = "Reset"
         Me.perfResetButton.UseVisualStyleBackColor = True
         '
         'extraParamsBox
         '
-        Me.extraParamsBox.Location = New System.Drawing.Point(136, 201)
+        Me.extraParamsBox.Location = New System.Drawing.Point(272, 387)
+        Me.extraParamsBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.extraParamsBox.Name = "extraParamsBox"
-        Me.extraParamsBox.Size = New System.Drawing.Size(318, 20)
+        Me.extraParamsBox.Size = New System.Drawing.Size(632, 31)
         Me.extraParamsBox.TabIndex = 34
         '
         'extraParamsLabel
         '
         Me.extraParamsLabel.AutoSize = True
-        Me.extraParamsLabel.Location = New System.Drawing.Point(6, 204)
+        Me.extraParamsLabel.Location = New System.Drawing.Point(12, 392)
+        Me.extraParamsLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.extraParamsLabel.Name = "extraParamsLabel"
-        Me.extraParamsLabel.Size = New System.Drawing.Size(87, 13)
+        Me.extraParamsLabel.Size = New System.Drawing.Size(178, 25)
         Me.extraParamsLabel.TabIndex = 33
         Me.extraParamsLabel.Text = "Extra Parameters"
         '
         'maxSendLabel
         '
         Me.maxSendLabel.AutoSize = True
-        Me.maxSendLabel.Location = New System.Drawing.Point(220, 74)
+        Me.maxSendLabel.Location = New System.Drawing.Point(440, 142)
+        Me.maxSendLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.maxSendLabel.Name = "maxSendLabel"
-        Me.maxSendLabel.Size = New System.Drawing.Size(106, 13)
+        Me.maxSendLabel.Size = New System.Drawing.Size(214, 25)
         Me.maxSendLabel.TabIndex = 31
         Me.maxSendLabel.Text = "Max Messages Send"
         '
         'maxSendBox
         '
-        Me.maxSendBox.Location = New System.Drawing.Point(384, 71)
+        Me.maxSendBox.Location = New System.Drawing.Point(768, 137)
+        Me.maxSendBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxSendBox.Name = "maxSendBox"
-        Me.maxSendBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxSendBox.Size = New System.Drawing.Size(136, 31)
         Me.maxSendBox.TabIndex = 32
         Me.maxSendBox.Text = "128"
         '
         'minErrorLabel
         '
         Me.minErrorLabel.AutoSize = True
-        Me.minErrorLabel.Location = New System.Drawing.Point(220, 154)
+        Me.minErrorLabel.Location = New System.Drawing.Point(440, 296)
+        Me.minErrorLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.minErrorLabel.Name = "minErrorLabel"
-        Me.minErrorLabel.Size = New System.Drawing.Size(93, 13)
+        Me.minErrorLabel.Size = New System.Drawing.Size(187, 25)
         Me.minErrorLabel.TabIndex = 29
         Me.minErrorLabel.Text = "Min Error To Send"
         '
         'minErrorBox
         '
-        Me.minErrorBox.Location = New System.Drawing.Point(384, 149)
+        Me.minErrorBox.Location = New System.Drawing.Point(768, 287)
+        Me.minErrorBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.minErrorBox.Name = "minErrorBox"
-        Me.minErrorBox.Size = New System.Drawing.Size(70, 20)
+        Me.minErrorBox.Size = New System.Drawing.Size(136, 31)
         Me.minErrorBox.TabIndex = 30
         Me.minErrorBox.Text = "0.001"
         '
         'minErrorNearLabel
         '
         Me.minErrorNearLabel.AutoSize = True
-        Me.minErrorNearLabel.Location = New System.Drawing.Point(220, 178)
+        Me.minErrorNearLabel.Location = New System.Drawing.Point(440, 342)
+        Me.minErrorNearLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.minErrorNearLabel.Name = "minErrorNearLabel"
-        Me.minErrorNearLabel.Size = New System.Drawing.Size(119, 13)
+        Me.minErrorNearLabel.Size = New System.Drawing.Size(239, 25)
         Me.minErrorNearLabel.TabIndex = 27
         Me.minErrorNearLabel.Text = "Min Error To Send Near"
         '
         'minErrorNearBox
         '
-        Me.minErrorNearBox.Location = New System.Drawing.Point(384, 175)
+        Me.minErrorNearBox.Location = New System.Drawing.Point(768, 337)
+        Me.minErrorNearBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.minErrorNearBox.Name = "minErrorNearBox"
-        Me.minErrorNearBox.Size = New System.Drawing.Size(70, 20)
+        Me.minErrorNearBox.Size = New System.Drawing.Size(136, 31)
         Me.minErrorNearBox.TabIndex = 28
         Me.minErrorNearBox.Text = "0.01"
         '
         'maxBandwidthLabel
         '
         Me.maxBandwidthLabel.AutoSize = True
-        Me.maxBandwidthLabel.Location = New System.Drawing.Point(6, 178)
+        Me.maxBandwidthLabel.Location = New System.Drawing.Point(12, 342)
+        Me.maxBandwidthLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.maxBandwidthLabel.Name = "maxBandwidthLabel"
-        Me.maxBandwidthLabel.Size = New System.Drawing.Size(118, 13)
+        Me.maxBandwidthLabel.Size = New System.Drawing.Size(236, 25)
         Me.maxBandwidthLabel.TabIndex = 25
         Me.maxBandwidthLabel.Text = "Max Bandwidth (mbit/s)"
         '
         'maxBandwidthBox
         '
-        Me.maxBandwidthBox.Location = New System.Drawing.Point(137, 175)
+        Me.maxBandwidthBox.Location = New System.Drawing.Point(274, 337)
+        Me.maxBandwidthBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxBandwidthBox.Name = "maxBandwidthBox"
-        Me.maxBandwidthBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxBandwidthBox.Size = New System.Drawing.Size(136, 31)
         Me.maxBandwidthBox.TabIndex = 26
         Me.maxBandwidthBox.Text = "2000"
         '
         'minBandwidthLabel
         '
         Me.minBandwidthLabel.AutoSize = True
-        Me.minBandwidthLabel.Location = New System.Drawing.Point(6, 152)
+        Me.minBandwidthLabel.Location = New System.Drawing.Point(12, 292)
+        Me.minBandwidthLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.minBandwidthLabel.Name = "minBandwidthLabel"
-        Me.minBandwidthLabel.Size = New System.Drawing.Size(113, 13)
+        Me.minBandwidthLabel.Size = New System.Drawing.Size(224, 25)
         Me.minBandwidthLabel.TabIndex = 23
         Me.minBandwidthLabel.Text = "Min Bandwidth (kbit/s)"
         '
         'minBandwidthBox
         '
-        Me.minBandwidthBox.Location = New System.Drawing.Point(137, 149)
+        Me.minBandwidthBox.Location = New System.Drawing.Point(274, 287)
+        Me.minBandwidthBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.minBandwidthBox.Name = "minBandwidthBox"
-        Me.minBandwidthBox.Size = New System.Drawing.Size(70, 20)
+        Me.minBandwidthBox.Size = New System.Drawing.Size(136, 31)
         Me.minBandwidthBox.TabIndex = 24
         Me.minBandwidthBox.Text = "128"
         '
         'maxNonGuaranteedLabel
         '
         Me.maxNonGuaranteedLabel.AutoSize = True
-        Me.maxNonGuaranteedLabel.Location = New System.Drawing.Point(220, 100)
+        Me.maxNonGuaranteedLabel.Location = New System.Drawing.Point(440, 192)
+        Me.maxNonGuaranteedLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.maxNonGuaranteedLabel.Name = "maxNonGuaranteedLabel"
-        Me.maxNonGuaranteedLabel.Size = New System.Drawing.Size(162, 13)
+        Me.maxNonGuaranteedLabel.Size = New System.Drawing.Size(329, 25)
         Me.maxNonGuaranteedLabel.TabIndex = 21
         Me.maxNonGuaranteedLabel.Text = "Max Size Nonguaranteed (Bytes)"
         '
         'maxNonGuaranteedBox
         '
-        Me.maxNonGuaranteedBox.Location = New System.Drawing.Point(384, 97)
+        Me.maxNonGuaranteedBox.Location = New System.Drawing.Point(768, 187)
+        Me.maxNonGuaranteedBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxNonGuaranteedBox.Name = "maxNonGuaranteedBox"
-        Me.maxNonGuaranteedBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxNonGuaranteedBox.Size = New System.Drawing.Size(136, 31)
         Me.maxNonGuaranteedBox.TabIndex = 22
         Me.maxNonGuaranteedBox.Text = "256"
         '
         'maxGuaranteedLabel
         '
         Me.maxGuaranteedLabel.AutoSize = True
-        Me.maxGuaranteedLabel.Location = New System.Drawing.Point(220, 126)
+        Me.maxGuaranteedLabel.Location = New System.Drawing.Point(440, 242)
+        Me.maxGuaranteedLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.maxGuaranteedLabel.Name = "maxGuaranteedLabel"
-        Me.maxGuaranteedLabel.Size = New System.Drawing.Size(144, 13)
+        Me.maxGuaranteedLabel.Size = New System.Drawing.Size(294, 25)
         Me.maxGuaranteedLabel.TabIndex = 19
         Me.maxGuaranteedLabel.Text = "Max Size Guaranteed (Bytes)"
         '
         'maxGuaranteedBox
         '
-        Me.maxGuaranteedBox.Location = New System.Drawing.Point(384, 123)
+        Me.maxGuaranteedBox.Location = New System.Drawing.Point(768, 237)
+        Me.maxGuaranteedBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxGuaranteedBox.Name = "maxGuaranteedBox"
-        Me.maxGuaranteedBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxGuaranteedBox.Size = New System.Drawing.Size(136, 31)
         Me.maxGuaranteedBox.TabIndex = 20
         Me.maxGuaranteedBox.Text = "512"
         '
         'maxPacketLabel
         '
         Me.maxPacketLabel.AutoSize = True
-        Me.maxPacketLabel.Location = New System.Drawing.Point(6, 126)
+        Me.maxPacketLabel.Location = New System.Drawing.Point(12, 242)
+        Me.maxPacketLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.maxPacketLabel.Name = "maxPacketLabel"
-        Me.maxPacketLabel.Size = New System.Drawing.Size(87, 13)
+        Me.maxPacketLabel.Size = New System.Drawing.Size(173, 25)
         Me.maxPacketLabel.TabIndex = 17
         Me.maxPacketLabel.Text = "Max Packet Size"
         '
         'maxPacketBox
         '
-        Me.maxPacketBox.Location = New System.Drawing.Point(137, 123)
+        Me.maxPacketBox.Location = New System.Drawing.Point(274, 237)
+        Me.maxPacketBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxPacketBox.Name = "maxPacketBox"
-        Me.maxPacketBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxPacketBox.Size = New System.Drawing.Size(136, 31)
         Me.maxPacketBox.TabIndex = 18
         Me.maxPacketBox.Text = "1400"
         '
         'maxCustFileLabel
         '
         Me.maxCustFileLabel.AutoSize = True
-        Me.maxCustFileLabel.Location = New System.Drawing.Point(6, 100)
+        Me.maxCustFileLabel.Location = New System.Drawing.Point(12, 192)
+        Me.maxCustFileLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.maxCustFileLabel.Name = "maxCustFileLabel"
-        Me.maxCustFileLabel.Size = New System.Drawing.Size(129, 13)
+        Me.maxCustFileLabel.Size = New System.Drawing.Size(266, 25)
         Me.maxCustFileLabel.TabIndex = 15
         Me.maxCustFileLabel.Text = "Max Custom File Size (kB)"
         '
         'maxCustFileBox
         '
-        Me.maxCustFileBox.Location = New System.Drawing.Point(137, 97)
+        Me.maxCustFileBox.Location = New System.Drawing.Point(274, 187)
+        Me.maxCustFileBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxCustFileBox.Name = "maxCustFileBox"
-        Me.maxCustFileBox.Size = New System.Drawing.Size(70, 20)
+        Me.maxCustFileBox.Size = New System.Drawing.Size(136, 31)
         Me.maxCustFileBox.TabIndex = 16
         Me.maxCustFileBox.Text = "160"
         '
         'filePatchingCheck
         '
         Me.filePatchingCheck.AutoSize = True
-        Me.filePatchingCheck.Location = New System.Drawing.Point(9, 19)
+        Me.filePatchingCheck.Location = New System.Drawing.Point(18, 37)
+        Me.filePatchingCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.filePatchingCheck.Name = "filePatchingCheck"
         Me.filePatchingCheck.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.filePatchingCheck.Size = New System.Drawing.Size(87, 17)
+        Me.filePatchingCheck.Size = New System.Drawing.Size(169, 29)
         Me.filePatchingCheck.TabIndex = 13
         Me.filePatchingCheck.Text = "File Patching"
         Me.filePatchingCheck.UseVisualStyleBackColor = True
@@ -2016,10 +2197,11 @@ Partial Class NewServerTab
         'htCheck
         '
         Me.htCheck.AutoSize = True
-        Me.htCheck.Location = New System.Drawing.Point(9, 42)
+        Me.htCheck.Location = New System.Drawing.Point(18, 81)
+        Me.htCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.htCheck.Name = "htCheck"
         Me.htCheck.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.htCheck.Size = New System.Drawing.Size(134, 17)
+        Me.htCheck.Size = New System.Drawing.Size(264, 29)
         Me.htCheck.TabIndex = 14
         Me.htCheck.Text = "Enable Hyperthreading"
         Me.htCheck.UseVisualStyleBackColor = True
@@ -2040,9 +2222,11 @@ Partial Class NewServerTab
         Me.clientPerfGroup.Controls.Add(Me.maxPingNumeric)
         Me.clientPerfGroup.Controls.Add(Me.disconTimeCheck)
         Me.clientPerfGroup.Controls.Add(Me.kickSlowCheck)
-        Me.clientPerfGroup.Location = New System.Drawing.Point(472, 6)
+        Me.clientPerfGroup.Location = New System.Drawing.Point(944, 12)
+        Me.clientPerfGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.clientPerfGroup.Name = "clientPerfGroup"
-        Me.clientPerfGroup.Size = New System.Drawing.Size(213, 229)
+        Me.clientPerfGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.clientPerfGroup.Size = New System.Drawing.Size(426, 440)
         Me.clientPerfGroup.TabIndex = 45
         Me.clientPerfGroup.TabStop = False
         Me.clientPerfGroup.Text = "Client"
@@ -2050,27 +2234,30 @@ Partial Class NewServerTab
         'plPercentLabel
         '
         Me.plPercentLabel.AutoSize = True
-        Me.plPercentLabel.Location = New System.Drawing.Point(189, 72)
+        Me.plPercentLabel.Location = New System.Drawing.Point(378, 138)
+        Me.plPercentLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.plPercentLabel.Name = "plPercentLabel"
-        Me.plPercentLabel.Size = New System.Drawing.Size(15, 13)
+        Me.plPercentLabel.Size = New System.Drawing.Size(31, 25)
         Me.plPercentLabel.TabIndex = 47
         Me.plPercentLabel.Text = "%"
         '
         'msLabel
         '
         Me.msLabel.AutoSize = True
-        Me.msLabel.Location = New System.Drawing.Point(189, 20)
+        Me.msLabel.Location = New System.Drawing.Point(378, 38)
+        Me.msLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.msLabel.Name = "msLabel"
-        Me.msLabel.Size = New System.Drawing.Size(20, 13)
+        Me.msLabel.Size = New System.Drawing.Size(40, 25)
         Me.msLabel.TabIndex = 46
         Me.msLabel.Text = "ms"
         '
         'sLabel
         '
         Me.sLabel.AutoSize = True
-        Me.sLabel.Location = New System.Drawing.Point(189, 98)
+        Me.sLabel.Location = New System.Drawing.Point(378, 188)
+        Me.sLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.sLabel.Name = "sLabel"
-        Me.sLabel.Size = New System.Drawing.Size(12, 13)
+        Me.sLabel.Size = New System.Drawing.Size(23, 25)
         Me.sLabel.TabIndex = 45
         Me.sLabel.Text = "s"
         '
@@ -2081,9 +2268,11 @@ Partial Class NewServerTab
         Me.viewGroup.Controls.Add(Me.terrainLabel)
         Me.viewGroup.Controls.Add(Me.distanceNumeric)
         Me.viewGroup.Controls.Add(Me.terrainNumeric)
-        Me.viewGroup.Location = New System.Drawing.Point(6, 149)
+        Me.viewGroup.Location = New System.Drawing.Point(12, 287)
+        Me.viewGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.viewGroup.Name = "viewGroup"
-        Me.viewGroup.Size = New System.Drawing.Size(200, 74)
+        Me.viewGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.viewGroup.Size = New System.Drawing.Size(400, 142)
         Me.viewGroup.TabIndex = 44
         Me.viewGroup.TabStop = False
         Me.viewGroup.Text = "View Settings"
@@ -2091,58 +2280,64 @@ Partial Class NewServerTab
         'metresLabel
         '
         Me.metresLabel.AutoSize = True
-        Me.metresLabel.Location = New System.Drawing.Point(154, 48)
+        Me.metresLabel.Location = New System.Drawing.Point(308, 92)
+        Me.metresLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.metresLabel.Name = "metresLabel"
-        Me.metresLabel.Size = New System.Drawing.Size(38, 13)
+        Me.metresLabel.Size = New System.Drawing.Size(77, 25)
         Me.metresLabel.TabIndex = 27
         Me.metresLabel.Text = "metres"
         '
         'distanceLabel
         '
         Me.distanceLabel.AutoSize = True
-        Me.distanceLabel.Location = New System.Drawing.Point(6, 48)
+        Me.distanceLabel.Location = New System.Drawing.Point(12, 92)
+        Me.distanceLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.distanceLabel.Name = "distanceLabel"
-        Me.distanceLabel.Size = New System.Drawing.Size(75, 13)
+        Me.distanceLabel.Size = New System.Drawing.Size(148, 25)
         Me.distanceLabel.TabIndex = 26
         Me.distanceLabel.Text = "View Distance"
         '
         'terrainLabel
         '
         Me.terrainLabel.AutoSize = True
-        Me.terrainLabel.Location = New System.Drawing.Point(6, 22)
+        Me.terrainLabel.Location = New System.Drawing.Point(12, 42)
+        Me.terrainLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.terrainLabel.Name = "terrainLabel"
-        Me.terrainLabel.Size = New System.Drawing.Size(62, 13)
+        Me.terrainLabel.Size = New System.Drawing.Size(126, 25)
         Me.terrainLabel.TabIndex = 23
         Me.terrainLabel.Text = "Terrain Grid"
         '
         'distanceNumeric
         '
         Me.distanceNumeric.Increment = New Decimal(New Integer() {100, 0, 0, 0})
-        Me.distanceNumeric.Location = New System.Drawing.Point(87, 46)
+        Me.distanceNumeric.Location = New System.Drawing.Point(174, 88)
+        Me.distanceNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.distanceNumeric.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
         Me.distanceNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.distanceNumeric.Name = "distanceNumeric"
-        Me.distanceNumeric.Size = New System.Drawing.Size(61, 20)
+        Me.distanceNumeric.Size = New System.Drawing.Size(122, 31)
         Me.distanceNumeric.TabIndex = 25
         Me.distanceNumeric.Value = New Decimal(New Integer() {2500, 0, 0, 0})
         '
         'terrainNumeric
         '
         Me.terrainNumeric.DecimalPlaces = 3
-        Me.terrainNumeric.Location = New System.Drawing.Point(87, 20)
+        Me.terrainNumeric.Location = New System.Drawing.Point(174, 38)
+        Me.terrainNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.terrainNumeric.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.terrainNumeric.Minimum = New Decimal(New Integer() {3125, 0, 0, 196608})
         Me.terrainNumeric.Name = "terrainNumeric"
-        Me.terrainNumeric.Size = New System.Drawing.Size(61, 20)
+        Me.terrainNumeric.Size = New System.Drawing.Size(122, 31)
         Me.terrainNumeric.TabIndex = 24
         Me.terrainNumeric.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
         'maxPingCheck
         '
         Me.maxPingCheck.AutoSize = True
-        Me.maxPingCheck.Location = New System.Drawing.Point(6, 19)
+        Me.maxPingCheck.Location = New System.Drawing.Point(12, 37)
+        Me.maxPingCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxPingCheck.Name = "maxPingCheck"
-        Me.maxPingCheck.Size = New System.Drawing.Size(70, 17)
+        Me.maxPingCheck.Size = New System.Drawing.Size(134, 29)
         Me.maxPingCheck.TabIndex = 34
         Me.maxPingCheck.Text = "Max Ping"
         Me.maxPingCheck.UseVisualStyleBackColor = True
@@ -2150,19 +2345,21 @@ Partial Class NewServerTab
         'disconTimeNumeric
         '
         Me.disconTimeNumeric.Enabled = False
-        Me.disconTimeNumeric.Location = New System.Drawing.Point(145, 96)
+        Me.disconTimeNumeric.Location = New System.Drawing.Point(290, 185)
+        Me.disconTimeNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.disconTimeNumeric.Maximum = New Decimal(New Integer() {600, 0, 0, 0})
         Me.disconTimeNumeric.Name = "disconTimeNumeric"
-        Me.disconTimeNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.disconTimeNumeric.Size = New System.Drawing.Size(86, 31)
         Me.disconTimeNumeric.TabIndex = 43
         Me.disconTimeNumeric.Value = New Decimal(New Integer() {90, 0, 0, 0})
         '
         'maxDesyncCheck
         '
         Me.maxDesyncCheck.AutoSize = True
-        Me.maxDesyncCheck.Location = New System.Drawing.Point(6, 45)
+        Me.maxDesyncCheck.Location = New System.Drawing.Point(12, 87)
+        Me.maxDesyncCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxDesyncCheck.Name = "maxDesyncCheck"
-        Me.maxDesyncCheck.Size = New System.Drawing.Size(85, 17)
+        Me.maxDesyncCheck.Size = New System.Drawing.Size(163, 29)
         Me.maxDesyncCheck.TabIndex = 35
         Me.maxDesyncCheck.Text = "Max Desync"
         Me.maxDesyncCheck.UseVisualStyleBackColor = True
@@ -2170,9 +2367,10 @@ Partial Class NewServerTab
         'packetLossNumeric
         '
         Me.packetLossNumeric.Enabled = False
-        Me.packetLossNumeric.Location = New System.Drawing.Point(145, 70)
+        Me.packetLossNumeric.Location = New System.Drawing.Point(290, 135)
+        Me.packetLossNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.packetLossNumeric.Name = "packetLossNumeric"
-        Me.packetLossNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.packetLossNumeric.Size = New System.Drawing.Size(86, 31)
         Me.packetLossNumeric.TabIndex = 42
         '
         'kickSlowCombo
@@ -2182,27 +2380,30 @@ Partial Class NewServerTab
         Me.kickSlowCombo.Enabled = False
         Me.kickSlowCombo.FormattingEnabled = True
         Me.kickSlowCombo.Items.AddRange(New Object() {"Log", "Log & Kick"})
-        Me.kickSlowCombo.Location = New System.Drawing.Point(145, 122)
+        Me.kickSlowCombo.Location = New System.Drawing.Point(290, 235)
+        Me.kickSlowCombo.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.kickSlowCombo.Name = "kickSlowCombo"
-        Me.kickSlowCombo.Size = New System.Drawing.Size(61, 21)
+        Me.kickSlowCombo.Size = New System.Drawing.Size(118, 33)
         Me.kickSlowCombo.TabIndex = 36
         '
         'maxDesyncNumeric
         '
         Me.maxDesyncNumeric.Enabled = False
         Me.maxDesyncNumeric.Increment = New Decimal(New Integer() {100, 0, 0, 0})
-        Me.maxDesyncNumeric.Location = New System.Drawing.Point(145, 44)
+        Me.maxDesyncNumeric.Location = New System.Drawing.Point(290, 85)
+        Me.maxDesyncNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxDesyncNumeric.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.maxDesyncNumeric.Name = "maxDesyncNumeric"
-        Me.maxDesyncNumeric.Size = New System.Drawing.Size(61, 20)
+        Me.maxDesyncNumeric.Size = New System.Drawing.Size(122, 31)
         Me.maxDesyncNumeric.TabIndex = 41
         '
         'packetLossCheck
         '
         Me.packetLossCheck.AutoSize = True
-        Me.packetLossCheck.Location = New System.Drawing.Point(6, 71)
+        Me.packetLossCheck.Location = New System.Drawing.Point(12, 137)
+        Me.packetLossCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.packetLossCheck.Name = "packetLossCheck"
-        Me.packetLossCheck.Size = New System.Drawing.Size(108, 17)
+        Me.packetLossCheck.Size = New System.Drawing.Size(209, 29)
         Me.packetLossCheck.TabIndex = 37
         Me.packetLossCheck.Text = "Max Packet Loss"
         Me.packetLossCheck.UseVisualStyleBackColor = True
@@ -2210,20 +2411,22 @@ Partial Class NewServerTab
         'maxPingNumeric
         '
         Me.maxPingNumeric.Enabled = False
-        Me.maxPingNumeric.Location = New System.Drawing.Point(145, 18)
+        Me.maxPingNumeric.Location = New System.Drawing.Point(290, 35)
+        Me.maxPingNumeric.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.maxPingNumeric.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.maxPingNumeric.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.maxPingNumeric.Name = "maxPingNumeric"
-        Me.maxPingNumeric.Size = New System.Drawing.Size(43, 20)
+        Me.maxPingNumeric.Size = New System.Drawing.Size(86, 31)
         Me.maxPingNumeric.TabIndex = 40
         Me.maxPingNumeric.Value = New Decimal(New Integer() {60, 0, 0, 0})
         '
         'disconTimeCheck
         '
         Me.disconTimeCheck.AutoSize = True
-        Me.disconTimeCheck.Location = New System.Drawing.Point(6, 97)
+        Me.disconTimeCheck.Location = New System.Drawing.Point(12, 187)
+        Me.disconTimeCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.disconTimeCheck.Name = "disconTimeCheck"
-        Me.disconTimeCheck.Size = New System.Drawing.Size(121, 17)
+        Me.disconTimeCheck.Size = New System.Drawing.Size(234, 29)
         Me.disconTimeCheck.TabIndex = 38
         Me.disconTimeCheck.Text = "Disconnect Timeout"
         Me.disconTimeCheck.UseVisualStyleBackColor = True
@@ -2231,9 +2434,10 @@ Partial Class NewServerTab
         'kickSlowCheck
         '
         Me.kickSlowCheck.AutoSize = True
-        Me.kickSlowCheck.Location = New System.Drawing.Point(6, 124)
+        Me.kickSlowCheck.Location = New System.Drawing.Point(12, 238)
+        Me.kickSlowCheck.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.kickSlowCheck.Name = "kickSlowCheck"
-        Me.kickSlowCheck.Size = New System.Drawing.Size(133, 17)
+        Me.kickSlowCheck.Size = New System.Drawing.Size(255, 29)
         Me.kickSlowCheck.TabIndex = 39
         Me.kickSlowCheck.Text = "Kick On Slow Network"
         Me.kickSlowCheck.UseVisualStyleBackColor = True
@@ -2242,9 +2446,10 @@ Partial Class NewServerTab
         '
         Me.scriptingTab.BackColor = System.Drawing.Color.LightSkyBlue
         Me.scriptingTab.Controls.Add(Me.serverScriptsGroup)
-        Me.scriptingTab.Location = New System.Drawing.Point(4, 22)
+        Me.scriptingTab.Location = New System.Drawing.Point(8, 39)
+        Me.scriptingTab.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.scriptingTab.Name = "scriptingTab"
-        Me.scriptingTab.Size = New System.Drawing.Size(691, 241)
+        Me.scriptingTab.Size = New System.Drawing.Size(1382, 466)
         Me.scriptingTab.TabIndex = 6
         Me.scriptingTab.Text = "Server Scripting"
         '
@@ -2266,9 +2471,11 @@ Partial Class NewServerTab
         Me.serverScriptsGroup.Controls.Add(Me.doubleIdDetectedBox)
         Me.serverScriptsGroup.Controls.Add(Me.serverCommandBox)
         Me.serverScriptsGroup.Controls.Add(Me.serverCommandLabel)
-        Me.serverScriptsGroup.Location = New System.Drawing.Point(6, 6)
+        Me.serverScriptsGroup.Location = New System.Drawing.Point(12, 12)
+        Me.serverScriptsGroup.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverScriptsGroup.Name = "serverScriptsGroup"
-        Me.serverScriptsGroup.Size = New System.Drawing.Size(680, 229)
+        Me.serverScriptsGroup.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.serverScriptsGroup.Size = New System.Drawing.Size(1360, 440)
         Me.serverScriptsGroup.TabIndex = 0
         Me.serverScriptsGroup.TabStop = False
         Me.serverScriptsGroup.Text = "Server Side Scripting"
@@ -2276,155 +2483,172 @@ Partial Class NewServerTab
         'regularCheckLabel
         '
         Me.regularCheckLabel.AutoSize = True
-        Me.regularCheckLabel.Location = New System.Drawing.Point(381, 178)
+        Me.regularCheckLabel.Location = New System.Drawing.Point(762, 342)
+        Me.regularCheckLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.regularCheckLabel.Name = "regularCheckLabel"
-        Me.regularCheckLabel.Size = New System.Drawing.Size(70, 13)
+        Me.regularCheckLabel.Size = New System.Drawing.Size(140, 25)
         Me.regularCheckLabel.TabIndex = 19
         Me.regularCheckLabel.Text = "regularCheck"
         '
         'onUnsignedDataLabel
         '
         Me.onUnsignedDataLabel.AutoSize = True
-        Me.onUnsignedDataLabel.Location = New System.Drawing.Point(381, 127)
+        Me.onUnsignedDataLabel.Location = New System.Drawing.Point(762, 244)
+        Me.onUnsignedDataLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.onUnsignedDataLabel.Name = "onUnsignedDataLabel"
-        Me.onUnsignedDataLabel.Size = New System.Drawing.Size(87, 13)
+        Me.onUnsignedDataLabel.Size = New System.Drawing.Size(172, 25)
         Me.onUnsignedDataLabel.TabIndex = 18
         Me.onUnsignedDataLabel.Text = "onUnsignedData"
         '
         'onDifferentDataLabel
         '
         Me.onDifferentDataLabel.AutoSize = True
-        Me.onDifferentDataLabel.Location = New System.Drawing.Point(381, 76)
+        Me.onDifferentDataLabel.Location = New System.Drawing.Point(762, 146)
+        Me.onDifferentDataLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.onDifferentDataLabel.Name = "onDifferentDataLabel"
-        Me.onDifferentDataLabel.Size = New System.Drawing.Size(82, 13)
+        Me.onDifferentDataLabel.Size = New System.Drawing.Size(162, 25)
         Me.onDifferentDataLabel.TabIndex = 17
         Me.onDifferentDataLabel.Text = "onDifferentData"
         '
         'onUnsignedDataBox
         '
-        Me.onUnsignedDataBox.Location = New System.Drawing.Point(474, 124)
+        Me.onUnsignedDataBox.Location = New System.Drawing.Point(948, 238)
+        Me.onUnsignedDataBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.onUnsignedDataBox.Multiline = False
         Me.onUnsignedDataBox.Name = "onUnsignedDataBox"
-        Me.onUnsignedDataBox.Size = New System.Drawing.Size(200, 45)
+        Me.onUnsignedDataBox.Size = New System.Drawing.Size(396, 83)
         Me.onUnsignedDataBox.TabIndex = 16
         Me.onUnsignedDataBox.Text = ""
         '
         'regularCheckBox
         '
-        Me.regularCheckBox.Location = New System.Drawing.Point(474, 175)
+        Me.regularCheckBox.Location = New System.Drawing.Point(948, 337)
+        Me.regularCheckBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.regularCheckBox.Multiline = False
         Me.regularCheckBox.Name = "regularCheckBox"
-        Me.regularCheckBox.Size = New System.Drawing.Size(200, 45)
+        Me.regularCheckBox.Size = New System.Drawing.Size(396, 83)
         Me.regularCheckBox.TabIndex = 15
         Me.regularCheckBox.Text = ""
         '
         'onDifferentDataBox
         '
-        Me.onDifferentDataBox.Location = New System.Drawing.Point(474, 73)
+        Me.onDifferentDataBox.Location = New System.Drawing.Point(948, 140)
+        Me.onDifferentDataBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.onDifferentDataBox.Multiline = False
         Me.onDifferentDataBox.Name = "onDifferentDataBox"
-        Me.onDifferentDataBox.Size = New System.Drawing.Size(200, 45)
+        Me.onDifferentDataBox.Size = New System.Drawing.Size(396, 83)
         Me.onDifferentDataBox.TabIndex = 14
         Me.onDifferentDataBox.Text = ""
         '
         'onHackedDataBox
         '
-        Me.onHackedDataBox.Location = New System.Drawing.Point(474, 22)
+        Me.onHackedDataBox.Location = New System.Drawing.Point(948, 42)
+        Me.onHackedDataBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.onHackedDataBox.Multiline = False
         Me.onHackedDataBox.Name = "onHackedDataBox"
-        Me.onHackedDataBox.Size = New System.Drawing.Size(200, 45)
+        Me.onHackedDataBox.Size = New System.Drawing.Size(396, 83)
         Me.onHackedDataBox.TabIndex = 13
         Me.onHackedDataBox.Text = ""
         '
         'onHackedDataLabel
         '
         Me.onHackedDataLabel.AutoSize = True
-        Me.onHackedDataLabel.Location = New System.Drawing.Point(381, 25)
+        Me.onHackedDataLabel.Location = New System.Drawing.Point(762, 48)
+        Me.onHackedDataLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.onHackedDataLabel.Name = "onHackedDataLabel"
-        Me.onHackedDataLabel.Size = New System.Drawing.Size(80, 13)
+        Me.onHackedDataLabel.Size = New System.Drawing.Size(154, 25)
         Me.onHackedDataLabel.TabIndex = 12
         Me.onHackedDataLabel.Text = "onHackedData"
         '
         'onUserDisconnectedLabel
         '
         Me.onUserDisconnectedLabel.AutoSize = True
-        Me.onUserDisconnectedLabel.Location = New System.Drawing.Point(8, 178)
+        Me.onUserDisconnectedLabel.Location = New System.Drawing.Point(16, 342)
+        Me.onUserDisconnectedLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.onUserDisconnectedLabel.Name = "onUserDisconnectedLabel"
-        Me.onUserDisconnectedLabel.Size = New System.Drawing.Size(107, 13)
+        Me.onUserDisconnectedLabel.Size = New System.Drawing.Size(212, 25)
         Me.onUserDisconnectedLabel.TabIndex = 11
         Me.onUserDisconnectedLabel.Text = "onUserDisconnected"
         '
         'onUserConnectedLabel
         '
         Me.onUserConnectedLabel.AutoSize = True
-        Me.onUserConnectedLabel.Location = New System.Drawing.Point(8, 127)
+        Me.onUserConnectedLabel.Location = New System.Drawing.Point(16, 244)
+        Me.onUserConnectedLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.onUserConnectedLabel.Name = "onUserConnectedLabel"
-        Me.onUserConnectedLabel.Size = New System.Drawing.Size(93, 13)
+        Me.onUserConnectedLabel.Size = New System.Drawing.Size(185, 25)
         Me.onUserConnectedLabel.TabIndex = 10
         Me.onUserConnectedLabel.Text = "onUserConnected"
         '
         'doubleIdDetectedLabel
         '
         Me.doubleIdDetectedLabel.AutoSize = True
-        Me.doubleIdDetectedLabel.Location = New System.Drawing.Point(8, 76)
+        Me.doubleIdDetectedLabel.Location = New System.Drawing.Point(16, 146)
+        Me.doubleIdDetectedLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.doubleIdDetectedLabel.Name = "doubleIdDetectedLabel"
-        Me.doubleIdDetectedLabel.Size = New System.Drawing.Size(92, 13)
+        Me.doubleIdDetectedLabel.Size = New System.Drawing.Size(180, 25)
         Me.doubleIdDetectedLabel.TabIndex = 9
         Me.doubleIdDetectedLabel.Text = "doubleIdDetected"
         '
         'onUserConnectedBox
         '
-        Me.onUserConnectedBox.Location = New System.Drawing.Point(151, 124)
+        Me.onUserConnectedBox.Location = New System.Drawing.Point(302, 238)
+        Me.onUserConnectedBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.onUserConnectedBox.Multiline = False
         Me.onUserConnectedBox.Name = "onUserConnectedBox"
-        Me.onUserConnectedBox.Size = New System.Drawing.Size(200, 45)
+        Me.onUserConnectedBox.Size = New System.Drawing.Size(396, 83)
         Me.onUserConnectedBox.TabIndex = 8
         Me.onUserConnectedBox.Text = ""
         '
         'onUserDisconnectedBox
         '
-        Me.onUserDisconnectedBox.Location = New System.Drawing.Point(151, 175)
+        Me.onUserDisconnectedBox.Location = New System.Drawing.Point(302, 337)
+        Me.onUserDisconnectedBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.onUserDisconnectedBox.Multiline = False
         Me.onUserDisconnectedBox.Name = "onUserDisconnectedBox"
-        Me.onUserDisconnectedBox.Size = New System.Drawing.Size(200, 45)
+        Me.onUserDisconnectedBox.Size = New System.Drawing.Size(396, 83)
         Me.onUserDisconnectedBox.TabIndex = 7
         Me.onUserDisconnectedBox.Text = ""
         '
         'doubleIdDetectedBox
         '
-        Me.doubleIdDetectedBox.Location = New System.Drawing.Point(151, 73)
+        Me.doubleIdDetectedBox.Location = New System.Drawing.Point(302, 140)
+        Me.doubleIdDetectedBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.doubleIdDetectedBox.Multiline = False
         Me.doubleIdDetectedBox.Name = "doubleIdDetectedBox"
-        Me.doubleIdDetectedBox.Size = New System.Drawing.Size(200, 45)
+        Me.doubleIdDetectedBox.Size = New System.Drawing.Size(396, 83)
         Me.doubleIdDetectedBox.TabIndex = 6
         Me.doubleIdDetectedBox.Text = ""
         '
         'serverCommandBox
         '
-        Me.serverCommandBox.Location = New System.Drawing.Point(151, 22)
+        Me.serverCommandBox.Location = New System.Drawing.Point(302, 42)
+        Me.serverCommandBox.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.serverCommandBox.Multiline = False
         Me.serverCommandBox.Name = "serverCommandBox"
-        Me.serverCommandBox.Size = New System.Drawing.Size(200, 45)
+        Me.serverCommandBox.Size = New System.Drawing.Size(396, 83)
         Me.serverCommandBox.TabIndex = 5
         Me.serverCommandBox.Text = ""
         '
         'serverCommandLabel
         '
         Me.serverCommandLabel.AutoSize = True
-        Me.serverCommandLabel.Location = New System.Drawing.Point(8, 25)
+        Me.serverCommandLabel.Location = New System.Drawing.Point(16, 48)
+        Me.serverCommandLabel.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.serverCommandLabel.Name = "serverCommandLabel"
-        Me.serverCommandLabel.Size = New System.Drawing.Size(137, 13)
+        Me.serverCommandLabel.Size = New System.Drawing.Size(278, 25)
         Me.serverCommandLabel.TabIndex = 0
         Me.serverCommandLabel.Text = "Server Command Password"
         '
         'NewServerTab
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.serverTabs)
         Me.Controls.Add(Me.profileGroup)
+        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Name = "NewServerTab"
-        Me.Size = New System.Drawing.Size(699, 331)
+        Me.Size = New System.Drawing.Size(1398, 637)
         Me.profileGroup.ResumeLayout(False)
         Me.profileGroup.PerformLayout()
         Me.modsTab.ResumeLayout(False)
