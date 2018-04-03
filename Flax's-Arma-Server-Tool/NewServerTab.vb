@@ -194,6 +194,7 @@ Public Class NewServerTab
     Private Sub LaunchServer_Click(sender As Object, e As EventArgs) Handles launchServerButton.Click
 
         If ReadyToLaunch(profileNameBox.Text) Then
+            SaveProfile()
             LaunchServer()
         Else
             MsgBox("Please make sure all fields are filled in and the profile is saved.")
