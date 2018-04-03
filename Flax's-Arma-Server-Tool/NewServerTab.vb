@@ -256,7 +256,7 @@ Public Class NewServerTab
             End If
 
             If extraParamsBox.Text IsNot Nothing Then
-                commandLine = commandLine & extraParamsBox.Text
+                commandLine = commandLine & " " & extraParamsBox.Text
             End If
 
             Clipboard.SetText(commandLine)
