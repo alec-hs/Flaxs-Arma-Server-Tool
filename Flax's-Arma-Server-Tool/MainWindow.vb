@@ -909,6 +909,7 @@ Public Class MainWindow
         name = name.Replace("|", "")
         name = name.Replace("?", "")
         name = name.Replace("*", "")
+        name = name.Replace(",", "_")
 
         Return name
     End Function
