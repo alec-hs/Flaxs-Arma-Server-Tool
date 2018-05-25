@@ -498,7 +498,7 @@ Public Class MainWindow
 
                         Await Task.WhenAll(tasks)
 
-                        updateTimeUNIX = modInfo.Substring(modInfo.IndexOf("""time_updated"": ") + 16, 10)
+                        updateTimeUNIX = modInfo.Substring(modInfo.IndexOf("""time_updated"":") + 15, 10)
 
                         Dim steamUpdate As New DateTime(1970, 1, 1, 0, 0, 0)
                         steamUpdate = steamUpdate.AddSeconds(updateTimeUNIX)
