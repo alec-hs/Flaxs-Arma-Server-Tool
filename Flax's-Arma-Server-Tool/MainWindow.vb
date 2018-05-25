@@ -797,6 +797,11 @@ Public Class MainWindow
 
                                         steamCode = InputBox("Enter Steam Guard code from email or mobile app.", "Steam Guard Code", "")
                                         oStreamWriter.Write(steamCode & Environment.NewLine)
+                                    ElseIf sOutput Like "*Mobile Authenticator*" Then
+                                        Dim steamCode As String
+
+                                        steamCode = InputBox("Enter Steam Guard code from email or mobile app.", "Steam Guard Code", "")
+                                        oStreamWriter.Write(steamCode & Environment.NewLine)
                                     End If
 
                                     If sOutput Like "*Update state*" Then
