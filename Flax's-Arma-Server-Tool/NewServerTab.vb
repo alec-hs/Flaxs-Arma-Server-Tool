@@ -23,6 +23,10 @@ Public Class NewServerTab
             difficultyCombo.SelectedItem = "Regular"
         End If
 
+        If serverFileBox.Text = Nothing Then
+            serverFileBox.Text = My.Settings.serverDir & "\arma3server.exe"
+        End If
+
         UpdateModsList()
         UpdateMissionsList()
 
@@ -173,6 +177,7 @@ Public Class NewServerTab
     End Sub
 
     Public Sub ChooseServerFile()
+        serverFileDialog.InitialDirectory = My.Settings.serverDir
         If serverFileDialog.ShowDialog() = DialogResult.OK Then
             serverFileBox.Text = serverFileDialog.FileName
         End If
