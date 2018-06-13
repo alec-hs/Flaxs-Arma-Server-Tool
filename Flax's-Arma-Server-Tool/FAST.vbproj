@@ -114,6 +114,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="ErrReport.Designer.vb">
+      <DependentUpon>ErrReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ErrReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FirstRun.Designer.vb">
       <DependentUpon>FirstRun.vb</DependentUpon>
     </Compile>
@@ -168,6 +175,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ErrReport.resx">
+      <DependentUpon>ErrReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FirstRun.resx">
       <DependentUpon>FirstRun.vb</DependentUpon>
       <SubType>Designer</SubType>
