@@ -92,6 +92,7 @@ Partial Class MainWindow
         Me.steamDirLabel = New System.Windows.Forms.Label()
         Me.updateServerButton = New System.Windows.Forms.Button()
         Me.categoryTabs = New System.Windows.Forms.TabControl()
+        Me.NewSymlinkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolsMenuStrip.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.modsTab.SuspendLayout()
@@ -106,11 +107,13 @@ Partial Class MainWindow
         '
         'toolsMenuStrip
         '
+        Me.toolsMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.toolsMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.ServersToolStripMenuItem})
         Me.toolsMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.toolsMenuStrip.Name = "toolsMenuStrip"
+        Me.toolsMenuStrip.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.toolsMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.toolsMenuStrip.Size = New System.Drawing.Size(707, 24)
+        Me.toolsMenuStrip.Size = New System.Drawing.Size(943, 28)
         Me.toolsMenuStrip.TabIndex = 9
         Me.toolsMenuStrip.Text = "Menu"
         '
@@ -118,108 +121,108 @@ Partial Class MainWindow
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(44, 24)
         Me.FileToolStripMenuItem.Text = "File"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(184, 26)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(184, 26)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(148, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(181, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(184, 26)
         Me.ExitToolStripMenuItem.Text = "Exit        Alt+F4"
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallCMDToolStripMenuItem, Me.OpenSteamCMDDirToolStripMenuItem, Me.ToolStripSeparator2, Me.OpenA3DirectoryToolStripMenuItem, Me.OpenModsLocationToolStripMenuItem, Me.ToolStripSeparator3, Me.CopyKeysFromModsToolStripMenuItem, Me.SelectedModsToClipboardToolStripMenuItem, Me.importSteamModsStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallCMDToolStripMenuItem, Me.OpenSteamCMDDirToolStripMenuItem, Me.ToolStripSeparator2, Me.OpenA3DirectoryToolStripMenuItem, Me.OpenModsLocationToolStripMenuItem, Me.ToolStripSeparator3, Me.CopyKeysFromModsToolStripMenuItem, Me.SelectedModsToClipboardToolStripMenuItem, Me.importSteamModsStripMenuItem, Me.NewSymlinkToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(56, 24)
         Me.ToolsToolStripMenuItem.Text = "Tools"
         '
         'InstallCMDToolStripMenuItem
         '
         Me.InstallCMDToolStripMenuItem.Name = "InstallCMDToolStripMenuItem"
-        Me.InstallCMDToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.InstallCMDToolStripMenuItem.Size = New System.Drawing.Size(271, 26)
         Me.InstallCMDToolStripMenuItem.Text = "Install SteamCMD"
         '
         'OpenSteamCMDDirToolStripMenuItem
         '
         Me.OpenSteamCMDDirToolStripMenuItem.Name = "OpenSteamCMDDirToolStripMenuItem"
-        Me.OpenSteamCMDDirToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.OpenSteamCMDDirToolStripMenuItem.Size = New System.Drawing.Size(271, 26)
         Me.OpenSteamCMDDirToolStripMenuItem.Text = "Open SteamCMD Location"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(219, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(268, 6)
         '
         'OpenA3DirectoryToolStripMenuItem
         '
         Me.OpenA3DirectoryToolStripMenuItem.Name = "OpenA3DirectoryToolStripMenuItem"
-        Me.OpenA3DirectoryToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.OpenA3DirectoryToolStripMenuItem.Size = New System.Drawing.Size(271, 26)
         Me.OpenA3DirectoryToolStripMenuItem.Text = "Open Arma 3 Location"
         '
         'OpenModsLocationToolStripMenuItem
         '
         Me.OpenModsLocationToolStripMenuItem.Name = "OpenModsLocationToolStripMenuItem"
-        Me.OpenModsLocationToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.OpenModsLocationToolStripMenuItem.Size = New System.Drawing.Size(271, 26)
         Me.OpenModsLocationToolStripMenuItem.Text = "Open Mods Location"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(219, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(268, 6)
         '
         'CopyKeysFromModsToolStripMenuItem
         '
         Me.CopyKeysFromModsToolStripMenuItem.Name = "CopyKeysFromModsToolStripMenuItem"
-        Me.CopyKeysFromModsToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.CopyKeysFromModsToolStripMenuItem.Size = New System.Drawing.Size(271, 26)
         Me.CopyKeysFromModsToolStripMenuItem.Text = "Copy Keys from Mods"
         '
         'SelectedModsToClipboardToolStripMenuItem
         '
         Me.SelectedModsToClipboardToolStripMenuItem.Name = "SelectedModsToClipboardToolStripMenuItem"
-        Me.SelectedModsToClipboardToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.SelectedModsToClipboardToolStripMenuItem.Size = New System.Drawing.Size(271, 26)
         Me.SelectedModsToClipboardToolStripMenuItem.Text = "Selected Mods to Clipboard"
         '
         'importSteamModsStripMenuItem
         '
         Me.importSteamModsStripMenuItem.Name = "importSteamModsStripMenuItem"
-        Me.importSteamModsStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.importSteamModsStripMenuItem.Size = New System.Drawing.Size(271, 26)
         Me.importSteamModsStripMenuItem.Text = "Import Existing Steam Mods"
         '
         'ServersToolStripMenuItem
         '
         Me.ServersToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddNewToolStripMenuItem, Me.OpenProfileDirectoryToolStripMenuItem})
         Me.ServersToolStripMenuItem.Name = "ServersToolStripMenuItem"
-        Me.ServersToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
+        Me.ServersToolStripMenuItem.Size = New System.Drawing.Size(68, 24)
         Me.ServersToolStripMenuItem.Text = "Servers"
         '
         'AddNewToolStripMenuItem
         '
         Me.AddNewToolStripMenuItem.Name = "AddNewToolStripMenuItem"
-        Me.AddNewToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.AddNewToolStripMenuItem.Size = New System.Drawing.Size(232, 26)
         Me.AddNewToolStripMenuItem.Text = "Add New"
         '
         'OpenProfileDirectoryToolStripMenuItem
         '
         Me.OpenProfileDirectoryToolStripMenuItem.Name = "OpenProfileDirectoryToolStripMenuItem"
-        Me.OpenProfileDirectoryToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.OpenProfileDirectoryToolStripMenuItem.Size = New System.Drawing.Size(232, 26)
         Me.OpenProfileDirectoryToolStripMenuItem.Text = "Open Profile Directory"
         '
         'importModSet
@@ -245,37 +248,41 @@ Partial Class MainWindow
         Me.modsTab.Controls.Add(Me.updateAllMods)
         Me.modsTab.Controls.Add(Me.importModsGroup)
         Me.modsTab.Controls.Add(Me.modsDataGrid)
-        Me.modsTab.Location = New System.Drawing.Point(4, 25)
+        Me.modsTab.Location = New System.Drawing.Point(4, 28)
+        Me.modsTab.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.modsTab.Name = "modsTab"
-        Me.modsTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.modsTab.Size = New System.Drawing.Size(699, 331)
+        Me.modsTab.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.modsTab.Size = New System.Drawing.Size(935, 411)
         Me.modsTab.TabIndex = 1
         Me.modsTab.Text = "Mods"
         Me.modsTab.UseVisualStyleBackColor = True
         '
         'checkingUpdatesBar
         '
-        Me.checkingUpdatesBar.Location = New System.Drawing.Point(500, 38)
+        Me.checkingUpdatesBar.Location = New System.Drawing.Point(667, 47)
+        Me.checkingUpdatesBar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.checkingUpdatesBar.Name = "checkingUpdatesBar"
-        Me.checkingUpdatesBar.Size = New System.Drawing.Size(110, 11)
+        Me.checkingUpdatesBar.Size = New System.Drawing.Size(147, 14)
         Me.checkingUpdatesBar.Step = 1
         Me.checkingUpdatesBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous
         Me.checkingUpdatesBar.TabIndex = 17
         '
         'checkUpdatesButton
         '
-        Me.checkUpdatesButton.Location = New System.Drawing.Point(500, 9)
+        Me.checkUpdatesButton.Location = New System.Drawing.Point(667, 11)
+        Me.checkUpdatesButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.checkUpdatesButton.Name = "checkUpdatesButton"
-        Me.checkUpdatesButton.Size = New System.Drawing.Size(110, 27)
+        Me.checkUpdatesButton.Size = New System.Drawing.Size(147, 33)
         Me.checkUpdatesButton.TabIndex = 3
         Me.checkUpdatesButton.Text = "Check For Updates"
         Me.checkUpdatesButton.UseVisualStyleBackColor = True
         '
         'updateAllMods
         '
-        Me.updateAllMods.Location = New System.Drawing.Point(616, 9)
+        Me.updateAllMods.Location = New System.Drawing.Point(821, 11)
+        Me.updateAllMods.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.updateAllMods.Name = "updateAllMods"
-        Me.updateAllMods.Size = New System.Drawing.Size(75, 40)
+        Me.updateAllMods.Size = New System.Drawing.Size(100, 49)
         Me.updateAllMods.TabIndex = 2
         Me.updateAllMods.Text = "Update All"
         Me.updateAllMods.UseVisualStyleBackColor = True
@@ -288,9 +295,11 @@ Partial Class MainWindow
         Me.importModsGroup.Controls.Add(Me.modLauncherButton)
         Me.importModsGroup.Controls.Add(Me.modUrlLabel)
         Me.importModsGroup.Controls.Add(Me.modUrlButton)
-        Me.importModsGroup.Location = New System.Drawing.Point(6, 3)
+        Me.importModsGroup.Location = New System.Drawing.Point(8, 4)
+        Me.importModsGroup.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.importModsGroup.Name = "importModsGroup"
-        Me.importModsGroup.Size = New System.Drawing.Size(460, 45)
+        Me.importModsGroup.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.importModsGroup.Size = New System.Drawing.Size(613, 55)
         Me.importModsGroup.TabIndex = 1
         Me.importModsGroup.TabStop = False
         Me.importModsGroup.Text = "Import Mods"
@@ -298,9 +307,10 @@ Partial Class MainWindow
         'privateModLabel
         '
         Me.privateModLabel.AutoSize = True
-        Me.privateModLabel.Location = New System.Drawing.Point(338, 20)
+        Me.privateModLabel.Location = New System.Drawing.Point(451, 25)
+        Me.privateModLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.privateModLabel.Name = "privateModLabel"
-        Me.privateModLabel.Size = New System.Drawing.Size(86, 13)
+        Me.privateModLabel.Size = New System.Drawing.Size(112, 17)
         Me.privateModLabel.TabIndex = 5
         Me.privateModLabel.Text = "Add Private Mod"
         '
@@ -308,18 +318,20 @@ Partial Class MainWindow
         '
         Me.privateModButton.BackgroundImage = Global.FAST.My.Resources.Resources.Plus_Math_32px
         Me.privateModButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.privateModButton.Location = New System.Drawing.Point(430, 14)
+        Me.privateModButton.Location = New System.Drawing.Point(573, 17)
+        Me.privateModButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.privateModButton.Name = "privateModButton"
-        Me.privateModButton.Size = New System.Drawing.Size(24, 24)
+        Me.privateModButton.Size = New System.Drawing.Size(32, 30)
         Me.privateModButton.TabIndex = 4
         Me.privateModButton.UseVisualStyleBackColor = True
         '
         'modLauncherLabel
         '
         Me.modLauncherLabel.AutoSize = True
-        Me.modLauncherLabel.Location = New System.Drawing.Point(156, 20)
+        Me.modLauncherLabel.Location = New System.Drawing.Point(208, 25)
+        Me.modLauncherLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.modLauncherLabel.Name = "modLauncherLabel"
-        Me.modLauncherLabel.Size = New System.Drawing.Size(127, 13)
+        Me.modLauncherLabel.Size = New System.Drawing.Size(168, 17)
         Me.modLauncherLabel.TabIndex = 3
         Me.modLauncherLabel.Text = "Import from BIS Launcher"
         '
@@ -327,18 +339,20 @@ Partial Class MainWindow
         '
         Me.modLauncherButton.BackgroundImage = CType(resources.GetObject("modLauncherButton.BackgroundImage"), System.Drawing.Image)
         Me.modLauncherButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.modLauncherButton.Location = New System.Drawing.Point(289, 14)
+        Me.modLauncherButton.Location = New System.Drawing.Point(385, 17)
+        Me.modLauncherButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.modLauncherButton.Name = "modLauncherButton"
-        Me.modLauncherButton.Size = New System.Drawing.Size(24, 24)
+        Me.modLauncherButton.Size = New System.Drawing.Size(32, 30)
         Me.modLauncherButton.TabIndex = 2
         Me.modLauncherButton.UseVisualStyleBackColor = True
         '
         'modUrlLabel
         '
         Me.modUrlLabel.AutoSize = True
-        Me.modUrlLabel.Location = New System.Drawing.Point(6, 20)
+        Me.modUrlLabel.Location = New System.Drawing.Point(8, 25)
+        Me.modUrlLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.modUrlLabel.Name = "modUrlLabel"
-        Me.modUrlLabel.Size = New System.Drawing.Size(98, 13)
+        Me.modUrlLabel.Size = New System.Drawing.Size(128, 17)
         Me.modUrlLabel.TabIndex = 1
         Me.modUrlLabel.Text = "Add Mod from URL"
         '
@@ -346,9 +360,10 @@ Partial Class MainWindow
         '
         Me.modUrlButton.BackgroundImage = Global.FAST.My.Resources.Resources.Plus_Math_32px
         Me.modUrlButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.modUrlButton.Location = New System.Drawing.Point(110, 14)
+        Me.modUrlButton.Location = New System.Drawing.Point(147, 17)
+        Me.modUrlButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.modUrlButton.Name = "modUrlButton"
-        Me.modUrlButton.Size = New System.Drawing.Size(24, 24)
+        Me.modUrlButton.Size = New System.Drawing.Size(32, 30)
         Me.modUrlButton.TabIndex = 0
         Me.modUrlButton.UseVisualStyleBackColor = True
         '
@@ -362,11 +377,12 @@ Partial Class MainWindow
         Me.modsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.modsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.modsDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.modID, Me.modName, Me.updateDate, Me.installMod, Me.urlButton, Me.deleteButton})
-        Me.modsDataGrid.Location = New System.Drawing.Point(6, 54)
+        Me.modsDataGrid.Location = New System.Drawing.Point(8, 66)
+        Me.modsDataGrid.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.modsDataGrid.Name = "modsDataGrid"
         Me.modsDataGrid.ReadOnly = True
         Me.modsDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.modsDataGrid.Size = New System.Drawing.Size(685, 271)
+        Me.modsDataGrid.Size = New System.Drawing.Size(913, 334)
         Me.modsDataGrid.TabIndex = 0
         '
         'modID
@@ -436,10 +452,11 @@ Partial Class MainWindow
         Me.serverTab.Controls.Add(Me.serverInfoGroup)
         Me.serverTab.Controls.Add(Me.steamInfoGroup)
         Me.serverTab.Controls.Add(Me.updateServerButton)
-        Me.serverTab.Location = New System.Drawing.Point(4, 25)
+        Me.serverTab.Location = New System.Drawing.Point(4, 28)
+        Me.serverTab.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.serverTab.Name = "serverTab"
-        Me.serverTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.serverTab.Size = New System.Drawing.Size(699, 331)
+        Me.serverTab.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.serverTab.Size = New System.Drawing.Size(935, 411)
         Me.serverTab.TabIndex = 0
         Me.serverTab.Text = "Steam Updater"
         Me.serverTab.UseVisualStyleBackColor = True
@@ -447,18 +464,20 @@ Partial Class MainWindow
         'cancelUpdateButton
         '
         Me.cancelUpdateButton.Enabled = False
-        Me.cancelUpdateButton.Location = New System.Drawing.Point(612, 294)
+        Me.cancelUpdateButton.Location = New System.Drawing.Point(816, 362)
+        Me.cancelUpdateButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cancelUpdateButton.Name = "cancelUpdateButton"
-        Me.cancelUpdateButton.Size = New System.Drawing.Size(75, 23)
+        Me.cancelUpdateButton.Size = New System.Drawing.Size(100, 28)
         Me.cancelUpdateButton.TabIndex = 17
         Me.cancelUpdateButton.Text = "Cancel"
         Me.cancelUpdateButton.UseVisualStyleBackColor = True
         '
         'steamProgressBar
         '
-        Me.steamProgressBar.Location = New System.Drawing.Point(262, 294)
+        Me.steamProgressBar.Location = New System.Drawing.Point(349, 362)
+        Me.steamProgressBar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.steamProgressBar.Name = "steamProgressBar"
-        Me.steamProgressBar.Size = New System.Drawing.Size(344, 23)
+        Me.steamProgressBar.Size = New System.Drawing.Size(459, 28)
         Me.steamProgressBar.Step = 1
         Me.steamProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous
         Me.steamProgressBar.TabIndex = 16
@@ -467,10 +486,11 @@ Partial Class MainWindow
         '
         Me.steamOutputBox.BackColor = System.Drawing.SystemColors.Window
         Me.steamOutputBox.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.steamOutputBox.Location = New System.Drawing.Point(262, 12)
+        Me.steamOutputBox.Location = New System.Drawing.Point(349, 15)
+        Me.steamOutputBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.steamOutputBox.Name = "steamOutputBox"
         Me.steamOutputBox.ReadOnly = True
-        Me.steamOutputBox.Size = New System.Drawing.Size(425, 276)
+        Me.steamOutputBox.Size = New System.Drawing.Size(565, 339)
         Me.steamOutputBox.TabIndex = 15
         Me.steamOutputBox.Text = ""
         '
@@ -480,9 +500,11 @@ Partial Class MainWindow
         Me.lastUpdateGroup.Controls.Add(Me.infoUpdatedLabel)
         Me.lastUpdateGroup.Controls.Add(Me.infoBranchBox)
         Me.lastUpdateGroup.Controls.Add(Me.infoBranchLabel)
-        Me.lastUpdateGroup.Location = New System.Drawing.Point(6, 208)
+        Me.lastUpdateGroup.Location = New System.Drawing.Point(8, 256)
+        Me.lastUpdateGroup.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lastUpdateGroup.Name = "lastUpdateGroup"
-        Me.lastUpdateGroup.Size = New System.Drawing.Size(250, 80)
+        Me.lastUpdateGroup.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lastUpdateGroup.Size = New System.Drawing.Size(333, 98)
         Me.lastUpdateGroup.TabIndex = 12
         Me.lastUpdateGroup.TabStop = False
         Me.lastUpdateGroup.Text = "Last Update Info"
@@ -490,36 +512,40 @@ Partial Class MainWindow
         'infoUpdatedBox
         '
         Me.infoUpdatedBox.Enabled = False
-        Me.infoUpdatedBox.Location = New System.Drawing.Point(77, 45)
+        Me.infoUpdatedBox.Location = New System.Drawing.Point(103, 55)
+        Me.infoUpdatedBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.infoUpdatedBox.Name = "infoUpdatedBox"
-        Me.infoUpdatedBox.Size = New System.Drawing.Size(151, 20)
+        Me.infoUpdatedBox.Size = New System.Drawing.Size(200, 22)
         Me.infoUpdatedBox.TabIndex = 5
         Me.infoUpdatedBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'infoUpdatedLabel
         '
         Me.infoUpdatedLabel.AutoSize = True
-        Me.infoUpdatedLabel.Location = New System.Drawing.Point(18, 48)
+        Me.infoUpdatedLabel.Location = New System.Drawing.Point(24, 59)
+        Me.infoUpdatedLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.infoUpdatedLabel.Name = "infoUpdatedLabel"
-        Me.infoUpdatedLabel.Size = New System.Drawing.Size(30, 13)
+        Me.infoUpdatedLabel.Size = New System.Drawing.Size(38, 17)
         Me.infoUpdatedLabel.TabIndex = 4
         Me.infoUpdatedLabel.Text = "Date"
         '
         'infoBranchBox
         '
         Me.infoBranchBox.Enabled = False
-        Me.infoBranchBox.Location = New System.Drawing.Point(77, 19)
+        Me.infoBranchBox.Location = New System.Drawing.Point(103, 23)
+        Me.infoBranchBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.infoBranchBox.Name = "infoBranchBox"
-        Me.infoBranchBox.Size = New System.Drawing.Size(151, 20)
+        Me.infoBranchBox.Size = New System.Drawing.Size(200, 22)
         Me.infoBranchBox.TabIndex = 2
         Me.infoBranchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'infoBranchLabel
         '
         Me.infoBranchLabel.AutoSize = True
-        Me.infoBranchLabel.Location = New System.Drawing.Point(18, 22)
+        Me.infoBranchLabel.Location = New System.Drawing.Point(24, 27)
+        Me.infoBranchLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.infoBranchLabel.Name = "infoBranchLabel"
-        Me.infoBranchLabel.Size = New System.Drawing.Size(41, 13)
+        Me.infoBranchLabel.Size = New System.Drawing.Size(53, 17)
         Me.infoBranchLabel.TabIndex = 0
         Me.infoBranchLabel.Text = "Branch"
         '
@@ -530,9 +556,11 @@ Partial Class MainWindow
         Me.serverInfoGroup.Controls.Add(Me.serverDirLabel)
         Me.serverInfoGroup.Controls.Add(Me.branchCombo)
         Me.serverInfoGroup.Controls.Add(Me.branchLabel)
-        Me.serverInfoGroup.Location = New System.Drawing.Point(6, 122)
+        Me.serverInfoGroup.Location = New System.Drawing.Point(8, 150)
+        Me.serverInfoGroup.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.serverInfoGroup.Name = "serverInfoGroup"
-        Me.serverInfoGroup.Size = New System.Drawing.Size(250, 80)
+        Me.serverInfoGroup.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.serverInfoGroup.Size = New System.Drawing.Size(333, 98)
         Me.serverInfoGroup.TabIndex = 11
         Me.serverInfoGroup.TabStop = False
         Me.serverInfoGroup.Text = "Arma Server Settings"
@@ -542,25 +570,28 @@ Partial Class MainWindow
         Me.serverDirButton.BackgroundImage = CType(resources.GetObject("serverDirButton.BackgroundImage"), System.Drawing.Image)
         Me.serverDirButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.serverDirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.serverDirButton.Location = New System.Drawing.Point(204, 51)
+        Me.serverDirButton.Location = New System.Drawing.Point(272, 63)
+        Me.serverDirButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.serverDirButton.Name = "serverDirButton"
-        Me.serverDirButton.Size = New System.Drawing.Size(24, 20)
+        Me.serverDirButton.Size = New System.Drawing.Size(32, 25)
         Me.serverDirButton.TabIndex = 9
         Me.serverDirButton.UseVisualStyleBackColor = True
         '
         'serverDirBox
         '
-        Me.serverDirBox.Location = New System.Drawing.Point(77, 51)
+        Me.serverDirBox.Location = New System.Drawing.Point(103, 63)
+        Me.serverDirBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.serverDirBox.Name = "serverDirBox"
-        Me.serverDirBox.Size = New System.Drawing.Size(121, 20)
+        Me.serverDirBox.Size = New System.Drawing.Size(160, 22)
         Me.serverDirBox.TabIndex = 8
         '
         'serverDirLabel
         '
         Me.serverDirLabel.AutoSize = True
-        Me.serverDirLabel.Location = New System.Drawing.Point(18, 54)
+        Me.serverDirLabel.Location = New System.Drawing.Point(24, 66)
+        Me.serverDirLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.serverDirLabel.Name = "serverDirLabel"
-        Me.serverDirLabel.Size = New System.Drawing.Size(49, 13)
+        Me.serverDirLabel.Size = New System.Drawing.Size(65, 17)
         Me.serverDirLabel.TabIndex = 7
         Me.serverDirLabel.Text = "Directory"
         '
@@ -570,17 +601,19 @@ Partial Class MainWindow
         Me.branchCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.branchCombo.FormattingEnabled = True
         Me.branchCombo.Items.AddRange(New Object() {"Stable", "Development"})
-        Me.branchCombo.Location = New System.Drawing.Point(77, 24)
+        Me.branchCombo.Location = New System.Drawing.Point(103, 30)
+        Me.branchCombo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.branchCombo.Name = "branchCombo"
-        Me.branchCombo.Size = New System.Drawing.Size(151, 21)
+        Me.branchCombo.Size = New System.Drawing.Size(200, 24)
         Me.branchCombo.TabIndex = 1
         '
         'branchLabel
         '
         Me.branchLabel.AutoSize = True
-        Me.branchLabel.Location = New System.Drawing.Point(18, 27)
+        Me.branchLabel.Location = New System.Drawing.Point(24, 33)
+        Me.branchLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.branchLabel.Name = "branchLabel"
-        Me.branchLabel.Size = New System.Drawing.Size(41, 13)
+        Me.branchLabel.Size = New System.Drawing.Size(53, 17)
         Me.branchLabel.TabIndex = 0
         Me.branchLabel.Text = "Branch"
         '
@@ -594,9 +627,11 @@ Partial Class MainWindow
         Me.steamInfoGroup.Controls.Add(Me.userNameLabel)
         Me.steamInfoGroup.Controls.Add(Me.steamDirBox)
         Me.steamInfoGroup.Controls.Add(Me.steamDirLabel)
-        Me.steamInfoGroup.Location = New System.Drawing.Point(6, 6)
+        Me.steamInfoGroup.Location = New System.Drawing.Point(8, 7)
+        Me.steamInfoGroup.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.steamInfoGroup.Name = "steamInfoGroup"
-        Me.steamInfoGroup.Size = New System.Drawing.Size(250, 110)
+        Me.steamInfoGroup.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.steamInfoGroup.Size = New System.Drawing.Size(333, 135)
         Me.steamInfoGroup.TabIndex = 10
         Me.steamInfoGroup.TabStop = False
         Me.steamInfoGroup.Text = "SteamCMD Settings"
@@ -606,9 +641,10 @@ Partial Class MainWindow
         Me.showUserPassButton.BackgroundImage = CType(resources.GetObject("showUserPassButton.BackgroundImage"), System.Drawing.Image)
         Me.showUserPassButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.showUserPassButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.showUserPassButton.Location = New System.Drawing.Point(204, 75)
+        Me.showUserPassButton.Location = New System.Drawing.Point(272, 92)
+        Me.showUserPassButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.showUserPassButton.Name = "showUserPassButton"
-        Me.showUserPassButton.Size = New System.Drawing.Size(24, 20)
+        Me.showUserPassButton.Size = New System.Drawing.Size(32, 25)
         Me.showUserPassButton.TabIndex = 7
         Me.showUserPassButton.UseVisualStyleBackColor = True
         '
@@ -617,67 +653,75 @@ Partial Class MainWindow
         Me.steamDirButton.BackgroundImage = CType(resources.GetObject("steamDirButton.BackgroundImage"), System.Drawing.Image)
         Me.steamDirButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.steamDirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.steamDirButton.Location = New System.Drawing.Point(204, 22)
+        Me.steamDirButton.Location = New System.Drawing.Point(272, 27)
+        Me.steamDirButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.steamDirButton.Name = "steamDirButton"
-        Me.steamDirButton.Size = New System.Drawing.Size(24, 20)
+        Me.steamDirButton.Size = New System.Drawing.Size(32, 25)
         Me.steamDirButton.TabIndex = 6
         Me.steamDirButton.UseVisualStyleBackColor = True
         '
         'userPassBox
         '
-        Me.userPassBox.Location = New System.Drawing.Point(77, 75)
+        Me.userPassBox.Location = New System.Drawing.Point(103, 92)
+        Me.userPassBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.userPassBox.Name = "userPassBox"
         Me.userPassBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.userPassBox.Size = New System.Drawing.Size(121, 20)
+        Me.userPassBox.Size = New System.Drawing.Size(160, 22)
         Me.userPassBox.TabIndex = 5
         '
         'userPassLabel
         '
         Me.userPassLabel.AutoSize = True
-        Me.userPassLabel.Location = New System.Drawing.Point(18, 78)
+        Me.userPassLabel.Location = New System.Drawing.Point(24, 96)
+        Me.userPassLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.userPassLabel.Name = "userPassLabel"
-        Me.userPassLabel.Size = New System.Drawing.Size(53, 13)
+        Me.userPassLabel.Size = New System.Drawing.Size(69, 17)
         Me.userPassLabel.TabIndex = 4
         Me.userPassLabel.Text = "Password"
         '
         'userNameBox
         '
-        Me.userNameBox.Location = New System.Drawing.Point(77, 49)
+        Me.userNameBox.Location = New System.Drawing.Point(103, 60)
+        Me.userNameBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.userNameBox.Name = "userNameBox"
-        Me.userNameBox.Size = New System.Drawing.Size(151, 20)
+        Me.userNameBox.Size = New System.Drawing.Size(200, 22)
         Me.userNameBox.TabIndex = 3
         '
         'userNameLabel
         '
         Me.userNameLabel.AutoSize = True
-        Me.userNameLabel.Location = New System.Drawing.Point(18, 52)
+        Me.userNameLabel.Location = New System.Drawing.Point(24, 64)
+        Me.userNameLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.userNameLabel.Name = "userNameLabel"
-        Me.userNameLabel.Size = New System.Drawing.Size(55, 13)
+        Me.userNameLabel.Size = New System.Drawing.Size(73, 17)
         Me.userNameLabel.TabIndex = 2
         Me.userNameLabel.Text = "Username"
         '
         'steamDirBox
         '
         Me.steamDirBox.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.steamDirBox.Location = New System.Drawing.Point(77, 22)
+        Me.steamDirBox.Location = New System.Drawing.Point(103, 27)
+        Me.steamDirBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.steamDirBox.Name = "steamDirBox"
-        Me.steamDirBox.Size = New System.Drawing.Size(121, 20)
+        Me.steamDirBox.Size = New System.Drawing.Size(160, 22)
         Me.steamDirBox.TabIndex = 1
         '
         'steamDirLabel
         '
         Me.steamDirLabel.AutoSize = True
-        Me.steamDirLabel.Location = New System.Drawing.Point(18, 25)
+        Me.steamDirLabel.Location = New System.Drawing.Point(24, 31)
+        Me.steamDirLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.steamDirLabel.Name = "steamDirLabel"
-        Me.steamDirLabel.Size = New System.Drawing.Size(49, 13)
+        Me.steamDirLabel.Size = New System.Drawing.Size(65, 17)
         Me.steamDirLabel.TabIndex = 0
         Me.steamDirLabel.Text = "Directory"
         '
         'updateServerButton
         '
-        Me.updateServerButton.Location = New System.Drawing.Point(6, 294)
+        Me.updateServerButton.Location = New System.Drawing.Point(8, 362)
+        Me.updateServerButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.updateServerButton.Name = "updateServerButton"
-        Me.updateServerButton.Size = New System.Drawing.Size(250, 23)
+        Me.updateServerButton.Size = New System.Drawing.Size(333, 28)
         Me.updateServerButton.TabIndex = 9
         Me.updateServerButton.Text = "Update"
         Me.updateServerButton.UseVisualStyleBackColor = True
@@ -688,21 +732,29 @@ Partial Class MainWindow
         Me.categoryTabs.Controls.Add(Me.serverTab)
         Me.categoryTabs.Controls.Add(Me.modsTab)
         Me.categoryTabs.Dock = System.Windows.Forms.DockStyle.Top
-        Me.categoryTabs.Location = New System.Drawing.Point(0, 24)
+        Me.categoryTabs.Location = New System.Drawing.Point(0, 28)
+        Me.categoryTabs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.categoryTabs.Name = "categoryTabs"
         Me.categoryTabs.SelectedIndex = 0
-        Me.categoryTabs.Size = New System.Drawing.Size(707, 360)
+        Me.categoryTabs.Size = New System.Drawing.Size(943, 443)
         Me.categoryTabs.TabIndex = 10
+        '
+        'NewSymlinkToolStripMenuItem
+        '
+        Me.NewSymlinkToolStripMenuItem.Name = "NewSymlinkToolStripMenuItem"
+        Me.NewSymlinkToolStripMenuItem.Size = New System.Drawing.Size(271, 26)
+        Me.NewSymlinkToolStripMenuItem.Text = "New Symlink"
         '
         'MainWindow
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(707, 387)
+        Me.ClientSize = New System.Drawing.Size(943, 476)
         Me.Controls.Add(Me.categoryTabs)
         Me.Controls.Add(Me.toolsMenuStrip)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.Name = "MainWindow"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -794,4 +846,5 @@ Partial Class MainWindow
     Friend WithEvents categoryTabs As TabControl
     Friend WithEvents OpenProfileDirectoryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents importSteamModsStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NewSymlinkToolStripMenuItem As ToolStripMenuItem
 End Class

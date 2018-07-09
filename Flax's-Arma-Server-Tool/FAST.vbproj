@@ -173,6 +173,12 @@
     <Compile Include="NewServerTab.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="NewSymlink.Designer.vb">
+      <DependentUpon>NewSymlink.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewSymlink.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ErrReport.resx">
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewServerTab.resx">
       <DependentUpon>NewServerTab.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewSymlink.resx">
+      <DependentUpon>NewSymlink.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

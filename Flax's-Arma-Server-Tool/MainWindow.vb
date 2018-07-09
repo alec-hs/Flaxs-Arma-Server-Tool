@@ -961,7 +961,13 @@ Public Class MainWindow
     End Sub
 
     Private Sub ImportSteamModsStripMenuItem_Click(sender As Object, e As EventArgs) Handles importSteamModsStripMenuItem.Click
+        MsgBox("Not yet implemented.")
+    End Sub
 
+    Private Sub NewSymlinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewSymlinkToolStripMenuItem.Click
+        Dim newSymlinkDialog As New NewSymlink
+
+        newSymlinkDialog.Show()
     End Sub
 End Class
 
