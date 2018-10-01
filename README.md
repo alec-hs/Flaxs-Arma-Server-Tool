@@ -1,5 +1,15 @@
 # Flax's Arma Server Tool (F.A.S.T.)
 
+
+***
+**[THIS IS NOW OBSELETE PLEASE SEE FAST2 FOR LASTEST VERSION](https://github.com/alec-hs/Flaxs-Arma-Server-Tool-2)**
+
+***
+
+
+
+
+
 **_INTRO_**
 
 After some time using and getting annoyed with the repetitiveness of SteamCMD, I looked around for a tool to automate at least some of process of installing an Arma 3 server and managing workshop mods. Having looked through a few options, none of which matched what i was looking for I decided it would be easier to build it myself. F.A.S.T. is the result of that, this is the first iteration and I will continue to expand and update it as and when needed.  Thanks go out to Optix for his Remote Arma Server tool that gave me some ideas for my tool. Also, a massive thank you to Kju and Friznit for testing and bug reporting for me.
